@@ -4,3 +4,4 @@
 
 ### Teknologi
 * Servlet API 3.1.0, JSTL 1.2, jsp API 2.2.0
+* Spring 4.0.2.RELEASE
