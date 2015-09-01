@@ -16,6 +16,8 @@
 <body>
 
 	<div class="container">
+		<%@ include file="/WEB-INF/template/navbar.jsp"%>
+
 		<h3>Hello World From Spring WEB MVC</h3>
 	</div>
 
