@@ -22,4 +22,5 @@
 	</bean>
 
 	<import resource="database-dev.xml" />
+	<import resource="security.xml"/>
 </beans>
