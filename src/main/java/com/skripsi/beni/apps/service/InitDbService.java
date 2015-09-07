@@ -6,8 +6,10 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.skripsi.beni.apps.entity.Metode;
 import com.skripsi.beni.apps.entity.Role;
 import com.skripsi.beni.apps.entity.User;
+import com.skripsi.beni.apps.repository.MetodeRepository;
 import com.skripsi.beni.apps.repository.RoleRepository;
 import com.skripsi.beni.apps.repository.UserRepository;
 
@@ -20,6 +22,9 @@ public class InitDbService implements InitializingBean {
 
 	@Autowired
 	private UserRepository userRepository;
+
+	@Autowired
+	private MetodeRepository metodeRepository;
 
 	@Override
 	public void afterPropertiesSet() throws Exception {
@@ -41,6 +46,22 @@ public class InitDbService implements InitializingBean {
 		userAdmin.setEnabled(true);
 		userAdmin.setRole(roleAdmin);
 		userRepository.save(userAdmin);
+
+		Metode metode1 = new Metode();
+		metode1.setMetode("Ceramah");
+		metodeRepository.save(metode1);
+		
+		Metode metode2 = new Metode();
+		metode2.setMetode("Diskusi");
+		metodeRepository.save(metode2);
+		
+		Metode metode3 = new Metode();
+		metode3.setMetode("Bermain sambil belajar");
+		metodeRepository.save(metode3);
+		
+		Metode metode4 = new Metode();
+		metode4.setMetode("Belajar sambil mendengarkan musik");
+		metodeRepository.save(metode4);
 
 	}
 

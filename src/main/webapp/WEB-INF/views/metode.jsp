@@ -16,7 +16,36 @@
 
 		<%@ include file="/WEB-INF/template/navbar.jsp"%>
 		
-		disini menu metode pembelajran
+		<h3>Tambah Data Metode</h3>
+		<button class="btn btn-success">Tambah</button><br /><br />
+
+		<table class="table table-striped table-bordered table-hover">
+			<thead>
+				<tr>
+					<th>Id</th>
+					<th>Nama Metode</th>
+					<th>Aksi</th>
+				</tr>
+			</thead>
+
+			<tbody>
+				<c:forEach items="${metodes}" var="metode">
+					<tr>
+						<td><c:out value="${metode.id }" /></td>
+						<td><c:out value="${metode.metode }" /></td>
+						<td>
+							<a class="btn btn-xs btn-primary">Edit</a>
+							<a class="btn btn-xs btn-danger">Hapus</a>
+							<a class="btn btn-xs btn-info">Detail</a>
+						</td>
+					</tr>
+				</c:forEach>
+			</tbody>
+		</table>
+
+
+
+
 	</div>
 	<%@ include file="/WEB-INF/template/javascript.jsp"%>
 </body>
