@@ -56,13 +56,36 @@ public class InitDbService implements InitializingBean {
 		metodeRepository.save(metode2);
 		
 		Metode metode3 = new Metode();
-		metode3.setMetode("Bermain sambil belajar");
+		metode3.setMetode("Problem Solving");
 		metodeRepository.save(metode3);
 		
 		Metode metode4 = new Metode();
-		metode4.setMetode("Belajar sambil mendengarkan musik");
+		metode4.setMetode("Tanya Jawab");
 		metodeRepository.save(metode4);
 
+		Metode metode5 = new Metode();
+		metode5.setMetode("Latihan");
+		metodeRepository.save(metode5);
+		
+		Metode metode6 = new Metode();
+		metode6.setMetode("Eksperimen");
+		metodeRepository.save(metode6);
+		
+		Metode metode7 = new Metode();
+		metode7.setMetode("Membaca dan Berdiskusi");
+		metodeRepository.save(metode7);
+		
+		Metode metode8= new Metode();
+		metode8.setMetode("Role Playing");
+		metodeRepository.save(metode8);
+		
+		Metode metode9 = new Metode();
+		metode9.setMetode("Karya Wisata");
+		metodeRepository.save(metode9);
+		
+		Metode metode10 = new Metode();
+		metode10.setMetode("Demonstrasi");
+		metodeRepository.save(metode10);
 	}
 
 }
