@@ -4,9 +4,12 @@
 		<ul class="nav nav-justified">
 			<li><a href='	<spring:url value="/" />	'>Home</a></li>
 			<li><a href='	<spring:url value="/metode" />	'>Metode</a></li>
-			<li><a href="#">Services</a></li>
-			<li><a href="#">Downloads</a></li>
-			<li><a href="#">About</a></li>
+			<li><a href="#">Kondisi Kelas</a></li>
+			<li><a href="#">Keaktifan Siswa</a></li>
+			<li><a href="#"> Pengajar</a></li>
+			<li><a href="#">Fasilitas</a></li>
+			<li><a href="#">Hitung</a></li>
+			<li><a href='	<spring:url value="/user" />	'>User</a></li>
 			<li><a href=' <spring:url value="/login" />     '>Login</a></li>
 		</ul>
 	</nav>
