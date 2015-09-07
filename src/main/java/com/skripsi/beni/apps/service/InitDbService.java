@@ -38,6 +38,7 @@ public class InitDbService implements InitializingBean {
 		User userAdmin = new User();
 		userAdmin.setUsername("admin");
 		userAdmin.setPassword(encoder.encode("admin"));
+		userAdmin.setEnabled(true);
 		userAdmin.setRole(roleAdmin);
 		userRepository.save(userAdmin);
 

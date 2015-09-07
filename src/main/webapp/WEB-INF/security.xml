@@ -8,7 +8,7 @@
 
 	<http use-expressions="true">
 		<intercept-url pattern="/admin" access="hasRole('ROLE_ADMIN')" />
-		<form-login login-page="/login" authentication-failure-url="/loginfail" />
+		<form-login login-page="/login" authentication-failure-url="/loginfail" default-target-url="/"/>
 		<logout logout-url="/logout" logout-success-url="/login" delete-cookies="JSESSIONID" />
 	</http>
 

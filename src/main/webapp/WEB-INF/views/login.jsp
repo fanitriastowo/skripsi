@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ include file="/WEB-INF/template/taglib.jsp" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,12 +19,21 @@
 	<div class="container">
 		<%@ include file="/WEB-INF/template/navbar.jsp"%>
 
-		<form class="form-signin">
+		<c:if test="${success eq false }">
+			<div class="alert alert-danger alert-dismissible" role="alert">
+				<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+				Username atau Password tidak valid !
+			</div>
+		</c:if>
+		
+		<form action='<spring:url value="/j_spring_security_check" />' class="form-signin" method="post">
 			<h2 class="form-signin-heading">Please sign in</h2>
-			<label for="inputEmail" class="sr-only">Email address</label> 
-			<input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus> 
-			<label for="inputPassword" class="sr-only">Password</label> 
-			<input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+			<label for="j_username" class="sr-only">Email address</label> 
+			<input type="text" id="j_username" name="j_username" class="form-control" placeholder="Email address" required autofocus> 
+			<label for="j_password" class="sr-only">Password</label> 
+			<input type="password" id="j_password" name="j_password" class="form-control" placeholder="Password" required>
 			<button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
 		</form>
 	</div>
