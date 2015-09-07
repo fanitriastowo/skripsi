@@ -6,7 +6,7 @@
 			<li><a href='	<spring:url value="/metode" />	'>Metode</a></li>
 			<li><a href="#">Kondisi Kelas</a></li>
 			<li><a href="#">Keaktifan Siswa</a></li>
-			<li><a href="#"> Pengajar</a></li>
+			<li><a href='	<spring:url value="/pengajar" />	'>Pengajar</a></li>
 			<li><a href="#">Fasilitas</a></li>
 			<li><a href="#">Hitung</a></li>
 			<li><a href='	<spring:url value="/user" />	'>User</a></li>
