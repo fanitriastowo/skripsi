@@ -6,10 +6,11 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table (name ="keaktifan")
-public class Keaktifan {
+@Table (name ="kelas" )
+public class Kelas {
+	
 	@Id
-	@GeneratedValue
+	@GeneratedValue 
 	private Integer id;
 	private Integer jml_siswa;
 	private Double point;
@@ -25,12 +26,12 @@ public class Keaktifan {
 	public void setJml_siswa(Integer jml_siswa) {
 		this.jml_siswa = jml_siswa;
 	}
-	public double getPoint() {
+	public Double getPoint() {
 		return point;
 	}
-	public void setPoint(double point) {
+	public void setPoint(Double point) {
 		this.point = point;
 	}
+ 
 	
-
 }

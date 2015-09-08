@@ -6,12 +6,12 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table (name ="keaktifan")
-public class Keaktifan {
+@Table(name = "fasilitas")
+public class Fasilitas {
 	@Id
 	@GeneratedValue
 	private Integer id;
-	private Integer jml_siswa;
+	private Boolean fasilitas;
 	private Double point;
 	public Integer getId() {
 		return id;
@@ -19,18 +19,17 @@ public class Keaktifan {
 	public void setId(Integer id) {
 		this.id = id;
 	}
-	public Integer getJml_siswa() {
-		return jml_siswa;
+	public Boolean getFasilitas() {
+		return fasilitas;
 	}
-	public void setJml_siswa(Integer jml_siswa) {
-		this.jml_siswa = jml_siswa;
+	public void setFasilitas(Boolean fasilitas) {
+		this.fasilitas = fasilitas;
 	}
-	public double getPoint() {
+	public Double getPoint() {
 		return point;
 	}
-	public void setPoint(double point) {
+	public void setPoint(Double point) {
 		this.point = point;
 	}
-	
 
 }

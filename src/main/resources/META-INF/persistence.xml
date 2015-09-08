@@ -5,6 +5,9 @@
 		<class>com.skripsi.beni.apps.entity.User</class>
 		<class>com.skripsi.beni.apps.entity.Metode</class>
 		<class>com.skripsi.beni.apps.entity.Keaktifan</class>
+		<class>com.skripsi.beni.apps.entity.Kelas</class>
+		<class>com.skripsi.beni.apps.entity.Fasilitas</class>
+		<class>com.skripsi.beni.apps.entity.Pengajar</class>
 		
 		
 	</persistence-unit>
