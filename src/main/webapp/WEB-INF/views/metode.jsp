@@ -15,34 +15,37 @@
 	<div class="container">
 
 		<%@ include file="/WEB-INF/template/navbar.jsp"%>
-		
+
 		<h3>Tambah Data Metode</h3>
-		<button class="btn btn-success">Tambah</button><br /><br />
+		<button class="btn btn-success">Tambah</button>
+		<br />
+		<br />
 
-		<table class="table table-striped table-bordered table-hover">
-			<thead>
-				<tr>
-					<th>Id</th>
-					<th>Nama Metode</th>
-					<th>Aksi</th>
-				</tr>
-			</thead>
-
-			<tbody>
-				<c:forEach items="${metodes}" var="metode">
+		<div class="table-responsive">
+			<table class="table table-striped table-bordered table-hover">
+				<thead>
 					<tr>
-						<td><c:out value="${metode.id }" /></td>
-						<td><c:out value="${metode.metode }" /></td>
-						<td>
-							<a class="btn btn-xs btn-primary">Edit</a>
-							<a class="btn btn-xs btn-danger">Hapus</a>
-							<a class="btn btn-xs btn-info">Detail</a>
-						</td>
+						<th width="5%">No.</th>
+						<th>Nama Metode</th>
+						<th>Aksi</th>
 					</tr>
-				</c:forEach>
-			</tbody>
-		</table>
+				</thead>
 
+				<tbody>
+					<c:forEach items="${metodes}" var="metode" varStatus="index">
+						<tr>
+							<td><c:out value="${index.count }" /></td>
+							<td><c:out value="${metode.metode }" /></td>
+							<td>
+								<a class="btn btn-xs btn-primary">Edit</a> 
+								<a class="btn btn-xs btn-danger">Hapus</a> 
+								<a class="btn btn-xs btn-info">Detail</a>
+							</td>
+						</tr>
+					</c:forEach>
+				</tbody>
+			</table>
+		</div>
 
 
 
