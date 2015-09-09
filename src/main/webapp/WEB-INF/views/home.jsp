@@ -222,5 +222,11 @@ body {
 	<!-- /.carousel -->
 
 	<%@ include file="/WEB-INF/template/javascript.jsp"%>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$('#home').addClass('active');
+		});
+	
+	</script>
 </body>
 </html>

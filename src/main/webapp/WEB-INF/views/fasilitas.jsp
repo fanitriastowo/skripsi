@@ -17,5 +17,10 @@
 		Halaman ini Berisi fasilitas yang dimiliki kelas
 	</div>
 	<%@ include file="/WEB-INF/template/javascript.jsp"%>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$('#fasilitas').addClass('active');
+		});
+	</script>
 </body>
 </html>

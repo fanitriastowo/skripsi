@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <%@ include file="/WEB-INF/template/taglib.jsp"%>
 <!DOCTYPE html>
 <html>
@@ -12,11 +12,16 @@
 
 </head>
 <body>
-<div class= "container">
+	<div class="container">
 		<%@ include file="/WEB-INF/template/navbar.jsp"%>
 		Halaman ini berisi kondisi kelas
-</div>
+	</div>
+	
 	<%@ include file="/WEB-INF/template/javascript.jsp"%>
-
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$('#kondisi_kelas').addClass('active');
+		});
+	</script>
 </body>
 </html>

@@ -39,6 +39,8 @@
 	</div>
 
 	<%@ include file="/WEB-INF/template/javascript.jsp"%>
-
+	<script type="text/javascript">
+		$('#login').addClass('active');
+	</script>
 </body>
 </html>

@@ -48,5 +48,10 @@
 
 	</div>
 	<%@ include file="/WEB-INF/template/javascript.jsp"%>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$('#metode').addClass('active');
+		});
+	</script>
 </body>
 </html>

@@ -15,6 +15,13 @@
 		<%@ include file="/WEB-INF/template/navbar.jsp"%>
 		Halaman Ini Berisi keaktifan siswa dalam kelas
 	</div>
+	
 	<%@ include file="/WEB-INF/template/javascript.jsp"%>
+	
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$('#keaktifan_siswa').addClass('active');
+		});
+	</script>
 </body>
 </html>

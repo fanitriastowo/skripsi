@@ -18,7 +18,11 @@
 		<button class="btn btn-success">Tambah</button><br /><br />
 
 	</div>
-		<%@ include file="/WEB-INF/template/javascript.jsp"%>
-
+	<%@ include file="/WEB-INF/template/javascript.jsp"%>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$('#pengajar').addClass('active');
+		});
+	</script>
 </body>
 </html>
