@@ -49,4 +49,11 @@ public class MetodeController {
 		ModelAndView modelAndView = new ModelAndView("redirect:/metode");
 		return modelAndView;
 	}
+	
+	@RequestMapping("/delete/{id}")
+	public ModelAndView deleteMetode(@PathVariable Integer id) {
+		ModelAndView modelAndView = new ModelAndView("redirect:/metode");
+		metodeService.delete(id);
+		return modelAndView;
+	}
 }

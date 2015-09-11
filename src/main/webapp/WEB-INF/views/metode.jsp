@@ -37,7 +37,7 @@
 							<td><c:out value="${metode.metode }" /></td>
 							<td>
 								<a href='<spring:url value="/metode/prepare_edit/${metode.id }" />' class="btn btn-xs btn-primary btnUpdate">Edit</a> 
-								<a class="btn btn-xs btn-danger">Hapus</a> 
+								<a href='<spring:url value="/metode/delete/${metode.id }" />' class="btn btn-xs btn-danger btnPrepareDelete">Hapus</a> 
 								<a class="btn btn-xs btn-info">Detail</a>
 							</td>
 						</tr>
@@ -72,6 +72,29 @@
 			</div>
 		</div>
 		</form:form>
+		
+		<!-- Modal Delete -->
+		<div class="modal fade" id="modalDelete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">
+							<span aria-hidden="true">&times;</span><span class="sr-only">Tutup</span>
+						</button>
+						<h4 class="modal-title" id="myModalLabel">Hapus Metode</h4>
+					</div>
+					<div class="modal-body">
+						<strong>Apakah Anda yakin akan menghapus? </strong>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">
+							<span class="glyphicon glyphicon-remove-circle"></span> Batal</button>
+						<a href="" class="btn btn-danger btnDelete">
+							<span class="glyphicon glyphicon-ok-circle"></span> Hapus</a>
+					</div>
+				</div>
+			</div>
+		</div>
 
 	</div>
 	<%@ include file="/WEB-INF/template/javascript.jsp"%>
@@ -92,6 +115,13 @@
 				});
 				
 				$('#updateModal').modal();
+			});
+			
+			// notification before delete metode
+			$('.btnPrepareDelete').click(function(e) {
+				e.preventDefault();
+				$('#modalDelete .btnDelete').attr("href", $(this).attr("href"));
+				$('#modalDelete').modal();
 			});
 		});
 	</script>

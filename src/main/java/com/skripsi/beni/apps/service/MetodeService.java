@@ -26,4 +26,7 @@ public class MetodeService {
 		metodeRepository.save(metode);		
 	}
 	
+	public void delete(Integer id) {
+		metodeRepository.delete(id);
+	}
 }
