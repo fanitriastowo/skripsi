@@ -18,8 +18,7 @@
 
 		<h3>Tambah Data Metode</h3>
 		<button class="btn btn-success">Tambah</button>
-		<br />
-		<br />
+		<br /> <br />
 
 		<div class="table-responsive">
 			<table class="table table-striped table-bordered table-hover">
@@ -37,7 +36,7 @@
 							<td><c:out value="${index.count }" /></td>
 							<td><c:out value="${metode.metode }" /></td>
 							<td>
-								<a href='<spring:url value="/metode/prepare_edit/${metode.id }" />' class="btn btn-xs btn-primary">Edit</a> 
+								<a href='<spring:url value="/metode/prepare_edit/${metode.id }" />' class="btn btn-xs btn-primary btnUpdate">Edit</a> 
 								<a class="btn btn-xs btn-danger">Hapus</a> 
 								<a class="btn btn-xs btn-info">Detail</a>
 							</td>
@@ -47,13 +46,53 @@
 			</table>
 		</div>
 
-
+		<!-- Update Modal -->
+		<form:form commandName="metode" action="${pageContext.request.contextPath }/metode/edit" method="post">
+		<div class="modal fade" id="updateModal" tabindex="-1" role="dialog" aria-labelledby="updateModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+						<h4 class="modal-title" id="myModalLabel">Update Metode</h4>
+					</div>
+					<div class="modal-body">
+						<form:hidden id="lblUpdateId" path="id" />
+						<div class="form-group">
+							<label for="txtUpdateMetode" class="control-label">Metode:</label>
+							<form:input path="metode" cssClass="form-control" id="txtUpdateMetode" placeholder="Type Name" />
+						</div>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+						<button type="button" class="btn btn-primary">Update</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		</form:form>
 
 	</div>
 	<%@ include file="/WEB-INF/template/javascript.jsp"%>
 	<script type="text/javascript">
 		$(document).ready(function() {
+			
+			// add active class every this page accessed
 			$('#metode').addClass('active');
+			
+			// btnUpdate click event to show modal window and fill its field 
+			$('.btnUpdate').click(function(e) {
+				e.preventDefault();
+				var url = $(this).attr("href");
+				
+				$.getJSON(url, function(data) {
+					$('#lblUpdateId').val(data.id);
+					$('#txtUpdateMetode').val(data.metode);
+				});
+				
+				$('#updateModal').modal();
+			});
 		});
 	</script>
 </body>

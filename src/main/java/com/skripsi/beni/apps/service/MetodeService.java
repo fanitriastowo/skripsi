@@ -21,5 +21,9 @@ public class MetodeService {
 	public Metode findOneById(Integer id) {
 		return metodeRepository.findOne(id);
 	}
+
+	public void update(Metode metode) {
+		metodeRepository.save(metode);		
+	}
 	
 }

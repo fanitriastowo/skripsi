@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -18,6 +19,11 @@ public class MetodeController {
 	
 	@Autowired
 	private MetodeService metodeService;
+	
+	@ModelAttribute("metode")
+	public Metode construct() {
+		return new Metode();
+	}
 
 	@RequestMapping
 	public ModelAndView halamanMetode() {
@@ -33,5 +39,14 @@ public class MetodeController {
 		Metode metode = new Metode();
 		metode = metodeService.findOneById(id);
 		return metode;
+	}
+	
+	@RequestMapping("/edit")
+	public ModelAndView submitEdit(@ModelAttribute("metode") Metode metode) {
+		if (metode != null) {
+			metodeService.update(metode);
+		}
+		ModelAndView modelAndView = new ModelAndView("redirect:/metode");
+		return modelAndView;
 	}
 }
