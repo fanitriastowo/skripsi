@@ -17,5 +17,9 @@ public class MetodeService {
 	public List<Metode> tampilSemuaMetode() {
 		return metodeRepository.findAll();
 	}
+
+	public Metode findOneById(Integer id) {
+		return metodeRepository.findOne(id);
+	}
 	
 }

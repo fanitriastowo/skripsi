@@ -37,7 +37,7 @@
 							<td><c:out value="${index.count }" /></td>
 							<td><c:out value="${metode.metode }" /></td>
 							<td>
-								<a class="btn btn-xs btn-primary">Edit</a> 
+								<a href='<spring:url value="/metode/prepare_edit/${metode.id }" />' class="btn btn-xs btn-primary">Edit</a> 
 								<a class="btn btn-xs btn-danger">Hapus</a> 
 								<a class="btn btn-xs btn-info">Detail</a>
 							</td>
