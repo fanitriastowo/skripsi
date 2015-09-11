@@ -3,6 +3,8 @@ package com.skripsi.beni.apps.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.domain.Sort.Direction;
 import org.springframework.stereotype.Service;
 
 import com.skripsi.beni.apps.entity.Metode;
@@ -15,7 +17,7 @@ public class MetodeService {
 	private MetodeRepository metodeRepository;
 
 	public List<Metode> tampilSemuaMetode() {
-		return metodeRepository.findAll();
+		return metodeRepository.findAll(new Sort(Direction.ASC, "metode"));
 	}
 
 	public Metode findOneById(Integer id) {
