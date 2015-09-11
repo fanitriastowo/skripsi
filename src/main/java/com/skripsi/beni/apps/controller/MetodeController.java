@@ -16,10 +16,10 @@ import com.skripsi.beni.apps.service.MetodeService;
 @Controller
 @RequestMapping("/metode")
 public class MetodeController {
-	
+
 	@Autowired
 	private MetodeService metodeService;
-	
+
 	@ModelAttribute("metode")
 	public Metode construct() {
 		return new Metode();
@@ -32,7 +32,14 @@ public class MetodeController {
 		modelAndView.addObject("metodes", tampilSemuaMetode);
 		return modelAndView;
 	}
-	
+
+	@RequestMapping("/add")
+	public ModelAndView addMetode(@ModelAttribute("metode") Metode metode) {
+		metodeService.save(metode);
+		ModelAndView modelAndView = new ModelAndView("redirect:/metode");
+		return modelAndView;
+	}
+
 	@RequestMapping("/prepare_edit/{id}")
 	@ResponseBody
 	public Metode prepareEdit(@PathVariable Integer id) {
@@ -40,7 +47,7 @@ public class MetodeController {
 		metode = metodeService.findOneById(id);
 		return metode;
 	}
-	
+
 	@RequestMapping("/edit")
 	public ModelAndView submitEdit(@ModelAttribute("metode") Metode metode) {
 		if (metode != null) {
@@ -49,7 +56,7 @@ public class MetodeController {
 		ModelAndView modelAndView = new ModelAndView("redirect:/metode");
 		return modelAndView;
 	}
-	
+
 	@RequestMapping("/delete/{id}")
 	public ModelAndView deleteMetode(@PathVariable Integer id) {
 		ModelAndView modelAndView = new ModelAndView("redirect:/metode");

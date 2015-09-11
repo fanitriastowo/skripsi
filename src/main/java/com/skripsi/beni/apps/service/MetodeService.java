@@ -13,7 +13,7 @@ public class MetodeService {
 
 	@Autowired
 	private MetodeRepository metodeRepository;
-	
+
 	public List<Metode> tampilSemuaMetode() {
 		return metodeRepository.findAll();
 	}
@@ -23,10 +23,14 @@ public class MetodeService {
 	}
 
 	public void update(Metode metode) {
-		metodeRepository.save(metode);		
+		metodeRepository.save(metode);
 	}
-	
+
 	public void delete(Integer id) {
 		metodeRepository.delete(id);
+	}
+
+	public void save(Metode metode) {
+		metodeRepository.save(metode);
 	}
 }

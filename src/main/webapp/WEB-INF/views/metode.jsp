@@ -17,7 +17,7 @@
 		<%@ include file="/WEB-INF/template/navbar.jsp"%>
 
 		<h3>Tambah Data Metode</h3>
-		<button class="btn btn-success">
+		<button class="btn btn-success" data-toggle="modal" data-target="#addModal">
 			<span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Tambah</button> 
 		<br /><br />
 
@@ -47,6 +47,34 @@
 				</tbody>
 			</table>
 		</div>
+		
+		<!-- Add Modal -->
+		<form:form commandName="metode" action="${pageContext.request.contextPath }/metode/add" method="post">
+		<div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="updateModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+						<h4 class="modal-title" id="myModalLabel">Tambah Metode</h4>
+					</div>
+					<div class="modal-body">
+						<div class="form-group">
+							<label for="txtUpdateMetode" class="control-label">Metode:</label>
+							<form:input path="metode" cssClass="form-control" id="txtUpdateMetode" placeholder="Type Name" />
+						</div>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">
+							<span class="glyphicon glyphicon-remove-circle"></span> Close</button>
+						<button type="button" class="btn btn-primary">
+							<span class="glyphicon glyphicon-ok-circle"></span> Save</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		</form:form>
 
 		<!-- Update Modal -->
 		<form:form commandName="metode" action="${pageContext.request.contextPath }/metode/edit" method="post">
@@ -67,8 +95,10 @@
 						</div>
 					</div>
 					<div class="modal-footer">
-						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-						<button type="button" class="btn btn-primary">Update</button>
+						<button type="button" class="btn btn-default" data-dismiss="modal">
+							<span class="glyphicon glyphicon-remove-circle"></span> Close</button>
+						<button type="button" class="btn btn-primary">
+							<span class="glyphicon glyphicon-ok-circle"></span> Update</button>
 					</div>
 				</div>
 			</div>
