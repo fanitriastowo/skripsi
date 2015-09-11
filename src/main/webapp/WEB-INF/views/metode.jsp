@@ -17,8 +17,9 @@
 		<%@ include file="/WEB-INF/template/navbar.jsp"%>
 
 		<h3>Tambah Data Metode</h3>
-		<button class="btn btn-success">Tambah</button>
-		<br /> <br />
+		<button class="btn btn-success">
+			<span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Tambah</button> 
+		<br /><br />
 
 		<div class="table-responsive">
 			<table class="table table-striped table-bordered table-hover">
@@ -36,9 +37,10 @@
 							<td><c:out value="${index.count }" /></td>
 							<td><c:out value="${metode.metode }" /></td>
 							<td>
-								<a href='<spring:url value="/metode/prepare_edit/${metode.id }" />' class="btn btn-xs btn-primary btnUpdate">Edit</a> 
-								<a href='<spring:url value="/metode/delete/${metode.id }" />' class="btn btn-xs btn-danger btnPrepareDelete">Hapus</a> 
-								<a class="btn btn-xs btn-info">Detail</a>
+								<a href='<spring:url value="/metode/prepare_edit/${metode.id }" />' class="btn btn-xs btn-info btnUpdate">
+									<span class="glyphicon glyphicon-pencil"></span> Edit</a> 
+								<a href='<spring:url value="/metode/delete/${metode.id }" />' class="btn btn-xs btn-danger btnPrepareDelete">
+									<span class="glyphicon glyphicon-remove"></span> Delete</a> 
 							</td>
 						</tr>
 					</c:forEach>
