@@ -46,7 +46,16 @@ public class InitDbService implements InitializingBean {
 		userAdmin.setEnabled(true);
 		userAdmin.setRole(roleAdmin);
 		userRepository.save(userAdmin);
+		
+		// User Lain
+		User userLain = new User();
+		userLain.setUsername("user1");
+		userLain.setPassword(encoder.encode("user1"));
+		userLain.setEnabled(true);
+		userLain.setRole(roleUser);
+		userRepository.save(userLain);
 
+		// ============================================== //
 		Metode metode1 = new Metode();
 		metode1.setMetode("Ceramah");
 		metodeRepository.save(metode1);
@@ -86,6 +95,7 @@ public class InitDbService implements InitializingBean {
 		Metode metode10 = new Metode();
 		metode10.setMetode("Demonstrasi");
 		metodeRepository.save(metode10);
+		// =====================================================//
 	}
 
 }
