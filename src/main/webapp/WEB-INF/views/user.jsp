@@ -22,7 +22,7 @@
 		
 		<!-- Add Modal -->
 		<form:form commandName="user" action="${pageContext.request.contextPath }/user/add" method="post">
-		<div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="updateModalLabel" aria-hidden="true">
+		<div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="addModalLabel" aria-hidden="true">
 			<div class="modal-dialog">
 				<div class="modal-content">
 					<div class="modal-header">
@@ -81,7 +81,7 @@
 						<td>
 							<a href="#" class="btn btn-xs btn-info">
 								<span class="glyphicon glyphicon-menu-hamburger"></span> Detail</a> 
-							<a href="#" class="btn btn-xs btn-primary">
+							<a href='<spring:url value="/user/prepare_update/${user.id }" />' class="btn btn-xs btn-primary btnUpdate">
 								<span class="glyphicon glyphicon-pencil"></span> Edit</a> 
 							<a href="#" class="btn btn-xs btn-danger">
 								<span class="glyphicon glyphicon-remove"></span> Delete</a>
@@ -92,12 +92,66 @@
 			</table>		
 		</div>
 		
+		<!-- Update Modal -->
+		<form:form commandName="user" action="${pageContext.request.contextPath }/user/update" method="post">
+		<div class="modal fade" id="updateModal" tabindex="-1" role="dialog" aria-labelledby="updateModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+						<h4 class="modal-title" id="myModalLabel">Update User</h4>
+					</div>
+					<div class="modal-body">
+						<form:hidden path="id" id="lblUpdateId"/>
+						<div class="form-group">
+							<label for="txtUpdateUsername" class="control-label">Username:</label>
+							<form:input path="username" cssClass="form-control" id="txtUpdateUsername" placeholder="Type Username" />
+						</div>
+						<div class="form-group">
+							<label for="txtUpdatePassword" class="control-label">Password:</label>
+							<form:password path="password" cssClass="form-control" id="txtUpdatePassword" placeholder="Type Password" />
+						</div>
+						<div class="form-group">
+							<label for="txtUpdateNamaLengkap" class="control-label">Nama Lengkap:</label>
+							<form:input path="namaLengkap" cssClass="form-control" id="txtUpdateNamaLengkap" placeholder="Type Nama Lengkap" />
+						</div>
+						<div class="form-group">
+							<label for="txtUpdateNoTelp" class="control-label">No. Telp:</label>
+							<form:input path="noTelp" cssClass="form-control" id="txtUpdateNoTelp" placeholder="Type Phone" />
+						</div>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">
+							<span class="glyphicon glyphicon-remove-circle"></span> Close</button>
+						<button type="submit" class="btn btn-primary">
+							<span class="glyphicon glyphicon-ok-circle"></span> Update</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		</form:form>
 	</div>
 	
 	<%@ include file="/WEB-INF/template/javascript.jsp"%>
 	<script type="text/javascript">
 		$(document).ready(function() {
 			$('#user').addClass('active');
+			
+			// Update Modal
+			$('.btnUpdate').click(function (e) {
+				e.preventDefault();
+				var updateURL = $(this).attr("href");
+				$.getJSON( updateURL, function( data ) {
+					$('#lblUpdateId').val(data.id);
+					$('#txtUpdateUsername').val(data.username);
+					$('#txtUpdatePassword').val(data.password);
+					$('#txtUpdateNamaLengkap').val(data.namaLengkap);
+					$('#txtUpdateNoTelp').val(data.noTelp);
+				});
+				$('#updateModal').modal();
+			});
 		});
 	</script>
 </body>

@@ -37,4 +37,8 @@ public class UserService {
 		userRepository.save(user);
 	}
 
+	public User findOneById(Integer id) {
+		return userRepository.findOne(id);
+	}
+
 }
