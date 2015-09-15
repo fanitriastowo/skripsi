@@ -61,8 +61,8 @@
 					</div>
 					<div class="modal-body">
 						<div class="form-group">
-							<label for="txtUpdateMetode" class="control-label">Metode:</label>
-							<form:input path="metode" cssClass="form-control" id="txtUpdateMetode" placeholder="Type Name" />
+							<label for="txtAddMetode" class="control-label">Metode:</label>
+							<form:input path="metode" cssClass="form-control" id="txtAddMetode" placeholder="Type Name" />
 						</div>
 					</div>
 					<div class="modal-footer">
@@ -143,7 +143,7 @@
 				
 				$.getJSON(url, function(data) {
 					$('#lblUpdateId').val(data.id);
-					$('#txtUpdateMetode').val(data.metode);
+					$('#txtUpdateMetode').val(data.metode)
 				});
 				
 				$('#updateModal').modal();
