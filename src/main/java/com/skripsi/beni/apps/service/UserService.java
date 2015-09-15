@@ -41,4 +41,11 @@ public class UserService {
 		return userRepository.findOne(id);
 	}
 
+	public void update(User user) {
+		Role roleUser = roleRepository.findOneByName("ROLE_USER");
+		user.setRole(roleUser);
+		user.setEnabled(true);
+		userRepository.save(user);
+	}
+
 }
