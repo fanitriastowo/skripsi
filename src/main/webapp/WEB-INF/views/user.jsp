@@ -18,7 +18,6 @@
 		<h3>Tambah User</h3>
 		<button class="btn btn-success" data-toggle="modal" data-target="#addModal">
 			<span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Tambah</button> 	
-		
 		<br /><br />
 		
 		<!-- Add Modal -->
@@ -41,6 +40,14 @@
 							<label for="txtAddPassword" class="control-label">Password:</label>
 							<form:password path="password" cssClass="form-control" id="txtAddPassword" placeholder="Type Password" />
 						</div>
+						<div class="form-group">
+							<label for="txtAddNamaLengkap" class="control-label">Nama Lengkap:</label>
+							<form:input path="namaLengkap" cssClass="form-control" id="txtAddNamaLengkap" placeholder="Type Nama Lengkap" />
+						</div>
+						<div class="form-group">
+							<label for="txtAddNoTelp" class="control-label">No. Telp:</label>
+							<form:input path="noTelp" cssClass="form-control" id="txtAddNoTelp" placeholder="Type Phone" />
+						</div>
 					</div>
 					<div class="modal-footer">
 						<button type="button" class="btn btn-default" data-dismiss="modal">
@@ -58,6 +65,8 @@
 				<thead>
 					<tr>
 						<th width="5%">No.</th>
+						<th>Nama Lengkap</th>
+						<th>No. Telp</th>
 						<th>Username</th>
 						<th>Operation</th>
 					</tr>
@@ -65,7 +74,9 @@
 				<tbody>
 					<c:forEach items="${users }" var="user" varStatus="index">
 					<tr>
-						<td><c:out value="${index.count }" /> </td>
+						<td><c:out value="${index.count }" />. </td>
+						<td><c:out value="${user.namaLengkap }" /> </td>
+						<td><c:out value="${user.noTelp }" /> </td>
 						<td><c:out value="${user.username }" /> </td>
 						<td>
 							<a href="#" class="btn btn-xs btn-info">

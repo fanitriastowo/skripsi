@@ -43,6 +43,8 @@ public class InitDbService implements InitializingBean {
 		User userAdmin = new User();
 		userAdmin.setUsername("admin");
 		userAdmin.setPassword(encoder.encode("admin"));
+		userAdmin.setNamaLengkap("Administrator");
+		userAdmin.setNoTelp("085291070216");
 		userAdmin.setEnabled(true);
 		userAdmin.setRole(roleAdmin);
 		userRepository.save(userAdmin);
@@ -51,6 +53,8 @@ public class InitDbService implements InitializingBean {
 		User userLain = new User();
 		userLain.setUsername("user1");
 		userLain.setPassword(encoder.encode("user1"));
+		userLain.setNamaLengkap("Blah");
+		userLain.setNoTelp("999");
 		userLain.setEnabled(true);
 		userLain.setRole(roleUser);
 		userRepository.save(userLain);

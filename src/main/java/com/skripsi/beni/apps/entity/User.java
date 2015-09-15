@@ -19,6 +19,10 @@ public class User {
 
 	private String password;
 
+	private String namaLengkap;
+	
+	private String noTelp;
+
 	private Boolean enabled;
 
 	@ManyToOne
@@ -47,6 +51,22 @@ public class User {
 
 	public void setPassword(String password) {
 		this.password = password;
+	}
+
+	public String getNamaLengkap() {
+		return namaLengkap;
+	}
+
+	public void setNamaLengkap(String namaLengkap) {
+		this.namaLengkap = namaLengkap;
+	}
+
+	public String getNoTelp() {
+		return noTelp;
+	}
+
+	public void setNoTelp(String noTelp) {
+		this.noTelp = noTelp;
 	}
 
 	public Boolean getEnabled() {
