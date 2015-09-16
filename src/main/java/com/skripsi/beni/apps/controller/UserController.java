@@ -46,10 +46,16 @@ public class UserController {
 		User user = userService.findOneById(id);
 		return user;
 	}
-	
+
 	@RequestMapping("/update")
 	public ModelAndView updateUser(@ModelAttribute("user") User user) {
 		userService.update(user);
+		return new ModelAndView("redirect:/user");
+	}
+
+	@RequestMapping("/delete/{id}")
+	public ModelAndView deleteUser(@PathVariable("id") Integer id) {
+		userService.delete(id);
 		return new ModelAndView("redirect:/user");
 	}
 

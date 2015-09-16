@@ -83,7 +83,7 @@
 								<span class="glyphicon glyphicon-menu-hamburger"></span> Detail</a> 
 							<a href='<spring:url value="/user/prepare_update/${user.id }" />' class="btn btn-xs btn-primary btnUpdate">
 								<span class="glyphicon glyphicon-pencil"></span> Edit</a> 
-							<a href="#" class="btn btn-xs btn-danger">
+							<a href='<spring:url value="/user/delete/${user.id }" />' class="btn btn-xs btn-danger triggerRemove">
 								<span class="glyphicon glyphicon-remove"></span> Delete</a>
 						</td>
 					</tr>
@@ -132,6 +132,30 @@
 			</div>
 		</div>
 		</form:form>
+		
+		<!-- Modal Remove -->
+		<div class="modal fade" id="modalRemove" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">
+							<span aria-hidden="true">&times;</span><span class="sr-only">Tutup</span>
+						</button>
+						<h4 class="modal-title" id="myModalLabel">Hapus Data User</h4>
+					</div>
+					<div class="modal-body">
+						<strong>Apakah Anda yakin akan menghapus? </strong>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">
+							<span class="glyphicon glyphicon-remove-circle"></span> Batal</button>
+						<a href="" class="btn btn-danger btnDelete">
+							<span class="glyphicon glyphicon-ok-circle"></span> Hapus</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
 	</div>
 	
 	<%@ include file="/WEB-INF/template/javascript.jsp"%>
@@ -151,6 +175,13 @@
 					$('#txtUpdateNoTelp').val(data.noTelp);
 				});
 				$('#updateModal').modal();
+			});
+			
+			// Delete Modal Event
+			$('.triggerRemove').click(function(e) {
+				e.preventDefault();
+				$('#modalRemove .btnDelete').attr("href", $(this).attr("href"));
+				$('#modalRemove').modal();
 			});
 		});
 	</script>

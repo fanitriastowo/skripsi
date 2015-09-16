@@ -48,4 +48,8 @@ public class UserService {
 		userRepository.save(user);
 	}
 
+	public void delete(Integer id) {
+		userRepository.delete(id);
+	}
+
 }
