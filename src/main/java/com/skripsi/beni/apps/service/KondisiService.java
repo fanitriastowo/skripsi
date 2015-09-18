@@ -17,7 +17,15 @@ public class KondisiService {
 	private KondisiRepository kondisiRepository;
 
 	public List<Kondisi> findAll() {
+		
+		// Cari semua data Kondisi Kelas
 		return kondisiRepository.findAll();
+	}
+
+	public void delete(Integer id) {
+		
+		// Hapus Kondisi Kelas berdasarkan id
+		kondisiRepository.delete(id);
 	}
 	
 	
