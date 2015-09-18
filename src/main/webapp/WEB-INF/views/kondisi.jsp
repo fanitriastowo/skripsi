@@ -14,9 +14,41 @@
 <body>
 	<div class="container">
 		<%@ include file="/WEB-INF/template/navbar.jsp"%>
-		Halaman ini berisi kondisi kelas
+
+		<h3>Tambah Kondisi Kelas</h3>
+		<button class="btn btn-success" data-toggle="modal" data-target="#addModal">
+			<span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Tambah</button> 
+		<br /><br />
+
+		<div class="table-responsive">
+			<table class="table table-hovered table-striped table-bordered">
+				<thead>
+					<tr>
+						<th width="5%">No.</th>
+						<th>Jumlah Siswa</th>
+						<th>Point</th>
+						<th>Operation</th>
+					</tr>
+				</thead>
+				<tbody>
+					<c:forEach items="${kondisis }" var="kondisi" varStatus="index">
+					<tr>
+						<td><c:out value="${index.count }" />.</td>
+						<td><c:out value="${kondisi.jmlSiswa }" /></td>
+						<td><c:out value="${kondisi.point }" /></td>
+						<td>
+							<a href="#" class="btn btn-xs btn-primary">
+								<span class="glyphicon glyphicon-pencil"></span> Update</a>
+							<a href="#" class="btn btn-xs btn-danger">
+								<span class="glyphicon glyphicon-remove"></span> Delete</a>
+						</td>
+					</tr>
+					</c:forEach>
+				</tbody>
+			</table>
+		</div>
 	</div>
-	
+
 	<%@ include file="/WEB-INF/template/javascript.jsp"%>
 	<script type="text/javascript">
 		$(document).ready(function() {
