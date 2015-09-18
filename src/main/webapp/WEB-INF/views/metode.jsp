@@ -143,7 +143,7 @@
 				
 				$.getJSON(url, function(data) {
 					$('#lblUpdateId').val(data.id);
-					$('#txtUpdateMetode').val(data.metode)
+					$('#txtUpdateMetode').val(data.metode);
 				});
 				
 				$('#updateModal').modal();

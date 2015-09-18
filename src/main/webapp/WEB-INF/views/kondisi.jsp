@@ -37,7 +37,7 @@
 						<td><c:out value="${kondisi.jmlSiswa }" /></td>
 						<td><c:out value="${kondisi.point }" /></td>
 						<td>
-							<a href="#" class="btn btn-xs btn-primary">
+							<a href='<spring:url value="/kondisi/prepare_update/${kondisi.id }" />' class="btn btn-xs btn-primary triggerUpdate">
 								<span class="glyphicon glyphicon-pencil"></span> Update</a>
 							<a href='<spring:url value="/kondisi/delete/${kondisi.id }" />' class="btn btn-xs btn-danger triggerDelete">
 								<span class="glyphicon glyphicon-remove"></span> Delete</a>
@@ -48,6 +48,76 @@
 			</table>
 		</div>
 	</div>
+	
+	<!-- Add Modal -->
+	<form:form commandName="kondisi" action="${pageContext.request.contextPath }/kondisi/save" >
+	<div class="modal fade" id="addModal" tabindex = "-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">
+						<span aria-hidden="true">&times;</span><span class="sr-only">Tutup</span>
+					</button>
+					<h4 class="modal-title" id="myModalLabel">Add Data Kondisi Kelas</h4>
+				</div>
+				<div class="modal-body">
+					
+					<div class="form-group">
+						<label for="txtAddJmlSiswa" class="control-label">Jumlah Siswa:</label>
+						<form:input id="txtAddJmlSiswa" path="jmlSiswa" cssClass="form-control" placeholder="Type Jumlah Siswa"/>
+					</div>	
+						
+					<div class="form-group">
+						<label for="txtAddPoint" class="control-label">Point:</label>
+						<form:input id="txtAddPoint" path="point" cssClass="form-control" placeholder="Type Point"/>
+					</div>	
+						
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">
+						<span class="glyphicon glyphicon-remove-circle"></span> Batal</button>
+					<button type="submit" class="btn btn-danger btnRemove">
+						<span class="glyphicon glyphicon-ok-circle"></span> Save</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	</form:form>
+	
+	<!-- Update Modal -->
+	<form:form commandName="kondisi" action="${pageContext.request.contextPath }/kondisi/update" >
+	<div class="modal fade" id="updateModal" tabindex = "-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">
+						<span aria-hidden="true">&times;</span><span class="sr-only">Tutup</span>
+					</button>
+					<h4 class="modal-title" id="myModalLabel">Add Data Kondisi Kelas</h4>
+				</div>
+				<div class="modal-body">
+					<form:hidden path="id" id="lblUpdateId"/>
+					<div class="form-group">
+						<label for="txtUpdateJmlSiswa" class="control-label">Jumlah Siswa:</label>
+						<form:input id="txtUpdateJmlSiswa" path="jmlSiswa" cssClass="form-control" placeholder="Type Jumlah Siswa"/>
+					</div>	
+						
+					<div class="form-group">
+						<label for="txtUpdatePoint" class="control-label">Point:</label>
+						<form:input id="txtUpdatePoint" path="point" cssClass="form-control" placeholder="Type Point"/>
+					</div>	
+						
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">
+						<span class="glyphicon glyphicon-remove-circle"></span> Batal</button>
+					<button type="submit" class="btn btn-danger btnRemove">
+						<span class="glyphicon glyphicon-ok-circle"></span> Update</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	</form:form>
 	
 	<!-- Modal Remove -->
 	<div class="modal fade" id="modalRemove" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -84,6 +154,45 @@
 			$('#modalRemove .btnRemove').attr("href", $(this).attr("href"));
 			$('#modalRemove').modal();
 		});
+		
+		// tampilkan dialog update
+		$('.triggerUpdate').click(function(e) {
+			e.preventDefault();
+			var url = $(this).attr("href");
+			
+			$.getJSON(url, function(data) {
+				$('#lblUpdateId').val(data.id);
+				$('#txtUpdateJmlSiswa').val(data.jmlSiswa);
+				$('#txtUpdatePoint').val(data.point);
+			});
+			
+			$('#updateModal').modal();
+		});
 	});
 </script>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
