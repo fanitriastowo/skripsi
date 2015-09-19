@@ -6,12 +6,14 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.skripsi.beni.apps.entity.Fasilitas;
 import com.skripsi.beni.apps.entity.Keaktifan;
 import com.skripsi.beni.apps.entity.Kondisi;
 import com.skripsi.beni.apps.entity.Metode;
 import com.skripsi.beni.apps.entity.Pengajar;
 import com.skripsi.beni.apps.entity.Role;
 import com.skripsi.beni.apps.entity.User;
+import com.skripsi.beni.apps.repository.FasilitasRepository;
 import com.skripsi.beni.apps.repository.KeaktifanRepository;
 import com.skripsi.beni.apps.repository.KondisiRepository;
 import com.skripsi.beni.apps.repository.MetodeRepository;
@@ -40,6 +42,9 @@ public class InitDbService implements InitializingBean {
 	
 	@Autowired
 	private PengajarRepository pengajarRepository;
+	
+	@Autowired
+	private FasilitasRepository fasilitasRepository;
 
 	@Override
 	public void afterPropertiesSet() throws Exception {
@@ -219,6 +224,37 @@ public class InitDbService implements InitializingBean {
 		pengajar5.setKualitas("Buruk");
 		pengajar5.setPoint(10.0);
 		pengajarRepository.save(pengajar5);
+		// ======================================================= //
+		
+		/**
+		 * Inisial table fasilitas
+		 */
+		// ======================================================= //
+		Fasilitas fasilitas1 = new Fasilitas();
+		fasilitas1.setFasilitas("Sangat Baik");
+		fasilitas1.setPoint(50.0);
+		fasilitasRepository.save(fasilitas1);
+
+		Fasilitas fasilitas2 = new Fasilitas();
+		fasilitas2.setFasilitas("Baik");
+		fasilitas2.setPoint(40.0);
+		fasilitasRepository.save(fasilitas2);
+
+		Fasilitas fasilitas3 = new Fasilitas();
+		fasilitas3.setFasilitas("Cukup");
+		fasilitas3.setPoint(30.0);
+		fasilitasRepository.save(fasilitas3);
+
+		Fasilitas fasilitas4 = new Fasilitas();
+		fasilitas4.setFasilitas("Kurang");
+		fasilitas4.setPoint(20.0);
+		fasilitasRepository.save(fasilitas4);
+
+		Fasilitas fasilitas5 = new Fasilitas();
+		fasilitas5.setFasilitas("Tidak Ada");
+		fasilitas5.setPoint(10.0);
+		fasilitasRepository.save(fasilitas5);
+
 		// ======================================================= //
 	}
 

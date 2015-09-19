@@ -8,26 +8,33 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "fasilitas")
 public class Fasilitas {
+
 	@Id
 	@GeneratedValue
 	private Integer id;
-	private Boolean fasilitas;
+	private String fasilitas;
 	private Double point;
+
 	public Integer getId() {
 		return id;
 	}
+
 	public void setId(Integer id) {
 		this.id = id;
 	}
-	public Boolean getFasilitas() {
+
+	public String getFasilitas() {
 		return fasilitas;
 	}
-	public void setFasilitas(Boolean fasilitas) {
+
+	public void setFasilitas(String fasilitas) {
 		this.fasilitas = fasilitas;
 	}
+
 	public Double getPoint() {
 		return point;
 	}
+
 	public void setPoint(Double point) {
 		this.point = point;
 	}
