@@ -68,6 +68,12 @@ public class KondisiController {
 		return kondisi;
 	}
 	
+	/**
+	 * submit form update dan redirect ke halaman Kondisi
+	 * 
+	 * @param kondisi
+	 * @return ModelAndView
+	 */
 	@RequestMapping("/update")
 	public ModelAndView updateKondisi(@ModelAttribute("kondisi") Kondisi kondisi) {
 		kondisiService.update(kondisi);

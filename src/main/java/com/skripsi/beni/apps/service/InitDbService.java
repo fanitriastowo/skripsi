@@ -6,10 +6,12 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.skripsi.beni.apps.entity.Keaktifan;
 import com.skripsi.beni.apps.entity.Kondisi;
 import com.skripsi.beni.apps.entity.Metode;
 import com.skripsi.beni.apps.entity.Role;
 import com.skripsi.beni.apps.entity.User;
+import com.skripsi.beni.apps.repository.KeaktifanRepository;
 import com.skripsi.beni.apps.repository.KondisiRepository;
 import com.skripsi.beni.apps.repository.MetodeRepository;
 import com.skripsi.beni.apps.repository.RoleRepository;
@@ -30,6 +32,9 @@ public class InitDbService implements InitializingBean {
 
 	@Autowired
 	private KondisiRepository kondisiRepository;
+	
+	@Autowired
+	private KeaktifanRepository keaktifanRepository;
 
 	@Override
 	public void afterPropertiesSet() throws Exception {
@@ -149,6 +154,37 @@ public class InitDbService implements InitializingBean {
 		kondisiRepository.save(kondisi5);
 		
 		// ====================================================== //
+		
+		/**
+		 * Inisial Keaktifan siswa
+		 */
+		// ======================================================= //
+		Keaktifan keaktifan1 = new Keaktifan();
+		keaktifan1.setJmlSiswa("<= 5");
+		keaktifan1.setPoint(50.0);
+		keaktifanRepository.save(keaktifan1);
+		
+		Keaktifan keaktifan2 = new Keaktifan();
+		keaktifan2.setJmlSiswa("6 - 10");
+		keaktifan2.setPoint(40.0);
+		keaktifanRepository.save(keaktifan2);
+		
+		Keaktifan keaktifan3 = new Keaktifan();
+		keaktifan3.setJmlSiswa("11 - 15");
+		keaktifan3.setPoint(30.0);
+		keaktifanRepository.save(keaktifan3);
+		
+		Keaktifan keaktifan4 = new Keaktifan();
+		keaktifan4.setJmlSiswa("16 - 20");
+		keaktifan4.setPoint(20.0);
+		keaktifanRepository.save(keaktifan4);
+		
+		Keaktifan keaktifan5 = new Keaktifan();
+		keaktifan5.setJmlSiswa("=> 21");
+		keaktifan5.setPoint(10.0);
+		keaktifanRepository.save(keaktifan5);
+		
+		// ======================================================= //
 	}
 
 }
