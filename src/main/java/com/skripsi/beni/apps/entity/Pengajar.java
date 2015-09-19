@@ -11,25 +11,30 @@ public class Pengajar {
 
 	@Id
 	@GeneratedValue
-
 	private Integer id;
-	private String kulaitas;
+	private String kualitas;
 	private Double point;
+
 	public Integer getId() {
 		return id;
 	}
+
 	public void setId(Integer id) {
 		this.id = id;
 	}
-	public String getKulaitas() {
-		return kulaitas;
+
+	public String getKualitas() {
+		return kualitas;
 	}
-	public void setKulaitas(String kulaitas) {
-		this.kulaitas = kulaitas;
+
+	public void setKualitas(String kualitas) {
+		this.kualitas = kualitas;
 	}
+
 	public Double getPoint() {
 		return point;
 	}
+
 	public void setPoint(Double point) {
 		this.point = point;
 	}

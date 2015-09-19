@@ -9,11 +9,13 @@ import org.springframework.transaction.annotation.Transactional;
 import com.skripsi.beni.apps.entity.Keaktifan;
 import com.skripsi.beni.apps.entity.Kondisi;
 import com.skripsi.beni.apps.entity.Metode;
+import com.skripsi.beni.apps.entity.Pengajar;
 import com.skripsi.beni.apps.entity.Role;
 import com.skripsi.beni.apps.entity.User;
 import com.skripsi.beni.apps.repository.KeaktifanRepository;
 import com.skripsi.beni.apps.repository.KondisiRepository;
 import com.skripsi.beni.apps.repository.MetodeRepository;
+import com.skripsi.beni.apps.repository.PengajarRepository;
 import com.skripsi.beni.apps.repository.RoleRepository;
 import com.skripsi.beni.apps.repository.UserRepository;
 
@@ -35,6 +37,9 @@ public class InitDbService implements InitializingBean {
 	
 	@Autowired
 	private KeaktifanRepository keaktifanRepository;
+	
+	@Autowired
+	private PengajarRepository pengajarRepository;
 
 	@Override
 	public void afterPropertiesSet() throws Exception {
@@ -184,6 +189,36 @@ public class InitDbService implements InitializingBean {
 		keaktifan5.setPoint(10.0);
 		keaktifanRepository.save(keaktifan5);
 		
+		// ======================================================= //
+		
+		/**
+		 * Inisial Table Pengajar
+		 */
+		// ======================================================= //
+		Pengajar pengajar1 = new Pengajar();
+		pengajar1.setKualitas("Sangat Baik");
+		pengajar1.setPoint(50.0);
+		pengajarRepository.save(pengajar1);
+		
+		Pengajar pengajar2 = new Pengajar();
+		pengajar2.setKualitas("Baik");
+		pengajar2.setPoint(40.0);
+		pengajarRepository.save(pengajar2);
+		
+		Pengajar pengajar3 = new Pengajar();
+		pengajar3.setKualitas("Cukup");
+		pengajar3.setPoint(30.0);
+		pengajarRepository.save(pengajar3);
+		
+		Pengajar pengajar4 = new Pengajar();
+		pengajar4.setKualitas("Kurang Baik");
+		pengajar4.setPoint(20.0);
+		pengajarRepository.save(pengajar4);
+		
+		Pengajar pengajar5 = new Pengajar();
+		pengajar5.setKualitas("Buruk");
+		pengajar5.setPoint(10.0);
+		pengajarRepository.save(pengajar5);
 		// ======================================================= //
 	}
 
