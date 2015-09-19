@@ -23,6 +23,10 @@ public class KeaktifanService {
 	public void save(Keaktifan keaktifan) {
 		keaktifanRepository.save(keaktifan);
 	}
+
+	public void delete(Integer id) {
+		keaktifanRepository.delete(id);
+	}
 	
 	
 }
