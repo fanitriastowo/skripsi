@@ -65,16 +65,12 @@
 					</div>
 					<div class="modal-body">
 						<div class="form-group">
-							<label for="txtAddJmlSiswa" class="col-sm-2 control-label">Jumlah Siswa Aktif:</label>
-							<div class="col-sm-10">
-								<form:input path="jmlSiswa" id="txtAddJmlSiswa" cssClass="form-control" placeholder="Type Jumlah" />
-							</div>
+							<label for="txtAddJmlSiswa" class="control-label">Jumlah Siswa Aktif:</label>
+							<form:input path="jmlSiswa" id="txtAddJmlSiswa" cssClass="form-control" placeholder="Type Jumlah" />
 						</div>
 						<div class="form-group">
-							<label for="txtAddPoint" class="col-sm-2 control-label">Point:</label>
-							<div class="col-sm-10">
-								<form:input path="point" id="txtAddPoint" cssClass="form-control" placeholder="Type Point"/>
-							</div>
+							<label for="txtAddPoint" class="control-label">Point:</label>
+							<form:input path="point" id="txtAddPoint" cssClass="form-control" placeholder="Type Point"/>
 						</div>
 					</div>
 					<div class="modal-footer">

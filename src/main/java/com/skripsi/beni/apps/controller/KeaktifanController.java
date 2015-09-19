@@ -40,4 +40,16 @@ public class KeaktifanController {
 		modelAndView.addObject("keaktifans", keaktifans);
 		return modelAndView;
 	}
+	
+	/**
+	 * save keaktifan dan redirect ke halaman keaktifan
+	 * 
+	 * @param keaktifan
+	 * @return ModelAndView
+	 */
+	@RequestMapping("/save")
+	public ModelAndView addKeaktifan(@ModelAttribute("keaktifan") Keaktifan keaktifan) {
+		keaktifanService.save(keaktifan);
+		return new ModelAndView("redirect:/keaktifan");
+	}
 }

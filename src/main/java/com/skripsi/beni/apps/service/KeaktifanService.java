@@ -19,6 +19,10 @@ public class KeaktifanService {
 	public List<Keaktifan> findAll() {
 		return keaktifanRepository.findAll();
 	}
+
+	public void save(Keaktifan keaktifan) {
+		keaktifanRepository.save(keaktifan);
+	}
 	
 	
 }
