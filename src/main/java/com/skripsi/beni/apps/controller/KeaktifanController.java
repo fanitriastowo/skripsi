@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.skripsi.beni.apps.entity.Keaktifan;
@@ -63,6 +64,31 @@ public class KeaktifanController {
 	@RequestMapping("/delete/{id}")
 	public ModelAndView deleteKeaktifan(@PathVariable("id") Integer id) {
 		keaktifanService.delete(id);
+		return new ModelAndView("redirect:/keaktifan");
+	}
+	
+	/**
+	 * Ambil keaktifan object dan convert ke JSON
+	 * 
+	 * @param Integer id
+	 * @return Keaktifan
+	 */
+	@RequestMapping("/prepare_update/{id}")
+	@ResponseBody
+	public Keaktifan prepareUpdate(@PathVariable("id") Integer id) {
+		Keaktifan keaktifan = keaktifanService.findOneById(id);
+		return keaktifan;
+	}
+	
+	/**
+	 * Update form keaktifan dari bootstrap modal
+	 * 
+	 * @param Keaktifan keaktifan
+	 * @return ModelAndView
+	 */
+	@RequestMapping("/update")
+	public ModelAndView updateKeaktifan(@ModelAttribute("keaktifan") Keaktifan keaktifan) {
+		keaktifanService.update(keaktifan);
 		return new ModelAndView("redirect:/keaktifan");
 	}
 }

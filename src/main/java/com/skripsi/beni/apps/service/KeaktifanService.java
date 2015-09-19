@@ -27,6 +27,14 @@ public class KeaktifanService {
 	public void delete(Integer id) {
 		keaktifanRepository.delete(id);
 	}
+
+	public Keaktifan findOneById(Integer id) {
+		return keaktifanRepository.findOne(id);
+	}
+
+	public void update(Keaktifan keaktifan) {
+		keaktifanRepository.save(keaktifan);
+	}
 	
 	
 }

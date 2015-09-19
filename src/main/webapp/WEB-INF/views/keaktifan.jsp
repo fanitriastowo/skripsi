@@ -39,7 +39,7 @@
 						<td><c:out value="${keaktifan.jmlSiswa }" /> </td>
 						<td><c:out value="${keaktifan.point }" /> </td>
 						<td>
-							<a href="#" class="btn btn-xs btn-primary">
+							<a href='<spring:url value="/keaktifan/prepare_update/${keaktifan.id }" />' class="btn btn-xs btn-primary triggerUpdate">
 								<span class="glyphicon glyphicon-pencil"></span> Edit</a>
 							<a href='<spring:url value="/keaktifan/delete/${keaktifan.id }" />' class="btn btn-xs btn-danger triggerDelete">
 								<span class="glyphicon glyphicon-remove"></span> Delete</a>
@@ -83,6 +83,39 @@
 			</div>
 		</div>
 	</form:form>
+
+	<!-- Update Modal -->
+	<form:form commandName="keaktifan" action="${pageContext.request.contextPath }/keaktifan/update">
+		<div class="modal fade" id="updateModal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+						<h4 class="modal-title" id="modalLabel">Tambah Data Kraktifan Siswa</h4>
+					</div>
+					<div class="modal-body">
+						<form:hidden path="id" id="txtUpdateLblId"/>
+						<div class="form-group">
+							<label for="txtUpdateJmlSiswa" class="control-label">Jumlah Siswa Aktif:</label>
+							<form:input path="jmlSiswa" id="txtUpdateJmlSiswa" cssClass="form-control" placeholder="Type Jumlah" />
+						</div>
+						<div class="form-group">
+							<label for="txtUpdatePoint" class="control-label">Point:</label>
+							<form:input path="point" id="txtUpdatePoint" cssClass="form-control" placeholder="Type Point"/>
+						</div>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">
+							<span class="glyphicon glyphicon-remove-circle"></span> Batal</button>
+						<button type="submit" class="btn btn-primary">
+							<span class="glyphicon glyphicon-ok-circle"></span> Update</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</form:form>
 	
 	<!-- Delete Modal Notification -->
 	<div class="modal fade" id="modalRemove" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -118,6 +151,20 @@
 			e.preventDefault();
 			$('#modalRemove .btnRemove').attr("href", $(this).attr("href"));
 			$('#modalRemove').modal();
+		});
+		
+		// Tampilkan update form menggunakan bootstrap modal
+		$('.triggerUpdate').click(function(e) {
+			e.preventDefault();
+			var url = $(this).attr("href");
+			
+			$.getJSON(url, function(data) {
+				$('#txtUpdateLblId').val(data.id);
+				$('#txtUpdateJmlSiswa').val(data.jmlSiswa);
+				$('#txtUpdatePoint').val(data.point);
+			});
+			
+			$('#updateModal').modal();
 		});
 	});
 </script>
