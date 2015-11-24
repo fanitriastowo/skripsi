@@ -10,7 +10,7 @@
 		<spring.version>4.0.2.RELEASE</spring.version>
 		<springsec.version>3.2.5.RELEASE</springsec.version>
 		<hibernate-entitymanager.version>5.0.0.Final</hibernate-entitymanager.version>
-		<jetty-maven-plugin.version>9.2.10.v20150310</jetty-maven-plugin.version>
+		<jetty-maven-plugin.version>9.3.6.v20151106</jetty-maven-plugin.version>
 		<java.version>1.8</java.version>
 		<servlet-version>3.1.0</servlet-version>
 		<jsp-version>2.2.1</jsp-version>
