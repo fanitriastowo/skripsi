@@ -8,6 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.skripsi.beni.apps.entity.Fasilitas;
 import com.skripsi.beni.apps.entity.Keaktifan;
+import com.skripsi.beni.apps.entity.Kondisi;
 import com.skripsi.beni.apps.entity.JumlahSiswa;
 import com.skripsi.beni.apps.entity.Metode;
 import com.skripsi.beni.apps.entity.Pengajar;
@@ -15,6 +16,7 @@ import com.skripsi.beni.apps.entity.Role;
 import com.skripsi.beni.apps.entity.User;
 import com.skripsi.beni.apps.repository.FasilitasRepository;
 import com.skripsi.beni.apps.repository.KeaktifanRepository;
+import com.skripsi.beni.apps.repository.KondisiRepository;
 import com.skripsi.beni.apps.repository.JumlahSiswaRepository;
 import com.skripsi.beni.apps.repository.MetodeRepository;
 import com.skripsi.beni.apps.repository.PengajarRepository;
@@ -35,16 +37,19 @@ public class InitDbService implements InitializingBean {
 	private MetodeRepository metodeRepository;
 
 	@Autowired
-	private JumlahSiswaRepository kondisiRepository;
-	
+	private JumlahSiswaRepository jumlahSiswaRepository;
+
 	@Autowired
 	private KeaktifanRepository keaktifanRepository;
-	
+
 	@Autowired
 	private PengajarRepository pengajarRepository;
-	
+
 	@Autowired
 	private FasilitasRepository fasilitasRepository;
+
+	@Autowired
+	private KondisiRepository KondisiRepository;
 
 	@Override
 	public void afterPropertiesSet() throws Exception {
@@ -141,30 +146,30 @@ public class InitDbService implements InitializingBean {
 		JumlahSiswa jumlahSiswa1 = new JumlahSiswa();
 		jumlahSiswa1.setJmlSiswa("=> 26");
 		jumlahSiswa1.setPoint(50.0);
-		kondisiRepository.save(jumlahSiswa1);
-		
+		jumlahSiswaRepository.save(jumlahSiswa1);
+
 		JumlahSiswa jumlahSiswa2 = new JumlahSiswa();
 		jumlahSiswa2.setJmlSiswa("21 - 25");
 		jumlahSiswa2.setPoint(40.0);
-		kondisiRepository.save(jumlahSiswa2);
+		jumlahSiswaRepository.save(jumlahSiswa2);
 
 		JumlahSiswa jumlahSiswa3 = new JumlahSiswa();
 		jumlahSiswa3.setJmlSiswa("15 - 20");
 		jumlahSiswa3.setPoint(30.0);
-		kondisiRepository.save(jumlahSiswa3);
-		
+		jumlahSiswaRepository.save(jumlahSiswa3);
+
 		JumlahSiswa jumlahSiswa4 = new JumlahSiswa();
 		jumlahSiswa4.setJmlSiswa("11 - 14");
 		jumlahSiswa4.setPoint(20.0);
-		kondisiRepository.save(jumlahSiswa4);
+		jumlahSiswaRepository.save(jumlahSiswa4);
 
 		JumlahSiswa jumlahSiswa5 = new JumlahSiswa();
 		jumlahSiswa5.setJmlSiswa("<= 10");
 		jumlahSiswa5.setPoint(10.0);
-		kondisiRepository.save(jumlahSiswa5);
-		
+		jumlahSiswaRepository.save(jumlahSiswa5);
+
 		// ====================================================== //
-		
+
 		/**
 		 * Inisial Keaktifan siswa
 		 */
@@ -173,29 +178,29 @@ public class InitDbService implements InitializingBean {
 		keaktifan1.setJmlSiswa("=> 26");
 		keaktifan1.setPoint(50.0);
 		keaktifanRepository.save(keaktifan1);
-		
+
 		Keaktifan keaktifan2 = new Keaktifan();
 		keaktifan2.setJmlSiswa("21 - 25");
 		keaktifan2.setPoint(40.0);
 		keaktifanRepository.save(keaktifan2);
-		
+
 		Keaktifan keaktifan3 = new Keaktifan();
 		keaktifan3.setJmlSiswa("15 - 20");
 		keaktifan3.setPoint(30.0);
 		keaktifanRepository.save(keaktifan3);
-		
+
 		Keaktifan keaktifan4 = new Keaktifan();
 		keaktifan4.setJmlSiswa("11 - 14");
 		keaktifan4.setPoint(20.0);
 		keaktifanRepository.save(keaktifan4);
-		
+
 		Keaktifan keaktifan5 = new Keaktifan();
 		keaktifan5.setJmlSiswa("<= 10");
 		keaktifan5.setPoint(10.0);
 		keaktifanRepository.save(keaktifan5);
-		
+
 		// ======================================================= //
-		
+
 		/**
 		 * Inisial Table Pengajar
 		 */
@@ -204,28 +209,28 @@ public class InitDbService implements InitializingBean {
 		pengajar1.setKualitas("Sangat Baik");
 		pengajar1.setPoint(50.0);
 		pengajarRepository.save(pengajar1);
-		
+
 		Pengajar pengajar2 = new Pengajar();
 		pengajar2.setKualitas("Baik");
 		pengajar2.setPoint(40.0);
 		pengajarRepository.save(pengajar2);
-		
+
 		Pengajar pengajar3 = new Pengajar();
 		pengajar3.setKualitas("Cukup");
 		pengajar3.setPoint(30.0);
 		pengajarRepository.save(pengajar3);
-		
+
 		Pengajar pengajar4 = new Pengajar();
 		pengajar4.setKualitas("Kurang Baik");
 		pengajar4.setPoint(20.0);
 		pengajarRepository.save(pengajar4);
-		
+
 		Pengajar pengajar5 = new Pengajar();
 		pengajar5.setKualitas("Buruk");
 		pengajar5.setPoint(10.0);
 		pengajarRepository.save(pengajar5);
 		// ======================================================= //
-		
+
 		/**
 		 * Inisial table fasilitas
 		 */
@@ -255,6 +260,27 @@ public class InitDbService implements InitializingBean {
 		fasilitas5.setPoint(10.0);
 		fasilitasRepository.save(fasilitas5);
 
+		// ======================================================= //
+		
+		/**
+		 * Inisial table Kondisi
+		 */
+		// ======================================================= //
+		Kondisi kondisi1 = new Kondisi();
+		kondisi1.setKondisi("Kondusif");
+		kondisi1.setPoint(30.0);
+		KondisiRepository.save(kondisi1);
+		
+		Kondisi kondisi2 = new Kondisi();
+		kondisi2.setKondisi("Cukup Kondusif");
+		kondisi2.setPoint(20.0);
+		KondisiRepository.save(kondisi2);
+		
+		Kondisi kondisi3 = new Kondisi();
+		kondisi3.setKondisi("Tidak Kondusif");
+		kondisi3.setPoint(10.0);
+		KondisiRepository.save(kondisi3);
+		
 		// ======================================================= //
 	}
 

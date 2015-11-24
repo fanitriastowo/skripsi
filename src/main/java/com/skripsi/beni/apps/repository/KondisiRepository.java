@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import com.skripsi.beni.apps.entity.Kondisi;
 
 @Repository
-public interface KondisiiRepository extends JpaRepository<Kondisi, Integer> {
+public interface KondisiRepository extends JpaRepository<Kondisi, Integer> {
 
 }
