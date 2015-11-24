@@ -20,4 +20,20 @@ public class KondisiService {
 		return kondisiRepository.findAll();
 	}
 
+	public void save(Kondisi kondisi) {
+		kondisiRepository.save(kondisi);
+	}
+
+	public void delete(Integer id) {
+		kondisiRepository.delete(id);
+	}
+
+	public Kondisi findOneById(Integer id) {
+		return kondisiRepository.findOne(id);
+	}
+
+	public void update(Kondisi kondisi) {
+		kondisiRepository.save(kondisi);
+	}
+
 }

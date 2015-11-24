@@ -65,7 +65,7 @@
 					</div>
 					<div class="modal-body">
 						<div class="form-group">
-							<label for="txtAddFasilitas" class="control-label">Kondisi:</label>
+							<label for="txtAddKondisi" class="control-label">Kondisi:</label>
 							<form:input path="kondisi" id="txtAddKondisi" cssClass="form-control" placeholder="Type Kondisi" />
 						</div>
 						<div class="form-group">
@@ -98,7 +98,7 @@
 					<div class="modal-body">
 						<form:hidden path="id" id="txtUpdateLblId"/>
 						<div class="form-group">
-							<label for="txtUpdateFasilitas" class="control-label">Fasilitas:</label>
+							<label for="txtUpdateKondisi" class="control-label">Kondisi:</label>
 							<form:input path="kondisi" id="txtUpdateKondisi" cssClass="form-control" placeholder="Type Kondisi" />
 						</div>
 						<div class="form-group">

@@ -49,7 +49,7 @@ public class InitDbService implements InitializingBean {
 	private FasilitasRepository fasilitasRepository;
 
 	@Autowired
-	private KondisiRepository KondisiRepository;
+	private KondisiRepository kondisiRepository;
 
 	@Override
 	public void afterPropertiesSet() throws Exception {
@@ -269,17 +269,17 @@ public class InitDbService implements InitializingBean {
 		Kondisi kondisi1 = new Kondisi();
 		kondisi1.setKondisi("Kondusif");
 		kondisi1.setPoint(30.0);
-		KondisiRepository.save(kondisi1);
+		kondisiRepository.save(kondisi1);
 		
 		Kondisi kondisi2 = new Kondisi();
 		kondisi2.setKondisi("Cukup Kondusif");
 		kondisi2.setPoint(20.0);
-		KondisiRepository.save(kondisi2);
+		kondisiRepository.save(kondisi2);
 		
 		Kondisi kondisi3 = new Kondisi();
 		kondisi3.setKondisi("Tidak Kondusif");
 		kondisi3.setPoint(10.0);
-		KondisiRepository.save(kondisi3);
+		kondisiRepository.save(kondisi3);
 		
 		// ======================================================= //
 	}
