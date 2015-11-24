@@ -135,33 +135,33 @@ public class InitDbService implements InitializingBean {
 		// ===================================================== //
 
 		/**
-		 * Inisial Table Kondisi Kelas
+		 * Inisial Table Jumlah Siswa
 		 */
 		// ====================================================== //
-		JumlahSiswa kondisi1 = new JumlahSiswa();
-		kondisi1.setJmlSiswa("<= 10");
-		kondisi1.setPoint(50.0);
-		kondisiRepository.save(kondisi1);
+		JumlahSiswa jumlahSiswa1 = new JumlahSiswa();
+		jumlahSiswa1.setJmlSiswa("=> 26");
+		jumlahSiswa1.setPoint(50.0);
+		kondisiRepository.save(jumlahSiswa1);
 		
-		JumlahSiswa kondisi2 = new JumlahSiswa();
-		kondisi2.setJmlSiswa("10 - 15");
-		kondisi2.setPoint(40.0);
-		kondisiRepository.save(kondisi2);
+		JumlahSiswa jumlahSiswa2 = new JumlahSiswa();
+		jumlahSiswa2.setJmlSiswa("21 - 25");
+		jumlahSiswa2.setPoint(40.0);
+		kondisiRepository.save(jumlahSiswa2);
 
-		JumlahSiswa kondisi3 = new JumlahSiswa();
-		kondisi3.setJmlSiswa("15 - 20");
-		kondisi3.setPoint(30.0);
-		kondisiRepository.save(kondisi3);
+		JumlahSiswa jumlahSiswa3 = new JumlahSiswa();
+		jumlahSiswa3.setJmlSiswa("15 - 20");
+		jumlahSiswa3.setPoint(30.0);
+		kondisiRepository.save(jumlahSiswa3);
 		
-		JumlahSiswa kondisi4 = new JumlahSiswa();
-		kondisi4.setJmlSiswa("21 - 25");
-		kondisi4.setPoint(20.0);
-		kondisiRepository.save(kondisi4);
+		JumlahSiswa jumlahSiswa4 = new JumlahSiswa();
+		jumlahSiswa4.setJmlSiswa("11 - 14");
+		jumlahSiswa4.setPoint(20.0);
+		kondisiRepository.save(jumlahSiswa4);
 
-		JumlahSiswa kondisi5 = new JumlahSiswa();
-		kondisi5.setJmlSiswa("=> 26");
-		kondisi5.setPoint(10.0);
-		kondisiRepository.save(kondisi5);
+		JumlahSiswa jumlahSiswa5 = new JumlahSiswa();
+		jumlahSiswa5.setJmlSiswa("<= 10");
+		jumlahSiswa5.setPoint(10.0);
+		kondisiRepository.save(jumlahSiswa5);
 		
 		// ====================================================== //
 		
@@ -170,27 +170,27 @@ public class InitDbService implements InitializingBean {
 		 */
 		// ======================================================= //
 		Keaktifan keaktifan1 = new Keaktifan();
-		keaktifan1.setJmlSiswa("<= 5");
+		keaktifan1.setJmlSiswa("=> 26");
 		keaktifan1.setPoint(50.0);
 		keaktifanRepository.save(keaktifan1);
 		
 		Keaktifan keaktifan2 = new Keaktifan();
-		keaktifan2.setJmlSiswa("6 - 10");
+		keaktifan2.setJmlSiswa("21 - 25");
 		keaktifan2.setPoint(40.0);
 		keaktifanRepository.save(keaktifan2);
 		
 		Keaktifan keaktifan3 = new Keaktifan();
-		keaktifan3.setJmlSiswa("11 - 15");
+		keaktifan3.setJmlSiswa("15 - 20");
 		keaktifan3.setPoint(30.0);
 		keaktifanRepository.save(keaktifan3);
 		
 		Keaktifan keaktifan4 = new Keaktifan();
-		keaktifan4.setJmlSiswa("16 - 20");
+		keaktifan4.setJmlSiswa("11 - 14");
 		keaktifan4.setPoint(20.0);
 		keaktifanRepository.save(keaktifan4);
 		
 		Keaktifan keaktifan5 = new Keaktifan();
-		keaktifan5.setJmlSiswa("=> 21");
+		keaktifan5.setJmlSiswa("<= 10");
 		keaktifan5.setPoint(10.0);
 		keaktifanRepository.save(keaktifan5);
 		
