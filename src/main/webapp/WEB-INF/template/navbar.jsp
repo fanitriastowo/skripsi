@@ -7,6 +7,8 @@
 			
 			<li id="metode"><a 			href=' <spring:url value="/metode" />		'>Metode</a></li>
 			<li id="jumlah_siswa"><a 	href=' <spring:url value="/jumlah_siswa" />	'>Jumlah Siswa</a></li>
+			<li id="kondisi"><a 		href=' <spring:url value="/kondisi" />		'>Kondisi Kelas</a></li>
+			<li id="keaktifan_siswa"><a href=' <spring:url value="/keaktifan" />	'>Keaktifan Siswa</a></li>
 			<li id="keaktifan_siswa"><a href=' <spring:url value="/keaktifan" />	'>Keaktifan Siswa</a></li>
 			<li id="pengajar"><a 		href=' <spring:url value="/pengajar" />		'>Pengajar</a></li>
 			<li id="fasilitas"><a 		href=' <spring:url value="/fasilitas" />	'>Fasilitas</a></li>
