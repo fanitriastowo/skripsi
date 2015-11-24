@@ -6,8 +6,9 @@
 			<li id="home"><a 			href=' <spring:url value="/" />				'>Home</a></li>
 			
 			<li id="metode"><a 			href=' <spring:url value="/metode" />		'>Metode</a></li>
-			<li id="master" class="dropdown">
-			<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Master&nbsp;<span class="caret"></span></a>
+			<li id="kriteria" class="dropdown">
+			<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+				Kriteria&nbsp;<span class="caret"></span></a>
 				<ul class="dropdown-menu">
 					<li><a href=' <spring:url value="/jumlah_siswa" />	'>Jumlah Siswa</a></li>
 					<li><a href=' <spring:url value="/kondisi" />		'>Kondisi Kelas</a></li>

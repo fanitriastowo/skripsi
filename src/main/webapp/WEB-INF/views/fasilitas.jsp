@@ -144,7 +144,7 @@
 </body>
 <script type="text/javascript">
 	$(document).ready(function() {
-		$('#master').addClass('active');
+		$('#kriteria').addClass('active');
 		
 		// Trigger Delete Confirmation
 		$('.triggerDelete').click(function(e) {

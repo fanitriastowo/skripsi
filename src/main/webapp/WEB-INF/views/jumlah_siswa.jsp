@@ -146,7 +146,7 @@
 </body>
 <script type="text/javascript">
 	$(document).ready(function() {
-		$('#master').addClass('active');
+		$('#kriteria').addClass('active');
 		
 		// tampilkan notifikasi sebelum menghapus
 		$('.triggerDelete').click(function(e) {
