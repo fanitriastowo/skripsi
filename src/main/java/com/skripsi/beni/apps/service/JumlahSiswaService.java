@@ -6,17 +6,17 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.skripsi.beni.apps.entity.Kondisi;
-import com.skripsi.beni.apps.repository.KondisiRepository;
+import com.skripsi.beni.apps.entity.JumlahSiswa;
+import com.skripsi.beni.apps.repository.JumlahSiswaRepository;
 
 @Service
 @Transactional
-public class KondisiService {
+public class JumlahSiswaService {
 
 	@Autowired
-	private KondisiRepository kondisiRepository;
+	private JumlahSiswaRepository kondisiRepository;
 
-	public List<Kondisi> findAll() {
+	public List<JumlahSiswa> findAll() {
 
 		// Cari semua data Kondisi Kelas
 		return kondisiRepository.findAll();
@@ -28,19 +28,19 @@ public class KondisiService {
 		kondisiRepository.delete(id);
 	}
 
-	public void save(Kondisi kondisi) {
+	public void save(JumlahSiswa kondisi) {
 
 		// Simpan Kondisi
 		kondisiRepository.save(kondisi);
 	}
 
-	public Kondisi findOneById(Integer id) {
+	public JumlahSiswa findOneById(Integer id) {
 		
 		// get kondisi by id
 		return kondisiRepository.findOne(id);
 	}
 
-	public void update(Kondisi kondisi) {
+	public void update(JumlahSiswa kondisi) {
 
 		// Update Kondisi
 		kondisiRepository.save(kondisi);

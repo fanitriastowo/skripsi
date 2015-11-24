@@ -8,14 +8,14 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.skripsi.beni.apps.entity.Fasilitas;
 import com.skripsi.beni.apps.entity.Keaktifan;
-import com.skripsi.beni.apps.entity.Kondisi;
+import com.skripsi.beni.apps.entity.JumlahSiswa;
 import com.skripsi.beni.apps.entity.Metode;
 import com.skripsi.beni.apps.entity.Pengajar;
 import com.skripsi.beni.apps.entity.Role;
 import com.skripsi.beni.apps.entity.User;
 import com.skripsi.beni.apps.repository.FasilitasRepository;
 import com.skripsi.beni.apps.repository.KeaktifanRepository;
-import com.skripsi.beni.apps.repository.KondisiRepository;
+import com.skripsi.beni.apps.repository.JumlahSiswaRepository;
 import com.skripsi.beni.apps.repository.MetodeRepository;
 import com.skripsi.beni.apps.repository.PengajarRepository;
 import com.skripsi.beni.apps.repository.RoleRepository;
@@ -35,7 +35,7 @@ public class InitDbService implements InitializingBean {
 	private MetodeRepository metodeRepository;
 
 	@Autowired
-	private KondisiRepository kondisiRepository;
+	private JumlahSiswaRepository kondisiRepository;
 	
 	@Autowired
 	private KeaktifanRepository keaktifanRepository;
@@ -138,27 +138,27 @@ public class InitDbService implements InitializingBean {
 		 * Inisial Table Kondisi Kelas
 		 */
 		// ====================================================== //
-		Kondisi kondisi1 = new Kondisi();
+		JumlahSiswa kondisi1 = new JumlahSiswa();
 		kondisi1.setJmlSiswa("<= 10");
 		kondisi1.setPoint(50.0);
 		kondisiRepository.save(kondisi1);
 		
-		Kondisi kondisi2 = new Kondisi();
+		JumlahSiswa kondisi2 = new JumlahSiswa();
 		kondisi2.setJmlSiswa("10 - 15");
 		kondisi2.setPoint(40.0);
 		kondisiRepository.save(kondisi2);
 
-		Kondisi kondisi3 = new Kondisi();
+		JumlahSiswa kondisi3 = new JumlahSiswa();
 		kondisi3.setJmlSiswa("15 - 20");
 		kondisi3.setPoint(30.0);
 		kondisiRepository.save(kondisi3);
 		
-		Kondisi kondisi4 = new Kondisi();
+		JumlahSiswa kondisi4 = new JumlahSiswa();
 		kondisi4.setJmlSiswa("21 - 25");
 		kondisi4.setPoint(20.0);
 		kondisiRepository.save(kondisi4);
 
-		Kondisi kondisi5 = new Kondisi();
+		JumlahSiswa kondisi5 = new JumlahSiswa();
 		kondisi5.setJmlSiswa("=> 26");
 		kondisi5.setPoint(10.0);
 		kondisiRepository.save(kondisi5);

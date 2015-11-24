@@ -5,7 +5,7 @@
 		<class>com.skripsi.beni.apps.entity.User</class>
 		<class>com.skripsi.beni.apps.entity.Metode</class>
 		<class>com.skripsi.beni.apps.entity.Keaktifan</class>
-		<class>com.skripsi.beni.apps.entity.Kondisi</class>
+		<class>com.skripsi.beni.apps.entity.JumlahSiswa</class>
 		<class>com.skripsi.beni.apps.entity.Fasilitas</class>
 		<class>com.skripsi.beni.apps.entity.Pengajar</class>
 		

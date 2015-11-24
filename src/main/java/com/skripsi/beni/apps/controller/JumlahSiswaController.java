@@ -10,85 +10,84 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.skripsi.beni.apps.entity.Kondisi;
-import com.skripsi.beni.apps.service.KondisiService;
+import com.skripsi.beni.apps.entity.JumlahSiswa;
+import com.skripsi.beni.apps.service.JumlahSiswaService;
 
 @Controller
-@RequestMapping("/kondisi")
-public class KondisiController {
+@RequestMapping("/jumlah_siswa")
+public class JumlahSiswaController {
 
 	@Autowired
-	private KondisiService kondisiService;
+	private JumlahSiswaService jumlahSiswaService;
 	
 	/**
-	 * Construt new Kondisi
+	 * Construct new JumlahSiswa
 	 * 
-	 * @return new Kondisi
+	 * @return new JumlahSiswa
 	 */
 	@ModelAttribute
-	public Kondisi construct() {
-		return new Kondisi();
+	public JumlahSiswa construct() {
+		return new JumlahSiswa();
 	}
 
 	/**
-	 * Halaman Kondisi Kelas, Menampilkan daftar Kondisi 
-	 * Kelas dari database
+	 * Halaman JumlahSiswa, Menampilkan daftar Point berdasarkan banyaknya siswa 
 	 * 
 	 * @return modelAndView
 	 */
 	@RequestMapping
-	public ModelAndView halamanKondisi() {
-		ModelAndView modelAndView = new ModelAndView("kondisi");
-		List<Kondisi> kondisis = kondisiService.findAll();
-		modelAndView.addObject("kondisis", kondisis);
+	public ModelAndView halamanJumlahSiswa() {
+		ModelAndView modelAndView = new ModelAndView("jumlah_siswa");
+		List<JumlahSiswa> jumlahSiswas = jumlahSiswaService.findAll();
+		modelAndView.addObject("jumlahSiswas", jumlahSiswas);
 		return modelAndView;
 	}
 	
 	/**
-	 * simpan kondisi dan redirect ke halaman kondisi
+	 * simpan jumlah siswa dan redirect ke halaman jumlah_siswa
 	 * 
 	 * @return ModelAndView
 	 */
 	@RequestMapping("/save")
-	public ModelAndView addKondisi(@ModelAttribute("kondisi") Kondisi kondisi) {
-		kondisiService.save(kondisi);
-		return new ModelAndView("redirect:/kondisi");
+	public ModelAndView addJumlahSiswa(@ModelAttribute("jumlahSiswa") JumlahSiswa jumlahSiswa) {
+		jumlahSiswaService.save(jumlahSiswa);
+		return new ModelAndView("redirect:/jumlah_siswa");
 	}
 	
 	/**
-	 * ambil object Kondisi dan convert ke JSON
+	 * ambil object JumlahSiswa dan convert ke JSON
 	 * 
 	 * @param id
-	 * @return kondisi
+	 * @return jumlahSiswa
 	 */
 	@RequestMapping("/prepare_update/{id}")
 	@ResponseBody
-	public Kondisi prepareUpdate(@PathVariable("id") Integer id) {
-		Kondisi kondisi = kondisiService.findOneById(id);
-		return kondisi;
+	public JumlahSiswa prepareUpdate(@PathVariable("id") Integer id) {
+		JumlahSiswa jumlahSiswa = jumlahSiswaService.findOneById(id);
+		return jumlahSiswa;
 	}
 	
 	/**
-	 * submit form update dan redirect ke halaman Kondisi
+	 * submit form update dan redirect ke halaman JumlahSiswa
 	 * 
-	 * @param kondisi
+	 * @param jumlahSiswa
 	 * @return ModelAndView
 	 */
 	@RequestMapping("/update")
-	public ModelAndView updateKondisi(@ModelAttribute("kondisi") Kondisi kondisi) {
-		kondisiService.update(kondisi);
-		return new ModelAndView("redirect:/kondisi");
+	public ModelAndView updateJumlahSiswa(@ModelAttribute("jumlahSiswa") JumlahSiswa jumlahSiswa) {
+		jumlahSiswaService.update(jumlahSiswa);
+		return new ModelAndView("redirect:/jumlah_siswa");
 	}
 	
 	/**
-	 * Hapus Kondisi Kelas dan redirect ke halaman kondisi
+	 * Hapus JumlahSiswa dan redirect ke halaman jumlah_siswa
 	 * 
 	 * @param id
 	 * @return modelAndView
 	 */
 	@RequestMapping("/delete/{id}")
 	public ModelAndView deleteKondisi(@PathVariable("id") Integer id) {
-		kondisiService.delete(id);
-		return new ModelAndView("redirect:/kondisi");
+		jumlahSiswaService.delete(id);
+		return new ModelAndView("redirect:/jumlah_siswa");
 	}
 }

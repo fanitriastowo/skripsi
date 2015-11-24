@@ -7,7 +7,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-<title>Halaman Kondisi Kelas</title>
+<title>Halaman Jumlah Siswa</title>
 <%@ include file="/WEB-INF/template/css.jsp"%>
 
 </head>
@@ -15,7 +15,7 @@
 	<div class="container">
 		<%@ include file="/WEB-INF/template/navbar.jsp"%>
 
-		<h3>Tambah Kondisi Kelas</h3>
+		<h3>Tambah Jumlah Siswa</h3>
 		<button class="btn btn-success" data-toggle="modal" data-target="#addModal">
 			<span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Tambah</button> 
 		<br /><br />
@@ -31,15 +31,15 @@
 					</tr>
 				</thead>
 				<tbody>
-					<c:forEach items="${kondisis }" var="kondisi" varStatus="index">
+					<c:forEach items="${jumlahSiswas }" var="jumlahSiswa" varStatus="index">
 					<tr>
 						<td><c:out value="${index.count }" />.</td>
-						<td><c:out value="${kondisi.jmlSiswa }" /></td>
-						<td><c:out value="${kondisi.point }" /></td>
+						<td><c:out value="${jumlahSiswa.jmlSiswa }" /></td>
+						<td><c:out value="${jumlahSiswa.point }" /></td>
 						<td>
-							<a href='<spring:url value="/kondisi/prepare_update/${kondisi.id }" />' class="btn btn-xs btn-primary triggerUpdate">
+							<a href='<spring:url value="/jumlah_siswa/prepare_update/${jumlahSiswa.id }" />' class="btn btn-xs btn-primary triggerUpdate">
 								<span class="glyphicon glyphicon-pencil"></span> Update</a>
-							<a href='<spring:url value="/kondisi/delete/${kondisi.id }" />' class="btn btn-xs btn-danger triggerDelete">
+							<a href='<spring:url value="/jumlah_siswa/delete/${jumlahSiswa.id }" />' class="btn btn-xs btn-danger triggerDelete">
 								<span class="glyphicon glyphicon-remove"></span> Delete</a>
 						</td>
 					</tr>
@@ -50,7 +50,7 @@
 	</div>
 	
 	<!-- Add Modal -->
-	<form:form commandName="kondisi" action="${pageContext.request.contextPath }/kondisi/save" >
+	<form:form commandName="jumlahSiswa" action="${pageContext.request.contextPath }/jumlah_siswa/save" >
 	<div class="modal fade" id="addModal" tabindex = "-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 		<div class="modal-dialog">
 			<div class="modal-content">
@@ -58,7 +58,7 @@
 					<button type="button" class="close" data-dismiss="modal">
 						<span aria-hidden="true">&times;</span><span class="sr-only">Tutup</span>
 					</button>
-					<h4 class="modal-title" id="myModalLabel">Add Data Kondisi Kelas</h4>
+					<h4 class="modal-title" id="myModalLabel">Add Data Jumlah Siswa</h4>
 				</div>
 				<div class="modal-body">
 					
@@ -85,7 +85,7 @@
 	</form:form>
 	
 	<!-- Update Modal -->
-	<form:form commandName="kondisi" action="${pageContext.request.contextPath }/kondisi/update" >
+	<form:form commandName="jumlahSiswa" action="${pageContext.request.contextPath }/jumlah_siswa/update" >
 	<div class="modal fade" id="updateModal" tabindex = "-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 		<div class="modal-dialog">
 			<div class="modal-content">
@@ -93,7 +93,7 @@
 					<button type="button" class="close" data-dismiss="modal">
 						<span aria-hidden="true">&times;</span><span class="sr-only">Tutup</span>
 					</button>
-					<h4 class="modal-title" id="myModalLabel">Add Data Kondisi Kelas</h4>
+					<h4 class="modal-title" id="myModalLabel">Update Data Jumlah Siswa</h4>
 				</div>
 				<div class="modal-body">
 					<form:hidden path="id" id="lblUpdateId"/>
@@ -127,7 +127,7 @@
 					<button type="button" class="close" data-dismiss="modal">
 						<span aria-hidden="true">&times;</span><span class="sr-only">Tutup</span>
 					</button>
-					<h4 class="modal-title" id="myModalLabel">Hapus Data Kondisi Kelas</h4>
+					<h4 class="modal-title" id="myModalLabel">Hapus Data</h4>
 				</div>
 				<div class="modal-body">
 					<strong>Apakah Anda yakin akan menghapus? </strong>
@@ -146,7 +146,7 @@
 </body>
 <script type="text/javascript">
 	$(document).ready(function() {
-		$('#kondisi_kelas').addClass('active');
+		$('#jumlah_siswa').addClass('active');
 		
 		// tampilkan notifikasi sebelum menghapus
 		$('.triggerDelete').click(function(e) {
