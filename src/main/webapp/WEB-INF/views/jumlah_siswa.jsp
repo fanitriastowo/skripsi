@@ -146,7 +146,7 @@
 </body>
 <script type="text/javascript">
 	$(document).ready(function() {
-		$('#jumlah_siswa').addClass('active');
+		$('#master').addClass('active');
 		
 		// tampilkan notifikasi sebelum menghapus
 		$('.triggerDelete').click(function(e) {

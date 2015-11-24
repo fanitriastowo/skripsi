@@ -144,7 +144,7 @@
 </body>
 <script type="text/javascript">
 	$(document).ready(function() {
-		$('#keaktifan_siswa').addClass('active');
+		$('#master').addClass('active');
 		
 		// Trigger Delete Confirmation
 		$('.triggerDelete').click(function(e) {

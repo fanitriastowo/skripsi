@@ -144,7 +144,7 @@
 </body>
 <script type="text/javascript">
 	$(document).ready(function() {
-		$('#kondisi').addClass('active');
+		$('#master').addClass('active');
 		
 		// Trigger Delete Confirmation
 		$('.triggerDelete').click(function(e) {
