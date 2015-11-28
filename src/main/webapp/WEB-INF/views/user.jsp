@@ -18,7 +18,7 @@
 		<h3>Tambah User</h3>
 		<button class="btn btn-success" data-toggle="modal" data-target="#addModal">
 			<span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Tambah</button> 	
-		<br /><br />
+		<hr>
 		
 		<!-- Add Modal -->
 		<form:form commandName="user" action="${pageContext.request.contextPath }/user/add" method="post">

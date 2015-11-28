@@ -19,8 +19,7 @@
 		<!-- Button Tambah Keaktifan Kelas -->
 		<button type="button" class="btn btn-success" data-toggle="modal" data-target="#addModal">
 			<span class="glyphicon glyphicon-plus"></span> Tambah</button>
-			
-		<br /><br />
+		<hr>
 		
 		<div class="table-responsive">
 			<table class="table table-hovered table-bordered table-striped">

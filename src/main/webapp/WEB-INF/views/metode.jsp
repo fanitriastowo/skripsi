@@ -19,7 +19,7 @@
 		<h3>Tambah Data Metode</h3>
 		<button class="btn btn-success" data-toggle="modal" data-target="#addModal">
 			<span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Tambah</button> 
-		<br /><br />
+		<hr>
 
 		<div class="table-responsive">
 			<table class="table table-striped table-bordered table-hover">
