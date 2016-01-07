@@ -8,5 +8,5 @@
 * Spring 4.0.2.RELEASE
 * Spring Security 3.2.5.RELEASE
 * Hibernate Entity Manager 5.0.0.Final
-* Jetty Maven Plugin 9.2.10.v20150310
+* Jetty Maven Plugin 9.3.6.v20151106
 * Jackson 2.6.1
