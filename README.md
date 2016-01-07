@@ -1,5 +1,6 @@
 ### Project Skripsi Beny
-* to run <code>mvn jetty:run</code>
+* to run <code>mvn -P dev jetty:run -Dspring.profiles.active="dev"</code> - Development Server (HSQL)
+* mvn jetty:run - Production Server (MySql)
 * buka browser <code>localhost:8080/skripsi</code>
 
 ### Teknologi
