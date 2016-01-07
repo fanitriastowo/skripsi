@@ -129,6 +129,8 @@
 		</div>
 
 	</div>
+
+	<%@ include file="/WEB-INF/template/footer.jsp"%>
 	<%@ include file="/WEB-INF/template/javascript.jsp"%>
 	<script type="text/javascript">
 		$(document).ready(function() {

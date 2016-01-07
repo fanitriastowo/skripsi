@@ -18,7 +18,6 @@
 /* Padding below the footer and lighter body text */
 
 body {
-  padding-bottom: 40px;
   color: #5a5a5a;
 }
 
@@ -55,7 +54,7 @@ body {
 /* Carousel base class */
 .carousel {
   height: 500px;
-  margin-bottom: 60px;
+  margin-bottom: 30px;
 }
 /* Since positioning the image, we need to help out the caption */
 .carousel-caption {
@@ -155,8 +154,7 @@ body {
 	<div class="container">
 		<%@ include file="/WEB-INF/template/navbar.jsp"%>
 
-		<!-- Carousel
-    ================================================== -->
+		<!-- Carousel ================================================== -->
 		<div id="myCarousel" class="carousel slide" data-ride="carousel">
 			<!-- Indicators -->
 			<ol class="carousel-indicators">
@@ -217,9 +215,10 @@ body {
 			</a> <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next"> <span
 				class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span> <span class="sr-only">Next</span>
 			</a>
-		</div>
-	</div>
-	<!-- /.carousel -->
+		</div> <!-- .carousel -->
+	</div> <!-- .container -->
+
+	<%@ include file="/WEB-INF/template/footer.jsp"%>
 
 	<%@ include file="/WEB-INF/template/javascript.jsp"%>
 	<script type="text/javascript">

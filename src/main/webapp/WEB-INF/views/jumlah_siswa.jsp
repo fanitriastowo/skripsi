@@ -142,6 +142,7 @@
 		</div>
 	</div>
 
+	<%@ include file="/WEB-INF/template/footer.jsp"%>
 	<%@ include file="/WEB-INF/template/javascript.jsp"%>
 </body>
 <script type="text/javascript">
