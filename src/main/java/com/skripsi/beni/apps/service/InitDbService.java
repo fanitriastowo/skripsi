@@ -131,7 +131,7 @@ public class InitDbService implements InitializingBean {
 		metodeRepository.save(metode8);
 
 		Metode metode9 = new Metode();
-		metode9.setMetode("Karya Wisata");
+		metode9.setMetode("Resitasi");
 		metodeRepository.save(metode9);
 
 		Metode metode10 = new Metode();
@@ -207,23 +207,13 @@ public class InitDbService implements InitializingBean {
 		// ======================================================= //
 		Pengajar pengajar1 = new Pengajar();
 		pengajar1.setKualitas("Sangat Baik");
-		pengajar1.setPoint(50.0);
+		pengajar1.setPoint(30.0);
 		pengajarRepository.save(pengajar1);
 
 		Pengajar pengajar2 = new Pengajar();
 		pengajar2.setKualitas("Baik");
-		pengajar2.setPoint(40.0);
+		pengajar2.setPoint(20.0);
 		pengajarRepository.save(pengajar2);
-
-		Pengajar pengajar3 = new Pengajar();
-		pengajar3.setKualitas("Cukup");
-		pengajar3.setPoint(30.0);
-		pengajarRepository.save(pengajar3);
-
-		Pengajar pengajar4 = new Pengajar();
-		pengajar4.setKualitas("Kurang Baik");
-		pengajar4.setPoint(20.0);
-		pengajarRepository.save(pengajar4);
 
 		Pengajar pengajar5 = new Pengajar();
 		pengajar5.setKualitas("Buruk");
@@ -236,29 +226,14 @@ public class InitDbService implements InitializingBean {
 		 */
 		// ======================================================= //
 		Fasilitas fasilitas1 = new Fasilitas();
-		fasilitas1.setFasilitas("Sangat Baik");
+		fasilitas1.setFasilitas("Ada");
 		fasilitas1.setPoint(50.0);
 		fasilitasRepository.save(fasilitas1);
 
 		Fasilitas fasilitas2 = new Fasilitas();
-		fasilitas2.setFasilitas("Baik");
-		fasilitas2.setPoint(40.0);
+		fasilitas2.setFasilitas("Tidak Ada");
+		fasilitas2.setPoint(30.0);
 		fasilitasRepository.save(fasilitas2);
-
-		Fasilitas fasilitas3 = new Fasilitas();
-		fasilitas3.setFasilitas("Cukup");
-		fasilitas3.setPoint(30.0);
-		fasilitasRepository.save(fasilitas3);
-
-		Fasilitas fasilitas4 = new Fasilitas();
-		fasilitas4.setFasilitas("Kurang");
-		fasilitas4.setPoint(20.0);
-		fasilitasRepository.save(fasilitas4);
-
-		Fasilitas fasilitas5 = new Fasilitas();
-		fasilitas5.setFasilitas("Tidak Ada");
-		fasilitas5.setPoint(10.0);
-		fasilitasRepository.save(fasilitas5);
 
 		// ======================================================= //
 		
@@ -267,17 +242,17 @@ public class InitDbService implements InitializingBean {
 		 */
 		// ======================================================= //
 		Kondisi kondisi1 = new Kondisi();
-		kondisi1.setKondisi("Kondusif");
+		kondisi1.setKondisi("Jauh dari pusat keramaian");
 		kondisi1.setPoint(30.0);
 		kondisiRepository.save(kondisi1);
 		
 		Kondisi kondisi2 = new Kondisi();
-		kondisi2.setKondisi("Cukup Kondusif");
+		kondisi2.setKondisi("Dekat dengan pusat keramaian");
 		kondisi2.setPoint(20.0);
 		kondisiRepository.save(kondisi2);
 		
 		Kondisi kondisi3 = new Kondisi();
-		kondisi3.setKondisi("Tidak Kondusif");
+		kondisi3.setKondisi("Berada dipusat keramaian");
 		kondisi3.setPoint(10.0);
 		kondisiRepository.save(kondisi3);
 		

@@ -14,36 +14,36 @@ import com.skripsi.beni.apps.repository.JumlahSiswaRepository;
 public class JumlahSiswaService {
 
 	@Autowired
-	private JumlahSiswaRepository kondisiRepository;
+	private JumlahSiswaRepository jumlahSiswaRepository;
 
 	public List<JumlahSiswa> findAll() {
 
 		// Cari semua data Kondisi Kelas
-		return kondisiRepository.findAll();
+		return jumlahSiswaRepository.findAll();
 	}
 
 	public void delete(Integer id) {
 
 		// Hapus Kondisi Kelas berdasarkan id
-		kondisiRepository.delete(id);
+		jumlahSiswaRepository.delete(id);
 	}
 
 	public void save(JumlahSiswa kondisi) {
 
 		// Simpan Kondisi
-		kondisiRepository.save(kondisi);
+		jumlahSiswaRepository.save(kondisi);
 	}
 
 	public JumlahSiswa findOneById(Integer id) {
 		
 		// get kondisi by id
-		return kondisiRepository.findOne(id);
+		return jumlahSiswaRepository.findOne(id);
 	}
 
 	public void update(JumlahSiswa kondisi) {
 
 		// Update Kondisi
-		kondisiRepository.save(kondisi);
+		jumlahSiswaRepository.save(kondisi);
 	}
 
 }
