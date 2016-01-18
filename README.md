@@ -8,6 +8,7 @@
 * Servlet API 3.1.0, JSTL 1.2, jsp API 2.2.0
 * Spring 4.0.2.RELEASE
 * Spring Security 3.2.5.RELEASE
-* Hibernate Entity Manager 5.0.0.Final
+* Spring Data JPA 1.5.1.RELEASE
+* Hibernate Entity Manager 4.3.4.Final
 * Jetty Maven Plugin 9.3.6.v20151106
 * Jackson 2.6.1
