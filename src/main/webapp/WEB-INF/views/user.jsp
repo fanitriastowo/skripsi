@@ -110,10 +110,6 @@
 							<form:input path="username" cssClass="form-control" id="txtUpdateUsername" placeholder="Type Username" />
 						</div>
 						<div class="form-group">
-							<label for="txtUpdatePassword" class="control-label">Password:</label>
-							<form:password path="password" cssClass="form-control" id="txtUpdatePassword" placeholder="Type Password" />
-						</div>
-						<div class="form-group">
 							<label for="txtUpdateNamaLengkap" class="control-label">Nama Lengkap:</label>
 							<form:input path="namaLengkap" cssClass="form-control" id="txtUpdateNamaLengkap" placeholder="Type Nama Lengkap" />
 						</div>
@@ -171,7 +167,6 @@
 				$.getJSON( updateURL, function( data ) {
 					$('#lblUpdateId').val(data.id);
 					$('#txtUpdateUsername').val(data.username);
-					$('#txtUpdatePassword').val(data.password);
 					$('#txtUpdateNamaLengkap').val(data.namaLengkap);
 					$('#txtUpdateNoTelp').val(data.noTelp);
 				});

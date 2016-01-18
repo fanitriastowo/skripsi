@@ -49,7 +49,7 @@ public class UserController {
 
 	@RequestMapping("/update")
 	public ModelAndView updateUser(@ModelAttribute("user") User user) {
-		userService.update(user);
+		userService.updateIdentity(user);
 		return new ModelAndView("redirect:/user");
 	}
 

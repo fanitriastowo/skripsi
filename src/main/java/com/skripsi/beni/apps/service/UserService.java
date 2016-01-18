@@ -3,6 +3,7 @@ package com.skripsi.beni.apps.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -31,7 +32,9 @@ public class UserService {
 	}
 
 	public void save(User user) {
+		BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
 		Role roleUser = roleRepository.findOneByName("ROLE_USER");
+		user.setPassword(encoder.encode(user.getPassword()));
 		user.setRole(roleUser);
 		user.setEnabled(true);
 		userRepository.save(user);
@@ -41,10 +44,11 @@ public class UserService {
 		return userRepository.findOne(id);
 	}
 
-	public void update(User user) {
-		Role roleUser = roleRepository.findOneByName("ROLE_USER");
-		user.setRole(roleUser);
-		user.setEnabled(true);
+	public void updateIdentity(User user) {
+		User userDTO = findOneById(user.getId());
+		user.setPassword(userDTO.getPassword());
+		user.setRole(userDTO.getRole());
+		user.setEnabled(userDTO.getEnabled());
 		userRepository.save(user);
 	}
 
