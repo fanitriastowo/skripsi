@@ -42,7 +42,7 @@ public class MetodeController {
 
 	@RequestMapping("/prepare_edit/{id}")
 	@ResponseBody
-	public Metode prepareEdit(@PathVariable Integer id) {
+	public Metode prepareEdit(@PathVariable Long id) {
 		Metode metode = new Metode();
 		metode = metodeService.findOneById(id);
 		return metode;
@@ -58,7 +58,7 @@ public class MetodeController {
 	}
 
 	@RequestMapping("/delete/{id}")
-	public ModelAndView deleteMetode(@PathVariable Integer id) {
+	public ModelAndView deleteMetode(@PathVariable Long id) {
 		ModelAndView modelAndView = new ModelAndView("redirect:/metode");
 		metodeService.delete(id);
 		return modelAndView;

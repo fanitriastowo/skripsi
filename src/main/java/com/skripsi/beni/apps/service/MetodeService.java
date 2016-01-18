@@ -20,7 +20,7 @@ public class MetodeService {
 		return metodeRepository.findAll(new Sort(Direction.ASC, "metode"));
 	}
 
-	public Metode findOneById(Integer id) {
+	public Metode findOneById(Long id) {
 		return metodeRepository.findOne(id);
 	}
 
@@ -28,7 +28,7 @@ public class MetodeService {
 		metodeRepository.save(metode);
 	}
 
-	public void delete(Integer id) {
+	public void delete(Long id) {
 		metodeRepository.delete(id);
 	}
 

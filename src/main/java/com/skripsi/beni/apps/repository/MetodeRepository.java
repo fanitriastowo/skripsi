@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import com.skripsi.beni.apps.entity.Metode;
 
 @Repository
-public interface MetodeRepository extends JpaRepository<Metode, Integer> {
+public interface MetodeRepository extends JpaRepository<Metode, Long> {
 
 }

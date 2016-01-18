@@ -21,6 +21,13 @@
 		<property name="dataSource" ref="dataSource" />
 	</bean>
 
-	<import resource="database-dev.xml" />
 	<import resource="security.xml"/>
+	
+	<beans profile="prod">
+		<import resource="database-prod.xml" />
+	</beans>
+	
+	<beans profile="dev">
+		<import resource="database-dev.xml" />
+	</beans>
 </beans>

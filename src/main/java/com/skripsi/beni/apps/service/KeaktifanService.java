@@ -24,11 +24,11 @@ public class KeaktifanService {
 		keaktifanRepository.save(keaktifan);
 	}
 
-	public void delete(Integer id) {
+	public void delete(Long id) {
 		keaktifanRepository.delete(id);
 	}
 
-	public Keaktifan findOneById(Integer id) {
+	public Keaktifan findOneById(Long id) {
 		return keaktifanRepository.findOne(id);
 	}
 

@@ -24,11 +24,11 @@ public class FasilitasService {
 		fasilitasRepository.save(fasilitas);
 	}
 
-	public void delete(Integer id) {
+	public void delete(Long id) {
 		fasilitasRepository.delete(id);
 	}
 
-	public Fasilitas findOneById(Integer id) {
+	public Fasilitas findOneById(Long id) {
 		return fasilitasRepository.findOne(id);
 	}
 

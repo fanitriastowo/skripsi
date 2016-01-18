@@ -42,7 +42,7 @@ public class UserController {
 
 	@RequestMapping("/prepare_update/{id}")
 	@ResponseBody
-	public User prepareUpdate(@PathVariable("id") Integer id) {
+	public User prepareUpdate(@PathVariable("id") Long id) {
 		User user = userService.findOneById(id);
 		return user;
 	}
@@ -54,7 +54,7 @@ public class UserController {
 	}
 
 	@RequestMapping("/delete/{id}")
-	public ModelAndView deleteUser(@PathVariable("id") Integer id) {
+	public ModelAndView deleteUser(@PathVariable("id") Long id) {
 		userService.delete(id);
 		return new ModelAndView("redirect:/user");
 	}

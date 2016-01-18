@@ -24,11 +24,11 @@ public class KondisiService {
 		kondisiRepository.save(kondisi);
 	}
 
-	public void delete(Integer id) {
+	public void delete(Long id) {
 		kondisiRepository.delete(id);
 	}
 
-	public Kondisi findOneById(Integer id) {
+	public Kondisi findOneById(Long id) {
 		return kondisiRepository.findOne(id);
 	}
 

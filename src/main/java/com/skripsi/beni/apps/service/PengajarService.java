@@ -24,11 +24,11 @@ public class PengajarService {
 		pengajarRepository.save(pengajar);
 	}
 
-	public void delete(Integer id) {
+	public void delete(Long id) {
 		pengajarRepository.delete(id);
 	}
 
-	public Pengajar findOneById(Integer id) {
+	public Pengajar findOneById(Long id) {
 		return pengajarRepository.findOne(id);
 	}
 

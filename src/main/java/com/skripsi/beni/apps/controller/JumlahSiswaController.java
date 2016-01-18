@@ -62,7 +62,7 @@ public class JumlahSiswaController {
 	 */
 	@RequestMapping("/prepare_update/{id}")
 	@ResponseBody
-	public JumlahSiswa prepareUpdate(@PathVariable("id") Integer id) {
+	public JumlahSiswa prepareUpdate(@PathVariable("id") Long id) {
 		JumlahSiswa jumlahSiswa = jumlahSiswaService.findOneById(id);
 		return jumlahSiswa;
 	}
@@ -86,7 +86,7 @@ public class JumlahSiswaController {
 	 * @return modelAndView
 	 */
 	@RequestMapping("/delete/{id}")
-	public ModelAndView deleteKondisi(@PathVariable("id") Integer id) {
+	public ModelAndView deleteKondisi(@PathVariable("id") Long id) {
 		jumlahSiswaService.delete(id);
 		return new ModelAndView("redirect:/jumlah_siswa");
 	}

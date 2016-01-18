@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import com.skripsi.beni.apps.entity.Keaktifan;
 
 @Repository
-public interface KeaktifanRepository extends JpaRepository<Keaktifan, Integer> {
+public interface KeaktifanRepository extends JpaRepository<Keaktifan, Long> {
 
 }

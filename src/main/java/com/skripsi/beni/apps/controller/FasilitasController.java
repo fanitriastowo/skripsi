@@ -62,7 +62,7 @@ public class FasilitasController {
 	 * @return ModelAndView
 	 */
 	@RequestMapping("/delete/{id}")
-	public ModelAndView deleteFasilitas(@PathVariable("id") Integer id) {
+	public ModelAndView deleteFasilitas(@PathVariable("id") Long id) {
 		fasilitasService.delete(id);
 		return new ModelAndView("redirect:/fasilitas");
 	}
@@ -75,7 +75,7 @@ public class FasilitasController {
 	 */
 	@RequestMapping("/prepare_update/{id}")
 	@ResponseBody
-	public Fasilitas prepareUpdate(@PathVariable("id") Integer id) {
+	public Fasilitas prepareUpdate(@PathVariable("id") Long id) {
 		Fasilitas fasilitas = fasilitasService.findOneById(id);
 		return fasilitas;
 	}

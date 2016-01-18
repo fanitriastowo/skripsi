@@ -6,20 +6,20 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "kelas")
+@Table(name = "JUMLAH_SISWA")
 public class JumlahSiswa {
 
 	@Id
 	@GeneratedValue
-	private Integer id;
+	private Long id;
 	private String jmlSiswa;
 	private Double point;
 
-	public Integer getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(Integer id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 

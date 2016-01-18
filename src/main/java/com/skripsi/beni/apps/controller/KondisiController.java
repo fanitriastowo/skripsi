@@ -60,7 +60,7 @@ public class KondisiController {
 	 * @return redirect:/kondisi
 	 */
 	@RequestMapping("/delete/{id}")
-	public ModelAndView deleteKondisi(@PathVariable("id") Integer id) {
+	public ModelAndView deleteKondisi(@PathVariable("id") Long id) {
 		kondisiService.delete(id);
 		return new ModelAndView("redirect:/kondisi");
 	}
@@ -73,7 +73,7 @@ public class KondisiController {
 	 */
 	@RequestMapping("/prepare_update/{id}")
 	@ResponseBody
-	public Kondisi prepareUpdate(@PathVariable("id") Integer id) {
+	public Kondisi prepareUpdate(@PathVariable("id") Long id) {
 		Kondisi kondisi = kondisiService.findOneById(id);
 		return kondisi;
 	}

@@ -9,7 +9,7 @@ import com.skripsi.beni.apps.entity.Role;
 import com.skripsi.beni.apps.entity.User;
 
 @Repository
-public interface UserRepository extends JpaRepository<User, Integer> {
+public interface UserRepository extends JpaRepository<User, Long> {
 
 	List<User> findAllByRole(Role role);
 

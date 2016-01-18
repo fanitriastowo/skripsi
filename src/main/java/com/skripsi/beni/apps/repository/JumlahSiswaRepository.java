@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import com.skripsi.beni.apps.entity.JumlahSiswa;
 
 @Repository
-public interface JumlahSiswaRepository extends JpaRepository<JumlahSiswa, Integer> {
+public interface JumlahSiswaRepository extends JpaRepository<JumlahSiswa, Long> {
 
 }

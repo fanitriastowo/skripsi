@@ -62,7 +62,7 @@ public class KeaktifanController {
 	 * @return ModelAndView
 	 */
 	@RequestMapping("/delete/{id}")
-	public ModelAndView deleteKeaktifan(@PathVariable("id") Integer id) {
+	public ModelAndView deleteKeaktifan(@PathVariable("id") Long id) {
 		keaktifanService.delete(id);
 		return new ModelAndView("redirect:/keaktifan");
 	}
@@ -75,7 +75,7 @@ public class KeaktifanController {
 	 */
 	@RequestMapping("/prepare_update/{id}")
 	@ResponseBody
-	public Keaktifan prepareUpdate(@PathVariable("id") Integer id) {
+	public Keaktifan prepareUpdate(@PathVariable("id") Long id) {
 		Keaktifan keaktifan = keaktifanService.findOneById(id);
 		return keaktifan;
 	}

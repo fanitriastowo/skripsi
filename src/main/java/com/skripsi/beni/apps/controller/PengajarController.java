@@ -62,7 +62,7 @@ public class PengajarController {
 	 * @return ModelAndView
 	 */
 	@RequestMapping("/delete/{id}")
-	public ModelAndView deletePengajar(@PathVariable("id") Integer id) {
+	public ModelAndView deletePengajar(@PathVariable("id") Long id) {
 		pengajarService.delete(id);
 		return new ModelAndView("redirect:/pengajar");
 	}
@@ -75,7 +75,7 @@ public class PengajarController {
 	 */
 	@RequestMapping("/prepare_update/{id}")
 	@ResponseBody
-	public Pengajar prepareUpdate(@PathVariable("id") Integer id) {
+	public Pengajar prepareUpdate(@PathVariable("id") Long id) {
 		Pengajar pengajar = pengajarService.findOneById(id);
 		return pengajar;
 	}

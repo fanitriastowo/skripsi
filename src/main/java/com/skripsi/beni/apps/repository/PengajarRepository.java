@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import com.skripsi.beni.apps.entity.Pengajar;
 
 @Repository
-public interface PengajarRepository extends JpaRepository<Pengajar, Integer> {
+public interface PengajarRepository extends JpaRepository<Pengajar, Long> {
 
 }

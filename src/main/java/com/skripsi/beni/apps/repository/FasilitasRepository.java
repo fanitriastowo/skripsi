@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import com.skripsi.beni.apps.entity.Fasilitas;
 
 @Repository
-public interface FasilitasRepository extends JpaRepository<Fasilitas, Integer> {
+public interface FasilitasRepository extends JpaRepository<Fasilitas, Long> {
 
 }

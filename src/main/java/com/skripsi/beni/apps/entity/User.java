@@ -7,16 +7,13 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
 @Entity
 @Table(name = "USER")
-@JsonIgnoreProperties(value = { "role", "password", "enabled" })
 public class User {
 
 	@Id
 	@GeneratedValue
-	private Integer id;
+	private Long id;
 
 	private String username;
 
@@ -32,11 +29,11 @@ public class User {
 	@JoinColumn(name = "role_id")
 	private Role role;
 
-	public Integer getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(Integer id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 

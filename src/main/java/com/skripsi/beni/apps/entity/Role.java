@@ -14,18 +14,18 @@ public class Role {
 
 	@Id
 	@GeneratedValue
-	private Integer id;
+	private Long id;
 
 	private String name;
 
 	@OneToMany(mappedBy = "role")
 	private List<User> users;
 
-	public Integer getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(Integer id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 

@@ -22,7 +22,7 @@ public class JumlahSiswaService {
 		return jumlahSiswaRepository.findAll();
 	}
 
-	public void delete(Integer id) {
+	public void delete(Long id) {
 
 		// Hapus Kondisi Kelas berdasarkan id
 		jumlahSiswaRepository.delete(id);
@@ -34,7 +34,7 @@ public class JumlahSiswaService {
 		jumlahSiswaRepository.save(kondisi);
 	}
 
-	public JumlahSiswa findOneById(Integer id) {
+	public JumlahSiswa findOneById(Long id) {
 		
 		// get kondisi by id
 		return jumlahSiswaRepository.findOne(id);

@@ -1,23 +1,24 @@
 package com.skripsi.beni.apps.service;
 
-import org.springframework.beans.factory.InitializingBean;
+import javax.annotation.PostConstruct;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.skripsi.beni.apps.entity.Fasilitas;
+import com.skripsi.beni.apps.entity.JumlahSiswa;
 import com.skripsi.beni.apps.entity.Keaktifan;
 import com.skripsi.beni.apps.entity.Kondisi;
-import com.skripsi.beni.apps.entity.JumlahSiswa;
 import com.skripsi.beni.apps.entity.Metode;
 import com.skripsi.beni.apps.entity.Pengajar;
 import com.skripsi.beni.apps.entity.Role;
 import com.skripsi.beni.apps.entity.User;
 import com.skripsi.beni.apps.repository.FasilitasRepository;
+import com.skripsi.beni.apps.repository.JumlahSiswaRepository;
 import com.skripsi.beni.apps.repository.KeaktifanRepository;
 import com.skripsi.beni.apps.repository.KondisiRepository;
-import com.skripsi.beni.apps.repository.JumlahSiswaRepository;
 import com.skripsi.beni.apps.repository.MetodeRepository;
 import com.skripsi.beni.apps.repository.PengajarRepository;
 import com.skripsi.beni.apps.repository.RoleRepository;
@@ -25,7 +26,7 @@ import com.skripsi.beni.apps.repository.UserRepository;
 
 @Service
 @Transactional
-public class InitDbService implements InitializingBean {
+public class InitDbService {
 
 	@Autowired
 	private RoleRepository roleRepository;
@@ -51,7 +52,7 @@ public class InitDbService implements InitializingBean {
 	@Autowired
 	private KondisiRepository kondisiRepository;
 
-	@Override
+	@PostConstruct
 	public void afterPropertiesSet() throws Exception {
 
 		BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
