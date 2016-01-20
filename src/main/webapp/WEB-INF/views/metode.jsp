@@ -7,7 +7,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-<title>metode</title>
+<title>Halaman Daftar Metode</title>
 
 <%@ include file="/WEB-INF/template/css.jsp"%>
 </head>
@@ -22,12 +22,17 @@
 		<hr>
 
 		<div class="table-responsive">
-			<table class="table table-striped table-bordered table-hover">
+			<table class="table table-striped table-bordered table-hover table-condensed" style="font-size: 0.9em">
 				<thead>
 					<tr>
 						<th width="5%">No.</th>
-						<th>Nama Metode</th>
-						<th>Aksi</th>
+						<th>Metode</th>
+						<th>Jumlah Siswa</th>
+						<th>Kondisi Kelas</th>
+						<th>Keaktifan Siswa</th>
+						<th>Kualitas Pengajar</th>
+						<th>Fasilitas</th>
+						<th width="10%">Aksi</th>
 					</tr>
 				</thead>
 
@@ -36,11 +41,16 @@
 						<tr>
 							<td><c:out value="${index.count }" /></td>
 							<td><c:out value="${metode.metode }" /></td>
+							<td><c:out value="${metode.jumlahSiswa.jmlSiswa }" /></td>
+							<td><c:out value="${metode.kondisi.kondisi }" /></td>
+							<td><c:out value="${metode.keaktifan.jmlSiswa }" /></td>
+							<td><c:out value="${metode.pengajar.kualitas }" /></td>
+							<td><c:out value="${metode.fasilitas.fasilitas }" /></td>
 							<td>
-								<a href='<spring:url value="/metode/prepare_edit/${metode.id }" />' class="btn btn-xs btn-info btnUpdate">
-									<span class="glyphicon glyphicon-pencil"></span> Edit</a> 
-								<a href='<spring:url value="/metode/delete/${metode.id }" />' class="btn btn-xs btn-danger btnPrepareDelete">
-									<span class="glyphicon glyphicon-remove"></span> Delete</a> 
+								<a href='<spring:url value="/metode/prepare_edit/${metode.id }" />' class="btn btn-xs btn-info btnUpdate" title="Ubah Metode">
+									<span class="glyphicon glyphicon-pencil"></span></a> 
+								<a href='<spring:url value="/metode/delete/${metode.id }" />' class="btn btn-xs btn-danger btnPrepareDelete" title="Hapus Metode">
+									<span class="glyphicon glyphicon-remove"></span></a> 
 							</td>
 						</tr>
 					</c:forEach>

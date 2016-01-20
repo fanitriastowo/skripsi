@@ -2,9 +2,9 @@
 	<entity>
 		<entity-name>com.skripsi.beni.apps.entity.Fasilitas</entity-name>
 		<entity-width>120</entity-width>
-		<entity-height>128</entity-height>
-		<entity-X-Coordinate>51</entity-X-Coordinate>
-		<entity-Y-Coordinate>390</entity-Y-Coordinate>
+		<entity-height>166</entity-height>
+		<entity-X-Coordinate>167</entity-X-Coordinate>
+		<entity-Y-Coordinate>308</entity-Y-Coordinate>
 		<primary-collapsed>false</primary-collapsed>
 		<relation-collapsed>false</relation-collapsed>
 		<basic-collapsed>false</basic-collapsed>
@@ -13,9 +13,20 @@
 	<entity>
 		<entity-name>com.skripsi.beni.apps.entity.Pengajar</entity-name>
 		<entity-width>120</entity-width>
-		<entity-height>128</entity-height>
-		<entity-X-Coordinate>40</entity-X-Coordinate>
-		<entity-Y-Coordinate>20</entity-Y-Coordinate>
+		<entity-height>166</entity-height>
+		<entity-X-Coordinate>118</entity-X-Coordinate>
+		<entity-Y-Coordinate>39</entity-Y-Coordinate>
+		<primary-collapsed>false</primary-collapsed>
+		<relation-collapsed>false</relation-collapsed>
+		<basic-collapsed>false</basic-collapsed>
+	</entity>
+
+	<entity>
+		<entity-name>com.skripsi.beni.apps.entity.JumlahSiswa</entity-name>
+		<entity-width>120</entity-width>
+		<entity-height>166</entity-height>
+		<entity-X-Coordinate>683</entity-X-Coordinate>
+		<entity-Y-Coordinate>308</entity-Y-Coordinate>
 		<primary-collapsed>false</primary-collapsed>
 		<relation-collapsed>false</relation-collapsed>
 		<basic-collapsed>false</basic-collapsed>
@@ -24,9 +35,9 @@
 	<entity>
 		<entity-name>com.skripsi.beni.apps.entity.Metode</entity-name>
 		<entity-width>120</entity-width>
-		<entity-height>108</entity-height>
-		<entity-X-Coordinate>180</entity-X-Coordinate>
-		<entity-Y-Coordinate>220</entity-Y-Coordinate>
+		<entity-height>226</entity-height>
+		<entity-X-Coordinate>405</entity-X-Coordinate>
+		<entity-Y-Coordinate>16</entity-Y-Coordinate>
 		<primary-collapsed>false</primary-collapsed>
 		<relation-collapsed>false</relation-collapsed>
 		<basic-collapsed>false</basic-collapsed>
@@ -36,8 +47,8 @@
 		<entity-name>com.skripsi.beni.apps.entity.Role</entity-name>
 		<entity-width>120</entity-width>
 		<entity-height>146</entity-height>
-		<entity-X-Coordinate>680</entity-X-Coordinate>
-		<entity-Y-Coordinate>20</entity-Y-Coordinate>
+		<entity-X-Coordinate>880</entity-X-Coordinate>
+		<entity-Y-Coordinate>37</entity-Y-Coordinate>
 		<primary-collapsed>false</primary-collapsed>
 		<relation-collapsed>false</relation-collapsed>
 		<basic-collapsed>false</basic-collapsed>
@@ -46,9 +57,9 @@
 	<entity>
 		<entity-name>com.skripsi.beni.apps.entity.Keaktifan</entity-name>
 		<entity-width>120</entity-width>
-		<entity-height>128</entity-height>
-		<entity-X-Coordinate>250</entity-X-Coordinate>
-		<entity-Y-Coordinate>29</entity-Y-Coordinate>
+		<entity-height>166</entity-height>
+		<entity-X-Coordinate>683</entity-X-Coordinate>
+		<entity-Y-Coordinate>31</entity-Y-Coordinate>
 		<primary-collapsed>false</primary-collapsed>
 		<relation-collapsed>false</relation-collapsed>
 		<basic-collapsed>false</basic-collapsed>
@@ -58,19 +69,19 @@
 		<entity-name>com.skripsi.beni.apps.entity.User</entity-name>
 		<entity-width>120</entity-width>
 		<entity-height>226</entity-height>
-		<entity-X-Coordinate>450</entity-X-Coordinate>
-		<entity-Y-Coordinate>119</entity-Y-Coordinate>
+		<entity-X-Coordinate>880</entity-X-Coordinate>
+		<entity-Y-Coordinate>234</entity-Y-Coordinate>
 		<primary-collapsed>false</primary-collapsed>
 		<relation-collapsed>false</relation-collapsed>
 		<basic-collapsed>false</basic-collapsed>
 	</entity>
 
 	<entity>
-		<entity-name>com.skripsi.beni.apps.entity.JumlahSiswa</entity-name>
+		<entity-name>com.skripsi.beni.apps.entity.Kondisi</entity-name>
 		<entity-width>120</entity-width>
-		<entity-height>128</entity-height>
-		<entity-X-Coordinate>270</entity-X-Coordinate>
-		<entity-Y-Coordinate>390</entity-Y-Coordinate>
+		<entity-height>166</entity-height>
+		<entity-X-Coordinate>405</entity-X-Coordinate>
+		<entity-Y-Coordinate>409</entity-Y-Coordinate>
 		<primary-collapsed>false</primary-collapsed>
 		<relation-collapsed>false</relation-collapsed>
 		<basic-collapsed>false</basic-collapsed>

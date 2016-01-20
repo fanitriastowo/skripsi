@@ -52,7 +52,7 @@ public class InitDbService {
 	@Autowired
 	private KondisiRepository kondisiRepository;
 
-	// @PostConstruct
+	@PostConstruct
 	public void afterPropertiesSet() throws Exception {
 
 		BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
@@ -96,78 +96,33 @@ public class InitDbService {
 		// ==================================================== //
 
 		/**
-		 * Inisial Table Metode
-		 */
-		// ============================================== //
-		Metode metode1 = new Metode();
-		metode1.setMetode("Ceramah");
-		metodeRepository.save(metode1);
-
-		Metode metode2 = new Metode();
-		metode2.setMetode("Diskusi");
-		metodeRepository.save(metode2);
-
-		Metode metode3 = new Metode();
-		metode3.setMetode("Problem Solving");
-		metodeRepository.save(metode3);
-
-		Metode metode4 = new Metode();
-		metode4.setMetode("Tanya Jawab");
-		metodeRepository.save(metode4);
-
-		Metode metode5 = new Metode();
-		metode5.setMetode("Latihan");
-		metodeRepository.save(metode5);
-
-		Metode metode6 = new Metode();
-		metode6.setMetode("Eksperimen");
-		metodeRepository.save(metode6);
-
-		Metode metode7 = new Metode();
-		metode7.setMetode("Membaca dan Berdiskusi");
-		metodeRepository.save(metode7);
-
-		Metode metode8 = new Metode();
-		metode8.setMetode("Role Playing");
-		metodeRepository.save(metode8);
-
-		Metode metode9 = new Metode();
-		metode9.setMetode("Resitasi");
-		metodeRepository.save(metode9);
-
-		Metode metode10 = new Metode();
-		metode10.setMetode("Demonstrasi");
-		metodeRepository.save(metode10);
-		// ===================================================== //
-
-		/**
 		 * Inisial Table Jumlah Siswa
 		 */
 		// ====================================================== //
-		JumlahSiswa jumlahSiswa1 = new JumlahSiswa();
-		jumlahSiswa1.setJmlSiswa("=> 26");
-		jumlahSiswa1.setPoint(50.0);
-		jumlahSiswaRepository.save(jumlahSiswa1);
+		JumlahSiswa jumlahSiswaLebihDari26 = new JumlahSiswa();
+		jumlahSiswaLebihDari26.setJmlSiswa("=> 26");
+		jumlahSiswaLebihDari26.setPoint(50.0);
+		jumlahSiswaRepository.save(jumlahSiswaLebihDari26);
 
-		JumlahSiswa jumlahSiswa2 = new JumlahSiswa();
-		jumlahSiswa2.setJmlSiswa("21 - 25");
-		jumlahSiswa2.setPoint(40.0);
-		jumlahSiswaRepository.save(jumlahSiswa2);
+		JumlahSiswa jumlahSiswaAntara21Dan25 = new JumlahSiswa();
+		jumlahSiswaAntara21Dan25.setJmlSiswa("21 - 25");
+		jumlahSiswaAntara21Dan25.setPoint(40.0);
+		jumlahSiswaRepository.save(jumlahSiswaAntara21Dan25);
 
-		JumlahSiswa jumlahSiswa3 = new JumlahSiswa();
-		jumlahSiswa3.setJmlSiswa("15 - 20");
-		jumlahSiswa3.setPoint(30.0);
-		jumlahSiswaRepository.save(jumlahSiswa3);
+		JumlahSiswa jumlahSiswaAntara15Dan20 = new JumlahSiswa();
+		jumlahSiswaAntara15Dan20.setJmlSiswa("15 - 20");
+		jumlahSiswaAntara15Dan20.setPoint(30.0);
+		jumlahSiswaRepository.save(jumlahSiswaAntara15Dan20);
 
-		JumlahSiswa jumlahSiswa4 = new JumlahSiswa();
-		jumlahSiswa4.setJmlSiswa("11 - 14");
-		jumlahSiswa4.setPoint(20.0);
-		jumlahSiswaRepository.save(jumlahSiswa4);
+		JumlahSiswa jumlahSiswaAntara11Dan14 = new JumlahSiswa();
+		jumlahSiswaAntara11Dan14.setJmlSiswa("11 - 14");
+		jumlahSiswaAntara11Dan14.setPoint(20.0);
+		jumlahSiswaRepository.save(jumlahSiswaAntara11Dan14);
 
-		JumlahSiswa jumlahSiswa5 = new JumlahSiswa();
-		jumlahSiswa5.setJmlSiswa("<= 10");
-		jumlahSiswa5.setPoint(10.0);
-		jumlahSiswaRepository.save(jumlahSiswa5);
+		JumlahSiswa jumlahSiswaKurangDari10 = new JumlahSiswa();
+		jumlahSiswaKurangDari10.setJmlSiswa("<= 10");
+		jumlahSiswaKurangDari10.setPoint(10.0);
+		jumlahSiswaRepository.save(jumlahSiswaKurangDari10);
 
 		// ====================================================== //
 
@@ -175,30 +130,30 @@ public class InitDbService {
 		 * Inisial Keaktifan siswa
 		 */
 		// ======================================================= //
-		Keaktifan keaktifan1 = new Keaktifan();
-		keaktifan1.setJmlSiswa("=> 26");
-		keaktifan1.setPoint(50.0);
-		keaktifanRepository.save(keaktifan1);
+		Keaktifan keaktifanLebihDari26 = new Keaktifan();
+		keaktifanLebihDari26.setJmlSiswa("=> 26");
+		keaktifanLebihDari26.setPoint(50.0);
+		keaktifanRepository.save(keaktifanLebihDari26);
 
-		Keaktifan keaktifan2 = new Keaktifan();
-		keaktifan2.setJmlSiswa("21 - 25");
-		keaktifan2.setPoint(40.0);
-		keaktifanRepository.save(keaktifan2);
+		Keaktifan keaktifanAntara21Dan25 = new Keaktifan();
+		keaktifanAntara21Dan25.setJmlSiswa("21 - 25");
+		keaktifanAntara21Dan25.setPoint(40.0);
+		keaktifanRepository.save(keaktifanAntara21Dan25);
 
-		Keaktifan keaktifan3 = new Keaktifan();
-		keaktifan3.setJmlSiswa("15 - 20");
-		keaktifan3.setPoint(30.0);
-		keaktifanRepository.save(keaktifan3);
+		Keaktifan keaktifanAntara15Dan20 = new Keaktifan();
+		keaktifanAntara15Dan20.setJmlSiswa("15 - 20");
+		keaktifanAntara15Dan20.setPoint(30.0);
+		keaktifanRepository.save(keaktifanAntara15Dan20);
 
-		Keaktifan keaktifan4 = new Keaktifan();
-		keaktifan4.setJmlSiswa("11 - 14");
-		keaktifan4.setPoint(20.0);
-		keaktifanRepository.save(keaktifan4);
+		Keaktifan keaktifanAntara11Dan14 = new Keaktifan();
+		keaktifanAntara11Dan14.setJmlSiswa("11 - 14");
+		keaktifanAntara11Dan14.setPoint(20.0);
+		keaktifanRepository.save(keaktifanAntara11Dan14);
 
-		Keaktifan keaktifan5 = new Keaktifan();
-		keaktifan5.setJmlSiswa("<= 10");
-		keaktifan5.setPoint(10.0);
-		keaktifanRepository.save(keaktifan5);
+		Keaktifan keaktifanKurangDari10 = new Keaktifan();
+		keaktifanKurangDari10.setJmlSiswa("<= 10");
+		keaktifanKurangDari10.setPoint(10.0);
+		keaktifanRepository.save(keaktifanKurangDari10);
 
 		// ======================================================= //
 
@@ -206,35 +161,35 @@ public class InitDbService {
 		 * Inisial Table Pengajar
 		 */
 		// ======================================================= //
-		Pengajar pengajar1 = new Pengajar();
-		pengajar1.setKualitas("Sangat Baik");
-		pengajar1.setPoint(30.0);
-		pengajarRepository.save(pengajar1);
+		Pengajar pengajarSangatBaik = new Pengajar();
+		pengajarSangatBaik.setKualitas("Sangat Baik");
+		pengajarSangatBaik.setPoint(30.0);
+		pengajarRepository.save(pengajarSangatBaik);
 
-		Pengajar pengajar2 = new Pengajar();
-		pengajar2.setKualitas("Baik");
-		pengajar2.setPoint(20.0);
-		pengajarRepository.save(pengajar2);
+		Pengajar pengajarBaik = new Pengajar();
+		pengajarBaik.setKualitas("Baik");
+		pengajarBaik.setPoint(20.0);
+		pengajarRepository.save(pengajarBaik);
 
-		Pengajar pengajar5 = new Pengajar();
-		pengajar5.setKualitas("Buruk");
-		pengajar5.setPoint(10.0);
-		pengajarRepository.save(pengajar5);
+		Pengajar pengajarBuruk = new Pengajar();
+		pengajarBuruk.setKualitas("Buruk");
+		pengajarBuruk.setPoint(10.0);
+		pengajarRepository.save(pengajarBuruk);
 		// ======================================================= //
 
 		/**
 		 * Inisial table fasilitas
 		 */
 		// ======================================================= //
-		Fasilitas fasilitas1 = new Fasilitas();
-		fasilitas1.setFasilitas("Ada");
-		fasilitas1.setPoint(50.0);
-		fasilitasRepository.save(fasilitas1);
+		Fasilitas fasilitasAda = new Fasilitas();
+		fasilitasAda.setFasilitas("Ada");
+		fasilitasAda.setPoint(50.0);
+		fasilitasRepository.save(fasilitasAda);
 
-		Fasilitas fasilitas2 = new Fasilitas();
-		fasilitas2.setFasilitas("Tidak Ada");
-		fasilitas2.setPoint(30.0);
-		fasilitasRepository.save(fasilitas2);
+		Fasilitas fasilitasTidakAda = new Fasilitas();
+		fasilitasTidakAda.setFasilitas("Tidak Ada");
+		fasilitasTidakAda.setPoint(30.0);
+		fasilitasRepository.save(fasilitasTidakAda);
 
 		// ======================================================= //
 		
@@ -242,22 +197,118 @@ public class InitDbService {
 		 * Inisial table Kondisi
 		 */
 		// ======================================================= //
-		Kondisi kondisi1 = new Kondisi();
-		kondisi1.setKondisi("Jauh dari pusat keramaian");
-		kondisi1.setPoint(30.0);
-		kondisiRepository.save(kondisi1);
+		Kondisi kondisiJauhDariPusatKeramaian = new Kondisi();
+		kondisiJauhDariPusatKeramaian.setKondisi("Jauh dari pusat keramaian");
+		kondisiJauhDariPusatKeramaian.setPoint(30.0);
+		kondisiRepository.save(kondisiJauhDariPusatKeramaian);
 		
-		Kondisi kondisi2 = new Kondisi();
-		kondisi2.setKondisi("Dekat dengan pusat keramaian");
-		kondisi2.setPoint(20.0);
-		kondisiRepository.save(kondisi2);
+		Kondisi kondisiDekatDenganPusatKeramaian = new Kondisi();
+		kondisiDekatDenganPusatKeramaian.setKondisi("Dekat dengan pusat keramaian");
+		kondisiDekatDenganPusatKeramaian.setPoint(20.0);
+		kondisiRepository.save(kondisiDekatDenganPusatKeramaian);
 		
-		Kondisi kondisi3 = new Kondisi();
-		kondisi3.setKondisi("Berada dipusat keramaian");
-		kondisi3.setPoint(10.0);
-		kondisiRepository.save(kondisi3);
+		Kondisi kondisiBeradaDiPusatKeramaian = new Kondisi();
+		kondisiBeradaDiPusatKeramaian.setKondisi("Berada dipusat keramaian");
+		kondisiBeradaDiPusatKeramaian.setPoint(10.0);
+		kondisiRepository.save(kondisiBeradaDiPusatKeramaian);
 		
 		// ======================================================= //
+		
+		
+		/**
+		 * Inisial Table Metode
+		 */
+		// ============================================== //
+		Metode metode1 = new Metode();
+		metode1.setMetode("Ceramah");
+		metode1.setFasilitas(fasilitasAda);
+		metode1.setJumlahSiswa(jumlahSiswaAntara21Dan25);
+		metode1.setKeaktifan(keaktifanLebihDari26);
+		metode1.setKondisi(kondisiJauhDariPusatKeramaian);
+		metode1.setPengajar(pengajarBaik);
+		metodeRepository.save(metode1);
+
+		Metode metode2 = new Metode();
+		metode2.setMetode("Diskusi");
+		metode2.setFasilitas(fasilitasAda);
+		metode2.setJumlahSiswa(jumlahSiswaKurangDari10);
+		metode2.setKeaktifan(keaktifanLebihDari26);
+		metode2.setKondisi(kondisiDekatDenganPusatKeramaian);
+		metode2.setPengajar(pengajarBaik);
+		metodeRepository.save(metode2);
+
+		Metode metode3 = new Metode();
+		metode3.setMetode("Problem Solving");
+		metode3.setFasilitas(fasilitasTidakAda);
+		metode3.setJumlahSiswa(jumlahSiswaAntara11Dan14);
+		metode3.setKeaktifan(keaktifanAntara15Dan20);
+		metode3.setKondisi(kondisiJauhDariPusatKeramaian);
+		metode3.setPengajar(pengajarBuruk);
+		metodeRepository.save(metode3);
+
+		Metode metode4 = new Metode();
+		metode4.setMetode("Tanya Jawab");
+		metode4.setFasilitas(fasilitasTidakAda);
+		metode4.setJumlahSiswa(jumlahSiswaLebihDari26);
+		metode4.setKeaktifan(keaktifanAntara21Dan25);
+		metode4.setKondisi(kondisiBeradaDiPusatKeramaian);
+		metode4.setPengajar(pengajarSangatBaik);
+		metodeRepository.save(metode4);
+
+		Metode metode5 = new Metode();
+		metode5.setMetode("Latihan");
+		metode5.setFasilitas(fasilitasTidakAda);
+		metode5.setJumlahSiswa(jumlahSiswaAntara21Dan25);
+		metode5.setKeaktifan(keaktifanLebihDari26);
+		metode5.setKondisi(kondisiJauhDariPusatKeramaian);
+		metode5.setPengajar(pengajarBaik);
+		metodeRepository.save(metode5);
+
+		Metode metode6 = new Metode();
+		metode6.setMetode("Eksperimen");
+		metode6.setFasilitas(fasilitasAda);
+		metode6.setJumlahSiswa(jumlahSiswaAntara15Dan20);
+		metode6.setKeaktifan(keaktifanAntara21Dan25);
+		metode6.setKondisi(kondisiBeradaDiPusatKeramaian);
+		metode6.setPengajar(pengajarBaik);
+		metodeRepository.save(metode6);
+
+		Metode metode7 = new Metode();
+		metode7.setMetode("Membaca dan Berdiskusi");
+		metode7.setFasilitas(fasilitasTidakAda);
+		metode7.setJumlahSiswa(jumlahSiswaAntara21Dan25);
+		metode7.setKeaktifan(keaktifanAntara21Dan25);
+		metode7.setKondisi(kondisiDekatDenganPusatKeramaian);
+		metode7.setPengajar(pengajarBuruk);
+		metodeRepository.save(metode7);
+
+		Metode metode8 = new Metode();
+		metode8.setMetode("Role Playing");
+		metode8.setFasilitas(fasilitasAda);
+		metode8.setJumlahSiswa(jumlahSiswaAntara21Dan25);
+		metode8.setKeaktifan(keaktifanLebihDari26);
+		metode8.setKondisi(kondisiJauhDariPusatKeramaian);
+		metode8.setPengajar(pengajarBaik);
+		metodeRepository.save(metode8);
+
+		Metode metode9 = new Metode();
+		metode9.setMetode("Resitasi");
+		metode9.setFasilitas(fasilitasTidakAda);
+		metode9.setJumlahSiswa(jumlahSiswaAntara21Dan25);
+		metode9.setKeaktifan(keaktifanAntara21Dan25);
+		metode9.setKondisi(kondisiJauhDariPusatKeramaian);
+		metode9.setPengajar(pengajarSangatBaik);
+		metodeRepository.save(metode9);
+
+		Metode metode10 = new Metode();
+		metode10.setMetode("Demonstrasi");
+		metode10.setFasilitas(fasilitasAda);
+		metode10.setJumlahSiswa(jumlahSiswaKurangDari10);
+		metode10.setKeaktifan(keaktifanAntara15Dan20);
+		metode10.setKondisi(kondisiDekatDenganPusatKeramaian);
+		metode10.setPengajar(pengajarSangatBaik);
+		metodeRepository.save(metode10);
+		// ===================================================== //
 	}
 
 }
