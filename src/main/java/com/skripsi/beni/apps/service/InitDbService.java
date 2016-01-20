@@ -52,7 +52,7 @@ public class InitDbService {
 	@Autowired
 	private KondisiRepository kondisiRepository;
 
-	@PostConstruct
+	// @PostConstruct
 	public void afterPropertiesSet() throws Exception {
 
 		BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
