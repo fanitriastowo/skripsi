@@ -7,6 +7,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.skripsi.beni.apps.entity.BobotSpk;
 import com.skripsi.beni.apps.entity.Fasilitas;
 import com.skripsi.beni.apps.entity.JumlahSiswa;
 import com.skripsi.beni.apps.entity.Keaktifan;
@@ -15,6 +16,7 @@ import com.skripsi.beni.apps.entity.Metode;
 import com.skripsi.beni.apps.entity.Pengajar;
 import com.skripsi.beni.apps.entity.Role;
 import com.skripsi.beni.apps.entity.User;
+import com.skripsi.beni.apps.repository.BobotRepository;
 import com.skripsi.beni.apps.repository.FasilitasRepository;
 import com.skripsi.beni.apps.repository.JumlahSiswaRepository;
 import com.skripsi.beni.apps.repository.KeaktifanRepository;
@@ -51,12 +53,30 @@ public class InitDbService {
 
 	@Autowired
 	private KondisiRepository kondisiRepository;
+	
+	@Autowired
+	private BobotRepository bobotRepository;
 
-	// @PostConstruct
+	@PostConstruct
 	public void afterPropertiesSet() throws Exception {
 
 		BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
 
+		/**
+		 * Inisial Table Bobot
+		 */
+		// ==================================== //
+		BobotSpk bobot = new BobotSpk();
+		bobot.setId("bobot");
+		bobot.setJumlahSiswaBobot((byte) 4);
+		bobot.setKondisiKelasBobot((byte) 5);
+		bobot.setKeaktifanSiswaBobot((byte) 5);
+		bobot.setKualitasPengajarBobot((byte) 5);
+		bobot.setFasilitasBobot((byte) 3);
+		bobotRepository.save(bobot);
+		
+		// ==================================== //
+		
 		/**
 		 * Inisial Table Role
 		 */
@@ -64,7 +84,7 @@ public class InitDbService {
 		Role roleAdmin = new Role();
 		roleAdmin.setName("ROLE_ADMIN");
 		roleRepository.save(roleAdmin);
-
+		
 		Role roleUser = new Role();
 		roleUser.setName("ROLE_USER");
 		roleRepository.save(roleUser);

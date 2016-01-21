@@ -10,6 +10,7 @@
 <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 <title>Halaman Perhitungan SPK</title>
 <%@ include file="/WEB-INF/template/css.jsp"%>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/bootstrap-slider.css">
 
 </head>
 <body>
@@ -74,29 +75,131 @@
 							<tr class="info">
 								<td>#</td>
 								<td><strong>Bobot</strong></td>
-								<td class="text-center">4</td>
-								<td class="text-center">4</td>
-								<td class="text-center">3</td>
-								<td class="text-center">4</td>
-								<td class="text-center">3</td>
+								<td class="text-center" id="bJumlahSiswa"><c:out value="${tempBobot.jumlahSiswaBobot }" /></td>
+								<td class="text-center" id="bKondisiKelas"><c:out value="${tempBobot.kondisiKelasBobot }" /></td>
+								<td class="text-center" id="bKeaktifanSiswa"><c:out value="${tempBobot.keaktifanSiswaBobot }" /></td>
+								<td class="text-center" id="bKualitasPengajar"><c:out value="${tempBobot.kualitasPengajarBobot }" /></td>
+								<td class="text-center" id="bFasilitas"><c:out value="${tempBobot.fasilitasBobot }" /></td>
 							</tr>
 						</tfoot>
 					</table>
 				</div>	
 			</div>
 			<div class="panel-footer">
-				<button class="btn btn-default">Bobot</button>
+				<button class="btn btn-default" data-toggle="modal" data-target="#bobotModal">Bobot</button>
 				<button class="btn btn-primary pull-right">Next</button>
 			</div>
 		</div>
 	</div>
 	
+	<form:form commandName="bobotModel" action="${pageContext.request.contextPath }/bobot/ubah_bobot" cssClass="form-horizontal">
+		<div class="modal fade" id="bobotModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+						<h4 class="modal-title" id="myModalLabel">Tentukan Bobot Kriteria</h4>
+					</div>
+					<div class="modal-body">
+						<form:hidden path="id" />
+						<div class="form-group">
+							<label for="jumlahSiswaBobot" class="col-sm-6 control-label">Jumlah Siswa:</label>
+							<div class="col-sm-6">
+								<form:input path="jumlahSiswaBobot" cssClass="form-control slider"/>
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="kondisiKelasBobot" class="col-sm-6 control-label">Kondisi Kelas:</label>
+							<div class="col-sm-6">
+								<form:input path="kondisiKelasBobot" cssClass="form-control slider"/>
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="keaktifanSiswaBobot" class="col-sm-6 control-label">Keaktifan Siswa:</label>
+							<div class="col-sm-6">
+								<form:input path="keaktifanSiswaBobot" cssClass="form-control slider"/>
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="kualitasPengajarBobot" class="col-sm-6 control-label">Kualitas Pengajar:</label>
+							<div class="col-sm-6">
+								<form:input path="kualitasPengajarBobot" cssClass="form-control slider"/>
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="fasilitasBobot" class="col-sm-6 control-label">Fasilitas:</label>
+							<div class="col-sm-6">
+								<form:input path="fasilitasBobot" cssClass="form-control slider"/>
+							</div>
+						</div>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+						<input type="submit" class="btn btn-primary" value="Next" />
+					</div>
+				</div>
+			</div>
+		</div>
+	</form:form>
+	
 	<%@ include file="/WEB-INF/template/footer.jsp"%>
 	<%@ include file="/WEB-INF/template/javascript.jsp"%>
+	<script type="text/javascript" src="${pageContext.request.contextPath}/assets/js/bootstrap-slider.js"></script>
 	
 	<script type="text/javascript">
 		$(document).ready(function() {
 			$('#spk').addClass('active');
+			
+			$('#jumlahSiswaBobot').slider({
+				min : 1,
+				max : 5,
+				step : 1,
+				orientation : 'horizontal',
+				value : $("#bJumlahSiswa").html(),
+				selection : 'before',
+				tooltip : 'show'
+			});
+			
+			$('#kondisiKelasBobot').slider({
+				min : 1,
+				max : 5,
+				step : 1,
+				orientation : 'horizontal',
+				value : $("#bKondisiKelas").html(),
+				selection : 'before',
+				tooltip : 'show'
+			});
+			
+			$('#keaktifanSiswaBobot').slider({
+				min : 1,
+				max : 5,
+				step : 1,
+				orientation : 'horizontal',
+				value : $("#bKeaktifanSiswa").html(),
+				selection : 'before',
+				tooltip : 'show'
+			});
+			
+			$('#kualitasPengajarBobot').slider({
+				min : 1,
+				max : 5,
+				step : 1,
+				orientation : 'horizontal',
+				value : $("#bKualitasPengajar").html(),
+				selection : 'before',
+				tooltip : 'show'
+			});
+			
+			$('#fasilitasBobot').slider({
+				min : 1,
+				max : 5,
+				step : 1,
+				orientation : 'horizontal',
+				value : $("#bFasilitas").html(),
+				selection : 'before',
+				tooltip : 'show'
+			});
+			
 		});
 	</script>
 </body>
