@@ -1,5 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?><entities>
 	<entity>
+		<entity-name>com.skripsi.beni.apps.entity.Kondisi</entity-name>
+		<entity-width>120</entity-width>
+		<entity-height>166</entity-height>
+		<entity-X-Coordinate>405</entity-X-Coordinate>
+		<entity-Y-Coordinate>409</entity-Y-Coordinate>
+		<primary-collapsed>false</primary-collapsed>
+		<relation-collapsed>false</relation-collapsed>
+		<basic-collapsed>false</basic-collapsed>
+	</entity>
+
+	<entity>
 		<entity-name>com.skripsi.beni.apps.entity.Fasilitas</entity-name>
 		<entity-width>120</entity-width>
 		<entity-height>166</entity-height>
@@ -77,11 +88,11 @@
 	</entity>
 
 	<entity>
-		<entity-name>com.skripsi.beni.apps.entity.Kondisi</entity-name>
+		<entity-name>com.skripsi.beni.apps.entity.Bobot</entity-name>
 		<entity-width>120</entity-width>
-		<entity-height>166</entity-height>
-		<entity-X-Coordinate>405</entity-X-Coordinate>
-		<entity-Y-Coordinate>409</entity-Y-Coordinate>
+		<entity-height>188</entity-height>
+		<entity-X-Coordinate>880</entity-X-Coordinate>
+		<entity-Y-Coordinate>490</entity-Y-Coordinate>
 		<primary-collapsed>false</primary-collapsed>
 		<relation-collapsed>false</relation-collapsed>
 		<basic-collapsed>false</basic-collapsed>

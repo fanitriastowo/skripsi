@@ -9,6 +9,7 @@
 		<class>com.skripsi.beni.apps.entity.Fasilitas</class>
 		<class>com.skripsi.beni.apps.entity.Pengajar</class>
 		<class>com.skripsi.beni.apps.entity.Kondisi</class>
+		<class>com.skripsi.beni.apps.entity.BobotSpk</class>
 		
 		
 	</persistence-unit>
