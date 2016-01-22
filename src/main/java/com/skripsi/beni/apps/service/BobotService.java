@@ -17,4 +17,16 @@ public class BobotService {
 	public BobotSpk getOneById() {
 		return bobotRepository.getOneById("bobot");
 	}
+
+	public void update(BobotSpk bobotSpk) {
+		BobotSpk bobotBaru = getOneById();
+		
+		bobotBaru.setFasilitasBobot(bobotSpk.getFasilitasBobot());
+		bobotBaru.setJumlahSiswaBobot(bobotSpk.getJumlahSiswaBobot());
+		bobotBaru.setKeaktifanSiswaBobot(bobotSpk.getKeaktifanSiswaBobot());
+		bobotBaru.setKondisiKelasBobot(bobotSpk.getKondisiKelasBobot());
+		bobotBaru.setKualitasPengajarBobot(bobotSpk.getKualitasPengajarBobot());
+		
+		bobotRepository.save(bobotBaru);
+	}
 }

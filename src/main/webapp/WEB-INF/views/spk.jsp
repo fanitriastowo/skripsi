@@ -92,7 +92,7 @@
 		</div>
 	</div>
 	
-	<form:form commandName="bobotModel" action="${pageContext.request.contextPath }/bobot/ubah_bobot" cssClass="form-horizontal">
+	<form:form commandName="bobotModel" action="${pageContext.request.contextPath }/spk/ubah_bobot" cssClass="form-horizontal">
 		<div class="modal fade" id="bobotModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 			<div class="modal-dialog">
 				<div class="modal-content">
@@ -105,37 +105,37 @@
 						<div class="form-group">
 							<label for="jumlahSiswaBobot" class="col-sm-6 control-label">Jumlah Siswa:</label>
 							<div class="col-sm-6">
-								<form:input path="jumlahSiswaBobot" cssClass="form-control slider"/>
+								<form:input path="jumlahSiswaBobot" cssClass="form-control slider" value="${tempBobot.jumlahSiswaBobot }" />
 							</div>
 						</div>
 						<div class="form-group">
 							<label for="kondisiKelasBobot" class="col-sm-6 control-label">Kondisi Kelas:</label>
 							<div class="col-sm-6">
-								<form:input path="kondisiKelasBobot" cssClass="form-control slider"/>
+								<form:input path="kondisiKelasBobot" cssClass="form-control slider" value="${tempBobot.kondisiKelasBobot }" />
 							</div>
 						</div>
 						<div class="form-group">
 							<label for="keaktifanSiswaBobot" class="col-sm-6 control-label">Keaktifan Siswa:</label>
 							<div class="col-sm-6">
-								<form:input path="keaktifanSiswaBobot" cssClass="form-control slider"/>
+								<form:input path="keaktifanSiswaBobot" cssClass="form-control slider" value="${tempBobot.keaktifanSiswaBobot }" />
 							</div>
 						</div>
 						<div class="form-group">
 							<label for="kualitasPengajarBobot" class="col-sm-6 control-label">Kualitas Pengajar:</label>
 							<div class="col-sm-6">
-								<form:input path="kualitasPengajarBobot" cssClass="form-control slider"/>
+								<form:input path="kualitasPengajarBobot" cssClass="form-control slider" value="${tempBobot.kualitasPengajarBobot }" />
 							</div>
 						</div>
 						<div class="form-group">
 							<label for="fasilitasBobot" class="col-sm-6 control-label">Fasilitas:</label>
 							<div class="col-sm-6">
-								<form:input path="fasilitasBobot" cssClass="form-control slider"/>
+								<form:input path="fasilitasBobot" cssClass="form-control slider" value="${tempBobot.fasilitasBobot }" />
 							</div>
 						</div>
 					</div>
 					<div class="modal-footer">
 						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-						<input type="submit" class="btn btn-primary" value="Next" />
+						<input type="submit" class="btn btn-primary" value="Simpan" />
 					</div>
 				</div>
 			</div>
