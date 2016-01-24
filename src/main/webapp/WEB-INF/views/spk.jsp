@@ -71,7 +71,7 @@
 								</tr>
 							</c:forEach>
 						</tbody>
-						<tfoot>
+						<tfoot style="font-size: 1.2em">
 							<tr class="info">
 								<td>#</td>
 								<td><strong>Bobot</strong></td>
@@ -87,7 +87,7 @@
 			</div>
 			<div class="panel-footer">
 				<button class="btn btn-default" data-toggle="modal" data-target="#bobotModal">Bobot</button>
-				<button class="btn btn-primary pull-right">Next</button>
+				<a class="btn btn-primary pull-right" href="#">Next</a>
 			</div>
 		</div>
 	</div>
