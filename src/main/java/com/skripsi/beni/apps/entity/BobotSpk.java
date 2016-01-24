@@ -21,6 +21,16 @@ public class BobotSpk {
 
 	private Byte fasilitasBobot;
 
+	private Float nJumlahSiswaBobot;
+
+	private Float nKondisiKelasBobot;
+
+	private Float nKeaktifanSiswaBobot;
+
+	private Float nKualitasPengajarBobot;
+
+	private Float nFasilitasBobot;
+
 	public String getId() {
 		return id;
 	}
@@ -67,6 +77,46 @@ public class BobotSpk {
 
 	public void setFasilitasBobot(Byte fasilitasBobot) {
 		this.fasilitasBobot = fasilitasBobot;
+	}
+
+	public Float getnJumlahSiswaBobot() {
+		return nJumlahSiswaBobot;
+	}
+
+	public void setnJumlahSiswaBobot(Float nJumlahSiswaBobot) {
+		this.nJumlahSiswaBobot = nJumlahSiswaBobot;
+	}
+
+	public Float getnKondisiKelasBobot() {
+		return nKondisiKelasBobot;
+	}
+
+	public void setnKondisiKelasBobot(Float nKondisiKelasBobot) {
+		this.nKondisiKelasBobot = nKondisiKelasBobot;
+	}
+
+	public Float getnKeaktifanSiswaBobot() {
+		return nKeaktifanSiswaBobot;
+	}
+
+	public void setnKeaktifanSiswaBobot(Float nKeaktifanSiswaBobot) {
+		this.nKeaktifanSiswaBobot = nKeaktifanSiswaBobot;
+	}
+
+	public Float getnKualitasPengajarBobot() {
+		return nKualitasPengajarBobot;
+	}
+
+	public void setnKualitasPengajarBobot(Float nKualitasPengajarBobot) {
+		this.nKualitasPengajarBobot = nKualitasPengajarBobot;
+	}
+
+	public Float getnFasilitasBobot() {
+		return nFasilitasBobot;
+	}
+
+	public void setnFasilitasBobot(Float nFasilitasBobot) {
+		this.nFasilitasBobot = nFasilitasBobot;
 	}
 
 }

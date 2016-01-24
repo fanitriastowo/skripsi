@@ -66,13 +66,29 @@ public class InitDbService {
 		 * Inisial Table Bobot
 		 */
 		// ==================================== //
+		final byte jumlahSiswaBobot = 4;
+		final byte kondisiKelasBObot = 5;
+		final byte keaktifanSiswaBobot = 5;
+		final byte kualitasPengajarBobot = 5;
+		final byte fasilitasBobot = 3;
+		
+		// jumlahkan semua bobot
+		final byte jumlahBobot = jumlahSiswaBobot + kondisiKelasBObot + keaktifanSiswaBobot + kualitasPengajarBobot + fasilitasBobot;
+		
 		BobotSpk bobot = new BobotSpk();
 		bobot.setId("bobot");
-		bobot.setJumlahSiswaBobot((byte) 4);
-		bobot.setKondisiKelasBobot((byte) 5);
-		bobot.setKeaktifanSiswaBobot((byte) 5);
-		bobot.setKualitasPengajarBobot((byte) 5);
-		bobot.setFasilitasBobot((byte) 3);
+		bobot.setJumlahSiswaBobot(jumlahSiswaBobot);
+		bobot.setKondisiKelasBobot(kondisiKelasBObot);
+		bobot.setKeaktifanSiswaBobot(keaktifanSiswaBobot);
+		bobot.setKualitasPengajarBobot(kualitasPengajarBobot);
+		bobot.setFasilitasBobot(fasilitasBobot);
+		
+		bobot.setnJumlahSiswaBobot(Float.valueOf(jumlahSiswaBobot) / jumlahBobot);
+		bobot.setnKondisiKelasBobot(Float.valueOf(kondisiKelasBObot) / jumlahBobot);
+		bobot.setnKeaktifanSiswaBobot(Float.valueOf(keaktifanSiswaBobot) / jumlahBobot);
+		bobot.setnKualitasPengajarBobot(Float.valueOf(kualitasPengajarBobot) / jumlahBobot);
+		bobot.setnFasilitasBobot(Float.valueOf(fasilitasBobot) / jumlahBobot);
+		
 		bobotRepository.save(bobot);
 		
 		// ==================================== //

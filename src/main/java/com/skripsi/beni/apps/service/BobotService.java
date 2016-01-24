@@ -19,13 +19,26 @@ public class BobotService {
 	}
 
 	public void update(BobotSpk bobotSpk) {
-		BobotSpk bobotBaru = getOneById();
 		
+		float fasilitasBobot = bobotSpk.getFasilitasBobot();
+		float jumlahSiswaBobot = bobotSpk.getJumlahSiswaBobot();
+		float keaktifanSiswaBobot = bobotSpk.getKeaktifanSiswaBobot();
+		float kondisiKelasBobot = bobotSpk.getKondisiKelasBobot();
+		float kualitasPengajarBobot = bobotSpk.getKualitasPengajarBobot();
+		float jumlahBobot = fasilitasBobot + jumlahSiswaBobot + keaktifanSiswaBobot + kondisiKelasBobot + kualitasPengajarBobot;
+		
+		BobotSpk bobotBaru = getOneById();
 		bobotBaru.setFasilitasBobot(bobotSpk.getFasilitasBobot());
 		bobotBaru.setJumlahSiswaBobot(bobotSpk.getJumlahSiswaBobot());
 		bobotBaru.setKeaktifanSiswaBobot(bobotSpk.getKeaktifanSiswaBobot());
 		bobotBaru.setKondisiKelasBobot(bobotSpk.getKondisiKelasBobot());
 		bobotBaru.setKualitasPengajarBobot(bobotSpk.getKualitasPengajarBobot());
+		
+		bobotBaru.setnFasilitasBobot(fasilitasBobot / jumlahBobot);
+		bobotBaru.setnJumlahSiswaBobot(jumlahSiswaBobot / jumlahBobot);
+		bobotBaru.setnKeaktifanSiswaBobot(keaktifanSiswaBobot / jumlahBobot);
+		bobotBaru.setnKondisiKelasBobot(kondisiKelasBobot / jumlahBobot);
+		bobotBaru.setnKualitasPengajarBobot(kualitasPengajarBobot / jumlahBobot);
 		
 		bobotRepository.save(bobotBaru);
 	}

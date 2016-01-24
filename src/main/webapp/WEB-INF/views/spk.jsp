@@ -81,6 +81,15 @@
 								<td class="text-center" id="bKualitasPengajar"><c:out value="${tempBobot.kualitasPengajarBobot }" /></td>
 								<td class="text-center" id="bFasilitas"><c:out value="${tempBobot.fasilitasBobot }" /></td>
 							</tr>
+							<tr class="info">
+								<td>#</td>
+								<td><strong>Bobot Ter - Normalisasi</strong></td>
+								<td class="text-center" ><c:out value="${tempBobot.nJumlahSiswaBobot }" /></td>
+								<td class="text-center" ><c:out value="${tempBobot.nKondisiKelasBobot }" /></td>
+								<td class="text-center" ><c:out value="${tempBobot.nKeaktifanSiswaBobot }" /></td>
+								<td class="text-center" ><c:out value="${tempBobot.nKualitasPengajarBobot }" /></td>
+								<td class="text-center" ><c:out value="${tempBobot.nFasilitasBobot }" /></td>
+							</tr>
 						</tfoot>
 					</table>
 				</div>	
