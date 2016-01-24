@@ -96,7 +96,7 @@
 			</div>
 			<div class="panel-footer">
 				<button class="btn btn-default" data-toggle="modal" data-target="#bobotModal">Bobot</button>
-				<a class="btn btn-primary pull-right" href="#">Next</a>
+				<a class="btn btn-primary pull-right" href='<spring:url value="/spk/step_1" />'>Next</a>
 			</div>
 		</div>
 	</div>
