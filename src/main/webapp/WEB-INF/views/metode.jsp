@@ -28,10 +28,10 @@
 						<th width="5%">No.</th>
 						<th>Metode</th>
 						<th>Jumlah Siswa</th>
-						<th>Kondisi Kelas</th>
 						<th>Keaktifan Siswa</th>
-						<th>Kualitas Pengajar</th>
+						<th>Kondisi Kelas</th>
 						<th>Fasilitas</th>
+						<th>Kualitas Pengajar</th>
 						<th width="10%">Aksi</th>
 					</tr>
 				</thead>
@@ -42,10 +42,10 @@
 							<td><c:out value="${index.count }" /></td>
 							<td><c:out value="${metode.metode }" /></td>
 							<td><c:out value="${metode.jumlahSiswa.jmlSiswa }" /></td>
-							<td><c:out value="${metode.kondisi.kondisi }" /></td>
 							<td><c:out value="${metode.keaktifan.jmlSiswa }" /></td>
-							<td><c:out value="${metode.pengajar.kualitas }" /></td>
+							<td><c:out value="${metode.kondisi.kondisi }" /></td>
 							<td><c:out value="${metode.fasilitas.fasilitas }" /></td>
+							<td><c:out value="${metode.pengajar.kualitas }" /></td>
 							<td>
 								<a href='<spring:url value="/metode/prepare_edit/${metode.id }" />' class="btn btn-xs btn-info btnUpdate" title="Ubah Metode">
 									<span class="glyphicon glyphicon-pencil"></span></a> 

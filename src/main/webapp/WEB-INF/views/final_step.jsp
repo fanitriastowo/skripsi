@@ -27,10 +27,10 @@
 								<th width="5%">No.</th>
 								<th>Metode</th>
 								<th>Jumlah Siswa</th>
-								<th>Kondisi Kelas</th>
 								<th>Keaktifan Siswa</th>
-								<th>Kualitas Pengajar</th>
+								<th>Kondisi Kelas</th>
 								<th>Fasilitas</th>
+								<th>Kualitas Pengajar</th>
 								<th>Vector S</th>
 								<th>Jumlah Vector S</th>
 								<th width="10%">Vector V</th>
@@ -43,10 +43,10 @@
 									<td><c:out value="${index.count }" /></td>
 									<td><c:out value="${spk.namaMetode }" /></td>
 									<td><c:out value="${spk.jumlahSiswa }" /></td>
-									<td><c:out value="${spk.kondisiKelas }" /></td>
 									<td><c:out value="${spk.keaktifanSiswa }" /></td>
-									<td><c:out value="${spk.kualitasPengajar }" /></td>
+									<td><c:out value="${spk.kondisiKelas }" /></td>
 									<td><c:out value="${spk.fasilitas }" /></td>
+									<td><c:out value="${spk.kualitasPengajar }" /></td>
 									<td><c:out value="${spk.vectorS }" /></td>
 									<td><c:out value="${spk.jumlahVectorS }" /></td>
 									<td><c:out value="${spk.vectorV }" /></td>

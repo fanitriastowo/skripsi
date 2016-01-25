@@ -18,9 +18,6 @@
 	<div class="container">
 		<%@ include file="/WEB-INF/template/navbar.jsp"%>
 		
-		<h3 class="text-center">Daftar Metode</h3>
-		<hr>
-		
 		<div class="panel panel-default">
 			<div class="panel-heading"><h3 class="panel-title">Daftar Metode yang akan dilakukan dalam perhitungan</h3></div>
 			<div class="panel-body">
@@ -31,10 +28,10 @@
 								<th width="5%">No.</th>
 								<th>Metode</th>
 								<th>Jumlah Siswa</th>
-								<th>Kondisi Kelas</th>
 								<th>Keaktifan Siswa</th>
-								<th>Kualitas Pengajar</th>
+								<th>Kondisi Kelas</th>
 								<th>Fasilitas</th>
+								<th>Kualitas Pengajar</th>
 							</tr>
 						</thead>
 		
@@ -49,23 +46,23 @@
 											<span class="fa fa-question fa-xs"></span></a>
 									</td>
 									<td>
-										<c:out value="${metode.kondisi.point }" />
-											&nbsp;<a href="#" title='<c:out value="Kondisi Kelas ${metode.kondisi.kondisi }" />'>
-											<span class="fa fa-question fa-xs"></span></a>
-									</td>
-									<td>
 										<c:out value="${metode.keaktifan.point }" />
 											&nbsp;<a href="#" title='<c:out value="Jumlah siswa aktif ${metode.keaktifan.jmlSiswa }" />'>
 											<span class="fa fa-question fa-xs"></span></a>
 									</td>
 									<td>
-										<c:out value="${metode.pengajar.point }" />
-											&nbsp;<a href="#" title='<c:out value="Kualitas Pengajar ${metode.pengajar.kualitas }" />'>
+										<c:out value="${metode.kondisi.point }" />
+											&nbsp;<a href="#" title='<c:out value="Kondisi Kelas ${metode.kondisi.kondisi }" />'>
 											<span class="fa fa-question fa-xs"></span></a>
 									</td>
 									<td>
 										<c:out value="${metode.fasilitas.point }" />
 											&nbsp;<a href="#" title='<c:out value="Fasilitas ${metode.fasilitas.fasilitas }" />'>
+											<span class="fa fa-question fa-xs"></span></a>
+									</td>
+									<td>
+										<c:out value="${metode.pengajar.point }" />
+											&nbsp;<a href="#" title='<c:out value="Kualitas Pengajar ${metode.pengajar.kualitas }" />'>
 											<span class="fa fa-question fa-xs"></span></a>
 									</td>
 								</tr>
@@ -118,27 +115,27 @@
 							</div>
 						</div>
 						<div class="form-group">
-							<label for="kondisiKelasBobot" class="col-sm-6 control-label">Kondisi Kelas:</label>
-							<div class="col-sm-6">
-								<form:input path="kondisiKelasBobot" cssClass="form-control slider" value="${tempBobot.kondisiKelasBobot }" />
-							</div>
-						</div>
-						<div class="form-group">
 							<label for="keaktifanSiswaBobot" class="col-sm-6 control-label">Keaktifan Siswa:</label>
 							<div class="col-sm-6">
 								<form:input path="keaktifanSiswaBobot" cssClass="form-control slider" value="${tempBobot.keaktifanSiswaBobot }" />
 							</div>
 						</div>
 						<div class="form-group">
-							<label for="kualitasPengajarBobot" class="col-sm-6 control-label">Kualitas Pengajar:</label>
+							<label for="kondisiKelasBobot" class="col-sm-6 control-label">Kondisi Kelas:</label>
 							<div class="col-sm-6">
-								<form:input path="kualitasPengajarBobot" cssClass="form-control slider" value="${tempBobot.kualitasPengajarBobot }" />
+								<form:input path="kondisiKelasBobot" cssClass="form-control slider" value="${tempBobot.kondisiKelasBobot }" />
 							</div>
 						</div>
 						<div class="form-group">
 							<label for="fasilitasBobot" class="col-sm-6 control-label">Fasilitas:</label>
 							<div class="col-sm-6">
 								<form:input path="fasilitasBobot" cssClass="form-control slider" value="${tempBobot.fasilitasBobot }" />
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="kualitasPengajarBobot" class="col-sm-6 control-label">Kualitas Pengajar:</label>
+							<div class="col-sm-6">
+								<form:input path="kualitasPengajarBobot" cssClass="form-control slider" value="${tempBobot.kualitasPengajarBobot }" />
 							</div>
 						</div>
 					</div>
