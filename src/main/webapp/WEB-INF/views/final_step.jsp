@@ -8,7 +8,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-<title>Step 2</title>
+<title>Final Step</title>
 <%@ include file="/WEB-INF/template/css.jsp"%>
 
 </head>
@@ -18,7 +18,7 @@
 		<%@ include file="/WEB-INF/template/navbar.jsp"%>
 		
 		<div class="panel panel-default">
-			<div class="panel-heading"><h3 class="panel-title">Step 2 :: Hasil Perkalian Pemangkatan Berbobot</h3></div>
+			<div class="panel-heading"><h3 class="panel-title">Final Step :: Hasil Metode yang cocok berdasarkan bobot dan kriteria</h3></div>
 			<div class="panel-body">
 				<div class="table-responsive">
 					<table class="table table-striped table-bordered table-hover table-condensed" style="font-size: 0.9em">
@@ -33,23 +33,23 @@
 								<th>Fasilitas</th>
 								<th>Vector S</th>
 								<th>Jumlah Vector S</th>
-								<th>Vector V</th>
+								<th width="10%">Vector V</th>
 							</tr>
 						</thead>
 		
 						<tbody>
-							<c:forEach items="${metodeSpk}" var="metodeSPK" varStatus="index">
+							<c:forEach items="${Spk}" var="spk" varStatus="index">
 								<tr>
 									<td><c:out value="${index.count }" /></td>
-									<td><c:out value="${metodeSPK.namaMetode }" /></td>
-									<td><c:out value="${metodeSPK.jumlahSiswa }" /></td>
-									<td><c:out value="${metodeSPK.kondisiKelas }" /></td>
-									<td><c:out value="${metodeSPK.keaktifanSiswa }" /></td>
-									<td><c:out value="${metodeSPK.kualitasPengajar }" /></td>
-									<td><c:out value="${metodeSPK.fasilitas }" /></td>
-									<td><c:out value="${metodeSPK.vectorS }" /></td>
-									<td><c:out value="${metodeSPK.jumlahVectorS }" /></td>
-									<td><c:out value="${metodeSPK.vectorV }" /></td>
+									<td><c:out value="${spk.namaMetode }" /></td>
+									<td><c:out value="${spk.jumlahSiswa }" /></td>
+									<td><c:out value="${spk.kondisiKelas }" /></td>
+									<td><c:out value="${spk.keaktifanSiswa }" /></td>
+									<td><c:out value="${spk.kualitasPengajar }" /></td>
+									<td><c:out value="${spk.fasilitas }" /></td>
+									<td><c:out value="${spk.vectorS }" /></td>
+									<td><c:out value="${spk.jumlahVectorS }" /></td>
+									<td><c:out value="${spk.vectorV }" /></td>
 								</tr>
 							</c:forEach>
 						</tbody>
@@ -80,9 +80,7 @@
 				</div>	
 			</div>
 			<div class="panel-footer">
-				<div class="col-sm-offset-11">
-					<a class="btn btn-primary" href='<spring:url value="/spk/final_step" />'>Simpan</a>
-				</div>
+				<p>* Hasil perhitungan telah tersimpan ke dalam Database. Anda dapat mencetak hasil perhitungan untuk keperluan laporan</p>
 			</div>
 		</div>
 	</div>
