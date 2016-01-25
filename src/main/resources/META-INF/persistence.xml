@@ -10,7 +10,6 @@
 		<class>com.skripsi.beni.apps.entity.Pengajar</class>
 		<class>com.skripsi.beni.apps.entity.Kondisi</class>
 		<class>com.skripsi.beni.apps.entity.BobotSpk</class>
-		
-		
+		<class>com.skripsi.beni.apps.entity.SPK</class>
 	</persistence-unit>
 </persistence>
