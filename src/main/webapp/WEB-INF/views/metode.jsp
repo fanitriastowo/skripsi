@@ -74,6 +74,26 @@
 							<label for="txtAddMetode" class="control-label">Metode:</label>
 							<form:input path="metode" cssClass="form-control" id="txtAddMetode" placeholder="Type Name" />
 						</div>
+						<div class="form-group">
+							<label for="txtAddJumlahSiswa" class="control-label">Jumlah Siswa:</label>
+							<form:select path="jumlahSiswa" cssClass="form-control" id="txtAddJumlahSiswa" items="${lookUpJumlahSiswa }" itemValue="id" itemLabel="jmlSiswa" />
+						</div>
+						<div class="form-group">
+							<label for="txtAddKeaktifanSiswa" class="control-label">Keaktifan Siswa:</label>
+							<form:select path="keaktifan" cssClass="form-control" id="txtAddKeaktifanSiswa" items="${lookUpkeaktifanSiswa }" itemValue="id" itemLabel="jmlSiswa" />
+						</div>
+						<div class="form-group">
+							<label for="txtAddKondisiKelas" class="control-label">Kondisi Kelas:</label>
+							<form:select path="kondisi" cssClass="form-control" id="txtAddKondisiKelas" items="${lookUpKondisiKelas }" itemValue="id" itemLabel="kondisi" />
+						</div>
+						<div class="form-group">
+							<label for="txtAddFasilitas" class="control-label">Fasilitas:</label>
+							<form:select path="fasilitas" cssClass="form-control" id="txtAddFasilitas" items="${lookUpFasilitas }" itemValue="id" itemLabel="fasilitas" />
+						</div>
+						<div class="form-group">
+							<label for="txtAddKualitasPengajar" class="control-label">Kualitas Pengajar:</label>
+							<form:select path="pengajar" cssClass="form-control" id="txtAddKualitasPengajar" items="${lookUpPengajar }" itemValue="id" itemLabel="kualitas" />
+						</div>
 					</div>
 					<div class="modal-footer">
 						<button type="button" class="btn btn-default" data-dismiss="modal">
@@ -103,11 +123,31 @@
 							<label for="txtUpdateMetode" class="control-label">Metode:</label>
 							<form:input path="metode" cssClass="form-control" id="txtUpdateMetode" placeholder="Type Name" />
 						</div>
+						<div class="form-group">
+							<label for="txtUpdateJumlahSiswa" class="control-label">Jumlah Siswa:</label>
+							<form:select path="jumlahSiswa" cssClass="form-control" id="txtUpdateJumlahSiswa" items="${lookUpJumlahSiswa}" itemValue="id" itemLabel="jmlSiswa" />
+						</div>
+						<div class="form-group">
+							<label for="txtUpdateKeaktifanSiswa" class="control-label">Keaktifan Siswa:</label>
+							<form:select path="keaktifan" cssClass="form-control" id="txtUpdateKeaktifanSiswa" items="${lookUpkeaktifanSiswa }" itemValue="id" itemLabel="jmlSiswa" />
+						</div>
+						<div class="form-group">
+							<label for="txtUpdateKondisiKelas" class="control-label">Kondisi Kelas:</label>
+							<form:select path="kondisi" cssClass="form-control" id="txtUpdateKondisiKelas" items="${lookUpKondisiKelas }" itemValue="id" itemLabel="kondisi" />
+						</div>
+						<div class="form-group">
+							<label for="txtUpdateFasilitas" class="control-label">Fasilitas:</label>
+							<form:select path="fasilitas" cssClass="form-control" id="txtUpdateFasilitas" items="${lookUpFasilitas }" itemValue="id" itemLabel="fasilitas" />
+						</div>
+						<div class="form-group">
+							<label for="txtUpdateKualitasPengajar" class="control-label">Kualitas Pengajar:</label>
+							<form:select path="pengajar" cssClass="form-control" id="txtUpdateKualitasPengajar" items="${lookUpPengajar }" itemValue="id" itemLabel="kualitas" />
+						</div>
 					</div>
 					<div class="modal-footer">
 						<button type="button" class="btn btn-default" data-dismiss="modal">
 							<span class="glyphicon glyphicon-remove-circle"></span> Close</button>
-						<button type="button" class="btn btn-primary">
+						<button type="submit" class="btn btn-primary">
 							<span class="glyphicon glyphicon-ok-circle"></span> Update</button>
 					</div>
 				</div>
@@ -152,12 +192,24 @@
 			$('.btnUpdate').click(function(e) {
 				e.preventDefault();
 				var url = $(this).attr("href");
-				
 				$.getJSON(url, function(data) {
+
+					// unselect before select
+					$('select[id^="txtUpdateJumlahSiswa"] option:selected').attr("selected",null);
+					$('select[id^="txtUpdateKeaktifanSiswa"] option:selected').attr("selected",null);
+					$('select[id^="txtUpdateKondisiKelas"] option:selected').attr("selected",null);
+					$('select[id^="txtUpdateFasilitas"] option:selected').attr("selected",null);
+					$('select[id^="txtUpdateKualitasPengajar"] option:selected').attr("selected",null);
+
 					$('#lblUpdateId').val(data.id);
 					$('#txtUpdateMetode').val(data.metode);
+					$('select[id^="txtUpdateJumlahSiswa"] option[value="' + data.jumlahSiswa["id"] + '"]').attr("selected","selected");
+					$('select[id^="txtUpdateKeaktifanSiswa"] option[value="' + data.keaktifan["id"] + '"]').attr("selected","selected");
+					$('select[id^="txtUpdateKondisiKelas"] option[value="' + data.kondisi["id"] + '"]').attr("selected","selected");
+					$('select[id^="txtUpdateFasilitas"] option[value="' + data.fasilitas["id"] + '"]').attr("selected","selected");
+					$('select[id^="txtUpdateKualitasPengajar"] option[value="' + data.pengajar["id"] + '"]').attr("selected","selected");
+
 				});
-				
 				$('#updateModal').modal();
 			});
 			
