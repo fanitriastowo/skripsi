@@ -51,6 +51,23 @@ public class MetodeService {
 	}
 
 	public void update(MetodeDTO metodeDTO) {
+
+		JumlahSiswa jumlahSiswa = jumlahSiswaRepository.findOne(metodeDTO.getJumlahSiswa());
+		Keaktifan keaktifan = keaktifanRepository.findOne(metodeDTO.getKeaktifan());
+		Kondisi kondisi = kondisiRepository.findOne(metodeDTO.getKondisi());
+		Fasilitas fasilitas = fasilitasRepository.findOne(metodeDTO.getFasilitas());
+		Pengajar pengajar = pengajarRepository.findOne(metodeDTO.getPengajar());
+
+		Metode metode = metodeRepository.findOne(metodeDTO.getId());
+		metode.setMetode(metodeDTO.getMetode());
+		metode.setJumlahSiswa(jumlahSiswa);
+		metode.setKeaktifan(keaktifan);
+		metode.setKondisi(kondisi);
+		metode.setFasilitas(fasilitas);
+		metode.setPengajar(pengajar);
+		
+		metodeRepository.save(metode);
+
 	}
 
 	public void delete(Long id) {
