@@ -13,7 +13,7 @@ public class BobotSpk {
 
 	private Byte jumlahSiswaBobot;
 
-	private Byte kondisiKelasBobot;
+	private Byte kondisiSekolahBobot;
 
 	private Byte keaktifanSiswaBobot;
 
@@ -23,7 +23,7 @@ public class BobotSpk {
 
 	private Float nJumlahSiswaBobot;
 
-	private Float nKondisiKelasBobot;
+	private Float nKondisiSekolahBobot;
 
 	private Float nKeaktifanSiswaBobot;
 
@@ -47,12 +47,12 @@ public class BobotSpk {
 		this.jumlahSiswaBobot = jumlahSiswaBobot;
 	}
 
-	public Byte getKondisiKelasBobot() {
-		return kondisiKelasBobot;
+	public Byte getKondisiSekolahBobot() {
+		return kondisiSekolahBobot;
 	}
 
-	public void setKondisiKelasBobot(Byte kondisiKelasBobot) {
-		this.kondisiKelasBobot = kondisiKelasBobot;
+	public void setKondisiSekolahBobot(Byte kondisiSekolahBobot) {
+		this.kondisiSekolahBobot = kondisiSekolahBobot;
 	}
 
 	public Byte getKeaktifanSiswaBobot() {
@@ -87,12 +87,12 @@ public class BobotSpk {
 		this.nJumlahSiswaBobot = nJumlahSiswaBobot;
 	}
 
-	public Float getnKondisiKelasBobot() {
-		return nKondisiKelasBobot;
+	public Float getnKondisiSekolahBobot() {
+		return nKondisiSekolahBobot;
 	}
 
-	public void setnKondisiKelasBobot(Float nKondisiKelasBobot) {
-		this.nKondisiKelasBobot = nKondisiKelasBobot;
+	public void setnKondisiSekolahBobot(Float nKondisiSekolahBobot) {
+		this.nKondisiSekolahBobot = nKondisiSekolahBobot;
 	}
 
 	public Float getnKeaktifanSiswaBobot() {

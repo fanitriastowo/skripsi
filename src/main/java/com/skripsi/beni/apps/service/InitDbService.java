@@ -11,6 +11,7 @@ import com.skripsi.beni.apps.entity.BobotSpk;
 import com.skripsi.beni.apps.entity.Fasilitas;
 import com.skripsi.beni.apps.entity.JumlahSiswa;
 import com.skripsi.beni.apps.entity.Keaktifan;
+import com.skripsi.beni.apps.entity.KondisiKelas;
 import com.skripsi.beni.apps.entity.KondisiSekolah;
 import com.skripsi.beni.apps.entity.Metode;
 import com.skripsi.beni.apps.entity.Pengajar;
@@ -20,6 +21,7 @@ import com.skripsi.beni.apps.repository.BobotRepository;
 import com.skripsi.beni.apps.repository.FasilitasRepository;
 import com.skripsi.beni.apps.repository.JumlahSiswaRepository;
 import com.skripsi.beni.apps.repository.KeaktifanRepository;
+import com.skripsi.beni.apps.repository.KondisiKelasRepository;
 import com.skripsi.beni.apps.repository.KondisiSekolahRepository;
 import com.skripsi.beni.apps.repository.MetodeRepository;
 import com.skripsi.beni.apps.repository.PengajarRepository;
@@ -52,12 +54,15 @@ public class InitDbService {
 	private FasilitasRepository fasilitasRepository;
 
 	@Autowired
-	private KondisiSekolahRepository kondisiRepository;
+	private KondisiSekolahRepository kondisiSekolahRepository;
+	
+	@Autowired
+	private KondisiKelasRepository kondisiKelasRepository;
 	
 	@Autowired
 	private BobotRepository bobotRepository;
 
-	// @PostConstruct
+	@PostConstruct
 	public void afterPropertiesSet() throws Exception {
 
 		BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
@@ -67,24 +72,24 @@ public class InitDbService {
 		 */
 		// ==================================== //
 		final byte jumlahSiswaBobot = 2;
-		final byte kondisiKelasBObot = 5;
+		final byte kondisiSekolahBobot = 5;
 		final byte keaktifanSiswaBobot = 5;
 		final byte kualitasPengajarBobot = 5;
 		final byte fasilitasBobot = 4;
 		
 		// jumlahkan semua bobot
-		final byte jumlahBobot = jumlahSiswaBobot + kondisiKelasBObot + keaktifanSiswaBobot + kualitasPengajarBobot + fasilitasBobot;
+		final byte jumlahBobot = jumlahSiswaBobot + kondisiSekolahBobot + keaktifanSiswaBobot + kualitasPengajarBobot + fasilitasBobot;
 		
 		BobotSpk bobot = new BobotSpk();
 		bobot.setId("bobot");
 		bobot.setJumlahSiswaBobot(jumlahSiswaBobot);
-		bobot.setKondisiKelasBobot(kondisiKelasBObot);
+		bobot.setKondisiSekolahBobot(kondisiSekolahBobot);
 		bobot.setKeaktifanSiswaBobot(keaktifanSiswaBobot);
 		bobot.setKualitasPengajarBobot(kualitasPengajarBobot);
 		bobot.setFasilitasBobot(fasilitasBobot);
 		
 		bobot.setnJumlahSiswaBobot(Float.valueOf(jumlahSiswaBobot) / jumlahBobot);
-		bobot.setnKondisiKelasBobot(Float.valueOf(kondisiKelasBObot) / jumlahBobot);
+		bobot.setnKondisiSekolahBobot(Float.valueOf(kondisiSekolahBobot) / jumlahBobot);
 		bobot.setnKeaktifanSiswaBobot(Float.valueOf(keaktifanSiswaBobot) / jumlahBobot);
 		bobot.setnKualitasPengajarBobot(Float.valueOf(kualitasPengajarBobot) / jumlahBobot);
 		bobot.setnFasilitasBobot(Float.valueOf(fasilitasBobot) / jumlahBobot);
@@ -236,17 +241,48 @@ public class InitDbService {
 		KondisiSekolah kondisiJauhDariPusatKeramaian = new KondisiSekolah();
 		kondisiJauhDariPusatKeramaian.setKondisi("Jauh dari pusat keramaian");
 		kondisiJauhDariPusatKeramaian.setPoint(30.0);
-		kondisiRepository.save(kondisiJauhDariPusatKeramaian);
+		kondisiSekolahRepository.save(kondisiJauhDariPusatKeramaian);
 		
 		KondisiSekolah kondisiDekatDenganPusatKeramaian = new KondisiSekolah();
 		kondisiDekatDenganPusatKeramaian.setKondisi("Dekat dengan pusat keramaian");
 		kondisiDekatDenganPusatKeramaian.setPoint(20.0);
-		kondisiRepository.save(kondisiDekatDenganPusatKeramaian);
+		kondisiSekolahRepository.save(kondisiDekatDenganPusatKeramaian);
 		
 		KondisiSekolah kondisiBeradaDiPusatKeramaian = new KondisiSekolah();
 		kondisiBeradaDiPusatKeramaian.setKondisi("Berada dipusat keramaian");
 		kondisiBeradaDiPusatKeramaian.setPoint(10.0);
-		kondisiRepository.save(kondisiBeradaDiPusatKeramaian);
+		kondisiSekolahRepository.save(kondisiBeradaDiPusatKeramaian);
+		
+		// ======================================================= //
+		
+		/**
+		 * Inisial table Kondisi Kelas
+		 */
+		// ======================================================= //
+		KondisiKelas kondisiKelasGaduh = new KondisiKelas();
+		kondisiKelasGaduh.setKondisi("Gaduh");
+		kondisiKelasGaduh.setPoint(10.0);
+		kondisiKelasRepository.save(kondisiKelasGaduh);
+		
+		KondisiKelas kondisiKelasSepi = new KondisiKelas();
+		kondisiKelasSepi.setKondisi("Sepi");
+		kondisiKelasSepi.setPoint(20.0);
+		kondisiKelasRepository.save(kondisiKelasSepi);
+		
+		KondisiKelas kondisiKelasCukupKondusif = new KondisiKelas();
+		kondisiKelasCukupKondusif.setKondisi("Cukup Kondusif");
+		kondisiKelasCukupKondusif.setPoint(30.0);
+		kondisiKelasRepository.save(kondisiKelasCukupKondusif);
+		
+		KondisiKelas kondisiKelasKondusif = new KondisiKelas();
+		kondisiKelasKondusif.setKondisi("Kondusif");
+		kondisiKelasKondusif.setPoint(40.0);
+		kondisiKelasRepository.save(kondisiKelasKondusif);
+		
+		KondisiKelas kondisiKelasAktif = new KondisiKelas();
+		kondisiKelasAktif.setKondisi("Aktif");
+		kondisiKelasAktif.setPoint(50.0);
+		kondisiKelasRepository.save(kondisiKelasAktif);
 		
 		// ======================================================= //
 		

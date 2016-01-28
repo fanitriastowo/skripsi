@@ -36,6 +36,10 @@ public class Metode {
 	@ManyToOne
 	@JoinColumn(name = "fasilitas_id")
 	private Fasilitas fasilitas;
+	
+	@ManyToOne
+	@JoinColumn(name = "kondisi_kelas_id")
+	private KondisiKelas kondisiKelas;
 
 	public JumlahSiswa getJumlahSiswa() {
 		return jumlahSiswa;
@@ -91,6 +95,14 @@ public class Metode {
 
 	public void setMetode(String metode) {
 		this.metode = metode;
+	}
+
+	public KondisiKelas getKondisiKelas() {
+		return kondisiKelas;
+	}
+
+	public void setKondisiKelas(KondisiKelas kondisiKelas) {
+		this.kondisiKelas = kondisiKelas;
 	}
 
 }

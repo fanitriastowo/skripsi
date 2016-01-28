@@ -8,7 +8,7 @@ public class MetodeSpk implements Serializable {
 
 	private String namaMetode;
 	private Double jumlahSiswa;
-	private Double kondisiKelas;
+	private Double kondisiSekolah;
 	private Double keaktifanSiswa;
 	private Double kualitasPengajar;
 	private Double fasilitas;
@@ -32,12 +32,12 @@ public class MetodeSpk implements Serializable {
 		this.jumlahSiswa = jumlahSiswa;
 	}
 
-	public Double getKondisiKelas() {
-		return kondisiKelas;
+	public Double getKondisiSekolah() {
+		return kondisiSekolah;
 	}
 
-	public void setKondisiKelas(Double kondisiKelas) {
-		this.kondisiKelas = kondisiKelas;
+	public void setKondisiSekolah(Double kondisiSekolah) {
+		this.kondisiSekolah = kondisiSekolah;
 	}
 
 	public Double getKeaktifanSiswa() {

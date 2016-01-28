@@ -11,14 +11,14 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.skripsi.beni.apps.entity.KondisiSekolah;
-import com.skripsi.beni.apps.service.KondisiKelasService;
+import com.skripsi.beni.apps.service.KondisiSekolahService;
 
 @Controller
 @RequestMapping("/kondisi_sekolah")
 public class KondisiSekolahController {
 
 	@Autowired
-	private KondisiKelasService kondisiSekolahService;
+	private KondisiSekolahService kondisiSekolahService;
 
 	/**
 	 * Construct Kondisi Sekolah model

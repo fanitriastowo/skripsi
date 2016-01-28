@@ -9,22 +9,16 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
 @Entity
-@Table(name = "KONDISI_SEKOLAH")
-@JsonIgnoreProperties(value = { "metode" })
-public class KondisiSekolah {
+@Table(name = "KONDISI_KELAS")
+public class KondisiKelas {
 
 	@Id
 	@GeneratedValue
 	private Long id;
-
 	private String kondisi;
-
 	private Double point;
-
-	@OneToMany(mappedBy = "kondisi", cascade = CascadeType.MERGE)
+	@OneToMany(mappedBy = "kondisiKelas", cascade = CascadeType.MERGE)
 	private List<Metode> metode;
 
 	public Long getId() {

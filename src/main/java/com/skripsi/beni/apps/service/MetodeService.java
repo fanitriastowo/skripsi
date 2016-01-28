@@ -54,7 +54,7 @@ public class MetodeService {
 
 		JumlahSiswa jumlahSiswa = jumlahSiswaRepository.findOne(metodeDTO.getJumlahSiswa());
 		Keaktifan keaktifan = keaktifanRepository.findOne(metodeDTO.getKeaktifan());
-		KondisiSekolah kondisi = kondisiRepository.findOne(metodeDTO.getKondisi());
+		KondisiSekolah kondisi = kondisiRepository.findOne(metodeDTO.getKondisiSekolah());
 		Fasilitas fasilitas = fasilitasRepository.findOne(metodeDTO.getFasilitas());
 		Pengajar pengajar = pengajarRepository.findOne(metodeDTO.getPengajar());
 
@@ -78,7 +78,7 @@ public class MetodeService {
 		
 		JumlahSiswa jumlahSiswa = jumlahSiswaRepository.findOne(metodeDTO.getJumlahSiswa());
 		Keaktifan keaktifan = keaktifanRepository.findOne(metodeDTO.getKeaktifan());
-		KondisiSekolah kondisi = kondisiRepository.findOne(metodeDTO.getKondisi());
+		KondisiSekolah kondisi = kondisiRepository.findOne(metodeDTO.getKondisiSekolah());
 		Fasilitas fasilitas = fasilitasRepository.findOne(metodeDTO.getFasilitas());
 		Pengajar pengajar = pengajarRepository.findOne(metodeDTO.getPengajar());
 		
