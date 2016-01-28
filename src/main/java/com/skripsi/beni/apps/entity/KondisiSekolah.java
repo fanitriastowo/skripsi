@@ -12,9 +12,9 @@ import javax.persistence.Table;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
-@Table(name = "KONDISI")
+@Table(name = "KONDISI_KELAS")
 @JsonIgnoreProperties(value = { "metode" })
-public class Kondisi {
+public class KondisiSekolah {
 
 	@Id
 	@GeneratedValue

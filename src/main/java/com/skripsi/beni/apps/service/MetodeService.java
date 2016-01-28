@@ -11,13 +11,13 @@ import com.skripsi.beni.apps.dto.MetodeDTO;
 import com.skripsi.beni.apps.entity.Fasilitas;
 import com.skripsi.beni.apps.entity.JumlahSiswa;
 import com.skripsi.beni.apps.entity.Keaktifan;
-import com.skripsi.beni.apps.entity.Kondisi;
+import com.skripsi.beni.apps.entity.KondisiSekolah;
 import com.skripsi.beni.apps.entity.Metode;
 import com.skripsi.beni.apps.entity.Pengajar;
 import com.skripsi.beni.apps.repository.FasilitasRepository;
 import com.skripsi.beni.apps.repository.JumlahSiswaRepository;
 import com.skripsi.beni.apps.repository.KeaktifanRepository;
-import com.skripsi.beni.apps.repository.KondisiRepository;
+import com.skripsi.beni.apps.repository.KondisiSekolahRepository;
 import com.skripsi.beni.apps.repository.MetodeRepository;
 import com.skripsi.beni.apps.repository.PengajarRepository;
 
@@ -34,7 +34,7 @@ public class MetodeService {
 	private KeaktifanRepository keaktifanRepository;
 	
 	@Autowired
-	private KondisiRepository kondisiRepository;
+	private KondisiSekolahRepository kondisiRepository;
 	
 	@Autowired
 	private FasilitasRepository fasilitasRepository;
@@ -54,7 +54,7 @@ public class MetodeService {
 
 		JumlahSiswa jumlahSiswa = jumlahSiswaRepository.findOne(metodeDTO.getJumlahSiswa());
 		Keaktifan keaktifan = keaktifanRepository.findOne(metodeDTO.getKeaktifan());
-		Kondisi kondisi = kondisiRepository.findOne(metodeDTO.getKondisi());
+		KondisiSekolah kondisi = kondisiRepository.findOne(metodeDTO.getKondisi());
 		Fasilitas fasilitas = fasilitasRepository.findOne(metodeDTO.getFasilitas());
 		Pengajar pengajar = pengajarRepository.findOne(metodeDTO.getPengajar());
 
@@ -78,7 +78,7 @@ public class MetodeService {
 		
 		JumlahSiswa jumlahSiswa = jumlahSiswaRepository.findOne(metodeDTO.getJumlahSiswa());
 		Keaktifan keaktifan = keaktifanRepository.findOne(metodeDTO.getKeaktifan());
-		Kondisi kondisi = kondisiRepository.findOne(metodeDTO.getKondisi());
+		KondisiSekolah kondisi = kondisiRepository.findOne(metodeDTO.getKondisi());
 		Fasilitas fasilitas = fasilitasRepository.findOne(metodeDTO.getFasilitas());
 		Pengajar pengajar = pengajarRepository.findOne(metodeDTO.getPengajar());
 		

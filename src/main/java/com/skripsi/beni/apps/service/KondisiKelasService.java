@@ -6,21 +6,21 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.skripsi.beni.apps.entity.Kondisi;
-import com.skripsi.beni.apps.repository.KondisiRepository;
+import com.skripsi.beni.apps.entity.KondisiSekolah;
+import com.skripsi.beni.apps.repository.KondisiSekolahRepository;
 
 @Service
 @Transactional
-public class KondisiService {
+public class KondisiKelasService {
 
 	@Autowired
-	private KondisiRepository kondisiRepository;
+	private KondisiSekolahRepository kondisiRepository;
 
-	public List<Kondisi> findAll() {
+	public List<KondisiSekolah> findAll() {
 		return kondisiRepository.findAll();
 	}
 
-	public void save(Kondisi kondisi) {
+	public void save(KondisiSekolah kondisi) {
 		kondisiRepository.save(kondisi);
 	}
 
@@ -28,11 +28,11 @@ public class KondisiService {
 		kondisiRepository.delete(id);
 	}
 
-	public Kondisi findOneById(Long id) {
+	public KondisiSekolah findOneById(Long id) {
 		return kondisiRepository.findOne(id);
 	}
 
-	public void update(Kondisi kondisi) {
+	public void update(KondisiSekolah kondisi) {
 		kondisiRepository.save(kondisi);
 	}
 

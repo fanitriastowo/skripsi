@@ -10,7 +10,7 @@
 				aria-expanded="false">Kriteria&nbsp;<span class="caret"></span></a>
 				<ul class="dropdown-menu">
 					<li><a href=' <spring:url value="/jumlah_siswa" />'>Jumlah Siswa</a></li>
-					<li><a href=' <spring:url value="/kondisi" /> '>Kondisi Kelas</a></li>
+					<li><a href=' <spring:url value="/kondisi_sekolah" /> '>Kondisi Sekolah</a></li>
 					<li><a href=' <spring:url value="/keaktifan" />	'>Keaktifan Siswa</a></li>
 					<li><a href=' <spring:url value="/pengajar" />	'>Pengajar</a></li>
 					<li><a href=' <spring:url value="/fasilitas" />	'>Fasilitas</a></li>

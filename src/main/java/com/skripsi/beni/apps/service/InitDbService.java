@@ -11,7 +11,7 @@ import com.skripsi.beni.apps.entity.BobotSpk;
 import com.skripsi.beni.apps.entity.Fasilitas;
 import com.skripsi.beni.apps.entity.JumlahSiswa;
 import com.skripsi.beni.apps.entity.Keaktifan;
-import com.skripsi.beni.apps.entity.Kondisi;
+import com.skripsi.beni.apps.entity.KondisiSekolah;
 import com.skripsi.beni.apps.entity.Metode;
 import com.skripsi.beni.apps.entity.Pengajar;
 import com.skripsi.beni.apps.entity.Role;
@@ -20,7 +20,7 @@ import com.skripsi.beni.apps.repository.BobotRepository;
 import com.skripsi.beni.apps.repository.FasilitasRepository;
 import com.skripsi.beni.apps.repository.JumlahSiswaRepository;
 import com.skripsi.beni.apps.repository.KeaktifanRepository;
-import com.skripsi.beni.apps.repository.KondisiRepository;
+import com.skripsi.beni.apps.repository.KondisiSekolahRepository;
 import com.skripsi.beni.apps.repository.MetodeRepository;
 import com.skripsi.beni.apps.repository.PengajarRepository;
 import com.skripsi.beni.apps.repository.RoleRepository;
@@ -52,12 +52,12 @@ public class InitDbService {
 	private FasilitasRepository fasilitasRepository;
 
 	@Autowired
-	private KondisiRepository kondisiRepository;
+	private KondisiSekolahRepository kondisiRepository;
 	
 	@Autowired
 	private BobotRepository bobotRepository;
 
-	@PostConstruct
+	// @PostConstruct
 	public void afterPropertiesSet() throws Exception {
 
 		BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
@@ -230,20 +230,20 @@ public class InitDbService {
 		// ======================================================= //
 		
 		/**
-		 * Inisial table Kondisi
+		 * Inisial table Kondisi Sekolah
 		 */
 		// ======================================================= //
-		Kondisi kondisiJauhDariPusatKeramaian = new Kondisi();
+		KondisiSekolah kondisiJauhDariPusatKeramaian = new KondisiSekolah();
 		kondisiJauhDariPusatKeramaian.setKondisi("Jauh dari pusat keramaian");
 		kondisiJauhDariPusatKeramaian.setPoint(30.0);
 		kondisiRepository.save(kondisiJauhDariPusatKeramaian);
 		
-		Kondisi kondisiDekatDenganPusatKeramaian = new Kondisi();
+		KondisiSekolah kondisiDekatDenganPusatKeramaian = new KondisiSekolah();
 		kondisiDekatDenganPusatKeramaian.setKondisi("Dekat dengan pusat keramaian");
 		kondisiDekatDenganPusatKeramaian.setPoint(20.0);
 		kondisiRepository.save(kondisiDekatDenganPusatKeramaian);
 		
-		Kondisi kondisiBeradaDiPusatKeramaian = new Kondisi();
+		KondisiSekolah kondisiBeradaDiPusatKeramaian = new KondisiSekolah();
 		kondisiBeradaDiPusatKeramaian.setKondisi("Berada dipusat keramaian");
 		kondisiBeradaDiPusatKeramaian.setPoint(10.0);
 		kondisiRepository.save(kondisiBeradaDiPusatKeramaian);

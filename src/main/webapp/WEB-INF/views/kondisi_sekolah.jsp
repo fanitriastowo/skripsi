@@ -7,14 +7,14 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-<title>Halaman Kondisi</title>
+<title>Halaman Kondisi Sekolah</title>
 <%@ include file="/WEB-INF/template/css.jsp"%>
 </head>
 <body>
 	<div class="container">
 		<%@ include file="/WEB-INF/template/navbar.jsp"%>
 
-		<h3>Tambah Kondisi</h3>
+		<h3>Tambah Kondisi Sekolah</h3>
 
 		<!-- Button Tambah Kondisi Kelas -->
 		<button type="button" class="btn btn-success" data-toggle="modal" data-target="#addModal">
@@ -38,9 +38,9 @@
 						<td><c:out value="${kondisi.kondisi}" /> </td>
 						<td><c:out value="${kondisi.point }" /> </td>
 						<td>
-							<a href='<spring:url value="/kondisi/prepare_update/${kondisi.id }" />' class="btn btn-xs btn-primary triggerUpdate">
+							<a href='<spring:url value="/kondisi_sekolah/prepare_update/${kondisi.id }" />' class="btn btn-xs btn-primary triggerUpdate">
 								<span class="glyphicon glyphicon-pencil"></span> Edit</a>
-							<a href='<spring:url value="/kondisi/delete/${kondisi.id }" />' class="btn btn-xs btn-danger triggerDelete">
+							<a href='<spring:url value="/kondisi_sekolah/delete/${kondisi.id }" />' class="btn btn-xs btn-danger triggerDelete">
 								<span class="glyphicon glyphicon-remove"></span> Delete</a>
 						</td>
 					</tr>					
@@ -52,7 +52,7 @@
 	</div>
 
 	<!-- Add Modal -->
-	<form:form commandName="kondisi" action="${pageContext.request.contextPath }/kondisi/save">
+	<form:form commandName="kondisiSekolah" action="${pageContext.request.contextPath }/kondisi_sekolah/save">
 		<div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
 			<div class="modal-dialog">
 				<div class="modal-content">
@@ -60,16 +60,16 @@
 						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 							<span aria-hidden="true">&times;</span>
 						</button>
-						<h4 class="modal-title" id="modalLabel">Tambah Data Kondisi</h4>
+						<h4 class="modal-title" id="modalLabel">Tambah Data Kondisi Sekolah</h4>
 					</div>
 					<div class="modal-body">
 						<div class="form-group">
 							<label for="txtAddKondisi" class="control-label">Kondisi:</label>
-							<form:input path="kondisi" id="txtAddKondisi" cssClass="form-control" placeholder="Type Kondisi" />
+							<form:input path="kondisi" id="txtAddKondisi" cssClass="form-control" placeholder="Kondisi Sekolah" />
 						</div>
 						<div class="form-group">
 							<label for="txtAddPoint" class="control-label">Point:</label>
-							<form:input path="point" id="txtAddPoint" cssClass="form-control" placeholder="Type Point"/>
+							<form:input path="point" id="txtAddPoint" cssClass="form-control" placeholder="Point"/>
 						</div>
 					</div>
 					<div class="modal-footer">
@@ -84,7 +84,7 @@
 	</form:form>
 
 	<!-- Update Modal -->
-	<form:form commandName="kondisi" action="${pageContext.request.contextPath }/kondisi/update">
+	<form:form commandName="kondisiSekolah" action="${pageContext.request.contextPath }/kondisi_sekolah/update">
 		<div class="modal fade" id="updateModal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
 			<div class="modal-dialog">
 				<div class="modal-content">
@@ -92,17 +92,17 @@
 						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 							<span aria-hidden="true">&times;</span>
 						</button>
-						<h4 class="modal-title" id="modalLabel">Update Data Kondisi</h4>
+						<h4 class="modal-title" id="modalLabel">Update Data Kondisi Sekolah</h4>
 					</div>
 					<div class="modal-body">
 						<form:hidden path="id" id="txtUpdateLblId"/>
 						<div class="form-group">
 							<label for="txtUpdateKondisi" class="control-label">Kondisi:</label>
-							<form:input path="kondisi" id="txtUpdateKondisi" cssClass="form-control" placeholder="Type Kondisi" />
+							<form:input path="kondisi" id="txtUpdateKondisi" cssClass="form-control" placeholder="Kondisi Sekolah" />
 						</div>
 						<div class="form-group">
 							<label for="txtUpdatePoint" class="control-label">Point:</label>
-							<form:input path="point" id="txtUpdatePoint" cssClass="form-control" placeholder="Type Point"/>
+							<form:input path="point" id="txtUpdatePoint" cssClass="form-control" placeholder="Point"/>
 						</div>
 					</div>
 					<div class="modal-footer">
@@ -124,7 +124,7 @@
 					<button type="button" class="close" data-dismiss="modal">
 						<span aria-hidden="true">&times;</span><span class="sr-only">Tutup</span>
 					</button>
-					<h4 class="modal-title" id="myModalLabel">Hapus Data Kondisi</h4>
+					<h4 class="modal-title" id="myModalLabel">Hapus Data Kondisi Sekolah</h4>
 				</div>
 				<div class="modal-body">
 					<strong>Apakah Anda yakin akan menghapus? </strong>

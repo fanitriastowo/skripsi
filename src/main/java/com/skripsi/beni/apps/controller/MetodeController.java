@@ -15,7 +15,7 @@ import com.skripsi.beni.apps.entity.Metode;
 import com.skripsi.beni.apps.service.FasilitasService;
 import com.skripsi.beni.apps.service.JumlahSiswaService;
 import com.skripsi.beni.apps.service.KeaktifanService;
-import com.skripsi.beni.apps.service.KondisiService;
+import com.skripsi.beni.apps.service.KondisiKelasService;
 import com.skripsi.beni.apps.service.MetodeService;
 import com.skripsi.beni.apps.service.PengajarService;
 
@@ -33,7 +33,7 @@ public class MetodeController {
 	private KeaktifanService keaktifanService;
 	
 	@Autowired
-	private KondisiService kondisiService;
+	private KondisiKelasService kondisiService;
 	
 	@Autowired
 	private FasilitasService fasilitasService;

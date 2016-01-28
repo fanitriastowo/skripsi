@@ -29,7 +29,7 @@
 						<th>Metode</th>
 						<th>Jumlah Siswa</th>
 						<th>Keaktifan Siswa</th>
-						<th>Kondisi Kelas</th>
+						<th>Kondisi Sekolah</th>
 						<th>Fasilitas</th>
 						<th>Kualitas Pengajar</th>
 						<th width="10%">Aksi</th>
