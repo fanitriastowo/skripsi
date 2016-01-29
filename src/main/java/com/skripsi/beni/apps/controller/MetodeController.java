@@ -3,10 +3,12 @@ package com.skripsi.beni.apps.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -78,11 +80,30 @@ public class MetodeController {
 		metode = metodeService.findOneById(id);
 		return metode;
 	}
+	
+	@RequestMapping("/prepare_edit_guru/{id}")
+	@ResponseBody
+	@PreAuthorize(value = "hasRole('ROLE_GURU')")
+	public Metode prepareEditGuru(@PathVariable Long id) {
+		Metode metode = new Metode();
+		metode = metodeService.findOneById(id);
+		return metode;
+	}
 
-	@RequestMapping("/edit")
+	@RequestMapping(value = "/edit", method = RequestMethod.POST)
 	public ModelAndView submitEdit(@ModelAttribute("metode") MetodeDTO metodeDTO) {
 		if (metodeDTO != null) {
 			metodeService.update(metodeDTO);
+		}
+		ModelAndView modelAndView = new ModelAndView("redirect:/metode");
+		return modelAndView;
+	}
+	
+	@RequestMapping(value = "/edit_guru", method = RequestMethod.POST)
+	@PreAuthorize(value = "hasRole('ROLE_GURU')")
+	public ModelAndView submitEditGURU(@ModelAttribute("metode") MetodeDTO metodeDTO) {
+		if (metodeDTO != null) {
+			metodeService.updateGuru(metodeDTO);
 		}
 		ModelAndView modelAndView = new ModelAndView("redirect:/metode");
 		return modelAndView;

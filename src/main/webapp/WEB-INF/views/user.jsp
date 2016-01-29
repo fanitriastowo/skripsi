@@ -79,8 +79,6 @@
 						<td><c:out value="${user.noTelp }" /> </td>
 						<td><c:out value="${user.username }" /> </td>
 						<td>
-							<a href="#" class="btn btn-xs btn-info">
-								<span class="glyphicon glyphicon-menu-hamburger"></span> Detail</a> 
 							<a href='<spring:url value="/user/prepare_update/${user.id }" />' class="btn btn-xs btn-primary btnUpdate">
 								<span class="glyphicon glyphicon-pencil"></span> Edit</a> 
 							<a href='<spring:url value="/user/delete/${user.id }" />' class="btn btn-xs btn-danger triggerRemove">

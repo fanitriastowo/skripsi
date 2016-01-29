@@ -62,7 +62,7 @@ public class InitDbService {
 	@Autowired
 	private BobotRepository bobotRepository;
 
-	@PostConstruct
+	// @PostConstruct
 	public void afterPropertiesSet() throws Exception {
 
 		BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
@@ -109,9 +109,9 @@ public class InitDbService {
 		roleAdmin.setName("ROLE_ADMIN");
 		roleRepository.save(roleAdmin);
 		
-		Role roleUser = new Role();
-		roleUser.setName("ROLE_USER");
-		roleRepository.save(roleUser);
+		Role roleGuru = new Role();
+		roleGuru.setName("ROLE_GURU");
+		roleRepository.save(roleGuru);
 		// ==================================== //
 
 		/**
@@ -128,14 +128,14 @@ public class InitDbService {
 		userAdmin.setRole(roleAdmin);
 		userRepository.save(userAdmin);
 
-		// User Lain
+		// User Guru
 		User userLain = new User();
-		userLain.setUsername("user1");
-		userLain.setPassword(encoder.encode("user1"));
-		userLain.setNamaLengkap("Blah");
+		userLain.setUsername("guru");
+		userLain.setPassword(encoder.encode("guru"));
+		userLain.setNamaLengkap("Guru");
 		userLain.setNoTelp("999");
 		userLain.setEnabled(true);
-		userLain.setRole(roleUser);
+		userLain.setRole(roleGuru);
 		userRepository.save(userLain);
 		// ==================================================== //
 

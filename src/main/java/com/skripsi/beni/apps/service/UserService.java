@@ -27,13 +27,13 @@ public class UserService {
 	}
 
 	public List<User> findAllByRoleUser() {
-		Role roleUser = roleRepository.findOneByName("ROLE_USER");
+		Role roleUser = roleRepository.findOneByName("ROLE_GURU");
 		return userRepository.findAllByRole(roleUser);
 	}
 
 	public void save(User user) {
 		BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
-		Role roleUser = roleRepository.findOneByName("ROLE_USER");
+		Role roleUser = roleRepository.findOneByName("ROLE_GURU");
 		user.setPassword(encoder.encode(user.getPassword()));
 		user.setRole(roleUser);
 		user.setEnabled(true);
