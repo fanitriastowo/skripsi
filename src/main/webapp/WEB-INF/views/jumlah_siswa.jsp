@@ -50,7 +50,7 @@
 	</div>
 	
 	<!-- Add Modal -->
-	<form:form commandName="jumlahSiswa" action="${pageContext.request.contextPath }/jumlah_siswa/save" >
+	<form:form commandName="jumlahSiswa" action="${pageContext.request.contextPath }/jumlah_siswa/save" cssClass="addJumlahSiswaForm">
 	<div class="modal fade" id="addModal" tabindex = "-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 		<div class="modal-dialog">
 			<div class="modal-content">
@@ -76,7 +76,7 @@
 				<div class="modal-footer">
 					<button type="button" class="btn btn-default" data-dismiss="modal">
 						<span class="glyphicon glyphicon-remove-circle"></span> Batal</button>
-					<button type="submit" class="btn btn-danger btnRemove">
+					<button type="submit" class="btn btn-primary btnRemove">
 						<span class="glyphicon glyphicon-ok-circle"></span> Save</button>
 				</div>
 			</div>
@@ -85,7 +85,7 @@
 	</form:form>
 	
 	<!-- Update Modal -->
-	<form:form commandName="jumlahSiswa" action="${pageContext.request.contextPath }/jumlah_siswa/update" >
+	<form:form commandName="jumlahSiswa" action="${pageContext.request.contextPath }/jumlah_siswa/update" cssClass="updateJumlahSiswaForm">
 	<div class="modal fade" id="updateModal" tabindex = "-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 		<div class="modal-dialog">
 			<div class="modal-content">
@@ -111,7 +111,7 @@
 				<div class="modal-footer">
 					<button type="button" class="btn btn-default" data-dismiss="modal">
 						<span class="glyphicon glyphicon-remove-circle"></span> Batal</button>
-					<button type="submit" class="btn btn-danger btnRemove">
+					<button type="submit" class="btn btn-primary btnRemove">
 						<span class="glyphicon glyphicon-ok-circle"></span> Update</button>
 				</div>
 			</div>
@@ -144,10 +144,74 @@
 
 	<%@ include file="/WEB-INF/template/footer.jsp"%>
 	<%@ include file="/WEB-INF/template/javascript.jsp"%>
+	<script src='<spring:url value="/assets/js/jquery.validate.min.js"/>'></script>
 </body>
 <script type="text/javascript">
 	$(document).ready(function() {
 		$('#kriteria').addClass('active');
+
+		$(".addJumlahSiswaForm").validate({
+			rules : {
+				jmlSiswa : {
+					required : true,
+					minlength : 3
+				},
+				point : {
+					required : true,
+					min : 1,
+					number : true
+				}
+			},
+			messages : {
+				jmlSiswa : {
+					required : "Field Jumlah Siswa tidak boleh kosong",
+					minlength : "Minimal 3 karakter"
+				},
+				point : {
+					required : "Field Point tidak boleh kosong",
+					min : "Point Minimal 1",
+					number : "Inputan harus berupa angka"
+				}
+			},
+			highlight : function(element) {
+				$(element).closest('.form-group').removeClass('has-success').addClass('has-error');
+			},
+			unhighlight : function(element) {
+				$(element).closest('.form-group').removeClass('has-error').addClass('has-success');
+			}
+		});
+		
+		
+		$(".updateJumlahSiswaForm").validate({
+			rules : {
+				jmlSiswa : {
+					required : true,
+					minlength : 3
+				},
+				point : {
+					required : true,
+					min : 1,
+					number : true
+				}
+			},
+			messages : {
+				jmlSiswa : {
+					required : "Field Jumlah Siswa tidak boleh kosong",
+					minlength : "Minimal 3 karakter"
+				},
+				point : {
+					required : "Field Point tidak boleh kosong",
+					min : "Point Minimal 1",
+					number : "Inputan harus berupa angka"
+				}
+			},
+			highlight : function(element) {
+				$(element).closest('.form-group').removeClass('has-success').addClass('has-error');
+			},
+			unhighlight : function(element) {
+				$(element).closest('.form-group').removeClass('has-error').addClass('has-success');
+			}
+		});
 		
 		// tampilkan notifikasi sebelum menghapus
 		$('.triggerDelete').click(function(e) {

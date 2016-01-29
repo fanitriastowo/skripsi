@@ -52,7 +52,7 @@
 	</div>
 
 	<!-- Add Modal -->
-	<form:form commandName="fasilitas" action="${pageContext.request.contextPath }/fasilitas/save">
+	<form:form commandName="fasilitas" action="${pageContext.request.contextPath }/fasilitas/save" cssClass="addFasilitasForm">
 		<div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
 			<div class="modal-dialog">
 				<div class="modal-content">
@@ -84,7 +84,7 @@
 	</form:form>
 
 	<!-- Update Modal -->
-	<form:form commandName="fasilitas" action="${pageContext.request.contextPath }/fasilitas/update">
+	<form:form commandName="fasilitas" action="${pageContext.request.contextPath }/fasilitas/update" cssClass="updateFasilitasForm">
 		<div class="modal fade" id="updateModal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
 			<div class="modal-dialog">
 				<div class="modal-content">
@@ -141,10 +141,74 @@
 
 	<%@ include file="/WEB-INF/template/footer.jsp"%>
 	<%@ include file="/WEB-INF/template/javascript.jsp"%>
+	<script src='<spring:url value="/assets/js/jquery.validate.min.js"/>'></script>
 </body>
 <script type="text/javascript">
 	$(document).ready(function() {
 		$('#kriteria').addClass('active');
+		
+		$(".addFasilitasForm").validate({
+			rules : {
+				fasilitas : {
+					required : true,
+					minlength : 3
+				},
+				point : {
+					required : true,
+					min : 1,
+					number : true
+				}
+			},
+			messages : {
+				fasilitas : {
+					required : "Field Fasilitas tidak boleh kosong",
+					minlength : "Minimal 3 karakter"
+				},
+				point : {
+					required : "Field Point tidak boleh kosong",
+					min : "Point Minimal 1",
+					number : "Inputan harus berupa angka"
+				}
+			},
+			highlight : function(element) {
+				$(element).closest('.form-group').removeClass('has-success').addClass('has-error');
+			},
+			unhighlight : function(element) {
+				$(element).closest('.form-group').removeClass('has-error').addClass('has-success');
+			}
+		});
+		
+		
+		$(".updateFasilitasForm").validate({
+			rules : {
+				fasilitas : {
+					required : true,
+					minlength : 3
+				},
+				point : {
+					required : true,
+					min : 1,
+					number : true
+				}
+			},
+			messages : {
+				fasilitas : {
+					required : "Field Fasilitas tidak boleh kosong",
+					minlength : "Minimal 3 karakter"
+				},
+				point : {
+					required : "Field Point tidak boleh kosong",
+					min : "Point Minimal 1",
+					number : "Inputan harus berupa angka"
+				}
+			},
+			highlight : function(element) {
+				$(element).closest('.form-group').removeClass('has-success').addClass('has-error');
+			},
+			unhighlight : function(element) {
+				$(element).closest('.form-group').removeClass('has-error').addClass('has-success');
+			}
+		});
 		
 		// Trigger Delete Confirmation
 		$('.triggerDelete').click(function(e) {

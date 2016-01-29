@@ -37,7 +37,9 @@
 								<th>Kondisi Kelas</th>
 								<th>Fasilitas</th>
 								<th>Kualitas Pengajar</th>
+								<security:authorize access="isAuthenticated()">
 								<th width="10%">Aksi</th>
+								</security:authorize>
 							</tr>
 						</thead>
 		
@@ -78,7 +80,7 @@
 		
 		<security:authorize access="hasRole('ROLE_ADMIN')">
 		<!-- Add Modal -->
-		<form:form commandName="metode" action="${pageContext.request.contextPath }/metode/add" method="post">
+		<form:form commandName="metode" action="${pageContext.request.contextPath }/metode/add" method="post" cssClass="addMetodeAdminForm">
 		<div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="updateModalLabel" aria-hidden="true">
 			<div class="modal-dialog">
 				<div class="modal-content">
@@ -132,7 +134,7 @@
 
 		<security:authorize access="hasRole('ROLE_ADMIN')">
 		<!-- Update Modal -->
-		<form:form commandName="metode" action="${pageContext.request.contextPath }/metode/edit" method="post">
+		<form:form commandName="metode" action="${pageContext.request.contextPath }/metode/edit" method="post" cssClass="updateMetodeAdminForm">
 		<div class="modal fade" id="updateModal" tabindex="-1" role="dialog" aria-labelledby="updateModalLabel" aria-hidden="true">
 			<div class="modal-dialog">
 				<div class="modal-content">
@@ -187,7 +189,7 @@
 		
 		<security:authorize access="hasRole('ROLE_GURU')">
 		<!-- Update Modal -->
-		<form:form commandName="metode" action="${pageContext.request.contextPath }/metode/edit_guru" method="post">
+		<form:form commandName="metode" action="${pageContext.request.contextPath }/metode/edit_guru" method="post" cssClass="updateMetodeGuruForm">
 		<div class="modal fade" id="updateModalGuru" tabindex="-1" role="dialog" aria-labelledby="updateModalLabel" aria-hidden="true">
 			<div class="modal-dialog">
 				<div class="modal-content">
@@ -265,11 +267,75 @@
 
 	<%@ include file="/WEB-INF/template/footer.jsp"%>
 	<%@ include file="/WEB-INF/template/javascript.jsp"%>
+	<script src='<spring:url value="/assets/js/jquery.validate.min.js"/>'></script>
 	<script type="text/javascript">
 		$(document).ready(function() {
 			
 			// add active class every this page accessed
 			$('#metode').addClass('active');
+
+			$(".addMetodeAdminForm").validate({
+				rules : {
+					metode : {
+						required : true,
+						minlength : 3
+					}
+				},
+				messages : {
+					metode : {
+						required : "Metode tidak boleh kosong",
+						minlength : "Minimal 3 karakter"
+					}
+				},
+				highlight : function(element) {
+					$(element).closest('.form-group').removeClass('has-success').addClass('has-error');
+				},
+				unhighlight : function(element) {
+					$(element).closest('.form-group').removeClass('has-error').addClass('has-success');
+				}
+			});
+
+			$(".updateMetodeAdminForm").validate({
+				rules : {
+					metode : {
+						required : true,
+						minlength : 3
+					}
+				},
+				messages : {
+					metode : {
+						required : "Metode tidak boleh kosong",
+						minlength : "Minimal 3 karakter"
+					}
+				},
+				highlight : function(element) {
+					$(element).closest('.form-group').removeClass('has-success').addClass('has-error');
+				},
+				unhighlight : function(element) {
+					$(element).closest('.form-group').removeClass('has-error').addClass('has-success');
+				}
+			});
+
+			$(".updateMetodeGuruForm").validate({
+				rules : {
+					metode : {
+						required : true,
+						minlength : 3
+					}
+				},
+				messages : {
+					metode : {
+						required : "Metode tidak boleh kosong",
+						minlength : "Minimal 3 karakter"
+					}
+				},
+				highlight : function(element) {
+					$(element).closest('.form-group').removeClass('has-success').addClass('has-error');
+				},
+				unhighlight : function(element) {
+					$(element).closest('.form-group').removeClass('has-error').addClass('has-success');
+				}
+			});
 			
 			// btnUpdate click event to show modal window and fill its field 
 			$('.btnUpdate').click(function(e) {
