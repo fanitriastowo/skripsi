@@ -22,8 +22,8 @@ public class Metode {
 	private JumlahSiswa jumlahSiswa;
 
 	@ManyToOne
-	@JoinColumn(name = "kondisi_id")
-	private KondisiSekolah kondisi;
+	@JoinColumn(name = "kondisi_sekolah_id")
+	private KondisiSekolah kondisiSekolah;
 
 	@ManyToOne
 	@JoinColumn(name = "keaktifan_id")
@@ -36,7 +36,7 @@ public class Metode {
 	@ManyToOne
 	@JoinColumn(name = "fasilitas_id")
 	private Fasilitas fasilitas;
-	
+
 	@ManyToOne
 	@JoinColumn(name = "kondisi_kelas_id")
 	private KondisiKelas kondisiKelas;
@@ -49,12 +49,12 @@ public class Metode {
 		this.jumlahSiswa = jumlahSiswa;
 	}
 
-	public KondisiSekolah getKondisi() {
-		return kondisi;
+	public KondisiSekolah getKondisiSekolah() {
+		return kondisiSekolah;
 	}
 
-	public void setKondisi(KondisiSekolah kondisi) {
-		this.kondisi = kondisi;
+	public void setKondisiSekolah(KondisiSekolah kondisiSekolah) {
+		this.kondisiSekolah = kondisiSekolah;
 	}
 
 	public Keaktifan getKeaktifan() {

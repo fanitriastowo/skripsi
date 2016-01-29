@@ -7,6 +7,7 @@ public class MetodeDTO {
 	private Long jumlahSiswa;
 	private Long keaktifan;
 	private Long kondisiSekolah;
+	private Long kondisiKelas;
 	private Long fasilitas;
 	private Long pengajar;
 
@@ -48,6 +49,14 @@ public class MetodeDTO {
 
 	public void setKondisiSekolah(Long kondisiSekolah) {
 		this.kondisiSekolah = kondisiSekolah;
+	}
+
+	public Long getKondisiKelas() {
+		return kondisiKelas;
+	}
+
+	public void setKondisiKelas(Long kondisiKelas) {
+		this.kondisiKelas = kondisiKelas;
 	}
 
 	public Long getFasilitas() {

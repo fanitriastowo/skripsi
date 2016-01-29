@@ -15,6 +15,7 @@ import com.skripsi.beni.apps.entity.Metode;
 import com.skripsi.beni.apps.service.FasilitasService;
 import com.skripsi.beni.apps.service.JumlahSiswaService;
 import com.skripsi.beni.apps.service.KeaktifanService;
+import com.skripsi.beni.apps.service.KondisiKelasService;
 import com.skripsi.beni.apps.service.KondisiSekolahService;
 import com.skripsi.beni.apps.service.MetodeService;
 import com.skripsi.beni.apps.service.PengajarService;
@@ -33,7 +34,10 @@ public class MetodeController {
 	private KeaktifanService keaktifanService;
 	
 	@Autowired
-	private KondisiSekolahService kondisiService;
+	private KondisiSekolahService kondisiSekolahService;
+	
+	@Autowired
+	private KondisiKelasService kondisiKelasService;
 	
 	@Autowired
 	private FasilitasService fasilitasService;
@@ -53,7 +57,8 @@ public class MetodeController {
 		modelAndView.addObject("metodes", tampilSemuaMetode);
 		modelAndView.addObject("lookUpJumlahSiswa", jumlahSiswaService.findAll());
 		modelAndView.addObject("lookUpkeaktifanSiswa", keaktifanService.findAll());
-		modelAndView.addObject("lookUpKondisiKelas", kondisiService.findAll());
+		modelAndView.addObject("lookUpKondisiSekolah", kondisiSekolahService.findAll());
+		modelAndView.addObject("lookUpKondisiKelas", kondisiKelasService.findAll());
 		modelAndView.addObject("lookUpFasilitas", fasilitasService.findAll());
 		modelAndView.addObject("lookUpPengajar", pengajarService.findAll());
 		return modelAndView;

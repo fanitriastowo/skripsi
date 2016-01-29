@@ -28,6 +28,7 @@
 								<th>Metode</th>
 								<th>Jumlah Siswa</th>
 								<th>Keaktifan Siswa</th>
+								<th>Kondisi Sekolah</th>
 								<th>Kondisi Kelas</th>
 								<th>Fasilitas</th>
 								<th>Kualitas Pengajar</th>
@@ -44,6 +45,7 @@
 									<td><c:out value="${spk.namaMetode }" /></td>
 									<td><c:out value="${spk.jumlahSiswa }" /></td>
 									<td><c:out value="${spk.keaktifanSiswa }" /></td>
+									<td><c:out value="${spk.kondisiSekolah }" /></td>
 									<td><c:out value="${spk.kondisiKelas }" /></td>
 									<td><c:out value="${spk.fasilitas }" /></td>
 									<td><c:out value="${spk.kualitasPengajar }" /></td>
@@ -53,16 +55,14 @@
 								</tr>
 							</c:forEach>
 						</tbody>
-					</table>
-					
-					<table class="table table-striped table-bordered table-condensed">
-						<thead style="font-size: 1.2em">
+						<tfoot>
 							<tr class="info">
 								<td>#</td>
 								<td><strong>Bobot</strong></td>
 								<td class="text-center" ><c:out value="${tempBobot.jumlahSiswaBobot }" /></td>
-								<td class="text-center" ><c:out value="${tempBobot.kondisiKelasBobot }" /></td>
 								<td class="text-center" ><c:out value="${tempBobot.keaktifanSiswaBobot }" /></td>
+								<td class="text-center" ><c:out value="${tempBobot.kondisiKelasBobot }" /></td>
+								<td class="text-center" ><c:out value="${tempBobot.kondisiSekolahBobot }" /></td>
 								<td class="text-center" ><c:out value="${tempBobot.kualitasPengajarBobot }" /></td>
 								<td class="text-center" ><c:out value="${tempBobot.fasilitasBobot }" /></td>
 							</tr>
@@ -70,13 +70,15 @@
 								<td>#</td>
 								<td><strong>Bobot Ter - Normalisasi</strong></td>
 								<td class="text-center" ><c:out value="${tempBobot.nJumlahSiswaBobot }" /></td>
-								<td class="text-center" ><c:out value="${tempBobot.nKondisiKelasBobot }" /></td>
 								<td class="text-center" ><c:out value="${tempBobot.nKeaktifanSiswaBobot }" /></td>
+								<td class="text-center" ><c:out value="${tempBobot.nKondisiSekolahBobot }" /></td>
+								<td class="text-center" ><c:out value="${tempBobot.nKondisiKelasBobot }" /></td>
 								<td class="text-center" ><c:out value="${tempBobot.nKualitasPengajarBobot }" /></td>
 								<td class="text-center" ><c:out value="${tempBobot.nFasilitasBobot }" /></td>
 							</tr>
-						</thead>
+						</tfoot>
 					</table>
+					
 				</div>	
 			</div>
 			<div class="panel-footer">

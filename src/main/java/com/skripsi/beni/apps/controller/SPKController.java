@@ -100,10 +100,11 @@ public class SPKController {
 			Double pemangkatanFasilitas = Math.pow(metodeVectorS.getFasilitas().getPoint(), bobotSpk.getnFasilitasBobot());
 			Double pemangkatanJumlahSiswa = Math.pow(metodeVectorS.getJumlahSiswa().getPoint(), bobotSpk.getnJumlahSiswaBobot());
 			Double pemangkatanKeaktifanSiswa = Math.pow(metodeVectorS.getKeaktifan().getPoint(), bobotSpk.getnKeaktifanSiswaBobot());
-			Double pemangkatanKondisiKelas = Math.pow(metodeVectorS.getKondisi().getPoint(), bobotSpk.getnKondisiSekolahBobot());
-			Double pemangkatanKualitasPengajar = Math.pow(metodeVectorS.getKondisi().getPoint(), bobotSpk.getnKualitasPengajarBobot());
+			Double pemangkatanKondisiSekolah = Math.pow(metodeVectorS.getKondisiSekolah().getPoint(), bobotSpk.getnKondisiSekolahBobot());
+			Double pemangkatanKondisiKelas = Math.pow(metodeVectorS.getKondisiKelas().getPoint(), bobotSpk.getnKondisiKelasBobot());
+			Double pemangkatanKualitasPengajar = Math.pow(metodeVectorS.getPengajar().getPoint(), bobotSpk.getnKualitasPengajarBobot());
 			Double vectorS = pemangkatanFasilitas * pemangkatanJumlahSiswa * pemangkatanKeaktifanSiswa * 
-					  		 pemangkatanKondisiKelas * pemangkatanKualitasPengajar;
+					  		 pemangkatanKondisiKelas * pemangkatanKondisiSekolah * pemangkatanKualitasPengajar;
 			
 			// jumlahkan jumlahVectorS saat ini dengan vectorS
 			jumlahVectorS += vectorS;
@@ -114,18 +115,20 @@ public class SPKController {
 			Double pemangkatanFasilitas = Math.pow(metode.getFasilitas().getPoint(), bobotSpk.getnFasilitasBobot());
 			Double pemangkatanJumlahSiswa = Math.pow(metode.getJumlahSiswa().getPoint(), bobotSpk.getnJumlahSiswaBobot());
 			Double pemangkatanKeaktifanSiswa = Math.pow(metode.getKeaktifan().getPoint(), bobotSpk.getnKeaktifanSiswaBobot());
-			Double pemangkatanKondisiKelas = Math.pow(metode.getKondisi().getPoint(), bobotSpk.getnKondisiSekolahBobot());
-			Double pemangkatanKualitasPengajar = Math.pow(metode.getKondisi().getPoint(), bobotSpk.getnKualitasPengajarBobot());
+			Double pemangkatanKondisiSekolah = Math.pow(metode.getKondisiSekolah().getPoint(), bobotSpk.getnKondisiSekolahBobot());
+			Double pemangkatanKondisiKelas = Math.pow(metode.getKondisiKelas().getPoint(), bobotSpk.getnKondisiKelasBobot());
+			Double pemangkatanKualitasPengajar = Math.pow(metode.getPengajar().getPoint(), bobotSpk.getnKualitasPengajarBobot());
 			Double vectorS = pemangkatanFasilitas * pemangkatanJumlahSiswa * pemangkatanKeaktifanSiswa * 
-					  		 pemangkatanKondisiKelas * pemangkatanKualitasPengajar;
+					  		 pemangkatanKondisiKelas * pemangkatanKondisiSekolah * pemangkatanKualitasPengajar;
 			
 			MetodeSpk metodeSpk = new MetodeSpk();
 			metodeSpk.setNamaMetode(metode.getMetode());
 			metodeSpk.setFasilitas(HelperUmum.angkaBelakangKoma(Math.pow(metode.getFasilitas().getPoint(), bobotSpk.getnFasilitasBobot()), 3));
 			metodeSpk.setJumlahSiswa(HelperUmum.angkaBelakangKoma(Math.pow(metode.getJumlahSiswa().getPoint(), bobotSpk.getnJumlahSiswaBobot()), 3));
 			metodeSpk.setKeaktifanSiswa(HelperUmum.angkaBelakangKoma(Math.pow(metode.getKeaktifan().getPoint(), bobotSpk.getnKeaktifanSiswaBobot()), 3));
-			metodeSpk.setKondisiSekolah(HelperUmum.angkaBelakangKoma(Math.pow(metode.getKondisi().getPoint(), bobotSpk.getnKondisiSekolahBobot()), 3));
-			metodeSpk.setKualitasPengajar(HelperUmum.angkaBelakangKoma(Math.pow(metode.getKondisi().getPoint(), bobotSpk.getnKualitasPengajarBobot()), 3));
+			metodeSpk.setKondisiSekolah(HelperUmum.angkaBelakangKoma(Math.pow(metode.getKondisiSekolah().getPoint(), bobotSpk.getnKondisiSekolahBobot()), 3));
+			metodeSpk.setKondisiKelas(HelperUmum.angkaBelakangKoma(Math.pow(metode.getKondisiKelas().getPoint(), bobotSpk.getnKondisiKelasBobot()), 3));
+			metodeSpk.setKualitasPengajar(HelperUmum.angkaBelakangKoma(Math.pow(metode.getPengajar().getPoint(), bobotSpk.getnKualitasPengajarBobot()), 3));
 			metodeSpk.setVectorS(HelperUmum.angkaBelakangKoma(vectorS, 6));
 			metodeSpk.setJumlahVectorS(HelperUmum.angkaBelakangKoma(jumlahVectorS, 6));
 			listMetodeSpk.add(metodeSpk);
@@ -150,10 +153,11 @@ public class SPKController {
 			Double pemangkatanFasilitas = Math.pow(metodeVectorS.getFasilitas().getPoint(), bobotSpk.getnFasilitasBobot());
 			Double pemangkatanJumlahSiswa = Math.pow(metodeVectorS.getJumlahSiswa().getPoint(), bobotSpk.getnJumlahSiswaBobot());
 			Double pemangkatanKeaktifanSiswa = Math.pow(metodeVectorS.getKeaktifan().getPoint(), bobotSpk.getnKeaktifanSiswaBobot());
-			Double pemangkatanKondisiKelas = Math.pow(metodeVectorS.getKondisi().getPoint(), bobotSpk.getnKondisiSekolahBobot());
-			Double pemangkatanKualitasPengajar = Math.pow(metodeVectorS.getKondisi().getPoint(), bobotSpk.getnKualitasPengajarBobot());
+			Double pemangkatanKondisiSekolah = Math.pow(metodeVectorS.getKondisiSekolah().getPoint(), bobotSpk.getnKondisiSekolahBobot());
+			Double pemangkatanKondisiKelas = Math.pow(metodeVectorS.getKondisiKelas().getPoint(), bobotSpk.getnKondisiKelasBobot());
+			Double pemangkatanKualitasPengajar = Math.pow(metodeVectorS.getPengajar().getPoint(), bobotSpk.getnKualitasPengajarBobot());
 			Double vectorS = pemangkatanFasilitas * pemangkatanJumlahSiswa * pemangkatanKeaktifanSiswa * 
-					  		 pemangkatanKondisiKelas * pemangkatanKualitasPengajar;
+					  		 pemangkatanKondisiKelas * pemangkatanKondisiSekolah * pemangkatanKualitasPengajar;
 			jumlahVectorS += vectorS;
 		}
 		
@@ -162,18 +166,20 @@ public class SPKController {
 			Double pemangkatanFasilitas = Math.pow(metode.getFasilitas().getPoint(), bobotSpk.getnFasilitasBobot());
 			Double pemangkatanJumlahSiswa = Math.pow(metode.getJumlahSiswa().getPoint(), bobotSpk.getnJumlahSiswaBobot());
 			Double pemangkatanKeaktifanSiswa = Math.pow(metode.getKeaktifan().getPoint(), bobotSpk.getnKeaktifanSiswaBobot());
-			Double pemangkatanKondisiKelas = Math.pow(metode.getKondisi().getPoint(), bobotSpk.getnKondisiSekolahBobot());
-			Double pemangkatanKualitasPengajar = Math.pow(metode.getKondisi().getPoint(), bobotSpk.getnKualitasPengajarBobot());
+			Double pemangkatanKondisiSekolah = Math.pow(metode.getKondisiSekolah().getPoint(), bobotSpk.getnKondisiSekolahBobot());
+			Double pemangkatanKondisiKelas = Math.pow(metode.getKondisiKelas().getPoint(), bobotSpk.getnKondisiKelasBobot());
+			Double pemangkatanKualitasPengajar = Math.pow(metode.getPengajar().getPoint(), bobotSpk.getnKualitasPengajarBobot());
 			Double vectorS = pemangkatanFasilitas * pemangkatanJumlahSiswa * pemangkatanKeaktifanSiswa * 
-					  		 pemangkatanKondisiKelas * pemangkatanKualitasPengajar;
+					  		 pemangkatanKondisiKelas * pemangkatanKondisiSekolah * pemangkatanKualitasPengajar;
 			
 			MetodeSpk metodeSpk = new MetodeSpk();
 			metodeSpk.setNamaMetode(metode.getMetode());
 			metodeSpk.setFasilitas(HelperUmum.angkaBelakangKoma(Math.pow(metode.getFasilitas().getPoint(), bobotSpk.getnFasilitasBobot()), 3));
 			metodeSpk.setJumlahSiswa(HelperUmum.angkaBelakangKoma(Math.pow(metode.getJumlahSiswa().getPoint(), bobotSpk.getnJumlahSiswaBobot()), 3));
 			metodeSpk.setKeaktifanSiswa(HelperUmum.angkaBelakangKoma(Math.pow(metode.getKeaktifan().getPoint(), bobotSpk.getnKeaktifanSiswaBobot()), 3));
-			metodeSpk.setKondisiSekolah(HelperUmum.angkaBelakangKoma(Math.pow(metode.getKondisi().getPoint(), bobotSpk.getnKondisiSekolahBobot()), 3));
-			metodeSpk.setKualitasPengajar(HelperUmum.angkaBelakangKoma(Math.pow(metode.getKondisi().getPoint(), bobotSpk.getnKualitasPengajarBobot()), 3));
+			metodeSpk.setKondisiSekolah(HelperUmum.angkaBelakangKoma(Math.pow(metode.getKondisiSekolah().getPoint(), bobotSpk.getnKondisiSekolahBobot()), 3));
+			metodeSpk.setKondisiKelas(HelperUmum.angkaBelakangKoma(Math.pow(metode.getKondisiKelas().getPoint(), bobotSpk.getnKondisiKelasBobot()), 3));
+			metodeSpk.setKualitasPengajar(HelperUmum.angkaBelakangKoma(Math.pow(metode.getPengajar().getPoint(), bobotSpk.getnKualitasPengajarBobot()), 3));
 			metodeSpk.setVectorS(HelperUmum.angkaBelakangKoma(vectorS, 6));
 			metodeSpk.setJumlahVectorS(HelperUmum.angkaBelakangKoma(jumlahVectorS, 6));
 			metodeSpk.setVectorV(HelperUmum.angkaBelakangKoma(vectorS / jumlahVectorS, 6));
@@ -197,10 +203,11 @@ public class SPKController {
 			Double pemangkatanFasilitas = Math.pow(metodeVectorS.getFasilitas().getPoint(), bobotSpk.getnFasilitasBobot());
 			Double pemangkatanJumlahSiswa = Math.pow(metodeVectorS.getJumlahSiswa().getPoint(), bobotSpk.getnJumlahSiswaBobot());
 			Double pemangkatanKeaktifanSiswa = Math.pow(metodeVectorS.getKeaktifan().getPoint(), bobotSpk.getnKeaktifanSiswaBobot());
-			Double pemangkatanKondisiKelas = Math.pow(metodeVectorS.getKondisi().getPoint(), bobotSpk.getnKondisiSekolahBobot());
-			Double pemangkatanKualitasPengajar = Math.pow(metodeVectorS.getKondisi().getPoint(), bobotSpk.getnKualitasPengajarBobot());
+			Double pemangkatanKondisiSekolah = Math.pow(metodeVectorS.getKondisiSekolah().getPoint(), bobotSpk.getnKondisiSekolahBobot());
+			Double pemangkatanKondisiKelas = Math.pow(metodeVectorS.getKondisiKelas().getPoint(), bobotSpk.getnKondisiKelasBobot());
+			Double pemangkatanKualitasPengajar = Math.pow(metodeVectorS.getPengajar().getPoint(), bobotSpk.getnKualitasPengajarBobot());
 			Double vectorS = pemangkatanFasilitas * pemangkatanJumlahSiswa * pemangkatanKeaktifanSiswa * 
-					  		 pemangkatanKondisiKelas * pemangkatanKualitasPengajar;
+					  		 pemangkatanKondisiKelas * pemangkatanKondisiSekolah * pemangkatanKualitasPengajar;
 			jumlahVectorS += vectorS;
 		}
 		
@@ -210,10 +217,11 @@ public class SPKController {
 			Double pemangkatanFasilitas = Math.pow(metode.getFasilitas().getPoint(), bobotSpk.getnFasilitasBobot());
 			Double pemangkatanJumlahSiswa = Math.pow(metode.getJumlahSiswa().getPoint(), bobotSpk.getnJumlahSiswaBobot());
 			Double pemangkatanKeaktifanSiswa = Math.pow(metode.getKeaktifan().getPoint(), bobotSpk.getnKeaktifanSiswaBobot());
-			Double pemangkatanKondisiKelas = Math.pow(metode.getKondisi().getPoint(), bobotSpk.getnKondisiSekolahBobot());
-			Double pemangkatanKualitasPengajar = Math.pow(metode.getKondisi().getPoint(), bobotSpk.getnKualitasPengajarBobot());
+			Double pemangkatanKondisiSekolah = Math.pow(metode.getKondisiSekolah().getPoint(), bobotSpk.getnKondisiSekolahBobot());
+			Double pemangkatanKondisiKelas = Math.pow(metode.getKondisiKelas().getPoint(), bobotSpk.getnKondisiKelasBobot());
+			Double pemangkatanKualitasPengajar = Math.pow(metode.getPengajar().getPoint(), bobotSpk.getnKualitasPengajarBobot());
 			Double vectorS = pemangkatanFasilitas * pemangkatanJumlahSiswa * pemangkatanKeaktifanSiswa * 
-					  		 pemangkatanKondisiKelas * pemangkatanKualitasPengajar;
+					  		 pemangkatanKondisiKelas * pemangkatanKondisiSekolah * pemangkatanKualitasPengajar;
 			
 			SPK spk = new SPK();
 			
@@ -223,8 +231,9 @@ public class SPKController {
 			spk.setFasilitas(HelperUmum.angkaBelakangKoma(Math.pow(metode.getFasilitas().getPoint(), bobotSpk.getnFasilitasBobot()), 3));
 			spk.setJumlahSiswa(HelperUmum.angkaBelakangKoma(Math.pow(metode.getJumlahSiswa().getPoint(), bobotSpk.getnJumlahSiswaBobot()), 3));
 			spk.setKeaktifanSiswa(HelperUmum.angkaBelakangKoma(Math.pow(metode.getKeaktifan().getPoint(), bobotSpk.getnKeaktifanSiswaBobot()), 3));
-			spk.setKondisiKelas(HelperUmum.angkaBelakangKoma(Math.pow(metode.getKondisi().getPoint(), bobotSpk.getnKondisiSekolahBobot()), 3));
-			spk.setKualitasPengajar(HelperUmum.angkaBelakangKoma(Math.pow(metode.getKondisi().getPoint(), bobotSpk.getnKualitasPengajarBobot()), 3));
+			spk.setKondisiSekolah(HelperUmum.angkaBelakangKoma(Math.pow(metode.getKondisiSekolah().getPoint(), bobotSpk.getnKondisiSekolahBobot()), 3));
+			spk.setKondisiKelas(HelperUmum.angkaBelakangKoma(Math.pow(metode.getKondisiKelas().getPoint(), bobotSpk.getnKondisiKelasBobot()), 3));
+			spk.setKualitasPengajar(HelperUmum.angkaBelakangKoma(Math.pow(metode.getPengajar().getPoint(), bobotSpk.getnKualitasPengajarBobot()), 3));
 			spk.setVectorS(HelperUmum.angkaBelakangKoma(vectorS, 6));
 			spk.setJumlahVectorS(HelperUmum.angkaBelakangKoma(jumlahVectorS, 6));
 			spk.setVectorV(HelperUmum.angkaBelakangKoma(vectorS / jumlahVectorS, 6));

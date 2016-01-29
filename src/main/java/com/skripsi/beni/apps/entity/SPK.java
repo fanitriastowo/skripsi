@@ -20,6 +20,7 @@ public class SPK {
 	private Date tanggal;
 	private String namaMetode;
 	private Double jumlahSiswa;
+	private Double kondisiSekolah;
 	private Double kondisiKelas;
 	private Double keaktifanSiswa;
 	private Double kualitasPengajar;
@@ -58,6 +59,14 @@ public class SPK {
 
 	public void setJumlahSiswa(Double jumlahSiswa) {
 		this.jumlahSiswa = jumlahSiswa;
+	}
+
+	public Double getKondisiSekolah() {
+		return kondisiSekolah;
+	}
+
+	public void setKondisiSekolah(Double kondisiSekolah) {
+		this.kondisiSekolah = kondisiSekolah;
 	}
 
 	public Double getKondisiKelas() {

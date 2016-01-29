@@ -24,7 +24,7 @@ public class KondisiSekolah {
 
 	private Double point;
 
-	@OneToMany(mappedBy = "kondisi", cascade = CascadeType.MERGE)
+	@OneToMany(mappedBy = "kondisiSekolah", cascade = CascadeType.MERGE)
 	private List<Metode> metode;
 
 	public Long getId() {

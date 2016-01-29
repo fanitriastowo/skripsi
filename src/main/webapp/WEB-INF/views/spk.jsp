@@ -19,7 +19,7 @@
 		<%@ include file="/WEB-INF/template/navbar.jsp"%>
 		
 		<div class="panel panel-default">
-			<div class="panel-heading"><h3 class="panel-title">Daftar Metode yang akan dilakukan dalam perhitungan</h3></div>
+			<div class="panel-heading"><h3 class="panel-title">Daftar Metode yang akan dilakukan perhitungan</h3></div>
 			<div class="panel-body">
 				<div class="table-responsive">
 					<table class="table table-striped table-bordered table-hover table-condensed" style="font-size: 0.9em">
@@ -29,6 +29,7 @@
 								<th>Metode</th>
 								<th>Jumlah Siswa</th>
 								<th>Keaktifan Siswa</th>
+								<th>Kondisi Sekolah</th>
 								<th>Kondisi Kelas</th>
 								<th>Fasilitas</th>
 								<th>Kualitas Pengajar</th>
@@ -51,8 +52,13 @@
 											<span class="fa fa-question fa-xs"></span></a>
 									</td>
 									<td>
-										<c:out value="${metode.kondisi.point }" />
-											&nbsp;<a href="#" title='<c:out value="Kondisi Kelas ${metode.kondisi.kondisi }" />'>
+										<c:out value="${metode.kondisiSekolah.point }" />
+											&nbsp;<a href="#" title='<c:out value="Kondisi Kelas ${metode.kondisiSekolah.kondisi }" />'>
+											<span class="fa fa-question fa-xs"></span></a>
+									</td>
+									<td>
+										<c:out value="${metode.kondisiKelas.point }" />
+											&nbsp;<a href="#" title='<c:out value="Kondisi Kelas ${metode.kondisiKelas.kondisi }" />'>
 											<span class="fa fa-question fa-xs"></span></a>
 									</td>
 									<td>
@@ -73,8 +79,9 @@
 								<td>#</td>
 								<td><strong>Bobot</strong></td>
 								<td class="text-center" id="bJumlahSiswa"><c:out value="${tempBobot.jumlahSiswaBobot }" /></td>
-								<td class="text-center" id="bKondisiKelas"><c:out value="${tempBobot.kondisiKelasBobot }" /></td>
 								<td class="text-center" id="bKeaktifanSiswa"><c:out value="${tempBobot.keaktifanSiswaBobot }" /></td>
+								<td class="text-center" id="bKondisiSekolah"><c:out value="${tempBobot.kondisiSekolahBobot }" /></td>
+								<td class="text-center" id="bKondisiKelas"><c:out value="${tempBobot.kondisiKelasBobot }" /></td>
 								<td class="text-center" id="bKualitasPengajar"><c:out value="${tempBobot.kualitasPengajarBobot }" /></td>
 								<td class="text-center" id="bFasilitas"><c:out value="${tempBobot.fasilitasBobot }" /></td>
 							</tr>
@@ -82,8 +89,9 @@
 								<td>#</td>
 								<td><strong>Bobot Ter - Normalisasi</strong></td>
 								<td class="text-center" ><c:out value="${tempBobot.nJumlahSiswaBobot }" /></td>
-								<td class="text-center" ><c:out value="${tempBobot.nKondisiKelasBobot }" /></td>
 								<td class="text-center" ><c:out value="${tempBobot.nKeaktifanSiswaBobot }" /></td>
+								<td class="text-center" ><c:out value="${tempBobot.nKondisiSekolahBobot }" /></td>
+								<td class="text-center" ><c:out value="${tempBobot.nKondisiKelasBobot }" /></td>
 								<td class="text-center" ><c:out value="${tempBobot.nKualitasPengajarBobot }" /></td>
 								<td class="text-center" ><c:out value="${tempBobot.nFasilitasBobot }" /></td>
 							</tr>
@@ -118,6 +126,12 @@
 							<label for="keaktifanSiswaBobot" class="col-sm-6 control-label">Keaktifan Siswa:</label>
 							<div class="col-sm-6">
 								<form:input path="keaktifanSiswaBobot" cssClass="form-control slider" value="${tempBobot.keaktifanSiswaBobot }" />
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="kondisiSekolahBobot" class="col-sm-6 control-label">Kondisi Sekolah:</label>
+							<div class="col-sm-6">
+								<form:input path="kondisiSekolahBobot" cssClass="form-control slider" value="${tempBobot.kondisiSekolahBobot }" />
 							</div>
 						</div>
 						<div class="form-group">
@@ -165,6 +179,17 @@
 				selection : 'before',
 				tooltip : 'show'
 			});
+			
+			$('#kondisiSekolahBobot').slider({
+				min : 1,
+				max : 5,
+				step : 1,
+				orientation : 'horizontal',
+				value : $("#bKondisiSekolah").html(),
+				selection : 'before',
+				tooltip : 'show'
+			});
+			
 			
 			$('#kondisiKelasBobot').slider({
 				min : 1,

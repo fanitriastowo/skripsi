@@ -85,7 +85,7 @@ public class KondisiSekolahController {
 	 * @return ModelAndView
 	 */
 	@RequestMapping("/update")
-	public ModelAndView updateKondisiSekolah(@ModelAttribute("kondisi") KondisiSekolah kondisi) {
+	public ModelAndView updateKondisiSekolah(@ModelAttribute("kondisiSekolah") KondisiSekolah kondisi) {
 		kondisiSekolahService.update(kondisi);
 		return new ModelAndView("redirect:/kondisi_sekolah");
 	}

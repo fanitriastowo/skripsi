@@ -30,6 +30,7 @@
 						<th>Jumlah Siswa</th>
 						<th>Keaktifan Siswa</th>
 						<th>Kondisi Sekolah</th>
+						<th>Kondisi Kelas</th>
 						<th>Fasilitas</th>
 						<th>Kualitas Pengajar</th>
 						<th width="10%">Aksi</th>
@@ -43,7 +44,8 @@
 							<td><c:out value="${metode.metode }" /></td>
 							<td><c:out value="${metode.jumlahSiswa.jmlSiswa }" /></td>
 							<td><c:out value="${metode.keaktifan.jmlSiswa }" /></td>
-							<td><c:out value="${metode.kondisi.kondisi }" /></td>
+							<td><c:out value="${metode.kondisiSekolah.kondisi }" /></td>
+							<td><c:out value="${metode.kondisiKelas.kondisi }" /></td>
 							<td><c:out value="${metode.fasilitas.fasilitas }" /></td>
 							<td><c:out value="${metode.pengajar.kualitas }" /></td>
 							<td>
@@ -83,8 +85,12 @@
 							<form:select path="keaktifan" cssClass="form-control" id="txtAddKeaktifanSiswa" items="${lookUpkeaktifanSiswa }" itemValue="id" itemLabel="jmlSiswa" />
 						</div>
 						<div class="form-group">
+							<label for="txtAddKondisiSekolah" class="control-label">Kondisi Sekolah:</label>
+							<form:select path="kondisiSekolah" cssClass="form-control" id="txtAddKondisiSekolah" items="${lookUpKondisiSekolah }" itemValue="id" itemLabel="kondisi" />
+						</div>
+						<div class="form-group">
 							<label for="txtAddKondisiKelas" class="control-label">Kondisi Kelas:</label>
-							<form:select path="kondisi" cssClass="form-control" id="txtAddKondisiKelas" items="${lookUpKondisiKelas }" itemValue="id" itemLabel="kondisi" />
+							<form:select path="kondisiKelas" cssClass="form-control" id="txtAddKondisiKelas" items="${lookUpKondisiKelas }" itemValue="id" itemLabel="kondisi" />
 						</div>
 						<div class="form-group">
 							<label for="txtAddFasilitas" class="control-label">Fasilitas:</label>
@@ -132,8 +138,12 @@
 							<form:select path="keaktifan" cssClass="form-control" id="txtUpdateKeaktifanSiswa" items="${lookUpkeaktifanSiswa }" itemValue="id" itemLabel="jmlSiswa" />
 						</div>
 						<div class="form-group">
+							<label for="txtUpdateKondisiSekolah" class="control-label">Kondisi Sekolah:</label>
+							<form:select path="kondisiSekolah" cssClass="form-control" id="txtUpdateKondisiSekolah" items="${lookUpKondisiSekolah }" itemValue="id" itemLabel="kondisi" />
+						</div>
+						<div class="form-group">
 							<label for="txtUpdateKondisiKelas" class="control-label">Kondisi Kelas:</label>
-							<form:select path="kondisi" cssClass="form-control" id="txtUpdateKondisiKelas" items="${lookUpKondisiKelas }" itemValue="id" itemLabel="kondisi" />
+							<form:select path="kondisiKelas" cssClass="form-control" id="txtUpdateKondisiKelas" items="${lookUpKondisiKelas }" itemValue="id" itemLabel="kondisi" />
 						</div>
 						<div class="form-group">
 							<label for="txtUpdateFasilitas" class="control-label">Fasilitas:</label>
@@ -197,6 +207,7 @@
 					// unselect before select
 					$('select[id^="txtUpdateJumlahSiswa"] option:selected').attr("selected",null);
 					$('select[id^="txtUpdateKeaktifanSiswa"] option:selected').attr("selected",null);
+					$('select[id^="txtUpdateKondisiSekolah"] option:selected').attr("selected",null);
 					$('select[id^="txtUpdateKondisiKelas"] option:selected').attr("selected",null);
 					$('select[id^="txtUpdateFasilitas"] option:selected').attr("selected",null);
 					$('select[id^="txtUpdateKualitasPengajar"] option:selected').attr("selected",null);
@@ -205,7 +216,8 @@
 					$('#txtUpdateMetode').val(data.metode);
 					$('select[id^="txtUpdateJumlahSiswa"] option[value="' + data.jumlahSiswa["id"] + '"]').attr("selected","selected");
 					$('select[id^="txtUpdateKeaktifanSiswa"] option[value="' + data.keaktifan["id"] + '"]').attr("selected","selected");
-					$('select[id^="txtUpdateKondisiKelas"] option[value="' + data.kondisi["id"] + '"]').attr("selected","selected");
+					$('select[id^="txtUpdateKondisiSekolah"] option[value="' + data.kondisiSekolah["id"] + '"]').attr("selected","selected");
+					$('select[id^="txtUpdateKondisiKelas"] option[value="' + data.kondisiKelas["id"] + '"]').attr("selected","selected");
 					$('select[id^="txtUpdateFasilitas"] option[value="' + data.fasilitas["id"] + '"]').attr("selected","selected");
 					$('select[id^="txtUpdateKualitasPengajar"] option[value="' + data.pengajar["id"] + '"]').attr("selected","selected");
 

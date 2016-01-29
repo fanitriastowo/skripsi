@@ -24,20 +24,24 @@ public class BobotService {
 		float jumlahSiswaBobot = bobotSpk.getJumlahSiswaBobot();
 		float keaktifanSiswaBobot = bobotSpk.getKeaktifanSiswaBobot();
 		float kondisiSekolahBobot = bobotSpk.getKondisiSekolahBobot();
+		float kondisiKelasBobot = bobotSpk.getKondisiKelasBobot();
 		float kualitasPengajarBobot = bobotSpk.getKualitasPengajarBobot();
-		float jumlahBobot = fasilitasBobot + jumlahSiswaBobot + keaktifanSiswaBobot + kondisiSekolahBobot + kualitasPengajarBobot;
+		float jumlahBobot = fasilitasBobot + jumlahSiswaBobot + keaktifanSiswaBobot + 
+							kondisiSekolahBobot + kondisiKelasBobot + kualitasPengajarBobot;
 		
 		BobotSpk bobotBaru = getOneById();
 		bobotBaru.setFasilitasBobot(bobotSpk.getFasilitasBobot());
 		bobotBaru.setJumlahSiswaBobot(bobotSpk.getJumlahSiswaBobot());
 		bobotBaru.setKeaktifanSiswaBobot(bobotSpk.getKeaktifanSiswaBobot());
 		bobotBaru.setKondisiSekolahBobot(bobotSpk.getKondisiSekolahBobot());
+		bobotBaru.setKondisiKelasBobot(bobotSpk.getKondisiKelasBobot());
 		bobotBaru.setKualitasPengajarBobot(bobotSpk.getKualitasPengajarBobot());
 		
 		bobotBaru.setnFasilitasBobot(fasilitasBobot / jumlahBobot);
 		bobotBaru.setnJumlahSiswaBobot(jumlahSiswaBobot / jumlahBobot);
 		bobotBaru.setnKeaktifanSiswaBobot(keaktifanSiswaBobot / jumlahBobot);
 		bobotBaru.setnKondisiSekolahBobot(kondisiSekolahBobot / jumlahBobot);
+		bobotBaru.setnKondisiKelasBobot(kondisiKelasBobot / jumlahBobot);
 		bobotBaru.setnKualitasPengajarBobot(kualitasPengajarBobot / jumlahBobot);
 		
 		bobotRepository.save(bobotBaru);

@@ -11,12 +11,14 @@ import com.skripsi.beni.apps.dto.MetodeDTO;
 import com.skripsi.beni.apps.entity.Fasilitas;
 import com.skripsi.beni.apps.entity.JumlahSiswa;
 import com.skripsi.beni.apps.entity.Keaktifan;
+import com.skripsi.beni.apps.entity.KondisiKelas;
 import com.skripsi.beni.apps.entity.KondisiSekolah;
 import com.skripsi.beni.apps.entity.Metode;
 import com.skripsi.beni.apps.entity.Pengajar;
 import com.skripsi.beni.apps.repository.FasilitasRepository;
 import com.skripsi.beni.apps.repository.JumlahSiswaRepository;
 import com.skripsi.beni.apps.repository.KeaktifanRepository;
+import com.skripsi.beni.apps.repository.KondisiKelasRepository;
 import com.skripsi.beni.apps.repository.KondisiSekolahRepository;
 import com.skripsi.beni.apps.repository.MetodeRepository;
 import com.skripsi.beni.apps.repository.PengajarRepository;
@@ -34,7 +36,11 @@ public class MetodeService {
 	private KeaktifanRepository keaktifanRepository;
 	
 	@Autowired
-	private KondisiSekolahRepository kondisiRepository;
+	private KondisiSekolahRepository kondisiSekolahRepository;
+	
+	
+	@Autowired
+	private KondisiKelasRepository kondisiKelasRepository;
 	
 	@Autowired
 	private FasilitasRepository fasilitasRepository;
@@ -54,7 +60,8 @@ public class MetodeService {
 
 		JumlahSiswa jumlahSiswa = jumlahSiswaRepository.findOne(metodeDTO.getJumlahSiswa());
 		Keaktifan keaktifan = keaktifanRepository.findOne(metodeDTO.getKeaktifan());
-		KondisiSekolah kondisi = kondisiRepository.findOne(metodeDTO.getKondisiSekolah());
+		KondisiSekolah kondisiSekolah = kondisiSekolahRepository.findOne(metodeDTO.getKondisiSekolah());
+		KondisiKelas kondisiKelas = kondisiKelasRepository.findOne(metodeDTO.getKondisiKelas());
 		Fasilitas fasilitas = fasilitasRepository.findOne(metodeDTO.getFasilitas());
 		Pengajar pengajar = pengajarRepository.findOne(metodeDTO.getPengajar());
 
@@ -62,7 +69,8 @@ public class MetodeService {
 		metode.setMetode(metodeDTO.getMetode());
 		metode.setJumlahSiswa(jumlahSiswa);
 		metode.setKeaktifan(keaktifan);
-		metode.setKondisi(kondisi);
+		metode.setKondisiSekolah(kondisiSekolah);
+		metode.setKondisiKelas(kondisiKelas);
 		metode.setFasilitas(fasilitas);
 		metode.setPengajar(pengajar);
 		
@@ -78,7 +86,8 @@ public class MetodeService {
 		
 		JumlahSiswa jumlahSiswa = jumlahSiswaRepository.findOne(metodeDTO.getJumlahSiswa());
 		Keaktifan keaktifan = keaktifanRepository.findOne(metodeDTO.getKeaktifan());
-		KondisiSekolah kondisi = kondisiRepository.findOne(metodeDTO.getKondisiSekolah());
+		KondisiSekolah kondisiSekolah = kondisiSekolahRepository.findOne(metodeDTO.getKondisiSekolah());
+		KondisiKelas kondisiKelas = kondisiKelasRepository.findOne(metodeDTO.getKondisiKelas());
 		Fasilitas fasilitas = fasilitasRepository.findOne(metodeDTO.getFasilitas());
 		Pengajar pengajar = pengajarRepository.findOne(metodeDTO.getPengajar());
 		
@@ -86,7 +95,8 @@ public class MetodeService {
 		metode.setMetode(metodeDTO.getMetode());
 		metode.setJumlahSiswa(jumlahSiswa);
 		metode.setKeaktifan(keaktifan);
-		metode.setKondisi(kondisi);
+		metode.setKondisiSekolah(kondisiSekolah);
+		metode.setKondisiKelas(kondisiKelas);
 		metode.setFasilitas(fasilitas);
 		metode.setPengajar(pengajar);
 		

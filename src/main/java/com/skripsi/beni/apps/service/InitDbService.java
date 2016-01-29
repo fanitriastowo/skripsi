@@ -73,23 +73,26 @@ public class InitDbService {
 		// ==================================== //
 		final byte jumlahSiswaBobot = 2;
 		final byte kondisiSekolahBobot = 5;
+		final byte kondisiKelasBobot = 5;
 		final byte keaktifanSiswaBobot = 5;
 		final byte kualitasPengajarBobot = 5;
 		final byte fasilitasBobot = 4;
 		
 		// jumlahkan semua bobot
-		final byte jumlahBobot = jumlahSiswaBobot + kondisiSekolahBobot + keaktifanSiswaBobot + kualitasPengajarBobot + fasilitasBobot;
+		final byte jumlahBobot = jumlahSiswaBobot + kondisiSekolahBobot + kondisiKelasBobot + keaktifanSiswaBobot + kualitasPengajarBobot + fasilitasBobot;
 		
 		BobotSpk bobot = new BobotSpk();
 		bobot.setId("bobot");
 		bobot.setJumlahSiswaBobot(jumlahSiswaBobot);
 		bobot.setKondisiSekolahBobot(kondisiSekolahBobot);
+		bobot.setKondisiKelasBobot(kondisiKelasBobot);
 		bobot.setKeaktifanSiswaBobot(keaktifanSiswaBobot);
 		bobot.setKualitasPengajarBobot(kualitasPengajarBobot);
 		bobot.setFasilitasBobot(fasilitasBobot);
 		
 		bobot.setnJumlahSiswaBobot(Float.valueOf(jumlahSiswaBobot) / jumlahBobot);
 		bobot.setnKondisiSekolahBobot(Float.valueOf(kondisiSekolahBobot) / jumlahBobot);
+		bobot.setnKondisiKelasBobot(Float.valueOf(kondisiKelasBobot) / jumlahBobot);
 		bobot.setnKeaktifanSiswaBobot(Float.valueOf(keaktifanSiswaBobot) / jumlahBobot);
 		bobot.setnKualitasPengajarBobot(Float.valueOf(kualitasPengajarBobot) / jumlahBobot);
 		bobot.setnFasilitasBobot(Float.valueOf(fasilitasBobot) / jumlahBobot);
@@ -295,7 +298,8 @@ public class InitDbService {
 		metode1.setMetode("Ceramah");
 		metode1.setJumlahSiswa(jumlahSiswaLebihDari26);
 		metode1.setKeaktifan(keaktifanLebihDari26);
-		metode1.setKondisi(kondisiJauhDariPusatKeramaian);
+		metode1.setKondisiSekolah(kondisiJauhDariPusatKeramaian);
+		metode1.setKondisiKelas(kondisiKelasKondusif);
 		metode1.setFasilitas(fasilitasAda);
 		metode1.setPengajar(pengajarSangatBaik);
 		metodeRepository.save(metode1);
@@ -304,7 +308,8 @@ public class InitDbService {
 		metode2.setMetode("Diskusi");
 		metode2.setJumlahSiswa(jumlahSiswaLebihDari26);
 		metode2.setKeaktifan(keaktifanAntara15Dan20);
-		metode2.setKondisi(kondisiJauhDariPusatKeramaian);
+		metode2.setKondisiSekolah(kondisiJauhDariPusatKeramaian);
+		metode2.setKondisiKelas(kondisiKelasAktif);
 		metode2.setFasilitas(fasilitasAda);
 		metode2.setPengajar(pengajarSangatBaik);
 		metodeRepository.save(metode2);
@@ -313,7 +318,8 @@ public class InitDbService {
 		metode3.setMetode("Problem Solving");
 		metode3.setJumlahSiswa(jumlahSiswaLebihDari26);
 		metode3.setKeaktifan(keaktifanAntara11Dan14);
-		metode3.setKondisi(kondisiJauhDariPusatKeramaian);
+		metode3.setKondisiSekolah(kondisiJauhDariPusatKeramaian);
+		metode3.setKondisiKelas(kondisiKelasCukupKondusif);
 		metode3.setFasilitas(fasilitasAda);
 		metode3.setPengajar(pengajarSangatBaik);
 		metodeRepository.save(metode3);
@@ -322,7 +328,8 @@ public class InitDbService {
 		metode4.setMetode("Tanya Jawab");
 		metode4.setJumlahSiswa(jumlahSiswaLebihDari26);
 		metode4.setKeaktifan(keaktifanLebihDari26);
-		metode4.setKondisi(kondisiJauhDariPusatKeramaian);
+		metode4.setKondisiSekolah(kondisiJauhDariPusatKeramaian);
+		metode4.setKondisiKelas(kondisiKelasAktif);
 		metode4.setFasilitas(fasilitasTidakAda);
 		metode4.setPengajar(pengajarSangatBaik);
 		metodeRepository.save(metode4);
@@ -331,7 +338,8 @@ public class InitDbService {
 		metode5.setMetode("Latihan");
 		metode5.setJumlahSiswa(jumlahSiswaLebihDari26);
 		metode5.setKeaktifan(keaktifanAntara15Dan20);
-		metode5.setKondisi(kondisiJauhDariPusatKeramaian);
+		metode5.setKondisiSekolah(kondisiJauhDariPusatKeramaian);
+		metode5.setKondisiKelas(kondisiKelasCukupKondusif);
 		metode5.setFasilitas(fasilitasTidakAda);
 		metode5.setPengajar(pengajarSangatBaik);
 		metodeRepository.save(metode5);
@@ -340,7 +348,8 @@ public class InitDbService {
 		metode6.setMetode("Eksperimen");
 		metode6.setJumlahSiswa(jumlahSiswaLebihDari26);
 		metode6.setKeaktifan(keaktifanLebihDari26);
-		metode6.setKondisi(kondisiJauhDariPusatKeramaian);
+		metode6.setKondisiSekolah(kondisiJauhDariPusatKeramaian);
+		metode6.setKondisiKelas(kondisiKelasGaduh);
 		metode6.setFasilitas(fasilitasTidakAda);
 		metode6.setPengajar(pengajarSangatBaik);
 		metodeRepository.save(metode6);
@@ -349,7 +358,8 @@ public class InitDbService {
 		metode7.setMetode("Membaca dan Berdiskusi");
 		metode7.setJumlahSiswa(jumlahSiswaLebihDari26);
 		metode7.setKeaktifan(keaktifanAntara21Dan25);
-		metode7.setKondisi(kondisiJauhDariPusatKeramaian);
+		metode7.setKondisiSekolah(kondisiJauhDariPusatKeramaian);
+		metode7.setKondisiKelas(kondisiKelasGaduh);
 		metode7.setFasilitas(fasilitasAda);
 		metode7.setPengajar(pengajarSangatBaik);
 		metodeRepository.save(metode7);
@@ -358,7 +368,8 @@ public class InitDbService {
 		metode8.setMetode("Role Playing");
 		metode8.setJumlahSiswa(jumlahSiswaLebihDari26);
 		metode8.setKeaktifan(keaktifanLebihDari26);
-		metode8.setKondisi(kondisiJauhDariPusatKeramaian);
+		metode8.setKondisiSekolah(kondisiJauhDariPusatKeramaian);
+		metode8.setKondisiKelas(kondisiKelasSepi);
 		metode8.setFasilitas(fasilitasTidakAda);
 		metode8.setPengajar(pengajarSangatBaik);
 		metodeRepository.save(metode8);
@@ -367,7 +378,8 @@ public class InitDbService {
 		metode9.setMetode("Resitasi");
 		metode9.setJumlahSiswa(jumlahSiswaLebihDari26);
 		metode9.setKeaktifan(keaktifanLebihDari26);
-		metode9.setKondisi(kondisiJauhDariPusatKeramaian);
+		metode9.setKondisiSekolah(kondisiJauhDariPusatKeramaian);
+		metode9.setKondisiKelas(kondisiKelasCukupKondusif);
 		metode9.setFasilitas(fasilitasTidakAda);
 		metode9.setPengajar(pengajarSangatBaik);
 		metodeRepository.save(metode9);
@@ -376,7 +388,8 @@ public class InitDbService {
 		metode10.setMetode("Demonstrasi");
 		metode10.setJumlahSiswa(jumlahSiswaLebihDari26);
 		metode10.setKeaktifan(keaktifanAntara11Dan14);
-		metode10.setKondisi(kondisiJauhDariPusatKeramaian);
+		metode10.setKondisiSekolah(kondisiJauhDariPusatKeramaian);
+		metode10.setKondisiKelas(kondisiKelasKondusif);
 		metode10.setFasilitas(fasilitasTidakAda);
 		metode10.setPengajar(pengajarSangatBaik);
 		metodeRepository.save(metode10);
