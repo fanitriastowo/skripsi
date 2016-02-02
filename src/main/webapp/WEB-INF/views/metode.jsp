@@ -21,6 +21,11 @@
 			<button class="btn btn-success" data-toggle="modal" data-target="#addModal">
 				<span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Tambah</button>
 		</security:authorize>
+		
+		<security:authorize access="isAuthenticated()">
+			<a class="btn btn-primary pull-right" href='<spring:url value="/metode/daftar_rangking" />'>
+				<span class="glyphicon glyphicon-print" aria-hidden="true" title="Cetak Daftar Rangking Terdahulu"></span> Cetak Laporan</a>
+		</security:authorize>
 
 		<div class="panel panel-default">
 			<div class="panel-heading"><h3 class="panel-title">Daftar Metode</h3></div>

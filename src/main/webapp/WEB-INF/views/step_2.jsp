@@ -83,7 +83,7 @@
 			</div>
 			<div class="panel-footer">
 				<div class="col-sm-offset-11">
-					<a class="btn btn-primary" href='<spring:url value="/spk/final_step" />'>Simpan</a>
+					<a class="btn btn-primary" href='<spring:url value="/spk/simpan" />'>Simpan</a>
 				</div>
 			</div>
 		</div>

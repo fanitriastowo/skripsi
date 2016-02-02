@@ -8,7 +8,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-<title>Final Step</title>
+<title>Daftar Rangking</title>
 <%@ include file="/WEB-INF/template/css.jsp"%>
 
 </head>
@@ -18,7 +18,7 @@
 		<%@ include file="/WEB-INF/template/navbar.jsp"%>
 		
 		<div class="panel panel-default">
-			<div class="panel-heading"><h3 class="panel-title">Final Step :: Hasil Metode yang cocok berdasarkan bobot dan kriteria</h3></div>
+			<div class="panel-heading"><h3 class="panel-title">Daftar Rangking:: Hasil Metode yang cocok berdasarkan bobot dan kriteria</h3></div>
 			<div class="panel-body">
 				<div class="table-responsive">
 					<table class="table table-striped table-bordered table-hover table-condensed" style="font-size: 0.9em">
@@ -93,7 +93,7 @@
 	
 	<script type="text/javascript">
 		$(document).ready(function() {
-			$('#spk').addClass('active');
+			$('#metode').addClass('active');
 		});
 	</script>
 </body>

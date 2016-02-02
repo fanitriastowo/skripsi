@@ -14,6 +14,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.skripsi.beni.apps.dto.MetodeDTO;
 import com.skripsi.beni.apps.entity.Metode;
+import com.skripsi.beni.apps.service.BobotService;
 import com.skripsi.beni.apps.service.FasilitasService;
 import com.skripsi.beni.apps.service.JumlahSiswaService;
 import com.skripsi.beni.apps.service.KeaktifanService;
@@ -21,6 +22,7 @@ import com.skripsi.beni.apps.service.KondisiKelasService;
 import com.skripsi.beni.apps.service.KondisiSekolahService;
 import com.skripsi.beni.apps.service.MetodeService;
 import com.skripsi.beni.apps.service.PengajarService;
+import com.skripsi.beni.apps.service.SPKService;
 
 @Controller
 @RequestMapping("/metode")
@@ -46,6 +48,12 @@ public class MetodeController {
 	
 	@Autowired
 	private PengajarService pengajarService;
+	
+	@Autowired
+	private SPKService spkService;
+	
+	@Autowired
+	private BobotService bobotService;
 
 	@ModelAttribute("metode")
 	public MetodeDTO construct() {
@@ -114,5 +122,13 @@ public class MetodeController {
 		ModelAndView modelAndView = new ModelAndView("redirect:/metode");
 		metodeService.delete(id);
 		return modelAndView;
+	}
+	
+	@RequestMapping("/daftar_rangking")
+	public ModelAndView daftarRangking() {
+		ModelAndView mav = new ModelAndView("daftar_rangking");
+		mav.addObject("daftarRangking", spkService.findAllDesc());
+		mav.addObject("tempBobot", bobotService.getOneById());
+		return mav;
 	}
 }

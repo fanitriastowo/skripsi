@@ -190,10 +190,17 @@ public class SPKController {
 		return mav;
 	}
 	
-	@RequestMapping("/final_step")
+	/**
+	 * Simpan ke database kemudian redirect ke halaman final_step
+	 * 
+	 * @param metodes
+	 * @param bobotSpk
+	 * @return
+	 */
+	@RequestMapping("/simpan")
 	public ModelAndView hitungSPKStepFinal(@ModelAttribute("metodes") List<Metode> metodes,
 			   							   @ModelAttribute("tempBobot") BobotSpk bobotSpk) {
-		ModelAndView mav = new ModelAndView("final_step");
+		ModelAndView mav = new ModelAndView("redirect:/spk/final_step");
 		
 		// siapkan variable jumlahVectorS untuk menyimpan jumlah dari vectorS
 		Double jumlahVectorS = 0.0;
@@ -239,7 +246,26 @@ public class SPKController {
 			spk.setVectorV(HelperUmum.angkaBelakangKoma(vectorS / jumlahVectorS, 6));
 			spkService.save(spk);
 		}
-		mav.addObject("Spk", spkService.findAllDesc());
 		return mav;
 	}
+	
+	@RequestMapping("/final_step")
+	public ModelAndView daftarRangkingTertinggi(Model model) {
+		
+		// Check jika session tempBobot dan metodes tidak ketemu
+		if (model.containsAttribute("tempBobot")) {
+			model.addAttribute("tempBobot", new BobotSpk());
+		}
+		
+		if (model.containsAttribute("metodes")) {
+			model.addAttribute("metodes", new ArrayList<>());
+		}
+		
+		ModelAndView mav = new ModelAndView("final_step");
+		mav.addObject("tempBobot", bobotService.getOneById());
+		mav.addObject("daftarRangking", spkService.findAllDesc());
+		return mav;
+	}
+	
+	
 }
