@@ -62,7 +62,7 @@ public class InitDbService {
 	@Autowired
 	private BobotRepository bobotRepository;
 
-	@PostConstruct
+	// @PostConstruct
 	public void afterPropertiesSet() throws Exception {
 
 		BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();

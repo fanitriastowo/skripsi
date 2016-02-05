@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,7 +15,6 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.skripsi.beni.apps.dto.MetodeDTO;
 import com.skripsi.beni.apps.entity.Metode;
-import com.skripsi.beni.apps.service.BobotService;
 import com.skripsi.beni.apps.service.FasilitasService;
 import com.skripsi.beni.apps.service.JumlahSiswaService;
 import com.skripsi.beni.apps.service.KeaktifanService;
@@ -51,9 +51,6 @@ public class MetodeController {
 	
 	@Autowired
 	private SPKService spkService;
-	
-	@Autowired
-	private BobotService bobotService;
 
 	@ModelAttribute("metode")
 	public MetodeDTO construct() {
@@ -128,7 +125,12 @@ public class MetodeController {
 	public ModelAndView daftarRangking() {
 		ModelAndView mav = new ModelAndView("daftar_rangking");
 		mav.addObject("daftarRangking", spkService.findAllDesc());
-		mav.addObject("tempBobot", bobotService.getOneById());
 		return mav;
+	}
+	
+	@RequestMapping("/cetak_hasil")
+	public String cetakHasil(ModelMap modelMap) {
+		modelMap.addAttribute("dataSource", spkService.findAllDesc());
+		return "hasilPerhitungan";
 	}
 }

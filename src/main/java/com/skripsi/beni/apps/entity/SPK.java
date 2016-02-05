@@ -5,6 +5,8 @@ import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -28,6 +30,10 @@ public class SPK {
 	private Double vectorS;
 	private Double jumlahVectorS;
 	private Double vectorV;
+
+	@ManyToOne
+	@JoinColumn(name = "temp_bobotid")
+	private TempBobot tempBobot;
 
 	public Integer getId() {
 		return id;
@@ -123,6 +129,14 @@ public class SPK {
 
 	public void setVectorV(Double vectorV) {
 		this.vectorV = vectorV;
+	}
+
+	public TempBobot getTempBobot() {
+		return tempBobot;
+	}
+
+	public void setTempBobot(TempBobot tempBobot) {
+		this.tempBobot = tempBobot;
 	}
 
 }

@@ -17,10 +17,12 @@ import com.skripsi.beni.apps.dto.MetodeSpk;
 import com.skripsi.beni.apps.entity.BobotSpk;
 import com.skripsi.beni.apps.entity.Metode;
 import com.skripsi.beni.apps.entity.SPK;
+import com.skripsi.beni.apps.entity.TempBobot;
 import com.skripsi.beni.apps.helper.HelperUmum;
 import com.skripsi.beni.apps.service.BobotService;
 import com.skripsi.beni.apps.service.MetodeService;
 import com.skripsi.beni.apps.service.SPKService;
+import com.skripsi.beni.apps.service.TempBobotService;
 
 @Controller
 @RequestMapping("/spk")
@@ -35,6 +37,9 @@ public class SPKController {
 	
 	@Autowired
 	private SPKService spkService;
+	
+	@Autowired
+	private TempBobotService tempBobotService;
 
 	@ModelAttribute("bobotModel")
 	public BobotSpk constructBobotModel() {
@@ -202,6 +207,15 @@ public class SPKController {
 			   							   @ModelAttribute("tempBobot") BobotSpk bobotSpk) {
 		ModelAndView mav = new ModelAndView("redirect:/spk/final_step");
 		
+		TempBobot tempBobot = new TempBobot();
+		tempBobot.setBobotFasilitas(bobotSpk.getFasilitasBobot().intValue());
+		tempBobot.setBobotJumlahSiswa(bobotSpk.getJumlahSiswaBobot().intValue());
+		tempBobot.setBobotKeaktifanSiswa(bobotSpk.getKeaktifanSiswaBobot().intValue());
+		tempBobot.setBobotKondisiKelas(bobotSpk.getKondisiKelasBobot().intValue());
+		tempBobot.setBobotKondisiSekolah(bobotSpk.getKondisiSekolahBobot().intValue());
+		tempBobot.setBobotKualitasPengajar(bobotSpk.getKualitasPengajarBobot().intValue());
+		tempBobotService.save(tempBobot);
+		
 		// siapkan variable jumlahVectorS untuk menyimpan jumlah dari vectorS
 		Double jumlahVectorS = 0.0;
 		for (Metode metodeVectorS : metodes) {
@@ -244,6 +258,7 @@ public class SPKController {
 			spk.setVectorS(HelperUmum.angkaBelakangKoma(vectorS, 6));
 			spk.setJumlahVectorS(HelperUmum.angkaBelakangKoma(jumlahVectorS, 6));
 			spk.setVectorV(HelperUmum.angkaBelakangKoma(vectorS / jumlahVectorS, 6));
+			spk.setTempBobot(tempBobot);
 			spkService.save(spk);
 		}
 		return mav;

@@ -23,7 +23,7 @@
 		</security:authorize>
 		
 		<security:authorize access="isAuthenticated()">
-			<a class="btn btn-primary pull-right" href='<spring:url value="/metode/daftar_rangking" />'>
+			<a class="btn btn-primary pull-right" href='<spring:url value="/metode/cetak_hasil" />'>
 				<span class="glyphicon glyphicon-print" aria-hidden="true" title="Cetak Daftar Rangking Terdahulu"></span> Cetak Laporan</a>
 		</security:authorize>
 

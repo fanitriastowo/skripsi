@@ -12,5 +12,6 @@
 		<class>com.skripsi.beni.apps.entity.KondisiKelas</class>
 		<class>com.skripsi.beni.apps.entity.BobotSpk</class>
 		<class>com.skripsi.beni.apps.entity.SPK</class>
+		<class>com.skripsi.beni.apps.entity.TempBobot</class>
 	</persistence-unit>
 </persistence>

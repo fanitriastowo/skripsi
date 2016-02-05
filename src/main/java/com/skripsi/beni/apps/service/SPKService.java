@@ -23,4 +23,5 @@ public class SPKService {
 	public List<SPK> findAllDesc() {
 		return spkRepository.findAllByOrderByVectorVDesc();
 	}
+	
 }

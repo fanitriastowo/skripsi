@@ -1,0 +1,518 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.2.0.final using JasperReports Library version 6.2.0  -->
+<!-- 2016-02-05T23:29:32 -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="SPK " pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="8075279c-9366-44bd-877d-0dcf46f962d8">
+	<property name="com.jaspersoft.studio.unit." value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageHeight" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.topMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.bottomMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.leftMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.rightMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnSpacing" value="pixel"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="tanggal" class="java.util.Date"/>
+	<field name="namaMetode" class="java.lang.String"/>
+	<field name="jumlahSiswa" class="java.lang.Double"/>
+	<field name="kondisiSekolah" class="java.lang.Double"/>
+	<field name="kondisiKelas" class="java.lang.Double"/>
+	<field name="keaktifanSiswa" class="java.lang.Double"/>
+	<field name="kualitasPengajar" class="java.lang.Double"/>
+	<field name="fasilitas" class="java.lang.Double"/>
+	<field name="vectorS" class="java.lang.Double"/>
+	<field name="vectorV" class="java.lang.Double"/>
+	<field name="tempBobot.bobotJumlahSiswa" class="java.lang.Integer"/>
+	<field name="tempBobot.bobotKondisiSekolah" class="java.lang.Integer"/>
+	<field name="tempBobot.bobotKondisiKelas" class="java.lang.Integer"/>
+	<field name="tempBobot.bobotKeaktifanSiswa" class="java.lang.Integer"/>
+	<field name="tempBobot.bobotKualitasPengajar" class="java.lang.Integer"/>
+	<field name="tempBobot.bobotFasilitas" class="java.lang.Integer"/>
+	<title>
+		<band height="60" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="799" height="59" uuid="f25251b8-d1c3-4bce-8f26-c0e06be36784"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="20" isBold="true"/>
+				</textElement>
+				<text><![CDATA[DAFTAR METODE PEMBELAJARAN]]></text>
+			</staticText>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="20" splitType="Stretch">
+			<staticText>
+				<reportElement x="180" y="0" width="100" height="20" uuid="daaaba0d-780f-4b6b-9c30-43ae043df6ee"/>
+				<box>
+					<topPen lineWidth="1.4" lineStyle="Solid"/>
+					<leftPen lineWidth="1.4" lineStyle="Solid"/>
+					<bottomPen lineWidth="1.4" lineStyle="Solid"/>
+					<rightPen lineWidth="1.4" lineStyle="Solid"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Kondisi Kelas]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="360" y="0" width="80" height="20" uuid="31ef6463-3cd0-42c4-acaa-6fe858e9813a"/>
+				<box>
+					<topPen lineWidth="1.4" lineStyle="Solid"/>
+					<leftPen lineWidth="1.4" lineStyle="Solid"/>
+					<bottomPen lineWidth="1.4" lineStyle="Solid"/>
+					<rightPen lineWidth="1.4" lineStyle="Solid"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" isBold="true"/>
+				</textElement>
+				<text><![CDATA[pengajar]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="440" y="0" width="70" height="20" uuid="fc866976-e683-40f7-ad17-ff69bcd6741f"/>
+				<box>
+					<topPen lineWidth="1.4" lineStyle="Solid"/>
+					<leftPen lineWidth="1.4" lineStyle="Solid"/>
+					<bottomPen lineWidth="1.4" lineStyle="Solid"/>
+					<rightPen lineWidth="1.4" lineStyle="Solid"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Keaktifan]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="580" y="0" width="60" height="20" uuid="d43ea09d-2d72-447f-b14d-c5c4f0669b22"/>
+				<box>
+					<topPen lineWidth="1.4" lineStyle="Solid"/>
+					<leftPen lineWidth="1.4" lineStyle="Solid"/>
+					<bottomPen lineWidth="1.4" lineStyle="Solid"/>
+					<rightPen lineWidth="1.4" lineStyle="Solid"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Tanggal]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="640" y="0" width="80" height="20" uuid="7bf109bf-0ad8-4226-abb9-ee96f4e55ec1"/>
+				<box>
+					<topPen lineWidth="1.4" lineStyle="Solid"/>
+					<leftPen lineWidth="1.4" lineStyle="Solid"/>
+					<bottomPen lineWidth="1.4" lineStyle="Solid"/>
+					<rightPen lineWidth="1.4" lineStyle="Solid"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Vector S]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="720" y="0" width="79" height="20" uuid="6575537e-0e69-47bf-83c1-0c204f632f75"/>
+				<box>
+					<topPen lineWidth="1.4" lineStyle="Solid"/>
+					<leftPen lineWidth="1.4" lineStyle="Solid"/>
+					<bottomPen lineWidth="1.4" lineStyle="Solid"/>
+					<rightPen lineWidth="1.4" lineStyle="Solid"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Vector V]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="510" y="0" width="70" height="20" uuid="2304a7ba-2049-4924-ae64-6c614d920a08"/>
+				<box>
+					<topPen lineWidth="1.4" lineStyle="Solid"/>
+					<leftPen lineWidth="1.4" lineStyle="Solid"/>
+					<bottomPen lineWidth="1.4" lineStyle="Solid"/>
+					<rightPen lineWidth="1.4" lineStyle="Solid"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Metode]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="280" y="0" width="80" height="20" uuid="7240fc2a-af9a-44fc-8584-4fb2a0a7a1eb"/>
+				<box>
+					<topPen lineWidth="1.4" lineStyle="Solid"/>
+					<leftPen lineWidth="1.4" lineStyle="Solid"/>
+					<bottomPen lineWidth="1.4" lineStyle="Solid"/>
+					<rightPen lineWidth="1.4" lineStyle="Solid"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Fasilitas]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="0" width="29" height="20" uuid="bb1863ec-59e4-4679-b4db-14cbe117ad8e">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="1.4" lineStyle="Solid"/>
+					<leftPen lineWidth="1.4" lineStyle="Solid"/>
+					<bottomPen lineWidth="1.4" lineStyle="Solid"/>
+					<rightPen lineWidth="1.4" lineStyle="Solid"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" isBold="true"/>
+				</textElement>
+				<text><![CDATA[No]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="30" y="0" width="60" height="20" uuid="5a57742b-6a79-4f15-a1a6-7b1a4fb44be8"/>
+				<box>
+					<topPen lineWidth="1.4" lineStyle="Solid"/>
+					<leftPen lineWidth="1.4" lineStyle="Solid"/>
+					<bottomPen lineWidth="1.4" lineStyle="Solid"/>
+					<rightPen lineWidth="1.4" lineStyle="Solid"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" isBold="true"/>
+				</textElement>
+				<text><![CDATA[jml siswa]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="90" y="0" width="90" height="20" uuid="ec4d21c4-0383-4b1c-be0d-df84ffc775c5"/>
+				<box>
+					<topPen lineWidth="1.4" lineStyle="Solid"/>
+					<leftPen lineWidth="1.4" lineStyle="Solid"/>
+					<bottomPen lineWidth="1.4" lineStyle="Solid"/>
+					<rightPen lineWidth="1.4" lineStyle="Solid"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Kondisi Sekolah]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement x="1" y="0" width="29" height="20" uuid="a2089a7e-b658-4ddc-86bf-29d22fb7e94c">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="1.4" lineStyle="Solid"/>
+					<leftPen lineWidth="1.4" lineStyle="Solid"/>
+					<bottomPen lineWidth="1.4" lineStyle="Solid"/>
+					<rightPen lineWidth="1.4" lineStyle="Solid"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<paragraph firstLineIndent="2" leftIndent="2"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{REPORT_COUNT}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="30" y="0" width="60" height="20" uuid="c8c3cf97-9e95-423e-b47e-3c3478dbd296"/>
+				<box>
+					<topPen lineWidth="1.4" lineStyle="Solid"/>
+					<leftPen lineWidth="1.4" lineStyle="Solid"/>
+					<bottomPen lineWidth="1.4" lineStyle="Solid"/>
+					<rightPen lineWidth="1.4" lineStyle="Solid"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<paragraph firstLineIndent="2" leftIndent="2"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{jumlahSiswa}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="90" y="0" width="90" height="20" uuid="2f43de03-2399-49ef-8ab3-ea689f46aef8"/>
+				<box>
+					<topPen lineWidth="1.4" lineStyle="Solid"/>
+					<leftPen lineWidth="1.4" lineStyle="Solid"/>
+					<bottomPen lineWidth="1.4" lineStyle="Solid"/>
+					<rightPen lineWidth="1.4" lineStyle="Solid"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<paragraph firstLineIndent="2" leftIndent="2"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{kondisiSekolah}]]></textFieldExpression>
+			</textField>
+			<textField pattern="">
+				<reportElement x="180" y="0" width="100" height="20" uuid="c046e6eb-b2e7-4cf9-9768-3214d558b9e8"/>
+				<box>
+					<topPen lineWidth="1.4" lineStyle="Solid"/>
+					<leftPen lineWidth="1.4" lineStyle="Solid"/>
+					<bottomPen lineWidth="1.4" lineStyle="Solid"/>
+					<rightPen lineWidth="1.4" lineStyle="Solid"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<paragraph firstLineIndent="2" leftIndent="2"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{kondisiKelas}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="280" y="0" width="80" height="20" uuid="2945077e-b986-4604-b862-f56ef52ec66b"/>
+				<box>
+					<topPen lineWidth="1.4" lineStyle="Solid"/>
+					<leftPen lineWidth="1.4" lineStyle="Solid"/>
+					<bottomPen lineWidth="1.4" lineStyle="Solid"/>
+					<rightPen lineWidth="1.4" lineStyle="Solid"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<paragraph firstLineIndent="2" leftIndent="2"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{fasilitas}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="360" y="0" width="80" height="20" uuid="450375ce-a189-499a-9512-fcc50bb6d24a"/>
+				<box>
+					<topPen lineWidth="1.4" lineStyle="Solid"/>
+					<leftPen lineWidth="1.4" lineStyle="Solid"/>
+					<bottomPen lineWidth="1.4" lineStyle="Solid"/>
+					<rightPen lineWidth="1.4" lineStyle="Solid"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<paragraph firstLineIndent="2" leftIndent="2"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{kualitasPengajar}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="440" y="0" width="70" height="20" uuid="76910c5a-bf17-41d3-89f9-d2d6c19a92c3"/>
+				<box>
+					<topPen lineWidth="1.4" lineStyle="Solid"/>
+					<leftPen lineWidth="1.4" lineStyle="Solid"/>
+					<bottomPen lineWidth="1.4" lineStyle="Solid"/>
+					<rightPen lineWidth="1.4" lineStyle="Solid"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<paragraph firstLineIndent="2" leftIndent="2"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{keaktifanSiswa}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="510" y="0" width="70" height="20" uuid="3dbb946f-3b4b-4a73-9739-db6d1f9bb35a"/>
+				<box>
+					<topPen lineWidth="1.4" lineStyle="Solid"/>
+					<leftPen lineWidth="1.4" lineStyle="Solid"/>
+					<bottomPen lineWidth="1.4" lineStyle="Solid"/>
+					<rightPen lineWidth="1.4" lineStyle="Solid"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<paragraph firstLineIndent="2" leftIndent="2"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{namaMetode}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="580" y="0" width="60" height="20" uuid="57b4c848-0994-47e3-8d49-4b9bc7031207"/>
+				<box>
+					<topPen lineWidth="1.4" lineStyle="Solid"/>
+					<leftPen lineWidth="1.4" lineStyle="Solid"/>
+					<bottomPen lineWidth="1.4" lineStyle="Solid"/>
+					<rightPen lineWidth="1.4" lineStyle="Solid"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<paragraph firstLineIndent="2" leftIndent="2"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tanggal}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="640" y="0" width="80" height="20" uuid="70eafeec-2c02-4246-9f29-213d2d1028ee"/>
+				<box>
+					<topPen lineWidth="1.4" lineStyle="Solid"/>
+					<leftPen lineWidth="1.4" lineStyle="Solid"/>
+					<bottomPen lineWidth="1.4" lineStyle="Solid"/>
+					<rightPen lineWidth="1.4" lineStyle="Solid"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<paragraph firstLineIndent="2" leftIndent="2"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{vectorS}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="720" y="0" width="79" height="20" uuid="42376841-6b1d-4ec5-9ba0-6f1256addf67"/>
+				<box>
+					<topPen lineWidth="1.4" lineStyle="Solid"/>
+					<leftPen lineWidth="1.4" lineStyle="Solid"/>
+					<bottomPen lineWidth="1.4" lineStyle="Solid"/>
+					<rightPen lineWidth="1.4" lineStyle="Solid"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<paragraph firstLineIndent="2" leftIndent="2"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{vectorV}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<summary>
+		<band height="221" splitType="Stretch">
+			<staticText>
+				<reportElement x="330" y="16" width="100" height="30" uuid="2d93d997-7931-4926-bde6-cf15530d8ad6"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="20" isBold="true"/>
+				</textElement>
+				<text><![CDATA[BOBOT]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="80" y="46" width="100" height="30" uuid="badf5678-a907-4e8c-abe0-8241c1d42e1f"/>
+				<box>
+					<topPen lineWidth="1.3"/>
+					<leftPen lineWidth="1.3"/>
+					<bottomPen lineWidth="1.3"/>
+					<rightPen lineWidth="1.3"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Jumlah Siswa]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="180" y="46" width="100" height="30" uuid="f9385b41-460c-40eb-b35f-b2c2dda2f4d5"/>
+				<box>
+					<topPen lineWidth="1.3"/>
+					<leftPen lineWidth="1.3"/>
+					<bottomPen lineWidth="1.3"/>
+					<rightPen lineWidth="1.3"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Kondisi Sekolah]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="280" y="46" width="100" height="30" uuid="0dee6933-c307-471c-95ed-1b98da5757a3"/>
+				<box>
+					<topPen lineWidth="1.3"/>
+					<leftPen lineWidth="1.3"/>
+					<bottomPen lineWidth="1.3"/>
+					<rightPen lineWidth="1.3"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Kondisi Kelas]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="380" y="46" width="100" height="30" uuid="fc8c3e44-cb79-4f6b-a507-70c6e79bc2e0"/>
+				<box>
+					<topPen lineWidth="1.3"/>
+					<leftPen lineWidth="1.3"/>
+					<bottomPen lineWidth="1.3"/>
+					<rightPen lineWidth="1.3"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" isBold="true"/>
+				</textElement>
+				<text><![CDATA[kualitas Pengajar]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="480" y="46" width="100" height="30" uuid="8388c59f-f227-4c0a-b688-2a595d69b2a0"/>
+				<box>
+					<topPen lineWidth="1.3"/>
+					<leftPen lineWidth="1.3"/>
+					<bottomPen lineWidth="1.3"/>
+					<rightPen lineWidth="1.3"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Keaktifan Siswa]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="580" y="46" width="100" height="30" uuid="713a4e33-067d-4e25-952d-e54a0f7733ca"/>
+				<box>
+					<topPen lineWidth="1.3"/>
+					<leftPen lineWidth="1.3"/>
+					<bottomPen lineWidth="1.3"/>
+					<rightPen lineWidth="1.3"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Fasilitas]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="80" y="76" width="100" height="30" uuid="8ade25da-044f-413e-a071-8574f3264749"/>
+				<box>
+					<topPen lineWidth="1.3"/>
+					<leftPen lineWidth="1.3"/>
+					<bottomPen lineWidth="1.3"/>
+					<rightPen lineWidth="1.3"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{tempBobot.bobotJumlahSiswa}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="180" y="76" width="100" height="30" uuid="d98cec5e-f0a8-4960-bcd8-03523b6f98d0"/>
+				<box>
+					<topPen lineWidth="1.3"/>
+					<leftPen lineWidth="1.3"/>
+					<bottomPen lineWidth="1.3"/>
+					<rightPen lineWidth="1.3"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{tempBobot.bobotKondisiSekolah}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="280" y="76" width="100" height="30" uuid="7c22952b-afea-4f58-b85b-0cdf1e7fcb50"/>
+				<box>
+					<topPen lineWidth="1.3"/>
+					<leftPen lineWidth="1.3"/>
+					<bottomPen lineWidth="1.3"/>
+					<rightPen lineWidth="1.3"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{tempBobot.bobotKondisiKelas}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="380" y="76" width="100" height="30" uuid="59244852-665d-4efc-9975-aa82101944f9"/>
+				<box>
+					<topPen lineWidth="1.3"/>
+					<leftPen lineWidth="1.3"/>
+					<bottomPen lineWidth="1.3"/>
+					<rightPen lineWidth="1.3"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{tempBobot.bobotKualitasPengajar}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="480" y="76" width="100" height="30" uuid="5e91d5af-d4b1-404d-a8dd-140b004ccf91"/>
+				<box>
+					<topPen lineWidth="1.3"/>
+					<leftPen lineWidth="1.3"/>
+					<bottomPen lineWidth="1.3"/>
+					<rightPen lineWidth="1.3"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{tempBobot.bobotKeaktifanSiswa}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="580" y="76" width="100" height="30" uuid="e3349cdd-7645-4b30-8041-f6e6476e9ec9"/>
+				<box>
+					<topPen lineWidth="1.3"/>
+					<leftPen lineWidth="1.3"/>
+					<bottomPen lineWidth="1.3"/>
+					<rightPen lineWidth="1.3"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{tempBobot.bobotFasilitas}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="450" y="140" width="95" height="30" uuid="53e54afa-5a93-42f7-9141-f12add0f2b6f"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Purwokerto, ]]></text>
+			</staticText>
+			<textField pattern="dd MMMM yyyy">
+				<reportElement x="544" y="140" width="210" height="30" uuid="cac18564-95f0-4ada-a231-20eadd8ab587"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Arial" size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="13" y="190" width="789" height="30" uuid="38518a8d-bbad-4c9c-b9bd-738f37dbdb6d"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Aplikasi Sistem Pendukung Keputusan Menentukan Metode Pembelajaran Menggunakan Metode Weighted Product]]></text>
+			</staticText>
+		</band>
+	</summary>
+</jasperReport>
