@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?><entities>
 	<entity>
-		<entity-name>com.skripsi.beni.apps.entity.Kondisi</entity-name>
+		<entity-name>com.skripsi.beni.apps.entity.Fasilitas</entity-name>
 		<entity-width>120</entity-width>
-		<entity-height>166</entity-height>
-		<entity-X-Coordinate>405</entity-X-Coordinate>
-		<entity-Y-Coordinate>409</entity-Y-Coordinate>
+		<entity-height>30</entity-height>
+		<entity-X-Coordinate>118</entity-X-Coordinate>
+		<entity-Y-Coordinate>233</entity-Y-Coordinate>
 		<primary-collapsed>false</primary-collapsed>
 		<relation-collapsed>false</relation-collapsed>
 		<basic-collapsed>false</basic-collapsed>
 	</entity>
 
 	<entity>
-		<entity-name>com.skripsi.beni.apps.entity.Fasilitas</entity-name>
+		<entity-name>com.skripsi.beni.apps.entity.Metode</entity-name>
 		<entity-width>120</entity-width>
-		<entity-height>166</entity-height>
-		<entity-X-Coordinate>167</entity-X-Coordinate>
-		<entity-Y-Coordinate>308</entity-Y-Coordinate>
+		<entity-height>246</entity-height>
+		<entity-X-Coordinate>405</entity-X-Coordinate>
+		<entity-Y-Coordinate>16</entity-Y-Coordinate>
 		<primary-collapsed>false</primary-collapsed>
 		<relation-collapsed>false</relation-collapsed>
 		<basic-collapsed>false</basic-collapsed>
@@ -24,7 +24,7 @@
 	<entity>
 		<entity-name>com.skripsi.beni.apps.entity.Pengajar</entity-name>
 		<entity-width>120</entity-width>
-		<entity-height>166</entity-height>
+		<entity-height>30</entity-height>
 		<entity-X-Coordinate>118</entity-X-Coordinate>
 		<entity-Y-Coordinate>39</entity-Y-Coordinate>
 		<primary-collapsed>false</primary-collapsed>
@@ -35,42 +35,9 @@
 	<entity>
 		<entity-name>com.skripsi.beni.apps.entity.JumlahSiswa</entity-name>
 		<entity-width>120</entity-width>
-		<entity-height>166</entity-height>
-		<entity-X-Coordinate>683</entity-X-Coordinate>
-		<entity-Y-Coordinate>308</entity-Y-Coordinate>
-		<primary-collapsed>false</primary-collapsed>
-		<relation-collapsed>false</relation-collapsed>
-		<basic-collapsed>false</basic-collapsed>
-	</entity>
-
-	<entity>
-		<entity-name>com.skripsi.beni.apps.entity.Metode</entity-name>
-		<entity-width>120</entity-width>
-		<entity-height>226</entity-height>
-		<entity-X-Coordinate>405</entity-X-Coordinate>
-		<entity-Y-Coordinate>16</entity-Y-Coordinate>
-		<primary-collapsed>false</primary-collapsed>
-		<relation-collapsed>false</relation-collapsed>
-		<basic-collapsed>false</basic-collapsed>
-	</entity>
-
-	<entity>
-		<entity-name>com.skripsi.beni.apps.entity.Role</entity-name>
-		<entity-width>120</entity-width>
-		<entity-height>146</entity-height>
-		<entity-X-Coordinate>880</entity-X-Coordinate>
-		<entity-Y-Coordinate>37</entity-Y-Coordinate>
-		<primary-collapsed>false</primary-collapsed>
-		<relation-collapsed>false</relation-collapsed>
-		<basic-collapsed>false</basic-collapsed>
-	</entity>
-
-	<entity>
-		<entity-name>com.skripsi.beni.apps.entity.Keaktifan</entity-name>
-		<entity-width>120</entity-width>
-		<entity-height>166</entity-height>
-		<entity-X-Coordinate>683</entity-X-Coordinate>
-		<entity-Y-Coordinate>31</entity-Y-Coordinate>
+		<entity-height>30</entity-height>
+		<entity-X-Coordinate>700</entity-X-Coordinate>
+		<entity-Y-Coordinate>233</entity-Y-Coordinate>
 		<primary-collapsed>false</primary-collapsed>
 		<relation-collapsed>false</relation-collapsed>
 		<basic-collapsed>false</basic-collapsed>
@@ -79,20 +46,64 @@
 	<entity>
 		<entity-name>com.skripsi.beni.apps.entity.User</entity-name>
 		<entity-width>120</entity-width>
-		<entity-height>226</entity-height>
-		<entity-X-Coordinate>880</entity-X-Coordinate>
-		<entity-Y-Coordinate>234</entity-Y-Coordinate>
+		<entity-height>30</entity-height>
+		<entity-X-Coordinate>874</entity-X-Coordinate>
+		<entity-Y-Coordinate>233</entity-Y-Coordinate>
 		<primary-collapsed>false</primary-collapsed>
 		<relation-collapsed>false</relation-collapsed>
 		<basic-collapsed>false</basic-collapsed>
 	</entity>
 
 	<entity>
-		<entity-name>com.skripsi.beni.apps.entity.Bobot</entity-name>
+		<entity-name>com.skripsi.beni.apps.entity.Role</entity-name>
 		<entity-width>120</entity-width>
-		<entity-height>188</entity-height>
-		<entity-X-Coordinate>880</entity-X-Coordinate>
-		<entity-Y-Coordinate>490</entity-Y-Coordinate>
+		<entity-height>30</entity-height>
+		<entity-X-Coordinate>874</entity-X-Coordinate>
+		<entity-Y-Coordinate>31</entity-Y-Coordinate>
+		<primary-collapsed>false</primary-collapsed>
+		<relation-collapsed>false</relation-collapsed>
+		<basic-collapsed>false</basic-collapsed>
+	</entity>
+
+	<entity>
+		<entity-name>com.skripsi.beni.apps.entity.Keaktifan</entity-name>
+		<entity-width>120</entity-width>
+		<entity-height>30</entity-height>
+		<entity-X-Coordinate>683</entity-X-Coordinate>
+		<entity-Y-Coordinate>31</entity-Y-Coordinate>
+		<primary-collapsed>false</primary-collapsed>
+		<relation-collapsed>false</relation-collapsed>
+		<basic-collapsed>false</basic-collapsed>
+	</entity>
+
+	<entity>
+		<entity-name>com.skripsi.beni.apps.entity.BobotSpk</entity-name>
+		<entity-width>120</entity-width>
+		<entity-height>30</entity-height>
+		<entity-X-Coordinate>118</entity-X-Coordinate>
+		<entity-Y-Coordinate>330</entity-Y-Coordinate>
+		<primary-collapsed>false</primary-collapsed>
+		<relation-collapsed>false</relation-collapsed>
+		<basic-collapsed>false</basic-collapsed>
+	</entity>
+
+	<entity>
+		<entity-name>com.skripsi.beni.apps.entity.SPK</entity-name>
+		<entity-width>120</entity-width>
+		<entity-height>30</entity-height>
+		<entity-X-Coordinate>332</entity-X-Coordinate>
+		<entity-Y-Coordinate>330</entity-Y-Coordinate>
+		<primary-collapsed>false</primary-collapsed>
+		<relation-collapsed>false</relation-collapsed>
+		<basic-collapsed>false</basic-collapsed>
+	</entity>
+
+	<entity>
+		<entity-name>com.skripsi.beni.apps.entity.TempBobot</entity-name>
+		<entity-width>120</entity-width>
+		<entity-height>30</entity-height>
+		<entity-X-Coordinate>602</entity-X-Coordinate>
+		<entity-Y-Coordinate>330</entity-Y-Coordinate>
 		<primary-collapsed>false</primary-collapsed>
 		<relation-collapsed>false</relation-collapsed>
 		<basic-collapsed>false</basic-collapsed>
