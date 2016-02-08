@@ -23,6 +23,7 @@ import com.skripsi.beni.apps.service.KondisiSekolahService;
 import com.skripsi.beni.apps.service.MetodeService;
 import com.skripsi.beni.apps.service.PengajarService;
 import com.skripsi.beni.apps.service.SPKService;
+import com.skripsi.beni.apps.service.TempBobotService;
 
 @Controller
 @RequestMapping("/metode")
@@ -51,6 +52,9 @@ public class MetodeController {
 	
 	@Autowired
 	private SPKService spkService;
+	
+	@Autowired
+	private TempBobotService tempBobotService;
 
 	@ModelAttribute("metode")
 	public MetodeDTO construct() {
@@ -124,7 +128,7 @@ public class MetodeController {
 	@RequestMapping("/daftar_rangking")
 	public ModelAndView daftarRangking() {
 		ModelAndView mav = new ModelAndView("daftar_rangking");
-		mav.addObject("daftarRangking", spkService.findAllDesc());
+		mav.addObject("daftarRangking", tempBobotService.findAllDesc());
 		return mav;
 	}
 	

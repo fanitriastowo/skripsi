@@ -3,10 +3,12 @@ package com.skripsi.beni.apps.controller;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.TreeSet;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -26,7 +28,7 @@ import com.skripsi.beni.apps.service.TempBobotService;
 
 @Controller
 @RequestMapping("/spk")
-@SessionAttributes(value = { "metodes", "tempBobot" })
+@SessionAttributes(value = { "metodes", "tempBobot", "daftarRangking" })
 public class SPKController {
 
 	@Autowired
@@ -64,19 +66,23 @@ public class SPKController {
 	 * @return mav
 	 */
 	@RequestMapping
-	public ModelAndView halamanSPK(Model model) {
+	public ModelAndView halamanSPK(ModelMap modelMap) {
+		
 		ModelAndView mav = new ModelAndView("spk");
 		BobotSpk bobot = bobotService.getOneById();
-
-		// Check jika session tempBobot dan metodes tidak ketemu
-		if (!model.containsAttribute("tempBobot") && !model.containsAttribute("metodes")) {
-			mav.addObject("tempBobot", bobot);
-			mav.addObject("metodes", metodeService.tampilSemuaMetode());
-		} else {
-			mav.clear();
-			mav.addObject("tempBobot", bobot);
-			mav.addObject("metodes", metodeService.tampilSemuaMetode());
+		
+		if (modelMap.containsAttribute("tempBobot")) {
+			modelMap.remove("tempBobot");
+			System.out.println("Temp Bobot DIhapus");
 		}
+		
+		if (modelMap.containsAttribute("metodes")) {
+			modelMap.remove("tempBobot");
+			System.out.println("Metodes DIhapus");
+		}
+		
+		mav.addObject("tempBobot", bobot);
+		mav.addObject("metodes", metodeService.tampilSemuaMetode());
 
 		return mav;
 	}
@@ -204,10 +210,17 @@ public class SPKController {
 	 */
 	@RequestMapping("/simpan")
 	public ModelAndView hitungSPKStepFinal(@ModelAttribute("metodes") List<Metode> metodes,
-			   							   @ModelAttribute("tempBobot") BobotSpk bobotSpk) {
+			   							   @ModelAttribute("tempBobot") BobotSpk bobotSpk, ModelMap model) {
 		ModelAndView mav = new ModelAndView("redirect:/spk/final_step");
 		
+		if (model.containsAttribute("daftarRangking")) {
+			model.remove("daftarRangking");
+		}
+		
+		TreeSet<SPK> treeSet = new TreeSet<>();
+		
 		TempBobot tempBobot = new TempBobot();
+		tempBobot.setTanggal(new Date());
 		tempBobot.setBobotFasilitas(bobotSpk.getFasilitasBobot().intValue());
 		tempBobot.setBobotJumlahSiswa(bobotSpk.getJumlahSiswaBobot().intValue());
 		tempBobot.setBobotKeaktifanSiswa(bobotSpk.getKeaktifanSiswaBobot().intValue());
@@ -260,25 +273,17 @@ public class SPKController {
 			spk.setVectorV(HelperUmum.angkaBelakangKoma(vectorS / jumlahVectorS, 6));
 			spk.setTempBobot(tempBobot);
 			spkService.save(spk);
+			treeSet.add(spk);
 		}
+		mav.addObject("daftarRangking", treeSet);
 		return mav;
 	}
 	
 	@RequestMapping("/final_step")
-	public ModelAndView daftarRangkingTertinggi(Model model) {
-		
-		// Check jika session tempBobot dan metodes tidak ketemu
-		if (model.containsAttribute("tempBobot")) {
-			model.addAttribute("tempBobot", new BobotSpk());
-		}
-		
-		if (model.containsAttribute("metodes")) {
-			model.addAttribute("metodes", new ArrayList<>());
-		}
-		
+	public ModelAndView daftarRangkingTertinggi(Model model, @ModelAttribute("daftarRangking") TreeSet<SPK> treeSet) {
 		ModelAndView mav = new ModelAndView("final_step");
 		mav.addObject("tempBobot", bobotService.getOneById());
-		mav.addObject("daftarRangking", spkService.findAllDesc());
+		mav.addObject("daftarRangking", treeSet);
 		return mav;
 	}
 	

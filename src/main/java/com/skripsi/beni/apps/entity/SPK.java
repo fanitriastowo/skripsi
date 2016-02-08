@@ -1,5 +1,6 @@
 package com.skripsi.beni.apps.entity;
 
+import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.Entity;
@@ -13,7 +14,9 @@ import javax.persistence.TemporalType;
 
 @Entity
 @Table(name = "SPK")
-public class SPK {
+public class SPK implements Serializable, Comparable<SPK> {
+
+	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue
@@ -137,6 +140,18 @@ public class SPK {
 
 	public void setTempBobot(TempBobot tempBobot) {
 		this.tempBobot = tempBobot;
+	}
+
+	@Override
+	public int compareTo(SPK o) {
+		Double bil1 = this.getVectorV();
+		Double bil2 = o.getVectorV();
+		
+		if (bil1 > bil2) {
+			return -1;
+		} else {
+			return 1;
+		}
 	}
 
 }

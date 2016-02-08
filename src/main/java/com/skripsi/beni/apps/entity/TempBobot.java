@@ -1,5 +1,6 @@
 package com.skripsi.beni.apps.entity;
 
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -8,6 +9,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 @Entity
 @Table(name = "TEMP_BOBOT")
@@ -16,7 +19,8 @@ public class TempBobot {
 	@Id
 	@GeneratedValue
 	private Integer id;
-
+	@Temporal(TemporalType.DATE)
+	private Date tanggal;
 	private Integer bobotJumlahSiswa;
 	private Integer bobotKondisiSekolah;
 	private Integer bobotKondisiKelas;
@@ -33,6 +37,14 @@ public class TempBobot {
 
 	public void setId(Integer id) {
 		this.id = id;
+	}
+
+	public Date getTanggal() {
+		return tanggal;
+	}
+
+	public void setTanggal(Date tanggal) {
+		this.tanggal = tanggal;
 	}
 
 	public Integer getBobotJumlahSiswa() {

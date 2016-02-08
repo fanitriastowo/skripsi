@@ -1,5 +1,7 @@
 package com.skripsi.beni.apps.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -16,5 +18,9 @@ public class TempBobotService {
 
 	public void save(TempBobot tempBobot) {
 		tempBobotRepository.save(tempBobot);
+	}
+
+	public List<TempBobot> findAllDesc() {
+		return tempBobotRepository.findAllByOrderByTanggalDesc();
 	}
 }
