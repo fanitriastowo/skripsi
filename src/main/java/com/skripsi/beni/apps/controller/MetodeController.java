@@ -62,6 +62,7 @@ public class MetodeController {
 		return new MetodeDTO();
 	}
 
+	@PreAuthorize(value = "isAuthenticated()")
 	@RequestMapping
 	public ModelAndView halamanMetode() {
 		List<Metode> tampilSemuaMetode = metodeService.tampilSemuaMetode();
@@ -76,6 +77,7 @@ public class MetodeController {
 		return modelAndView;
 	}
 
+	@PreAuthorize(value = "hasRole('ROLE_ADMIN')")
 	@RequestMapping("/add")
 	public ModelAndView addMetode(@ModelAttribute("metode") MetodeDTO metodeDTO) {
 		ModelAndView modelAndView = new ModelAndView("redirect:/metode");
@@ -100,6 +102,7 @@ public class MetodeController {
 		return metode;
 	}
 
+	@PreAuthorize(value = "hasRole('ROLE_ADMIN')")
 	@RequestMapping(value = "/edit", method = RequestMethod.POST)
 	public ModelAndView submitEdit(@ModelAttribute("metode") MetodeDTO metodeDTO) {
 		if (metodeDTO != null) {
@@ -109,8 +112,8 @@ public class MetodeController {
 		return modelAndView;
 	}
 	
-	@RequestMapping(value = "/edit_guru", method = RequestMethod.POST)
 	@PreAuthorize(value = "hasRole('ROLE_GURU')")
+	@RequestMapping(value = "/edit_guru", method = RequestMethod.POST)
 	public ModelAndView submitEditGURU(@ModelAttribute("metode") MetodeDTO metodeDTO) {
 		if (metodeDTO != null) {
 			metodeService.updateGuru(metodeDTO);
@@ -119,6 +122,7 @@ public class MetodeController {
 		return modelAndView;
 	}
 
+	@PreAuthorize(value = "hasRole('ROLE_ADMIN')")
 	@RequestMapping("/delete/{id}")
 	public ModelAndView deleteMetode(@PathVariable Long id) {
 		ModelAndView modelAndView = new ModelAndView("redirect:/metode");
@@ -126,6 +130,7 @@ public class MetodeController {
 		return modelAndView;
 	}
 	
+	@PreAuthorize(value = "isAuthenticated()")
 	@RequestMapping("/daftar_rangking")
 	public ModelAndView daftarRangking() {
 		ModelAndView mav = new ModelAndView("daftar_rangking");
@@ -133,6 +138,7 @@ public class MetodeController {
 		return mav;
 	}
 	
+	@PreAuthorize(value = "isAuthenticated()")
 	@RequestMapping("/cetak_hasil/{id}")
 	public String cetakHasil(@PathVariable("id") Integer id, ModelMap modelMap) {
 		TempBobot tempBobot = tempBobotService.findOneById(id);
