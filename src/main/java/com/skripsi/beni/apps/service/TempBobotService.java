@@ -20,6 +20,10 @@ public class TempBobotService {
 		tempBobotRepository.save(tempBobot);
 	}
 
+	public TempBobot findOneById(Integer id) {
+		return tempBobotRepository.findOne(id);
+	}
+
 	public List<TempBobot> findAllDesc() {
 		return tempBobotRepository.findAllByOrderByTanggalDesc();
 	}

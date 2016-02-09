@@ -15,6 +15,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.skripsi.beni.apps.dto.MetodeDTO;
 import com.skripsi.beni.apps.entity.Metode;
+import com.skripsi.beni.apps.entity.TempBobot;
 import com.skripsi.beni.apps.service.FasilitasService;
 import com.skripsi.beni.apps.service.JumlahSiswaService;
 import com.skripsi.beni.apps.service.KeaktifanService;
@@ -132,9 +133,10 @@ public class MetodeController {
 		return mav;
 	}
 	
-	@RequestMapping("/cetak_hasil")
-	public String cetakHasil(ModelMap modelMap) {
-		modelMap.addAttribute("dataSource", spkService.findAllDesc());
+	@RequestMapping("/cetak_hasil/{id}")
+	public String cetakHasil(@PathVariable("id") Integer id, ModelMap modelMap) {
+		TempBobot tempBobot = tempBobotService.findOneById(id);
+		modelMap.addAttribute("dataSource", spkService.findAllByTempBobotDesc(tempBobot));
 		return "hasilPerhitungan";
 	}
 }

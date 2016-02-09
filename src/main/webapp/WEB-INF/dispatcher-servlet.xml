@@ -19,7 +19,7 @@
 		<property name="location" value="/WEB-INF/jasper-config.xml" />
 		<property name="order" value="0" />
 	</bean>
-
+ 	
 	<!-- Map simple view name such as "test" into /WEB-INF/views/test.jsp -->
 	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix" value="/WEB-INF/views/" />

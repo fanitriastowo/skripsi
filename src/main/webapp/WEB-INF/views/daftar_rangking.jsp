@@ -48,7 +48,7 @@
 									<td><c:out value="${daftarRangking.bobotKualitasPengajar }" /></td>
 									<td><c:out value="${daftarRangking.bobotFasilitas }" /></td>
 									<td>
-										<a class="btn btn-xs btn-primary" href="#">
+										<a class="btn btn-xs btn-primary" href='<spring:url value="/metode/cetak_hasil/${daftarRangking.id}" />'>
 											<span class="glyphicon glyphicon-print"></span></a>
 									</td>
 								</tr>

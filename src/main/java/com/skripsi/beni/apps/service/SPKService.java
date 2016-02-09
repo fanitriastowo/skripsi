@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.skripsi.beni.apps.entity.SPK;
+import com.skripsi.beni.apps.entity.TempBobot;
 import com.skripsi.beni.apps.repository.SPKRepository;
 
 @Service
@@ -22,6 +23,10 @@ public class SPKService {
 
 	public List<SPK> findAllDesc() {
 		return spkRepository.findAllByOrderByVectorVDesc();
+	}
+
+	public List<SPK> findAllByTempBobotDesc(TempBobot tempBobot) {
+		return spkRepository.findAllByTempBobotOrderByVectorVDesc(tempBobot);
 	}
 	
 }
