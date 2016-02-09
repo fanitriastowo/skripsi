@@ -27,4 +27,5 @@ public class TempBobotService {
 	public List<TempBobot> findAllDesc() {
 		return tempBobotRepository.findAllByOrderByTanggalDesc();
 	}
+	
 }

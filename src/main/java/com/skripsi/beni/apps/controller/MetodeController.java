@@ -134,7 +134,7 @@ public class MetodeController {
 	@RequestMapping("/daftar_rangking")
 	public ModelAndView daftarRangking() {
 		ModelAndView mav = new ModelAndView("daftar_rangking");
-		mav.addObject("daftarRangking", tempBobotService.findAllDesc());
+		mav.addObject("daftarRangking", spkService.findAllMaxGroupByVectorV());
 		return mav;
 	}
 	

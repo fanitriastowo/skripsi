@@ -29,4 +29,8 @@ public class SPKService {
 		return spkRepository.findAllByTempBobotOrderByVectorVDesc(tempBobot);
 	}
 	
+	public List<SPK> findAllMaxGroupByVectorV() {
+		return spkRepository.findAllMaxGroupByVectorV();
+	}
+	
 }

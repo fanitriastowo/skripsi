@@ -26,12 +26,14 @@
 							<tr>
 								<th width="5%">No.</th>
 								<th>Tanggal</th>
+								<th>Nama Metode</th>
 								<th>Jumlah Siswa</th>
 								<th>Kondisi Sekolah</th>
 								<th>Kondisi Kelas</th>
 								<th>Keaktifan Siswa</th>
 								<th>Kualitas Pengajar</th>
 								<th>Fasilitas</th>
+								<th>Vector V</th>
 								<th width="5%">Aksi</th>
 							</tr>
 						</thead>
@@ -41,14 +43,16 @@
 								<tr>
 									<td><c:out value="${index.count }" /></td>
 									<td><c:out value="${daftarRangking.tanggal }" /></td>
-									<td><c:out value="${daftarRangking.bobotJumlahSiswa }" /></td>
-									<td><c:out value="${daftarRangking.bobotKondisiSekolah }" /></td>
-									<td><c:out value="${daftarRangking.bobotKondisiKelas }" /></td>
-									<td><c:out value="${daftarRangking.bobotKeaktifanSiswa }" /></td>
-									<td><c:out value="${daftarRangking.bobotKualitasPengajar }" /></td>
-									<td><c:out value="${daftarRangking.bobotFasilitas }" /></td>
+									<td><c:out value="${daftarRangking.namaMetode }" /></td>
+									<td><c:out value="${daftarRangking.jumlahSiswa }" /></td>
+									<td><c:out value="${daftarRangking.kondisiSekolah }" /></td>
+									<td><c:out value="${daftarRangking.kondisiKelas }" /></td>
+									<td><c:out value="${daftarRangking.keaktifanSiswa }" /></td>
+									<td><c:out value="${daftarRangking.kualitasPengajar }" /></td>
+									<td><c:out value="${daftarRangking.fasilitas }" /></td>
+									<td><c:out value="${daftarRangking.vectorV }" /></td>
 									<td>
-										<a class="btn btn-xs btn-primary" href='<spring:url value="/metode/cetak_hasil/${daftarRangking.id}" />'>
+										<a class="btn btn-xs btn-primary" href='<spring:url value="/metode/cetak_hasil/${daftarRangking.tempBobot.id}" />'>
 											<span class="glyphicon glyphicon-print"></span></a>
 									</td>
 								</tr>
