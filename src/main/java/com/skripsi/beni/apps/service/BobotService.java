@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.skripsi.beni.apps.entity.Bobot;
+import com.skripsi.beni.apps.helper.HelperUmum;
 import com.skripsi.beni.apps.repository.BobotRepository;
 
 @Service
@@ -47,13 +48,13 @@ public class BobotService {
 		bobotBaru.setTujuanPengajaran(tujuanPengajaran);
 		bobotBaru.setWaktuPembelajaran(waktuPembelajaran);
 		
-		bobotBaru.setnJumlahSiswa(nJumlahSiswa);
-		bobotBaru.setnFasilitas(nFasilitas);
-		bobotBaru.setnKemampuanSiswa(nKemampuanSiswa);
-		bobotBaru.setnKemampuanGuru(nKemampuanGuru);
-		bobotBaru.setnMateriPengajaran(nMateriPengajaran);
-		bobotBaru.setnTujuanPengajaran(nTujuanPengajaran);
-		bobotBaru.setnWaktuPembelajaran(nWaktuPembelajaran);
+		bobotBaru.setnJumlahSiswa(HelperUmum.angkaBelakangKoma(nJumlahSiswa, 3));
+		bobotBaru.setnFasilitas(HelperUmum.angkaBelakangKoma(nFasilitas, 3));
+		bobotBaru.setnKemampuanSiswa(HelperUmum.angkaBelakangKoma(nKemampuanSiswa, 3));
+		bobotBaru.setnKemampuanGuru(HelperUmum.angkaBelakangKoma(nKemampuanGuru, 3));
+		bobotBaru.setnMateriPengajaran(HelperUmum.angkaBelakangKoma(nMateriPengajaran, 3));
+		bobotBaru.setnTujuanPengajaran(HelperUmum.angkaBelakangKoma(nTujuanPengajaran, 3));
+		bobotBaru.setnWaktuPembelajaran(HelperUmum.angkaBelakangKoma(nWaktuPembelajaran, 3));
 
 		bobotRepository.save(bobotBaru);
 	}

@@ -1,5 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <%@ include file="/WEB-INF/template/taglib.jsp"%>
+
+<fmt:parseNumber integerOnly="true" type="number" value="${bobot.materiPengajaran }" var="materiPengajaran" />
+<fmt:parseNumber integerOnly="true" type="number" value="${bobot.tujuanPengajaran }" var="tujuanPengajaran" />
+<fmt:parseNumber integerOnly="true" type="number" value="${bobot.waktuPembelajaran }" var="waktuPembelajaran" />
+<fmt:parseNumber integerOnly="true" type="number" value="${bobot.fasilitas }" var="fasilitas" />
+<fmt:parseNumber integerOnly="true" type="number" value="${bobot.kemampuanGuru }" var="kemampuanGuru" />
+<fmt:parseNumber integerOnly="true" type="number" value="${bobot.jumlahSiswa }" var="jumlahSiswa" />
+<fmt:parseNumber integerOnly="true" type="number" value="${bobot.kemampuanSiswa }" var="kemampuanSiswa" />
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -85,13 +94,13 @@
 							<tr class="info">
 								<td>#</td>
 								<td><strong>Bobot</strong></td>
-								<td class="text-center" id="bMateriPengajaran"><c:out value="${bobot.materiPengajaran }" /></td>
-								<td class="text-center" id="bTujuanPengajaran"><c:out value="${bobot.tujuanPengajaran }" /></td>
-								<td class="text-center" id="bWaktuPengajaran"><c:out value="${bobot.waktuPembelajaran }" /></td>
-								<td class="text-center" id="bFasilitas"><c:out value="${bobot.fasilitas }" /></td>
-								<td class="text-center" id="bKemampuanGuru"><c:out value="${bobot.kemampuanGuru }" /></td>
-								<td class="text-center" id="bJumlahSiswa"><c:out value="${bobot.jumlahSiswa }" /></td>
-								<td class="text-center" id="bKemampuanSiswa"><c:out value="${bobot.kemampuanSiswa }" /></td>
+								<td class="text-center" id="bMateriPengajaran"><c:out value="${materiPengajaran }" /></td>
+								<td class="text-center" id="bTujuanPengajaran"><c:out value="${tujuanPengajaran }" /></td>
+								<td class="text-center" id="bWaktuPengajaran"><c:out value="${waktuPembelajaran }" /></td>
+								<td class="text-center" id="bFasilitas"><c:out value="${fasilitas }" /></td>
+								<td class="text-center" id="bKemampuanGuru"><c:out value="${kemampuanGuru }" /></td>
+								<td class="text-center" id="bJumlahSiswa"><c:out value="${jumlahSiswa }" /></td>
+								<td class="text-center" id="bKemampuanSiswa"><c:out value="${kemampuanSiswa }" /></td>
 							</tr>
 							<tr class="info">
 								<td>#</td>
@@ -115,7 +124,6 @@
 		</div>
 	</div>
 	
-	<%-- 
 	<form:form commandName="bobotModel" action="${pageContext.request.contextPath }/spk/ubah_bobot" cssClass="form-horizontal">
 		<div class="modal fade" id="bobotModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 			<div class="modal-dialog">
@@ -127,39 +135,45 @@
 					<div class="modal-body">
 						<form:hidden path="id" />
 						<div class="form-group">
-							<label for="jumlahSiswaBobot" class="col-sm-6 control-label">Jumlah Siswa:</label>
+							<label for="materiPengajaran" class="col-sm-6 control-label">Materi Pengajaran</label>
 							<div class="col-sm-6">
-								<form:input path="jumlahSiswaBobot" cssClass="form-control slider" value="${tempBobot.jumlahSiswaBobot }" />
+								<form:input path="materiPengajaran" cssClass="form-control slider" value="${materiPengajaran }" />
 							</div>
 						</div>
 						<div class="form-group">
-							<label for="keaktifanSiswaBobot" class="col-sm-6 control-label">Keaktifan Siswa:</label>
+							<label for="tujuanPengajaran" class="col-sm-6 control-label">Tujuan Pengajaran</label>
 							<div class="col-sm-6">
-								<form:input path="keaktifanSiswaBobot" cssClass="form-control slider" value="${tempBobot.keaktifanSiswaBobot }" />
+								<form:input path="tujuanPengajaran" cssClass="form-control slider" value="${tujuanPengajaran }" />
 							</div>
 						</div>
 						<div class="form-group">
-							<label for="kondisiSekolahBobot" class="col-sm-6 control-label">Kondisi Sekolah:</label>
+							<label for="waktuPembelajaran" class="col-sm-6 control-label">Waktu Pembelajaran</label>
 							<div class="col-sm-6">
-								<form:input path="kondisiSekolahBobot" cssClass="form-control slider" value="${tempBobot.kondisiSekolahBobot }" />
+								<form:input path="waktuPembelajaran" cssClass="form-control slider" value="${waktuPembelajaran }" />
 							</div>
 						</div>
 						<div class="form-group">
-							<label for="kondisiKelasBobot" class="col-sm-6 control-label">Kondisi Kelas:</label>
+							<label for="fasilitas" class="col-sm-6 control-label">Waktu Pembelajaran</label>
 							<div class="col-sm-6">
-								<form:input path="kondisiKelasBobot" cssClass="form-control slider" value="${tempBobot.kondisiKelasBobot }" />
+								<form:input path="fasilitas" cssClass="form-control slider" value="${fasilitas }" />
 							</div>
 						</div>
 						<div class="form-group">
-							<label for="fasilitasBobot" class="col-sm-6 control-label">Fasilitas:</label>
+							<label for="kemampuanGuru" class="col-sm-6 control-label">Kemampuan Guru</label>
 							<div class="col-sm-6">
-								<form:input path="fasilitasBobot" cssClass="form-control slider" value="${tempBobot.fasilitasBobot }" />
+								<form:input path="kemampuanGuru" cssClass="form-control slider" value="${kemampuanGuru }" />
 							</div>
 						</div>
 						<div class="form-group">
-							<label for="kualitasPengajarBobot" class="col-sm-6 control-label">Kualitas Pengajar:</label>
+							<label for="jumlahSiswa" class="col-sm-6 control-label">Jumlah Siswa</label>
 							<div class="col-sm-6">
-								<form:input path="kualitasPengajarBobot" cssClass="form-control slider" value="${tempBobot.kualitasPengajarBobot }" />
+								<form:input path="jumlahSiswa" cssClass="form-control slider" value="${jumlahSiswa }" />
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="kemampuanSiswa" class="col-sm-6 control-label">Kemampuan Siswa</label>
+							<div class="col-sm-6">
+								<form:input path="kemampuanSiswa" cssClass="form-control slider" value="${kemampuanSiswa }" />
 							</div>
 						</div>
 					</div>
@@ -171,7 +185,6 @@
 			</div>
 		</div>
 	</form:form>
-	--%>
 	
 	<%@ include file="/WEB-INF/template/footer.jsp"%>
 	<%@ include file="/WEB-INF/template/javascript.jsp"%>
@@ -181,8 +194,57 @@
 		$(document).ready(function() {
 			$('#spk').addClass('active');
 			
-			/*
-			$('#jumlahSiswaBobot').slider({
+			$('#materiPengajaran').slider({
+				min : 1,
+				max : 5,
+				step : 1,
+				orientation : 'horizontal',
+				value : $("#bMateriPengajaran").html(),
+				selection : 'before',
+				tooltip : 'show'
+			});
+			
+			$('#tujuanPengajaran').slider({
+				min : 1,
+				max : 5,
+				step : 1,
+				orientation : 'horizontal',
+				value : $("#bTujuanPengajaran").html(),
+				selection : 'before',
+				tooltip : 'show'
+			});
+			
+			$('#waktuPembelajaran').slider({
+				min : 1,
+				max : 5,
+				step : 1,
+				orientation : 'horizontal',
+				value : $("#bWaktuPengajaran").html(),
+				selection : 'before',
+				tooltip : 'show'
+			});
+			
+			$('#fasilitas').slider({
+				min : 1,
+				max : 5,
+				step : 1,
+				orientation : 'horizontal',
+				value : $("#bFasilitas").html(),
+				selection : 'before',
+				tooltip : 'show'
+			});
+			
+			$('#kemampuanGuru').slider({
+				min : 1,
+				max : 5,
+				step : 1,
+				orientation : 'horizontal',
+				value : $("#bKemampuanGuru").html(),
+				selection : 'before',
+				tooltip : 'show'
+			});
+			
+			$('#jumlahSiswa').slider({
 				min : 1,
 				max : 5,
 				step : 1,
@@ -192,57 +254,15 @@
 				tooltip : 'show'
 			});
 			
-			$('#kondisiSekolahBobot').slider({
+			$('#kemampuanSiswa').slider({
 				min : 1,
 				max : 5,
 				step : 1,
 				orientation : 'horizontal',
-				value : $("#bKondisiSekolah").html(),
+				value : $("#bKemampuanSiswa").html(),
 				selection : 'before',
 				tooltip : 'show'
 			});
-			
-			
-			$('#kondisiKelasBobot').slider({
-				min : 1,
-				max : 5,
-				step : 1,
-				orientation : 'horizontal',
-				value : $("#bKondisiKelas").html(),
-				selection : 'before',
-				tooltip : 'show'
-			});
-			
-			$('#keaktifanSiswaBobot').slider({
-				min : 1,
-				max : 5,
-				step : 1,
-				orientation : 'horizontal',
-				value : $("#bKeaktifanSiswa").html(),
-				selection : 'before',
-				tooltip : 'show'
-			});
-			
-			$('#kualitasPengajarBobot').slider({
-				min : 1,
-				max : 5,
-				step : 1,
-				orientation : 'horizontal',
-				value : $("#bKualitasPengajar").html(),
-				selection : 'before',
-				tooltip : 'show'
-			});
-			
-			$('#fasilitasBobot').slider({
-				min : 1,
-				max : 5,
-				step : 1,
-				orientation : 'horizontal',
-				value : $("#bFasilitas").html(),
-				selection : 'before',
-				tooltip : 'show'
-			});
-			*/
 			
 		});
 	</script>
