@@ -67,7 +67,7 @@ public class InitDbService {
 	@Autowired
 	private BobotRepository bobotRepository;
 
-	//@PostConstruct
+	@PostConstruct
 	public void afterPropertiesSet() throws Exception {
 
 		BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
@@ -164,22 +164,22 @@ public class InitDbService {
 
 		MateriPengajaran materiKonsep = new MateriPengajaran();
 		materiKonsep.setMateri("Konsep");
-		materiKonsep.setPoint(40D);
+		materiKonsep.setPoint(45D);
 		materiPengajaranRepository.save(materiKonsep);
 
 		MateriPengajaran materiPrinsip = new MateriPengajaran();
 		materiPrinsip.setMateri("Prinsip");
-		materiPrinsip.setPoint(30D);
+		materiPrinsip.setPoint(40D);
 		materiPengajaranRepository.save(materiPrinsip);
 
 		MateriPengajaran materiFakta = new MateriPengajaran();
 		materiFakta.setMateri("Fakta");
-		materiFakta.setPoint(20D);
+		materiFakta.setPoint(35D);
 		materiPengajaranRepository.save(materiFakta);
 
 		MateriPengajaran materiSikap = new MateriPengajaran();
 		materiSikap.setMateri("Materi Pengajaran 5");
-		materiSikap.setPoint(10D);
+		materiSikap.setPoint(30D);
 		materiPengajaranRepository.save(materiSikap);
 
 		// ====================================================== //
@@ -195,13 +195,13 @@ public class InitDbService {
 		
 		TujuanPengajaran tujuanPengorganisasianSiswa = new TujuanPengajaran();
 		tujuanPengorganisasianSiswa.setTujuan("Pengorganisasian Siswa");
-		tujuanPengorganisasianSiswa.setPoint(40D);
+		tujuanPengorganisasianSiswa.setPoint(45D);
 		tujuanPengajaranRepository.save(tujuanPengorganisasianSiswa);
 		
 		
 		TujuanPengajaran tujuanPendekatanPengajaran = new TujuanPengajaran();
 		tujuanPendekatanPengajaran.setTujuan("Pendekatan Pengajaran");
-		tujuanPendekatanPengajaran.setPoint(30D);
+		tujuanPendekatanPengajaran.setPoint(40D);
 		tujuanPengajaranRepository.save(tujuanPendekatanPengajaran);
 		
 		// ====================================================== //
@@ -212,12 +212,12 @@ public class InitDbService {
 		// ====================================================== //
 		WaktuPembelajaran waktuSedikit = new WaktuPembelajaran();
 		waktuSedikit.setWaktu("Sedikit / Singkat bisa dilakukan");
-		waktuSedikit.setPoint(50D);
+		waktuSedikit.setPoint(30D);
 		waktuPembelajaranRepository.save(waktuSedikit);
 		
 		WaktuPembelajaran waktuBanyak = new WaktuPembelajaran();
 		waktuBanyak.setWaktu("Banyak");
-		waktuBanyak.setPoint(40D);
+		waktuBanyak.setPoint(50D);
 		waktuPembelajaranRepository.save(waktuBanyak);
 		
 		// ====================================================== //
@@ -249,12 +249,12 @@ public class InitDbService {
 		
 		KemampuanGuru kemampuanGuruBaik = new KemampuanGuru();
 		kemampuanGuruBaik.setKemampuan("Baik");
-		kemampuanGuruBaik.setPoint(40D);
+		kemampuanGuruBaik.setPoint(30D);
 		kemampuanGuruRepository.save(kemampuanGuruBaik);
 		
 		KemampuanGuru kemampuanGuruBuruk = new KemampuanGuru();
 		kemampuanGuruBuruk.setKemampuan("Buruk");
-		kemampuanGuruBuruk.setPoint(30D);
+		kemampuanGuruBuruk.setPoint(10D);
 		kemampuanGuruRepository.save(kemampuanGuruBuruk);
 		
 		// ====================================================== //
@@ -291,12 +291,12 @@ public class InitDbService {
 		
 		KemampuanSiswa kemampuanSiswaBaik = new KemampuanSiswa();
 		kemampuanSiswaBaik.setKemampuan("Baik");
-		kemampuanSiswaBaik.setPoint(40D);
+		kemampuanSiswaBaik.setPoint(30D);
 		kemampuanSiswaRepository.save(kemampuanSiswaBaik);
 		
 		KemampuanSiswa kemampuanSiswaBuruk = new KemampuanSiswa();
 		kemampuanSiswaBuruk.setKemampuan("Buruk");
-		kemampuanSiswaBuruk.setPoint(30D);
+		kemampuanSiswaBuruk.setPoint(10D);
 		kemampuanSiswaRepository.save(kemampuanSiswaBuruk);
 		
 		// ============================================== //

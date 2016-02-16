@@ -20,4 +20,8 @@ public class MateriPengajaranService {
 		return materiPengajaranRepository.findAll();
 	}
 
+	public MateriPengajaran findOneById(Long materiPengajaran) {
+		return materiPengajaranRepository.findOne(materiPengajaran);
+	}
+
 }

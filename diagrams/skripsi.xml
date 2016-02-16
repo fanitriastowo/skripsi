@@ -1,10 +1,76 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?><entities>
 	<entity>
-		<entity-name>com.skripsi.beni.apps.entity.Fasilitas</entity-name>
+		<entity-name>com.skripsi.beni.apps.entity.Bobot</entity-name>
 		<entity-width>120</entity-width>
 		<entity-height>30</entity-height>
-		<entity-X-Coordinate>118</entity-X-Coordinate>
-		<entity-Y-Coordinate>233</entity-Y-Coordinate>
+		<entity-X-Coordinate>28</entity-X-Coordinate>
+		<entity-Y-Coordinate>308</entity-Y-Coordinate>
+		<primary-collapsed>false</primary-collapsed>
+		<relation-collapsed>false</relation-collapsed>
+		<basic-collapsed>false</basic-collapsed>
+	</entity>
+
+	<entity>
+		<entity-name>com.skripsi.beni.apps.entity.BobotSPK</entity-name>
+		<entity-width>120</entity-width>
+		<entity-height>30</entity-height>
+		<entity-X-Coordinate>245</entity-X-Coordinate>
+		<entity-Y-Coordinate>440</entity-Y-Coordinate>
+		<primary-collapsed>false</primary-collapsed>
+		<relation-collapsed>false</relation-collapsed>
+		<basic-collapsed>false</basic-collapsed>
+	</entity>
+
+	<entity>
+		<entity-name>com.skripsi.beni.apps.entity.kriteria.Fasilitas</entity-name>
+		<entity-width>120</entity-width>
+		<entity-height>30</entity-height>
+		<entity-X-Coordinate>281</entity-X-Coordinate>
+		<entity-Y-Coordinate>10</entity-Y-Coordinate>
+		<primary-collapsed>false</primary-collapsed>
+		<relation-collapsed>false</relation-collapsed>
+		<basic-collapsed>false</basic-collapsed>
+	</entity>
+
+	<entity>
+		<entity-name>com.skripsi.beni.apps.entity.kriteria.JumlahSiswa</entity-name>
+		<entity-width>120</entity-width>
+		<entity-height>30</entity-height>
+		<entity-X-Coordinate>28</entity-X-Coordinate>
+		<entity-Y-Coordinate>211</entity-Y-Coordinate>
+		<primary-collapsed>false</primary-collapsed>
+		<relation-collapsed>false</relation-collapsed>
+		<basic-collapsed>false</basic-collapsed>
+	</entity>
+
+	<entity>
+		<entity-name>com.skripsi.beni.apps.entity.kriteria.KemampuanGuru</entity-name>
+		<entity-width>120</entity-width>
+		<entity-height>30</entity-height>
+		<entity-X-Coordinate>620</entity-X-Coordinate>
+		<entity-Y-Coordinate>26</entity-Y-Coordinate>
+		<primary-collapsed>false</primary-collapsed>
+		<relation-collapsed>false</relation-collapsed>
+		<basic-collapsed>false</basic-collapsed>
+	</entity>
+
+	<entity>
+		<entity-name>com.skripsi.beni.apps.entity.kriteria.KemampuanSiswa</entity-name>
+		<entity-width>120</entity-width>
+		<entity-height>30</entity-height>
+		<entity-X-Coordinate>129</entity-X-Coordinate>
+		<entity-Y-Coordinate>47</entity-Y-Coordinate>
+		<primary-collapsed>false</primary-collapsed>
+		<relation-collapsed>false</relation-collapsed>
+		<basic-collapsed>false</basic-collapsed>
+	</entity>
+
+	<entity>
+		<entity-name>com.skripsi.beni.apps.entity.kriteria.MateriPengajaran</entity-name>
+		<entity-width>120</entity-width>
+		<entity-height>30</entity-height>
+		<entity-X-Coordinate>171</entity-X-Coordinate>
+		<entity-Y-Coordinate>366</entity-Y-Coordinate>
 		<primary-collapsed>false</primary-collapsed>
 		<relation-collapsed>false</relation-collapsed>
 		<basic-collapsed>false</basic-collapsed>
@@ -13,42 +79,9 @@
 	<entity>
 		<entity-name>com.skripsi.beni.apps.entity.Metode</entity-name>
 		<entity-width>120</entity-width>
-		<entity-height>246</entity-height>
-		<entity-X-Coordinate>405</entity-X-Coordinate>
-		<entity-Y-Coordinate>16</entity-Y-Coordinate>
-		<primary-collapsed>false</primary-collapsed>
-		<relation-collapsed>false</relation-collapsed>
-		<basic-collapsed>false</basic-collapsed>
-	</entity>
-
-	<entity>
-		<entity-name>com.skripsi.beni.apps.entity.Pengajar</entity-name>
-		<entity-width>120</entity-width>
-		<entity-height>30</entity-height>
-		<entity-X-Coordinate>118</entity-X-Coordinate>
-		<entity-Y-Coordinate>39</entity-Y-Coordinate>
-		<primary-collapsed>false</primary-collapsed>
-		<relation-collapsed>false</relation-collapsed>
-		<basic-collapsed>false</basic-collapsed>
-	</entity>
-
-	<entity>
-		<entity-name>com.skripsi.beni.apps.entity.JumlahSiswa</entity-name>
-		<entity-width>120</entity-width>
-		<entity-height>30</entity-height>
-		<entity-X-Coordinate>700</entity-X-Coordinate>
-		<entity-Y-Coordinate>233</entity-Y-Coordinate>
-		<primary-collapsed>false</primary-collapsed>
-		<relation-collapsed>false</relation-collapsed>
-		<basic-collapsed>false</basic-collapsed>
-	</entity>
-
-	<entity>
-		<entity-name>com.skripsi.beni.apps.entity.User</entity-name>
-		<entity-width>120</entity-width>
-		<entity-height>30</entity-height>
-		<entity-X-Coordinate>874</entity-X-Coordinate>
-		<entity-Y-Coordinate>233</entity-Y-Coordinate>
+		<entity-height>266</entity-height>
+		<entity-X-Coordinate>400</entity-X-Coordinate>
+		<entity-Y-Coordinate>96</entity-Y-Coordinate>
 		<primary-collapsed>false</primary-collapsed>
 		<relation-collapsed>false</relation-collapsed>
 		<basic-collapsed>false</basic-collapsed>
@@ -58,30 +91,8 @@
 		<entity-name>com.skripsi.beni.apps.entity.Role</entity-name>
 		<entity-width>120</entity-width>
 		<entity-height>30</entity-height>
-		<entity-X-Coordinate>874</entity-X-Coordinate>
-		<entity-Y-Coordinate>31</entity-Y-Coordinate>
-		<primary-collapsed>false</primary-collapsed>
-		<relation-collapsed>false</relation-collapsed>
-		<basic-collapsed>false</basic-collapsed>
-	</entity>
-
-	<entity>
-		<entity-name>com.skripsi.beni.apps.entity.Keaktifan</entity-name>
-		<entity-width>120</entity-width>
-		<entity-height>30</entity-height>
-		<entity-X-Coordinate>683</entity-X-Coordinate>
-		<entity-Y-Coordinate>31</entity-Y-Coordinate>
-		<primary-collapsed>false</primary-collapsed>
-		<relation-collapsed>false</relation-collapsed>
-		<basic-collapsed>false</basic-collapsed>
-	</entity>
-
-	<entity>
-		<entity-name>com.skripsi.beni.apps.entity.BobotSpk</entity-name>
-		<entity-width>120</entity-width>
-		<entity-height>30</entity-height>
-		<entity-X-Coordinate>118</entity-X-Coordinate>
-		<entity-Y-Coordinate>330</entity-Y-Coordinate>
+		<entity-X-Coordinate>28</entity-X-Coordinate>
+		<entity-Y-Coordinate>494</entity-Y-Coordinate>
 		<primary-collapsed>false</primary-collapsed>
 		<relation-collapsed>false</relation-collapsed>
 		<basic-collapsed>false</basic-collapsed>
@@ -91,19 +102,41 @@
 		<entity-name>com.skripsi.beni.apps.entity.SPK</entity-name>
 		<entity-width>120</entity-width>
 		<entity-height>30</entity-height>
-		<entity-X-Coordinate>332</entity-X-Coordinate>
-		<entity-Y-Coordinate>330</entity-Y-Coordinate>
+		<entity-X-Coordinate>28</entity-X-Coordinate>
+		<entity-Y-Coordinate>440</entity-Y-Coordinate>
 		<primary-collapsed>false</primary-collapsed>
 		<relation-collapsed>false</relation-collapsed>
 		<basic-collapsed>false</basic-collapsed>
 	</entity>
 
 	<entity>
-		<entity-name>com.skripsi.beni.apps.entity.TempBobot</entity-name>
+		<entity-name>com.skripsi.beni.apps.entity.kriteria.TujuanPengajaran</entity-name>
 		<entity-width>120</entity-width>
 		<entity-height>30</entity-height>
-		<entity-X-Coordinate>602</entity-X-Coordinate>
-		<entity-Y-Coordinate>330</entity-Y-Coordinate>
+		<entity-X-Coordinate>596</entity-X-Coordinate>
+		<entity-Y-Coordinate>400</entity-Y-Coordinate>
+		<primary-collapsed>false</primary-collapsed>
+		<relation-collapsed>false</relation-collapsed>
+		<basic-collapsed>false</basic-collapsed>
+	</entity>
+
+	<entity>
+		<entity-name>com.skripsi.beni.apps.entity.User</entity-name>
+		<entity-width>120</entity-width>
+		<entity-height>30</entity-height>
+		<entity-X-Coordinate>245</entity-X-Coordinate>
+		<entity-Y-Coordinate>494</entity-Y-Coordinate>
+		<primary-collapsed>false</primary-collapsed>
+		<relation-collapsed>false</relation-collapsed>
+		<basic-collapsed>false</basic-collapsed>
+	</entity>
+
+	<entity>
+		<entity-name>com.skripsi.beni.apps.entity.kriteria.WaktuPembelajaran</entity-name>
+		<entity-width>120</entity-width>
+		<entity-height>30</entity-height>
+		<entity-X-Coordinate>670</entity-X-Coordinate>
+		<entity-Y-Coordinate>243</entity-Y-Coordinate>
 		<primary-collapsed>false</primary-collapsed>
 		<relation-collapsed>false</relation-collapsed>
 		<basic-collapsed>false</basic-collapsed>

@@ -20,4 +20,8 @@ public class KemampuanGuruService {
 		return kemampuanGuruRepository.findAll();
 	}
 
+	public KemampuanGuru findOneById(Long kemampuanGuru) {
+		return kemampuanGuruRepository.findOne(kemampuanGuru);
+	}
+
 }

@@ -16,11 +16,38 @@
 
 		<%@ include file="/WEB-INF/template/navbar.jsp"%>
 
-		<form:form commandName="metodeSearchResult" action="${pageContext.request.contextPath }/cari" method="post" cssClass="form-horizontal" id="cariForm">
 		<div class="panel panel-default">
 			<div class="panel-heading"><h3 class="panel-title">Hasil Perhitungan Metode Pembelajaran</h3></div>
 			<div class="panel-body">
 				<table class="table table-stripped table-bordered">
+					<thead>
+						<tr>
+							<th>Materi Pengajaran</th>
+							<th>Tujuan Pengajaran</th>
+							<th>Waktu Pembelajaran</th>
+							<th>Fasilitas</th>
+							<th>Kemampuan Guru</th>
+							<th>Jumlah Siswa</th>
+							<th>Kemampuan Siswa</th>
+							<th>Score</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td><c:out value="${hasilPerhitunganGuru.materiPengajaran }" /></td>
+							<td><c:out value="${hasilPerhitunganGuru.tujuanPengajaran }" /></td>
+							<td><c:out value="${hasilPerhitunganGuru.waktuPembelajaran }" /></td>
+							<td><c:out value="${hasilPerhitunganGuru.fasilitas }" /></td>
+							<td><c:out value="${hasilPerhitunganGuru.kemampuanGuru }" /></td>
+							<td><c:out value="${hasilPerhitunganGuru.jumlahSiswa }" /></td>
+							<td><c:out value="${hasilPerhitunganGuru.kemampuanSiswa }" /></td>
+							<td><c:out value="${hasilPerhitunganGuru.vectorV }" /></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="panel-footer">
+				<table class="table table-striped table-bordered table-hover table-condensed" style="font-size: 0.9em">
 					<thead>
 						<tr>
 							<th>Metode</th>
@@ -31,24 +58,28 @@
 							<th>Kemampuan Guru</th>
 							<th>Jumlah Siswa</th>
 							<th>Kemampuan Siswa</th>
+							<th width="10%">Score</th>
 						</tr>
 					</thead>
+	
 					<tbody>
-						<tr>
-							<td><c:out value="${metode.metode }" /></td>
-							<td><c:out value="${metode.materiPengajaran.materi }" /></td>
-							<td><c:out value="${metode.tujuanPengajaran.tujuan }" /></td>
-							<td><c:out value="${metode.waktuPembelajaran.waktu }" /></td>
-							<td><c:out value="${metode.fasilitas.fasilitas }" /></td>
-							<td><c:out value="${metode.kemampuanGuru.kemampuan }" /></td>
-							<td><c:out value="${metode.jumlahSiswa.jmlSiswa }" /></td>
-							<td><c:out value="${metode.kemampuanSiswa.kemampuan }" /></td>
-						</tr>
+						<c:forEach items="${daftarRangking}" var="spk" varStatus="index">
+							<tr>
+								<td><c:out value="${spk.namaMetode }" /></td>
+								<td><c:out value="${spk.materiPengajaran }" /></td>
+								<td><c:out value="${spk.tujuanPengajaran }" /></td>
+								<td><c:out value="${spk.waktuPembelajaran }" /></td>
+								<td><c:out value="${spk.fasilitas }" /></td>
+								<td><c:out value="${spk.kemampuanGuru }" /></td>
+								<td><c:out value="${spk.jumlahSiswa }" /></td>
+								<td><c:out value="${spk.kemampuanSiswa }" /></td>
+								<td><c:out value="${spk.vectorV }" /></td>
+							</tr>
+						</c:forEach>
 					</tbody>
 				</table>
 			</div>
 		</div>
-		</form:form>
 		
 	</div>
 

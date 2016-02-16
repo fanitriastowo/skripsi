@@ -20,4 +20,8 @@ public class WaktuPembelajaranService {
 		return waktuPembelajaranRepository.findAll();
 	}
 
+	public WaktuPembelajaran findOneById(Long waktuPembelajaran) {
+		return waktuPembelajaranRepository.findOne(waktuPembelajaran);
+	}
+
 }

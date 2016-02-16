@@ -20,4 +20,8 @@ public class TujuanPengajaranService {
 		return tujuanPengajaranRepository.findAll();
 	}
 
+	public TujuanPengajaran findOneById(Long tujuanPengajaran) {
+		return tujuanPengajaranRepository.findOne(tujuanPengajaran);
+	}
+
 }

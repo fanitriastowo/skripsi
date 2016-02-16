@@ -20,4 +20,8 @@ public class KemampuanSiswaService {
 		return kemampuanSiswaRepository.findAll();
 	}
 
+	public KemampuanSiswa findOneById(Long kemampuanSiswa) {
+		return kemampuanSiswaRepository.findOne(kemampuanSiswa);
+	}
+
 }
