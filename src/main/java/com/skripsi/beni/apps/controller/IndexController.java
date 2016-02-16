@@ -5,7 +5,6 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -14,6 +13,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.skripsi.beni.apps.dto.MetodeSearchResultDTO;
 import com.skripsi.beni.apps.entity.Bobot;
+import com.skripsi.beni.apps.entity.PerhitunganTerakhir;
 import com.skripsi.beni.apps.entity.SPK;
 import com.skripsi.beni.apps.entity.kriteria.Fasilitas;
 import com.skripsi.beni.apps.entity.kriteria.JumlahSiswa;
@@ -22,7 +22,6 @@ import com.skripsi.beni.apps.entity.kriteria.KemampuanSiswa;
 import com.skripsi.beni.apps.entity.kriteria.MateriPengajaran;
 import com.skripsi.beni.apps.entity.kriteria.TujuanPengajaran;
 import com.skripsi.beni.apps.entity.kriteria.WaktuPembelajaran;
-import com.skripsi.beni.apps.exception.GlobalRuntimeException;
 import com.skripsi.beni.apps.helper.HelperUmum;
 import com.skripsi.beni.apps.service.BobotService;
 import com.skripsi.beni.apps.service.FasilitasService;
@@ -30,7 +29,7 @@ import com.skripsi.beni.apps.service.JumlahSiswaService;
 import com.skripsi.beni.apps.service.KemampuanGuruService;
 import com.skripsi.beni.apps.service.KemampuanSiswaService;
 import com.skripsi.beni.apps.service.MateriPengajaranService;
-import com.skripsi.beni.apps.service.SPKService;
+import com.skripsi.beni.apps.service.PerhitunganTerakhirService;
 import com.skripsi.beni.apps.service.TujuanPengajaranService;
 import com.skripsi.beni.apps.service.WaktuPembelajaranService;
 
@@ -59,10 +58,10 @@ public class IndexController {
 	private KemampuanSiswaService kemampuanSiswaService;
 	
 	@Autowired
-	private SPKService spkService;
+	private BobotService bobotService;
 	
 	@Autowired
-	private BobotService bobotService;
+	private PerhitunganTerakhirService perhitunganTerakhirService;
 	
 	@ModelAttribute("metodeSearchResult")
 	public MetodeSearchResultDTO constructModel() {
@@ -102,7 +101,6 @@ public class IndexController {
 	
 	@PreAuthorize("hasRole('ROLE_GURU')")
 	@RequestMapping(value = "/hitung", method = RequestMethod.POST)
-	@ExceptionHandler(value = { GlobalRuntimeException.class })
 	public ModelAndView submitPencarianMetode(@ModelAttribute("metodeSearchResult") MetodeSearchResultDTO dto) {
 		ModelAndView mav = new ModelAndView("cari_result");
 		
@@ -117,8 +115,8 @@ public class IndexController {
 		TujuanPengajaran tujuanPengajaran = tujuanPengajaranService.findOneById(dto.getTujuanPengajaran());
 		WaktuPembelajaran waktuPembelajaran = waktuPembelajaranService.findOneById(dto.getWaktuPembelajaran());
 		
-		List<SPK> listSPK = spkService.findAllMaxGroupByVectorV();
-		for (SPK spk : listSPK) {
+		List<PerhitunganTerakhir> listPerhitunganTerakhir = perhitunganTerakhirService.findAll();
+		for (PerhitunganTerakhir perhitunganTerakhir : listPerhitunganTerakhir) {
 			Double pemangkatanJumlahSiswa = Math.pow(jumlahSiswa.getPoint(), bobot.getnJumlahSiswa());
 			Double pemangkatanFasilitas = Math.pow(fasilitas.getPoint(), bobot.getnFasilitas());
 			Double pemangkatanKemampuanSiswa = Math.pow(kemampuanSiswa.getPoint(), bobot.getnKemampuanSiswa());
@@ -128,7 +126,7 @@ public class IndexController {
 			Double pemangkatanWaktuPembelajaran = Math.pow(waktuPembelajaran.getPoint(), bobot.getnWaktuPembelajaran());
 			Double vectorS = pemangkatanJumlahSiswa * pemangkatanFasilitas * pemangkatanKemampuanSiswa * pemangkatanKemampuanGuru *
 							 pemangkatanMateriPengajaran * pemangkatanTujuanPengajaran * pemangkatanWaktuPembelajaran;
-			Double jumlahVectorS = spk.getJumlahVectorS();
+			Double jumlahVectorS = perhitunganTerakhir.getJumlahVectorS();
 			Double vectorV = vectorS / jumlahVectorS;
 			
 			hasilPerhitunganGuru.setJumlahSiswa(HelperUmum.angkaBelakangKoma(pemangkatanJumlahSiswa, 3));
@@ -144,7 +142,7 @@ public class IndexController {
 		
 		mav.addObject("hasilPerhitunganGuru", hasilPerhitunganGuru);
 		mav.addObject("bobot", bobot);
-		mav.addObject("daftarRangking", spkService.findAllByVectorVLessThanEqual(hasilPerhitunganGuru.getVectorV()));
+		mav.addObject("daftarRangking", perhitunganTerakhirService.findAllByVectorVLessThanEqual(hasilPerhitunganGuru.getVectorV()));
 		return mav;
 	}
 	

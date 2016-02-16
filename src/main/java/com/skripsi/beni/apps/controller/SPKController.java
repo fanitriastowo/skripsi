@@ -19,11 +19,13 @@ import com.skripsi.beni.apps.dto.MetodeSpk;
 import com.skripsi.beni.apps.entity.Bobot;
 import com.skripsi.beni.apps.entity.BobotSPK;
 import com.skripsi.beni.apps.entity.Metode;
+import com.skripsi.beni.apps.entity.PerhitunganTerakhir;
 import com.skripsi.beni.apps.entity.SPK;
 import com.skripsi.beni.apps.helper.HelperUmum;
 import com.skripsi.beni.apps.service.BobotService;
 import com.skripsi.beni.apps.service.BobotSpkService;
 import com.skripsi.beni.apps.service.MetodeService;
+import com.skripsi.beni.apps.service.PerhitunganTerakhirService;
 import com.skripsi.beni.apps.service.SPKService;
 
 @Controller
@@ -42,6 +44,9 @@ public class SPKController {
 	
 	@Autowired
 	private BobotSpkService bobotSpkService;
+	
+	@Autowired
+	private PerhitunganTerakhirService perhitunganTerakhirService;
 
 	@ModelAttribute("bobotModel")
 	public Bobot constructBobotModel() {
@@ -218,6 +223,7 @@ public class SPKController {
 	public ModelAndView hitungSPKStepFinal(@ModelAttribute("metodes") List<Metode> metodes,
 			   							   @ModelAttribute("bobot") Bobot bobot, ModelMap model) {
 		ModelAndView mav = new ModelAndView("redirect:/spk/final_step");
+		perhitunganTerakhirService.truncate();
 		
 		if (model.containsAttribute("daftarRangking")) {
 			model.remove("daftarRangking");
@@ -284,6 +290,22 @@ public class SPKController {
 			spk.setBobotSpk(bobotSpk);
 			spkService.save(spk);
 			treeSet.add(spk);
+			
+			PerhitunganTerakhir perhitunganTerakhir = new PerhitunganTerakhir();
+			perhitunganTerakhir.setNamaMetode(metode.getMetode());
+			perhitunganTerakhir.setTanggal(new Date());
+			perhitunganTerakhir.setFasilitas(HelperUmum.angkaBelakangKoma(Math.pow(metode.getFasilitas().getPoint(), bobot.getnFasilitas()), 3));
+			perhitunganTerakhir.setJumlahSiswa(HelperUmum.angkaBelakangKoma(Math.pow(metode.getJumlahSiswa().getPoint(), bobot.getnJumlahSiswa()), 3));
+			perhitunganTerakhir.setKemampuanGuru(HelperUmum.angkaBelakangKoma(Math.pow(metode.getKemampuanGuru().getPoint(), bobot.getnKemampuanGuru()), 3));
+			perhitunganTerakhir.setKemampuanSiswa(HelperUmum.angkaBelakangKoma(Math.pow(metode.getKemampuanSiswa().getPoint(), bobot.getnKemampuanSiswa()), 3));
+			perhitunganTerakhir.setMateriPengajaran(HelperUmum.angkaBelakangKoma(Math.pow(metode.getMateriPengajaran().getPoint(), bobot.getnMateriPengajaran()), 3));
+			perhitunganTerakhir.setTujuanPengajaran(HelperUmum.angkaBelakangKoma(Math.pow(metode.getTujuanPengajaran().getPoint(), bobot.getnTujuanPengajaran()), 3));
+			perhitunganTerakhir.setWaktuPembelajaran(HelperUmum.angkaBelakangKoma(Math.pow(metode.getWaktuPembelajaran().getPoint(), bobot.getnTujuanPengajaran()), 3));
+			perhitunganTerakhir.setVectorS(HelperUmum.angkaBelakangKoma(vectorS, 6));
+			perhitunganTerakhir.setJumlahVectorS(HelperUmum.angkaBelakangKoma(jumlahVectorS, 6));
+			perhitunganTerakhir.setVectorV(HelperUmum.angkaBelakangKoma(vectorS / jumlahVectorS, 6));
+			perhitunganTerakhirService.save(perhitunganTerakhir);
+			
 		}
 		mav.addObject("daftarRangking", treeSet);
 		return mav;

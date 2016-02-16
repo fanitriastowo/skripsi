@@ -14,5 +14,6 @@
 		<class>com.skripsi.beni.apps.entity.kriteria.WaktuPembelajaran</class>
 		<class>com.skripsi.beni.apps.entity.kriteria.KemampuanGuru</class>
 		<class>com.skripsi.beni.apps.entity.Bobot</class>
+		<class>com.skripsi.beni.apps.entity.PerhitunganTerakhir</class>
 	</persistence-unit>
 </persistence>
