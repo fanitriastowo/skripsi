@@ -22,5 +22,7 @@ public interface SPKRepository extends JpaRepository<SPK, Integer> {
 				 + "AND S1.vectorV < S2.vectorV "
 				 + "WHERE S2.vectorV IS NULL", nativeQuery = true)
 	List<SPK> findAllMaxGroupByVectorV();
+
+	List<SPK> findAllByVectorVLessThanEqualOrderByVectorVDesc(Double vectorV);
 	
 }

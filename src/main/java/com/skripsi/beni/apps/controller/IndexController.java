@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -21,6 +22,7 @@ import com.skripsi.beni.apps.entity.kriteria.KemampuanSiswa;
 import com.skripsi.beni.apps.entity.kriteria.MateriPengajaran;
 import com.skripsi.beni.apps.entity.kriteria.TujuanPengajaran;
 import com.skripsi.beni.apps.entity.kriteria.WaktuPembelajaran;
+import com.skripsi.beni.apps.exception.GlobalRuntimeException;
 import com.skripsi.beni.apps.helper.HelperUmum;
 import com.skripsi.beni.apps.service.BobotService;
 import com.skripsi.beni.apps.service.FasilitasService;
@@ -100,6 +102,7 @@ public class IndexController {
 	
 	@PreAuthorize("hasRole('ROLE_GURU')")
 	@RequestMapping(value = "/hitung", method = RequestMethod.POST)
+	@ExceptionHandler(value = { GlobalRuntimeException.class })
 	public ModelAndView submitPencarianMetode(@ModelAttribute("metodeSearchResult") MetodeSearchResultDTO dto) {
 		ModelAndView mav = new ModelAndView("cari_result");
 		
@@ -138,8 +141,10 @@ public class IndexController {
 			hasilPerhitunganGuru.setVectorV(HelperUmum.angkaBelakangKoma(vectorV, 6));
 			
 		}
+		
 		mav.addObject("hasilPerhitunganGuru", hasilPerhitunganGuru);
-		mav.addObject("daftarRangking", spkService.findAllDesc());
+		mav.addObject("bobot", bobot);
+		mav.addObject("daftarRangking", spkService.findAllByVectorVLessThanEqual(hasilPerhitunganGuru.getVectorV()));
 		return mav;
 	}
 	

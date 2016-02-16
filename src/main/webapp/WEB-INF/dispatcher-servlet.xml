@@ -28,4 +28,14 @@
 		<property name="suffix" value=".jsp" />
 		<property name="order" value="1" />
 	</bean>
+	
+	<bean class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
+		<property name="exceptionMappings">
+			<props>
+				<prop key="com.skripsi.beni.apps.exception.GlobalRuntimeException">
+					global_error
+				</prop>
+			</props>
+		</property>
+	</bean>
 </beans>

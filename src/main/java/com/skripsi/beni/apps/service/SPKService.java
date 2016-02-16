@@ -33,4 +33,8 @@ public class SPKService {
 		return spkRepository.findAllMaxGroupByVectorV();
 	}
 
+	public List<SPK> findAllByVectorVLessThanEqual(Double vectorV) {
+		return spkRepository.findAllByVectorVLessThanEqualOrderByVectorVDesc(vectorV);
+	}
+
 }

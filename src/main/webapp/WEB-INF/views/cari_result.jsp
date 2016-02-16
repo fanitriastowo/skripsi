@@ -77,6 +77,28 @@
 							</tr>
 						</c:forEach>
 					</tbody>
+					<tfoot style="font-size: 1.2em">
+							<tr class="info">
+								<td><strong>Bobot</strong></td>
+								<td class="text-center"><c:out value="${bobot.materiPengajaran }" /></td>
+								<td class="text-center"><c:out value="${bobot.tujuanPengajaran }" /></td>
+								<td class="text-center"><c:out value="${bobot.waktuPembelajaran }" /></td>
+								<td class="text-center"><c:out value="${bobot.fasilitas }" /></td>
+								<td class="text-center"><c:out value="${bobot.kemampuanGuru }" /></td>
+								<td class="text-center"><c:out value="${bobot.jumlahSiswa }" /></td>
+								<td class="text-center"><c:out value="${bobot.kemampuanSiswa }" /></td>
+							</tr>
+							<tr class="info">
+								<td><strong>Bobot Ter - Normalisasi</strong></td>
+								<td class="text-center" ><c:out value="${bobot.nMateriPengajaran }" /></td>
+								<td class="text-center" ><c:out value="${bobot.nTujuanPengajaran }" /></td>
+								<td class="text-center" ><c:out value="${bobot.nWaktuPembelajaran }" /></td>
+								<td class="text-center" ><c:out value="${bobot.nFasilitas }" /></td>
+								<td class="text-center" ><c:out value="${bobot.nKemampuanGuru }" /></td>
+								<td class="text-center" ><c:out value="${bobot.nJumlahSiswa }" /></td>
+								<td class="text-center" ><c:out value="${bobot.nKemampuanSiswa }" /></td>
+							</tr>
+						</tfoot>
 				</table>
 			</div>
 		</div>

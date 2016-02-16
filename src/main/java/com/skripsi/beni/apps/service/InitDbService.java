@@ -157,31 +157,20 @@ public class InitDbService {
 		 * Inisial Table Materi Pengajaran
 		 */
 		// ====================================================== //
-		MateriPengajaran materiProsedur = new MateriPengajaran();
-		materiProsedur.setMateri("Prosedur");
-		materiProsedur.setPoint(50D);
-		materiPengajaranRepository.save(materiProsedur);
+		MateriPengajaran materiSulit = new MateriPengajaran();
+		materiSulit.setMateri("Sulit");
+		materiSulit.setPoint(50D);
+		materiPengajaranRepository.save(materiSulit);
 
-		MateriPengajaran materiKonsep = new MateriPengajaran();
-		materiKonsep.setMateri("Konsep");
-		materiKonsep.setPoint(45D);
-		materiPengajaranRepository.save(materiKonsep);
+		MateriPengajaran materiSedang = new MateriPengajaran();
+		materiSedang.setMateri("Sedang");
+		materiSedang.setPoint(45D);
+		materiPengajaranRepository.save(materiSedang);
 
-		MateriPengajaran materiPrinsip = new MateriPengajaran();
-		materiPrinsip.setMateri("Prinsip");
-		materiPrinsip.setPoint(40D);
-		materiPengajaranRepository.save(materiPrinsip);
-
-		MateriPengajaran materiFakta = new MateriPengajaran();
-		materiFakta.setMateri("Fakta");
-		materiFakta.setPoint(35D);
-		materiPengajaranRepository.save(materiFakta);
-
-		MateriPengajaran materiSikap = new MateriPengajaran();
-		materiSikap.setMateri("Materi Pengajaran 5");
-		materiSikap.setPoint(30D);
-		materiPengajaranRepository.save(materiSikap);
-
+		MateriPengajaran materiMudah = new MateriPengajaran();
+		materiMudah.setMateri("Mudah");
+		materiMudah.setPoint(40D);
+		materiPengajaranRepository.save(materiMudah);
 		// ====================================================== //
 
 		/**
@@ -239,7 +228,7 @@ public class InitDbService {
 		// ======================================================= //
 		
 		/**
-		 * Inisial Table Jumlah Siswa
+		 * Inisial Table Kemampuan Guru
 		 */
 		// ====================================================== //
 		KemampuanGuru kemampuanGuruSangatBaik = new KemampuanGuru();
@@ -311,7 +300,7 @@ public class InitDbService {
 		metode1.setJumlahSiswa(jumlahSiswaBanyak);
 		metode1.setKemampuanGuru(kemampuanGuruBaik);
 		metode1.setKemampuanSiswa(kemampuanSiswaBaik);
-		metode1.setMateriPengajaran(materiPrinsip);
+		metode1.setMateriPengajaran(materiSulit);
 		metode1.setTujuanPengajaran(tujuanPenyampaianPesan);
 		metode1.setWaktuPembelajaran(waktuSedikit);
 		metodeRepository.save(metode1);
@@ -322,7 +311,7 @@ public class InitDbService {
 		metode2.setJumlahSiswa(jumlahSiswaBanyak);
 		metode2.setKemampuanGuru(kemampuanGuruBaik);
 		metode2.setKemampuanSiswa(kemampuanSiswaBaik);
-		metode2.setMateriPengajaran(materiFakta);
+		metode2.setMateriPengajaran(materiMudah);
 		metode2.setTujuanPengajaran(tujuanPenyampaianPesan);
 		metode2.setWaktuPembelajaran(waktuBanyak);
 		metodeRepository.save(metode2);
@@ -333,7 +322,7 @@ public class InitDbService {
 		metode3.setJumlahSiswa(jumlahSiswaBanyakSedikit);
 		metode3.setKemampuanGuru(kemampuanGuruBaik);
 		metode3.setKemampuanSiswa(kemampuanSiswaBaik);
-		metode3.setMateriPengajaran(materiSikap);
+		metode3.setMateriPengajaran(materiSedang);
 		metode3.setTujuanPengajaran(tujuanPengorganisasianSiswa);
 		metode3.setWaktuPembelajaran(waktuBanyak);
 		metodeRepository.save(metode3);
@@ -344,7 +333,7 @@ public class InitDbService {
 		metode4.setJumlahSiswa(jumlahSiswaBanyak);
 		metode4.setKemampuanGuru(kemampuanGuruBaik);
 		metode4.setKemampuanSiswa(kemampuanSiswaBaik);
-		metode4.setMateriPengajaran(materiPrinsip);
+		metode4.setMateriPengajaran(materiSulit);
 		metode4.setTujuanPengajaran(tujuanPenyampaianPesan);
 		metode4.setWaktuPembelajaran(waktuBanyak);
 		metodeRepository.save(metode4);
@@ -355,7 +344,7 @@ public class InitDbService {
 		metode5.setJumlahSiswa(jumlahSiswaSedikit);
 		metode5.setKemampuanGuru(kemampuanGuruBaik);
 		metode5.setKemampuanSiswa(kemampuanSiswaBaik);
-		metode5.setMateriPengajaran(materiProsedur);
+		metode5.setMateriPengajaran(materiMudah);
 		metode5.setTujuanPengajaran(tujuanPenyampaianPesan);
 		metode5.setWaktuPembelajaran(waktuBanyak);
 		metodeRepository.save(metode5);
@@ -366,7 +355,7 @@ public class InitDbService {
 		metode6.setJumlahSiswa(jumlahSiswaSedikit);
 		metode6.setKemampuanGuru(kemampuanGuruBaik);
 		metode6.setKemampuanSiswa(kemampuanSiswaBaik);
-		metode6.setMateriPengajaran(materiFakta);
+		metode6.setMateriPengajaran(materiSulit);
 		metode6.setTujuanPengajaran(tujuanPengorganisasianSiswa);
 		metode6.setWaktuPembelajaran(waktuBanyak);
 		metodeRepository.save(metode6);
@@ -377,7 +366,7 @@ public class InitDbService {
 		metode7.setJumlahSiswa(jumlahSiswaSedikit);
 		metode7.setKemampuanGuru(kemampuanGuruBaik);
 		metode7.setKemampuanSiswa(kemampuanSiswaBaik);
-		metode7.setMateriPengajaran(materiProsedur);
+		metode7.setMateriPengajaran(materiMudah);
 		metode7.setTujuanPengajaran(tujuanPendekatanPengajaran);
 		metode7.setWaktuPembelajaran(waktuBanyak);
 		metodeRepository.save(metode7);
@@ -388,7 +377,7 @@ public class InitDbService {
 		metode8.setJumlahSiswa(jumlahSiswaBanyakSedikit);
 		metode8.setKemampuanGuru(kemampuanGuruBaik);
 		metode8.setKemampuanSiswa(kemampuanSiswaBaik);
-		metode8.setMateriPengajaran(materiKonsep);
+		metode8.setMateriPengajaran(materiSedang);
 		metode8.setTujuanPengajaran(tujuanPenyampaianPesan);
 		metode8.setWaktuPembelajaran(waktuBanyak);
 		metodeRepository.save(metode8);
@@ -399,7 +388,7 @@ public class InitDbService {
 		metode9.setJumlahSiswa(jumlahSiswaBanyak);
 		metode9.setKemampuanGuru(kemampuanGuruBaik);
 		metode9.setKemampuanSiswa(kemampuanSiswaBaik);
-		metode9.setMateriPengajaran(materiProsedur);
+		metode9.setMateriPengajaran(materiMudah);
 		metode9.setTujuanPengajaran(tujuanPendekatanPengajaran);
 		metode9.setWaktuPembelajaran(waktuBanyak);
 		metodeRepository.save(metode9);
@@ -410,7 +399,7 @@ public class InitDbService {
 		metode10.setJumlahSiswa(jumlahSiswaBanyak);
 		metode10.setKemampuanGuru(kemampuanGuruBaik);
 		metode10.setKemampuanSiswa(kemampuanSiswaBaik);
-		metode10.setMateriPengajaran(materiKonsep);
+		metode10.setMateriPengajaran(materiSedang);
 		metode10.setTujuanPengajaran(tujuanPendekatanPengajaran);
 		metode10.setWaktuPembelajaran(waktuBanyak);
 		metodeRepository.save(metode10);
