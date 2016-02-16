@@ -1,9 +1,7 @@
 package com.skripsi.beni.apps.dto;
 
-public class MetodeDTO {
+public class MetodeSearchResultDTO {
 
-	private Long id;
-	private String metode;
 	private Long jumlahSiswa;
 	private Long fasilitas;
 	private Long kemampuanSiswa;
@@ -11,22 +9,6 @@ public class MetodeDTO {
 	private Long materiPengajaran;
 	private Long tujuanPengajaran;
 	private Long waktuPembelajaran;
-
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-	public String getMetode() {
-		return metode;
-	}
-
-	public void setMetode(String metode) {
-		this.metode = metode;
-	}
 
 	public Long getJumlahSiswa() {
 		return jumlahSiswa;

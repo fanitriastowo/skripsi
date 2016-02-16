@@ -27,12 +27,13 @@
 							<tr>
 								<th width="5%">No.</th>
 								<th>Metode</th>
-								<th>Jumlah Siswa</th>
-								<th>Keaktifan Siswa</th>
-								<th>Kondisi Sekolah</th>
-								<th>Kondisi Kelas</th>
+								<th>Materi Pengajaran</th>
+								<th>Tujuan Pengajaran</th>
+								<th>Waktu Pembelajaran</th>
 								<th>Fasilitas</th>
-								<th>Kualitas Pengajar</th>
+								<th>Kemampuan Guru</th>
+								<th>Jumlah Siswa</th>
+								<th>Kemampuan Siswa</th>
 							</tr>
 						</thead>
 		
@@ -42,35 +43,41 @@
 									<td><c:out value="${index.count }" /></td>
 									<td><c:out value="${metode.metode }" /></td>
 									<td>
-										<c:out value="${metode.jumlahSiswa.point }" />
-											&nbsp;<a href="#" title='<c:out value="Jumlah Siswa ${metode.jumlahSiswa.jmlSiswa }" />'>
+										<c:out value="${metode.materiPengajaran.point }" />
+											&nbsp;<a href="#" title='<c:out value="${metode.materiPengajaran.materi }" />'>
 											<span class="fa fa-question fa-xs"></span></a>
 									</td>
 									<td>
-										<c:out value="${metode.keaktifan.point }" />
-											&nbsp;<a href="#" title='<c:out value="Jumlah siswa aktif ${metode.keaktifan.jmlSiswa }" />'>
+										<c:out value="${metode.tujuanPengajaran.point }" />
+											&nbsp;<a href="#" title='<c:out value="${metode.tujuanPengajaran.tujuan }" />'>
 											<span class="fa fa-question fa-xs"></span></a>
 									</td>
 									<td>
-										<c:out value="${metode.kondisiSekolah.point }" />
-											&nbsp;<a href="#" title='<c:out value="Kondisi Kelas ${metode.kondisiSekolah.kondisi }" />'>
-											<span class="fa fa-question fa-xs"></span></a>
-									</td>
-									<td>
-										<c:out value="${metode.kondisiKelas.point }" />
-											&nbsp;<a href="#" title='<c:out value="Kondisi Kelas ${metode.kondisiKelas.kondisi }" />'>
+										<c:out value="${metode.waktuPembelajaran.point }" />
+											&nbsp;<a href="#" title='<c:out value="${metode.waktuPembelajaran.waktu }" />'>
 											<span class="fa fa-question fa-xs"></span></a>
 									</td>
 									<td>
 										<c:out value="${metode.fasilitas.point }" />
-											&nbsp;<a href="#" title='<c:out value="Fasilitas ${metode.fasilitas.fasilitas }" />'>
+											&nbsp;<a href="#" title='<c:out value="${metode.fasilitas.fasilitas }" />'>
 											<span class="fa fa-question fa-xs"></span></a>
 									</td>
 									<td>
-										<c:out value="${metode.pengajar.point }" />
-											&nbsp;<a href="#" title='<c:out value="Kualitas Pengajar ${metode.pengajar.kualitas }" />'>
+										<c:out value="${metode.kemampuanGuru.point }" />
+											&nbsp;<a href="#" title='<c:out value="${metode.kemampuanGuru.kemampuan }" />'>
 											<span class="fa fa-question fa-xs"></span></a>
 									</td>
+									<td>
+										<c:out value="${metode.jumlahSiswa.point }" />
+											&nbsp;<a href="#" title='<c:out value="${metode.jumlahSiswa.jmlSiswa }" />'>
+											<span class="fa fa-question fa-xs"></span></a>
+									</td>
+									<td>
+										<c:out value="${metode.kemampuanSiswa.point }" />
+											&nbsp;<a href="#" title='<c:out value="${metode.kemampuanSiswa.kemampuan }" />'>
+											<span class="fa fa-question fa-xs"></span></a>
+									</td>
+									
 								</tr>
 							</c:forEach>
 						</tbody>
@@ -78,22 +85,24 @@
 							<tr class="info">
 								<td>#</td>
 								<td><strong>Bobot</strong></td>
-								<td class="text-center" id="bJumlahSiswa"><c:out value="${tempBobot.jumlahSiswaBobot }" /></td>
-								<td class="text-center" id="bKeaktifanSiswa"><c:out value="${tempBobot.keaktifanSiswaBobot }" /></td>
-								<td class="text-center" id="bKondisiSekolah"><c:out value="${tempBobot.kondisiSekolahBobot }" /></td>
-								<td class="text-center" id="bKondisiKelas"><c:out value="${tempBobot.kondisiKelasBobot }" /></td>
-								<td class="text-center" id="bKualitasPengajar"><c:out value="${tempBobot.kualitasPengajarBobot }" /></td>
-								<td class="text-center" id="bFasilitas"><c:out value="${tempBobot.fasilitasBobot }" /></td>
+								<td class="text-center" id="bMateriPengajaran"><c:out value="${bobot.materiPengajaran }" /></td>
+								<td class="text-center" id="bTujuanPengajaran"><c:out value="${bobot.tujuanPengajaran }" /></td>
+								<td class="text-center" id="bWaktuPengajaran"><c:out value="${bobot.waktuPembelajaran }" /></td>
+								<td class="text-center" id="bFasilitas"><c:out value="${bobot.fasilitas }" /></td>
+								<td class="text-center" id="bKemampuanGuru"><c:out value="${bobot.kemampuanGuru }" /></td>
+								<td class="text-center" id="bJumlahSiswa"><c:out value="${bobot.jumlahSiswa }" /></td>
+								<td class="text-center" id="bKemampuanSiswa"><c:out value="${bobot.kemampuanSiswa }" /></td>
 							</tr>
 							<tr class="info">
 								<td>#</td>
 								<td><strong>Bobot Ter - Normalisasi</strong></td>
-								<td class="text-center" ><c:out value="${tempBobot.nJumlahSiswaBobot }" /></td>
-								<td class="text-center" ><c:out value="${tempBobot.nKeaktifanSiswaBobot }" /></td>
-								<td class="text-center" ><c:out value="${tempBobot.nKondisiSekolahBobot }" /></td>
-								<td class="text-center" ><c:out value="${tempBobot.nKondisiKelasBobot }" /></td>
-								<td class="text-center" ><c:out value="${tempBobot.nKualitasPengajarBobot }" /></td>
-								<td class="text-center" ><c:out value="${tempBobot.nFasilitasBobot }" /></td>
+								<td class="text-center" ><c:out value="${bobot.nMateriPengajaran }" /></td>
+								<td class="text-center" ><c:out value="${bobot.nTujuanPengajaran }" /></td>
+								<td class="text-center" ><c:out value="${bobot.nWaktuPembelajaran }" /></td>
+								<td class="text-center" ><c:out value="${bobot.nFasilitas }" /></td>
+								<td class="text-center" ><c:out value="${bobot.nKemampuanGuru }" /></td>
+								<td class="text-center" ><c:out value="${bobot.nJumlahSiswa }" /></td>
+								<td class="text-center" ><c:out value="${bobot.nKemampuanSiswa }" /></td>
 							</tr>
 						</tfoot>
 					</table>
@@ -106,6 +115,7 @@
 		</div>
 	</div>
 	
+	<%-- 
 	<form:form commandName="bobotModel" action="${pageContext.request.contextPath }/spk/ubah_bobot" cssClass="form-horizontal">
 		<div class="modal fade" id="bobotModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 			<div class="modal-dialog">
@@ -161,6 +171,7 @@
 			</div>
 		</div>
 	</form:form>
+	--%>
 	
 	<%@ include file="/WEB-INF/template/footer.jsp"%>
 	<%@ include file="/WEB-INF/template/javascript.jsp"%>
@@ -170,6 +181,7 @@
 		$(document).ready(function() {
 			$('#spk').addClass('active');
 			
+			/*
 			$('#jumlahSiswaBobot').slider({
 				min : 1,
 				max : 5,
@@ -230,6 +242,7 @@
 				selection : 'before',
 				tooltip : 'show'
 			});
+			*/
 			
 		});
 	</script>

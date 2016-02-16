@@ -8,11 +8,12 @@ public class MetodeSpk implements Serializable {
 
 	private String namaMetode;
 	private Double jumlahSiswa;
-	private Double kondisiSekolah;
-	private Double kondisiKelas;
-	private Double keaktifanSiswa;
-	private Double kualitasPengajar;
 	private Double fasilitas;
+	private Double kemampuanSiswa;
+	private Double kemampuanGuru;
+	private Double materiPengajaran;
+	private Double tujuanPengajaran;
+	private Double waktuPembelajaran;
 	private Double vectorS;
 	private Double jumlahVectorS;
 	private Double vectorV;
@@ -33,44 +34,52 @@ public class MetodeSpk implements Serializable {
 		this.jumlahSiswa = jumlahSiswa;
 	}
 
-	public Double getKondisiSekolah() {
-		return kondisiSekolah;
-	}
-
-	public void setKondisiSekolah(Double kondisiSekolah) {
-		this.kondisiSekolah = kondisiSekolah;
-	}
-
-	public Double getKondisiKelas() {
-		return kondisiKelas;
-	}
-
-	public void setKondisiKelas(Double kondisiKelas) {
-		this.kondisiKelas = kondisiKelas;
-	}
-
-	public Double getKeaktifanSiswa() {
-		return keaktifanSiswa;
-	}
-
-	public void setKeaktifanSiswa(Double keaktifanSiswa) {
-		this.keaktifanSiswa = keaktifanSiswa;
-	}
-
-	public Double getKualitasPengajar() {
-		return kualitasPengajar;
-	}
-
-	public void setKualitasPengajar(Double kualitasPengajar) {
-		this.kualitasPengajar = kualitasPengajar;
-	}
-
 	public Double getFasilitas() {
 		return fasilitas;
 	}
 
 	public void setFasilitas(Double fasilitas) {
 		this.fasilitas = fasilitas;
+	}
+
+	public Double getKemampuanSiswa() {
+		return kemampuanSiswa;
+	}
+
+	public void setKemampuanSiswa(Double kemampuanSiswa) {
+		this.kemampuanSiswa = kemampuanSiswa;
+	}
+
+	public Double getKemampuanGuru() {
+		return kemampuanGuru;
+	}
+
+	public void setKemampuanGuru(Double kemampuanGuru) {
+		this.kemampuanGuru = kemampuanGuru;
+	}
+
+	public Double getMateriPengajaran() {
+		return materiPengajaran;
+	}
+
+	public void setMateriPengajaran(Double materiPengajaran) {
+		this.materiPengajaran = materiPengajaran;
+	}
+
+	public Double getTujuanPengajaran() {
+		return tujuanPengajaran;
+	}
+
+	public void setTujuanPengajaran(Double tujuanPengajaran) {
+		this.tujuanPengajaran = tujuanPengajaran;
+	}
+
+	public Double getWaktuPembelajaran() {
+		return waktuPembelajaran;
+	}
+
+	public void setWaktuPembelajaran(Double waktuPembelajaran) {
+		this.waktuPembelajaran = waktuPembelajaran;
 	}
 
 	public Double getVectorS() {

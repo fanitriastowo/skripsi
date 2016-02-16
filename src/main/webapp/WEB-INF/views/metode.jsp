@@ -36,12 +36,13 @@
 							<tr>
 								<th width="5%">No.</th>
 								<th>Metode</th>
-								<th>Jumlah Siswa</th>
-								<th>Keaktifan Siswa</th>
-								<th>Kondisi Sekolah</th>
-								<th>Kondisi Kelas</th>
+								<th>Materi Pengajaran</th>
+								<th>Tujuan Pengajaran</th>
+								<th>Waktu Pembelajaran</th>
 								<th>Fasilitas</th>
-								<th>Kualitas Pengajar</th>
+								<th>Kemampuan Guru</th>
+								<th>Jumlah Siswa</th>
+								<th>Kemampuan Siswa</th>
 								<security:authorize access="isAuthenticated()">
 								<th width="10%">Aksi</th>
 								</security:authorize>
@@ -53,12 +54,13 @@
 								<tr>
 									<td><c:out value="${index.count }" /></td>
 									<td><c:out value="${metode.metode }" /></td>
-									<td><c:out value="${metode.jumlahSiswa.jmlSiswa }" /></td>
-									<td><c:out value="${metode.keaktifan.jmlSiswa }" /></td>
-									<td><c:out value="${metode.kondisiSekolah.kondisi }" /></td>
-									<td><c:out value="${metode.kondisiKelas.kondisi }" /></td>
+									<td><c:out value="${metode.materiPengajaran.materi }" /></td>
+									<td><c:out value="${metode.tujuanPengajaran.tujuan }" /></td>
+									<td><c:out value="${metode.waktuPembelajaran.waktu }" /></td>
 									<td><c:out value="${metode.fasilitas.fasilitas }" /></td>
-									<td><c:out value="${metode.pengajar.kualitas }" /></td>
+									<td><c:out value="${metode.kemampuanGuru.kemampuan }" /></td>
+									<td><c:out value="${metode.jumlahSiswa.jmlSiswa }" /></td>
+									<td><c:out value="${metode.kemampuanSiswa.kemampuan }" /></td>
 									<security:authorize access="hasRole('ROLE_ADMIN')">
 									<td>
 										<a href='<spring:url value="/metode/prepare_edit/${metode.id }" />' class="btn btn-xs btn-info btnUpdate" title="Ubah Metode">
@@ -68,12 +70,6 @@
 									</td>
 									</security:authorize>
 									
-									<security:authorize access="hasRole('ROLE_GURU')">
-									<td>
-										<a href='<spring:url value="/metode/prepare_edit_guru/${metode.id }" />' class="btn btn-xs btn-info btnUpdateGuru" title="Ubah Metode">
-											<span class="glyphicon glyphicon-pencil"></span></a> 
-									</td>
-									</security:authorize> 
 								</tr>
 							</c:forEach>
 						</tbody>
@@ -82,7 +78,7 @@
 			</div>
 		</div>
 		
-		
+		<%--
 		<security:authorize access="hasRole('ROLE_ADMIN')">
 		<!-- Add Modal -->
 		<form:form commandName="metode" action="${pageContext.request.contextPath }/metode/add" method="post" cssClass="addMetodeAdminForm">
@@ -101,28 +97,24 @@
 							<form:input path="metode" cssClass="form-control" id="txtAddMetode" placeholder="Type Name" />
 						</div>
 						<div class="form-group">
+							<label for="txtAddJumlahSiswa" class="control-label">Materi Pengajaran:</label>
+							<form:select path="materiPengajaran" cssClass="form-control" id="txtAddMateriPengajaran" 
+										 items="${lookUpMateriPengajaran }" itemValue="id" itemLabel="materi" />
+						</div>
+						<div class="form-group">
+							<label for="txtAddJumlahSiswa" class="control-label">Materi Pengajaran:</label>
+							<form:select path="tujuanPengajaran" cssClass="form-control" id="txtAddTujuanPengajaran" 
+										 items="${lookUpTujuanPengajaran }" itemValue="id" itemLabel="tujuan" />
+						</div>
+						<div class="form-group">
 							<label for="txtAddJumlahSiswa" class="control-label">Jumlah Siswa:</label>
-							<form:select path="jumlahSiswa" cssClass="form-control" id="txtAddJumlahSiswa" items="${lookUpJumlahSiswa }" itemValue="id" itemLabel="jmlSiswa" />
-						</div>
-						<div class="form-group">
-							<label for="txtAddKeaktifanSiswa" class="control-label">Keaktifan Siswa:</label>
-							<form:select path="keaktifan" cssClass="form-control" id="txtAddKeaktifanSiswa" items="${lookUpkeaktifanSiswa }" itemValue="id" itemLabel="jmlSiswa" />
-						</div>
-						<div class="form-group">
-							<label for="txtAddKondisiSekolah" class="control-label">Kondisi Sekolah:</label>
-							<form:select path="kondisiSekolah" cssClass="form-control" id="txtAddKondisiSekolah" items="${lookUpKondisiSekolah }" itemValue="id" itemLabel="kondisi" />
-						</div>
-						<div class="form-group">
-							<label for="txtAddKondisiKelas" class="control-label">Kondisi Kelas:</label>
-							<form:select path="kondisiKelas" cssClass="form-control" id="txtAddKondisiKelas" items="${lookUpKondisiKelas }" itemValue="id" itemLabel="kondisi" />
+							<form:select path="jumlahSiswa" cssClass="form-control" id="txtAddJumlahSiswa" 
+										 items="${lookUpJumlahSiswa }" itemValue="id" itemLabel="jmlSiswa" />
 						</div>
 						<div class="form-group">
 							<label for="txtAddFasilitas" class="control-label">Fasilitas:</label>
-							<form:select path="fasilitas" cssClass="form-control" id="txtAddFasilitas" items="${lookUpFasilitas }" itemValue="id" itemLabel="fasilitas" />
-						</div>
-						<div class="form-group">
-							<label for="txtAddKualitasPengajar" class="control-label">Kualitas Pengajar:</label>
-							<form:select path="pengajar" cssClass="form-control" id="txtAddKualitasPengajar" items="${lookUpPengajar }" itemValue="id" itemLabel="kualitas" />
+							<form:select path="fasilitas" cssClass="form-control" id="txtAddFasilitas" 
+										 items="${lookUpFasilitas }" itemValue="id" itemLabel="fasilitas" />
 						</div>
 					</div>
 					<div class="modal-footer">
@@ -192,57 +184,6 @@
 		</form:form>
 		</security:authorize>
 		
-		<security:authorize access="hasRole('ROLE_GURU')">
-		<!-- Update Modal -->
-		<form:form commandName="metode" action="${pageContext.request.contextPath }/metode/edit_guru" method="post" cssClass="updateMetodeGuruForm">
-		<div class="modal fade" id="updateModalGuru" tabindex="-1" role="dialog" aria-labelledby="updateModalLabel" aria-hidden="true">
-			<div class="modal-dialog">
-				<div class="modal-content">
-					<div class="modal-header">
-						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-							<span aria-hidden="true">&times;</span>
-						</button>
-						<h4 class="modal-title" id="myModalLabel">Update Metode</h4>
-					</div>
-					<div class="modal-body">
-						<form:hidden id="lblGuruUpdateId" path="id" />
-						<div class="form-group">
-							<label for="txtGuruUpdateMetode" class="control-label">Metode:</label>
-							<form:input path="metode" cssClass="form-control" id="txtGuruUpdateMetode" placeholder="Type Name" />
-						</div>
-						<div class="form-group">
-							<label for="txtGuruUpdateJumlahSiswa" class="control-label">Jumlah Siswa:</label>
-							<form:select path="jumlahSiswa" cssClass="form-control" id="txtGuruUpdateJumlahSiswa" items="${lookUpJumlahSiswa}" itemValue="id" itemLabel="jmlSiswa" />
-						</div>
-						<div class="form-group">
-							<label for="txtGuruUpdateKeaktifanSiswa" class="control-label">Keaktifan Siswa:</label>
-							<form:select path="keaktifan" cssClass="form-control" id="txtGuruUpdateKeaktifanSiswa" items="${lookUpkeaktifanSiswa }" itemValue="id" itemLabel="jmlSiswa" />
-						</div>
-						<div class="form-group">
-							<label for="txtGuruUpdateKondisiSekolah" class="control-label">Kondisi Sekolah:</label>
-							<form:select path="kondisiSekolah" cssClass="form-control" id="txtGuruUpdateKondisiSekolah" items="${lookUpKondisiSekolah }" itemValue="id" itemLabel="kondisi" />
-						</div>
-						<div class="form-group">
-							<label for="txtGuruUpdateKondisiKelas" class="control-label">Kondisi Kelas:</label>
-							<form:select path="kondisiKelas" cssClass="form-control" id="txtGuruUpdateKondisiKelas" items="${lookUpKondisiKelas }" itemValue="id" itemLabel="kondisi" />
-						</div>
-						<div class="form-group">
-							<label for="txtGuruUpdateFasilitas" class="control-label">Fasilitas:</label>
-							<form:select path="fasilitas" cssClass="form-control" id="txtGuruUpdateFasilitas" items="${lookUpFasilitas }" itemValue="id" itemLabel="fasilitas" />
-						</div>
-					</div>
-					<div class="modal-footer">
-						<button type="button" class="btn btn-default" data-dismiss="modal">
-							<span class="glyphicon glyphicon-remove-circle"></span> Close</button>
-						<button type="submit" class="btn btn-primary">
-							<span class="glyphicon glyphicon-ok-circle"></span> Update</button>
-					</div>
-				</div>
-			</div>
-		</div>
-		</form:form>
-		</security:authorize>
-		
 		<security:authorize access="hasRole('ROLE_ADMIN')">
 		<!-- Modal Delete -->
 		<div class="modal fade" id="modalDelete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -267,6 +208,7 @@
 			</div>
 		</div>
 		</security:authorize>
+		 --%>
 
 	</div>
 
@@ -321,27 +263,7 @@
 				}
 			});
 
-			$(".updateMetodeGuruForm").validate({
-				rules : {
-					metode : {
-						required : true,
-						minlength : 3
-					}
-				},
-				messages : {
-					metode : {
-						required : "Metode tidak boleh kosong",
-						minlength : "Minimal 3 karakter"
-					}
-				},
-				highlight : function(element) {
-					$(element).closest('.form-group').removeClass('has-success').addClass('has-error');
-				},
-				unhighlight : function(element) {
-					$(element).closest('.form-group').removeClass('has-error').addClass('has-success');
-				}
-			});
-			
+			/*
 			// btnUpdate click event to show modal window and fill its field 
 			$('.btnUpdate').click(function(e) {
 				e.preventDefault();
@@ -369,37 +291,13 @@
 				$('#updateModal').modal();
 			});
 			
-			// btnUpdateGuru 
-			$('.btnUpdateGuru').click(function(e) {
-				e.preventDefault();
-				var url = $(this).attr("href");
-				$.getJSON(url, function(data) {
-
-					// unselect before select
-					$('select[id^="txtGuruUpdateJumlahSiswa"] option:selected').attr("selected",null);
-					$('select[id^="txtGuruUpdateKeaktifanSiswa"] option:selected').attr("selected",null);
-					$('select[id^="txtGuruUpdateKondisiSekolah"] option:selected').attr("selected",null);
-					$('select[id^="txtGuruUpdateKondisiKelas"] option:selected').attr("selected",null);
-					$('select[id^="txtGuruUpdateFasilitas"] option:selected').attr("selected",null);
-
-					$('#lblGuruUpdateId').val(data.id);
-					$('#txtGuruUpdateMetode').val(data.metode);
-					$('select[id^="txtGuruUpdateJumlahSiswa"] option[value="' + data.jumlahSiswa["id"] + '"]').attr("selected","selected");
-					$('select[id^="txtGuruUpdateKeaktifanSiswa"] option[value="' + data.keaktifan["id"] + '"]').attr("selected","selected");
-					$('select[id^="txtGuruUpdateKondisiSekolah"] option[value="' + data.kondisiSekolah["id"] + '"]').attr("selected","selected");
-					$('select[id^="txtGuruUpdateKondisiKelas"] option[value="' + data.kondisiKelas["id"] + '"]').attr("selected","selected");
-					$('select[id^="txtGuruUpdateFasilitas"] option[value="' + data.fasilitas["id"] + '"]').attr("selected","selected");
-
-				});
-				$('#updateModalGuru').modal();
-			});
-			
 			// notification before delete metode
 			$('.btnPrepareDelete').click(function(e) {
 				e.preventDefault();
 				$('#modalDelete .btnDelete').attr("href", $(this).attr("href"));
 				$('#modalDelete').modal();
 			});
+			*/
 		});
 	</script>
 </body>

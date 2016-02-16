@@ -7,6 +7,14 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.skripsi.beni.apps.entity.kriteria.Fasilitas;
+import com.skripsi.beni.apps.entity.kriteria.JumlahSiswa;
+import com.skripsi.beni.apps.entity.kriteria.KemampuanGuru;
+import com.skripsi.beni.apps.entity.kriteria.KemampuanSiswa;
+import com.skripsi.beni.apps.entity.kriteria.MateriPengajaran;
+import com.skripsi.beni.apps.entity.kriteria.TujuanPengajaran;
+import com.skripsi.beni.apps.entity.kriteria.WaktuPembelajaran;
+
 @Entity
 @Table(name = "METODE")
 public class Metode {
@@ -22,64 +30,28 @@ public class Metode {
 	private JumlahSiswa jumlahSiswa;
 
 	@ManyToOne
-	@JoinColumn(name = "kondisi_sekolah_id")
-	private KondisiSekolah kondisiSekolah;
-
-	@ManyToOne
-	@JoinColumn(name = "keaktifan_id")
-	private Keaktifan keaktifan;
-
-	@ManyToOne
-	@JoinColumn(name = "pengajar_id")
-	private Pengajar pengajar;
-
-	@ManyToOne
 	@JoinColumn(name = "fasilitas_id")
 	private Fasilitas fasilitas;
 
 	@ManyToOne
-	@JoinColumn(name = "kondisi_kelas_id")
-	private KondisiKelas kondisiKelas;
+	@JoinColumn(name = "kemampuan_siswa_id")
+	private KemampuanSiswa kemampuanSiswa;
 
-	public JumlahSiswa getJumlahSiswa() {
-		return jumlahSiswa;
-	}
+	@ManyToOne
+	@JoinColumn(name = "kemampuan_guru_id")
+	private KemampuanGuru kemampuanGuru;
 
-	public void setJumlahSiswa(JumlahSiswa jumlahSiswa) {
-		this.jumlahSiswa = jumlahSiswa;
-	}
+	@ManyToOne
+	@JoinColumn(name = "materi_pengajaran_id")
+	private MateriPengajaran materiPengajaran;
 
-	public KondisiSekolah getKondisiSekolah() {
-		return kondisiSekolah;
-	}
+	@ManyToOne
+	@JoinColumn(name = "tujuan_pengajaran_id")
+	private TujuanPengajaran tujuanPengajaran;
 
-	public void setKondisiSekolah(KondisiSekolah kondisiSekolah) {
-		this.kondisiSekolah = kondisiSekolah;
-	}
-
-	public Keaktifan getKeaktifan() {
-		return keaktifan;
-	}
-
-	public void setKeaktifan(Keaktifan keaktifan) {
-		this.keaktifan = keaktifan;
-	}
-
-	public Pengajar getPengajar() {
-		return pengajar;
-	}
-
-	public void setPengajar(Pengajar pengajar) {
-		this.pengajar = pengajar;
-	}
-
-	public Fasilitas getFasilitas() {
-		return fasilitas;
-	}
-
-	public void setFasilitas(Fasilitas fasilitas) {
-		this.fasilitas = fasilitas;
-	}
+	@ManyToOne
+	@JoinColumn(name = "waktu_pembelajaran_id")
+	private WaktuPembelajaran waktuPembelajaran;
 
 	public Long getId() {
 		return id;
@@ -97,12 +69,60 @@ public class Metode {
 		this.metode = metode;
 	}
 
-	public KondisiKelas getKondisiKelas() {
-		return kondisiKelas;
+	public JumlahSiswa getJumlahSiswa() {
+		return jumlahSiswa;
 	}
 
-	public void setKondisiKelas(KondisiKelas kondisiKelas) {
-		this.kondisiKelas = kondisiKelas;
+	public void setJumlahSiswa(JumlahSiswa jumlahSiswa) {
+		this.jumlahSiswa = jumlahSiswa;
+	}
+
+	public Fasilitas getFasilitas() {
+		return fasilitas;
+	}
+
+	public void setFasilitas(Fasilitas fasilitas) {
+		this.fasilitas = fasilitas;
+	}
+
+	public KemampuanSiswa getKemampuanSiswa() {
+		return kemampuanSiswa;
+	}
+
+	public void setKemampuanSiswa(KemampuanSiswa kemampuanSiswa) {
+		this.kemampuanSiswa = kemampuanSiswa;
+	}
+
+	public KemampuanGuru getKemampuanGuru() {
+		return kemampuanGuru;
+	}
+
+	public void setKemampuanGuru(KemampuanGuru kemampuanGuru) {
+		this.kemampuanGuru = kemampuanGuru;
+	}
+
+	public MateriPengajaran getMateriPengajaran() {
+		return materiPengajaran;
+	}
+
+	public void setMateriPengajaran(MateriPengajaran materiPengajaran) {
+		this.materiPengajaran = materiPengajaran;
+	}
+
+	public TujuanPengajaran getTujuanPengajaran() {
+		return tujuanPengajaran;
+	}
+
+	public void setTujuanPengajaran(TujuanPengajaran tujuanPengajaran) {
+		this.tujuanPengajaran = tujuanPengajaran;
+	}
+
+	public WaktuPembelajaran getWaktuPembelajaran() {
+		return waktuPembelajaran;
+	}
+
+	public void setWaktuPembelajaran(WaktuPembelajaran waktuPembelajaran) {
+		this.waktuPembelajaran = waktuPembelajaran;
 	}
 
 }

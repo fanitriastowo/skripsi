@@ -24,12 +24,14 @@
 	<dependencies>
 	
 		<!-- JasperReport -->
+		<!-- 
 		<dependency>
 			<groupId>net.sf.jasperreports</groupId>
 			<artifactId>jasperreports</artifactId>
 			<version>${jasperreports.version}</version>
 			<scope>runtime</scope>
 		</dependency>
+		 -->
 		 
 		<!-- Jackson -->
 		<dependency>

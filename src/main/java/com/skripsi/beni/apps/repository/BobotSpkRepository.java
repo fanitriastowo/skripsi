@@ -5,11 +5,11 @@ import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.skripsi.beni.apps.entity.TempBobot;
+import com.skripsi.beni.apps.entity.BobotSPK;
 
 @Repository
-public interface TempBobotRepository extends JpaRepository<TempBobot, Integer> {
+public interface BobotSpkRepository extends JpaRepository<BobotSPK, Long> {
 
-	List<TempBobot> findAllByOrderByTanggalDesc();
+	List<BobotSPK> findAllByOrderByTanggalDesc();
 
 }

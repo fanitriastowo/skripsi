@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.skripsi.beni.apps.entity.BobotSpk;
+import com.skripsi.beni.apps.entity.Bobot;
 import com.skripsi.beni.apps.repository.BobotRepository;
 
 @Service
@@ -14,36 +14,47 @@ public class BobotService {
 	@Autowired
 	private BobotRepository bobotRepository;
 
-	public BobotSpk getOneById() {
+	public Bobot getOneById() {
 		return bobotRepository.getOneById("bobot");
 	}
 
-	public void update(BobotSpk bobotSpk) {
+	public void update(Bobot bobot) {
 		
-		float fasilitasBobot = bobotSpk.getFasilitasBobot();
-		float jumlahSiswaBobot = bobotSpk.getJumlahSiswaBobot();
-		float keaktifanSiswaBobot = bobotSpk.getKeaktifanSiswaBobot();
-		float kondisiSekolahBobot = bobotSpk.getKondisiSekolahBobot();
-		float kondisiKelasBobot = bobotSpk.getKondisiKelasBobot();
-		float kualitasPengajarBobot = bobotSpk.getKualitasPengajarBobot();
-		float jumlahBobot = fasilitasBobot + jumlahSiswaBobot + keaktifanSiswaBobot + 
-							kondisiSekolahBobot + kondisiKelasBobot + kualitasPengajarBobot;
+		Double jumlahSiswa = bobot.getJumlahSiswa();
+		Double fasilitas = bobot.getFasilitas();
+		Double kemampuanSiswa = bobot.getKemampuanSiswa();
+		Double kemampuanGuru = bobot.getKemampuanGuru();
+		Double materiPengajaran = bobot.getMateriPengajaran();
+		Double tujuanPengajaran = bobot.getTujuanPengajaran();
+		Double waktuPembelajaran = bobot.getWaktuPembelajaran();
+		Double jumlahBobot = jumlahSiswa + fasilitas + kemampuanSiswa + kemampuanGuru +
+							 materiPengajaran + tujuanPengajaran + waktuPembelajaran;
+
+		Double nJumlahSiswa = jumlahSiswa / jumlahBobot;
+		Double nFasilitas = fasilitas / jumlahBobot;
+		Double nKemampuanSiswa = kemampuanSiswa / jumlahBobot;
+		Double nKemampuanGuru = kemampuanGuru / jumlahBobot;
+		Double nMateriPengajaran = materiPengajaran / jumlahBobot;
+		Double nTujuanPengajaran = tujuanPengajaran / jumlahBobot;
+		Double nWaktuPembelajaran = waktuPembelajaran / jumlahBobot;
 		
-		BobotSpk bobotBaru = getOneById();
-		bobotBaru.setFasilitasBobot(bobotSpk.getFasilitasBobot());
-		bobotBaru.setJumlahSiswaBobot(bobotSpk.getJumlahSiswaBobot());
-		bobotBaru.setKeaktifanSiswaBobot(bobotSpk.getKeaktifanSiswaBobot());
-		bobotBaru.setKondisiSekolahBobot(bobotSpk.getKondisiSekolahBobot());
-		bobotBaru.setKondisiKelasBobot(bobotSpk.getKondisiKelasBobot());
-		bobotBaru.setKualitasPengajarBobot(bobotSpk.getKualitasPengajarBobot());
+		Bobot bobotBaru = this.getOneById();
+		bobotBaru.setJumlahSiswa(jumlahSiswa);
+		bobotBaru.setFasilitas(fasilitas);
+		bobotBaru.setKemampuanSiswa(kemampuanSiswa);
+		bobotBaru.setKemampuanGuru(kemampuanGuru);
+		bobotBaru.setMateriPengajaran(materiPengajaran);
+		bobotBaru.setTujuanPengajaran(tujuanPengajaran);
+		bobotBaru.setWaktuPembelajaran(waktuPembelajaran);
 		
-		bobotBaru.setnFasilitasBobot(fasilitasBobot / jumlahBobot);
-		bobotBaru.setnJumlahSiswaBobot(jumlahSiswaBobot / jumlahBobot);
-		bobotBaru.setnKeaktifanSiswaBobot(keaktifanSiswaBobot / jumlahBobot);
-		bobotBaru.setnKondisiSekolahBobot(kondisiSekolahBobot / jumlahBobot);
-		bobotBaru.setnKondisiKelasBobot(kondisiKelasBobot / jumlahBobot);
-		bobotBaru.setnKualitasPengajarBobot(kualitasPengajarBobot / jumlahBobot);
-		
+		bobotBaru.setnJumlahSiswa(nJumlahSiswa);
+		bobotBaru.setnFasilitas(nFasilitas);
+		bobotBaru.setnKemampuanSiswa(nKemampuanSiswa);
+		bobotBaru.setnKemampuanGuru(nKemampuanGuru);
+		bobotBaru.setnMateriPengajaran(nMateriPengajaran);
+		bobotBaru.setnTujuanPengajaran(nTujuanPengajaran);
+		bobotBaru.setnWaktuPembelajaran(nWaktuPembelajaran);
+
 		bobotRepository.save(bobotBaru);
 	}
 }

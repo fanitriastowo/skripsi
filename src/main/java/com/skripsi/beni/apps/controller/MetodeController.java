@@ -14,17 +14,18 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.skripsi.beni.apps.dto.MetodeDTO;
+import com.skripsi.beni.apps.entity.BobotSPK;
 import com.skripsi.beni.apps.entity.Metode;
-import com.skripsi.beni.apps.entity.TempBobot;
+import com.skripsi.beni.apps.service.BobotSpkService;
 import com.skripsi.beni.apps.service.FasilitasService;
 import com.skripsi.beni.apps.service.JumlahSiswaService;
-import com.skripsi.beni.apps.service.KeaktifanService;
-import com.skripsi.beni.apps.service.KondisiKelasService;
-import com.skripsi.beni.apps.service.KondisiSekolahService;
+import com.skripsi.beni.apps.service.KemampuanGuruService;
+import com.skripsi.beni.apps.service.KemampuanSiswaService;
+import com.skripsi.beni.apps.service.MateriPengajaranService;
 import com.skripsi.beni.apps.service.MetodeService;
-import com.skripsi.beni.apps.service.PengajarService;
 import com.skripsi.beni.apps.service.SPKService;
-import com.skripsi.beni.apps.service.TempBobotService;
+import com.skripsi.beni.apps.service.TujuanPengajaranService;
+import com.skripsi.beni.apps.service.WaktuPembelajaranService;
 
 @Controller
 @RequestMapping("/metode")
@@ -32,30 +33,33 @@ public class MetodeController {
 
 	@Autowired
 	private MetodeService metodeService;
-	
+
+	@Autowired
+	private MateriPengajaranService materiPengajaranService;
+
+	@Autowired
+	private TujuanPengajaranService tujuanPengajaranService;
+
+	@Autowired
+	private WaktuPembelajaranService waktuPembelajaranService;
+
 	@Autowired
 	private JumlahSiswaService jumlahSiswaService;
-	
-	@Autowired
-	private KeaktifanService keaktifanService;
-	
-	@Autowired
-	private KondisiSekolahService kondisiSekolahService;
-	
-	@Autowired
-	private KondisiKelasService kondisiKelasService;
-	
+
 	@Autowired
 	private FasilitasService fasilitasService;
-	
+
 	@Autowired
-	private PengajarService pengajarService;
-	
+	private KemampuanGuruService kemampuanGuruService;
+
+	@Autowired
+	private KemampuanSiswaService kemampuanSiswaService;
+
 	@Autowired
 	private SPKService spkService;
-	
+
 	@Autowired
-	private TempBobotService tempBobotService;
+	private BobotSpkService bobotSpkService;
 
 	@ModelAttribute("metode")
 	public MetodeDTO construct() {
@@ -68,12 +72,13 @@ public class MetodeController {
 		List<Metode> tampilSemuaMetode = metodeService.tampilSemuaMetode();
 		ModelAndView modelAndView = new ModelAndView("metode");
 		modelAndView.addObject("metodes", tampilSemuaMetode);
-		modelAndView.addObject("lookUpJumlahSiswa", jumlahSiswaService.findAll());
-		modelAndView.addObject("lookUpkeaktifanSiswa", keaktifanService.findAll());
-		modelAndView.addObject("lookUpKondisiSekolah", kondisiSekolahService.findAll());
-		modelAndView.addObject("lookUpKondisiKelas", kondisiKelasService.findAll());
+		modelAndView.addObject("lookUpMateriPengajaran", materiPengajaranService.findAll());
+		modelAndView.addObject("lookUpTujuanPengajaran", tujuanPengajaranService.findAll());
+		modelAndView.addObject("lookUpWaktuPembelajaran", waktuPembelajaranService.findAll());
 		modelAndView.addObject("lookUpFasilitas", fasilitasService.findAll());
-		modelAndView.addObject("lookUpPengajar", pengajarService.findAll());
+		modelAndView.addObject("lookUpKemampuanGuru", kemampuanGuruService.findAll());
+		modelAndView.addObject("lookUpJumlahSiswa", jumlahSiswaService.findAll());
+		modelAndView.addObject("lookUpKemampuanSiswa", kemampuanSiswaService.findAll());
 		return modelAndView;
 	}
 
@@ -92,7 +97,7 @@ public class MetodeController {
 		metode = metodeService.findOneById(id);
 		return metode;
 	}
-	
+
 	@RequestMapping("/prepare_edit_guru/{id}")
 	@ResponseBody
 	@PreAuthorize(value = "hasRole('ROLE_GURU')")
@@ -111,16 +116,6 @@ public class MetodeController {
 		ModelAndView modelAndView = new ModelAndView("redirect:/metode");
 		return modelAndView;
 	}
-	
-	@PreAuthorize(value = "hasRole('ROLE_GURU')")
-	@RequestMapping(value = "/edit_guru", method = RequestMethod.POST)
-	public ModelAndView submitEditGURU(@ModelAttribute("metode") MetodeDTO metodeDTO) {
-		if (metodeDTO != null) {
-			metodeService.updateGuru(metodeDTO);
-		}
-		ModelAndView modelAndView = new ModelAndView("redirect:/metode");
-		return modelAndView;
-	}
 
 	@PreAuthorize(value = "hasRole('ROLE_ADMIN')")
 	@RequestMapping("/delete/{id}")
@@ -129,7 +124,7 @@ public class MetodeController {
 		metodeService.delete(id);
 		return modelAndView;
 	}
-	
+
 	@PreAuthorize(value = "isAuthenticated()")
 	@RequestMapping("/daftar_rangking")
 	public ModelAndView daftarRangking() {
@@ -137,12 +132,12 @@ public class MetodeController {
 		mav.addObject("daftarRangking", spkService.findAllMaxGroupByVectorV());
 		return mav;
 	}
-	
+
 	@PreAuthorize(value = "isAuthenticated()")
 	@RequestMapping("/cetak_hasil/{id}")
-	public String cetakHasil(@PathVariable("id") Integer id, ModelMap modelMap) {
-		TempBobot tempBobot = tempBobotService.findOneById(id);
-		modelMap.addAttribute("dataSource", spkService.findAllByTempBobotDesc(tempBobot));
+	public String cetakHasil(@PathVariable("id") Long id, ModelMap modelMap) {
+		BobotSPK bobotSpk = bobotSpkService.findOneById(id);
+		modelMap.addAttribute("dataSource", spkService.findAllByTempBobotDesc(bobotSpk));
 		return "hasilPerhitungan";
 	}
 }

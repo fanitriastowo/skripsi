@@ -1,4 +1,4 @@
-package com.skripsi.beni.apps.entity;
+package com.skripsi.beni.apps.entity.kriteria;
 
 import java.util.List;
 
@@ -10,18 +10,22 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.skripsi.beni.apps.entity.Metode;
 
 @Entity
-@Table(name = "KONDISI_KELAS")
+@Table(name = "TUJUAN_PENGAJARAN")
 @JsonIgnoreProperties(value = { "metode" })
-public class KondisiKelas {
+public class TujuanPengajaran {
 
 	@Id
 	@GeneratedValue
 	private Long id;
-	private String kondisi;
+
+	private String tujuan;
+
 	private Double point;
-	@OneToMany(mappedBy = "kondisiKelas", cascade = CascadeType.MERGE)
+
+	@OneToMany(mappedBy = "tujuanPengajaran", cascade = CascadeType.MERGE)
 	private List<Metode> metode;
 
 	public Long getId() {
@@ -32,12 +36,12 @@ public class KondisiKelas {
 		this.id = id;
 	}
 
-	public String getKondisi() {
-		return kondisi;
+	public String getTujuan() {
+		return tujuan;
 	}
 
-	public void setKondisi(String kondisi) {
-		this.kondisi = kondisi;
+	public void setTujuan(String tujuan) {
+		this.tujuan = tujuan;
 	}
 
 	public Double getPoint() {

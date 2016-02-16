@@ -7,26 +7,28 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.skripsi.beni.apps.entity.BobotSpk;
-import com.skripsi.beni.apps.entity.Fasilitas;
-import com.skripsi.beni.apps.entity.JumlahSiswa;
-import com.skripsi.beni.apps.entity.Keaktifan;
-import com.skripsi.beni.apps.entity.KondisiKelas;
-import com.skripsi.beni.apps.entity.KondisiSekolah;
+import com.skripsi.beni.apps.entity.Bobot;
 import com.skripsi.beni.apps.entity.Metode;
-import com.skripsi.beni.apps.entity.Pengajar;
 import com.skripsi.beni.apps.entity.Role;
 import com.skripsi.beni.apps.entity.User;
+import com.skripsi.beni.apps.entity.kriteria.Fasilitas;
+import com.skripsi.beni.apps.entity.kriteria.JumlahSiswa;
+import com.skripsi.beni.apps.entity.kriteria.KemampuanGuru;
+import com.skripsi.beni.apps.entity.kriteria.KemampuanSiswa;
+import com.skripsi.beni.apps.entity.kriteria.MateriPengajaran;
+import com.skripsi.beni.apps.entity.kriteria.TujuanPengajaran;
+import com.skripsi.beni.apps.entity.kriteria.WaktuPembelajaran;
 import com.skripsi.beni.apps.repository.BobotRepository;
 import com.skripsi.beni.apps.repository.FasilitasRepository;
 import com.skripsi.beni.apps.repository.JumlahSiswaRepository;
-import com.skripsi.beni.apps.repository.KeaktifanRepository;
-import com.skripsi.beni.apps.repository.KondisiKelasRepository;
-import com.skripsi.beni.apps.repository.KondisiSekolahRepository;
+import com.skripsi.beni.apps.repository.KemampuanGuruRepository;
+import com.skripsi.beni.apps.repository.KemampuanSiswaRepository;
+import com.skripsi.beni.apps.repository.MateriPengajaranRepository;
 import com.skripsi.beni.apps.repository.MetodeRepository;
-import com.skripsi.beni.apps.repository.PengajarRepository;
 import com.skripsi.beni.apps.repository.RoleRepository;
+import com.skripsi.beni.apps.repository.TujuanPengajaranRepository;
 import com.skripsi.beni.apps.repository.UserRepository;
+import com.skripsi.beni.apps.repository.WaktuPembelajaranRepository;
 
 @Service
 @Transactional
@@ -42,27 +44,30 @@ public class InitDbService {
 	private MetodeRepository metodeRepository;
 
 	@Autowired
-	private JumlahSiswaRepository jumlahSiswaRepository;
-
+	private MateriPengajaranRepository materiPengajaranRepository;
+	
 	@Autowired
-	private KeaktifanRepository keaktifanRepository;
-
+	private TujuanPengajaranRepository tujuanPengajaranRepository;
+	
 	@Autowired
-	private PengajarRepository pengajarRepository;
-
+	private WaktuPembelajaranRepository waktuPembelajaranRepository;
+	
 	@Autowired
 	private FasilitasRepository fasilitasRepository;
+	
+	@Autowired
+	private KemampuanGuruRepository kemampuanGuruRepository;
 
 	@Autowired
-	private KondisiSekolahRepository kondisiSekolahRepository;
+	private JumlahSiswaRepository jumlahSiswaRepository;
 	
 	@Autowired
-	private KondisiKelasRepository kondisiKelasRepository;
-	
+	private KemampuanSiswaRepository kemampuanSiswaRepository;
+
 	@Autowired
 	private BobotRepository bobotRepository;
 
-	@PostConstruct
+	//@PostConstruct
 	public void afterPropertiesSet() throws Exception {
 
 		BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
@@ -71,36 +76,45 @@ public class InitDbService {
 		 * Inisial Table Bobot
 		 */
 		// ==================================== //
-		final byte jumlahSiswaBobot = 2;
-		final byte kondisiSekolahBobot = 5;
-		final byte kondisiKelasBobot = 5;
-		final byte keaktifanSiswaBobot = 5;
-		final byte kualitasPengajarBobot = 5;
-		final byte fasilitasBobot = 4;
-		
-		// jumlahkan semua bobot
-		final byte jumlahBobot = jumlahSiswaBobot + kondisiSekolahBobot + kondisiKelasBobot + keaktifanSiswaBobot + kualitasPengajarBobot + fasilitasBobot;
-		
-		BobotSpk bobot = new BobotSpk();
-		bobot.setId("bobot");
-		bobot.setJumlahSiswaBobot(jumlahSiswaBobot);
-		bobot.setKondisiSekolahBobot(kondisiSekolahBobot);
-		bobot.setKondisiKelasBobot(kondisiKelasBobot);
-		bobot.setKeaktifanSiswaBobot(keaktifanSiswaBobot);
-		bobot.setKualitasPengajarBobot(kualitasPengajarBobot);
-		bobot.setFasilitasBobot(fasilitasBobot);
-		
-		bobot.setnJumlahSiswaBobot(Float.valueOf(jumlahSiswaBobot) / jumlahBobot);
-		bobot.setnKondisiSekolahBobot(Float.valueOf(kondisiSekolahBobot) / jumlahBobot);
-		bobot.setnKondisiKelasBobot(Float.valueOf(kondisiKelasBobot) / jumlahBobot);
-		bobot.setnKeaktifanSiswaBobot(Float.valueOf(keaktifanSiswaBobot) / jumlahBobot);
-		bobot.setnKualitasPengajarBobot(Float.valueOf(kualitasPengajarBobot) / jumlahBobot);
-		bobot.setnFasilitasBobot(Float.valueOf(fasilitasBobot) / jumlahBobot);
-		
-		bobotRepository.save(bobot);
-		
+		Double jumlahSiswa = 3D;
+		Double fasilitas = 3D;
+		Double kemampuanSiswa = 4D;
+		Double kemampuanGuru = 5D;
+		Double materiPengajaran = 3D;
+		Double tujuanPengajaran = 4D;
+		Double waktuPembelajaran = 3D;
+		Double jumlahBobot = jumlahSiswa + fasilitas + kemampuanSiswa + kemampuanGuru + materiPengajaran + tujuanPengajaran + waktuPembelajaran;
+
+		Double nJumlahSiswa = jumlahSiswa / jumlahBobot;
+		Double nFasilitas = fasilitas / jumlahBobot;
+		Double nKemampuanSiswa = kemampuanSiswa / jumlahBobot;
+		Double nKemampuanGuru = kemampuanGuru / jumlahBobot;
+		Double nMateriPengajaran = materiPengajaran / jumlahBobot;
+		Double nTujuanPengajaran = tujuanPengajaran / jumlahBobot;
+		Double nWaktuPembelajaran = waktuPembelajaran / jumlahBobot;
+
+		Bobot bobotBaru = new Bobot();
+		bobotBaru.setId("bobot");
+		bobotBaru.setJumlahSiswa(jumlahSiswa);
+		bobotBaru.setFasilitas(fasilitas);
+		bobotBaru.setKemampuanSiswa(kemampuanSiswa);
+		bobotBaru.setKemampuanGuru(kemampuanGuru);
+		bobotBaru.setMateriPengajaran(materiPengajaran);
+		bobotBaru.setTujuanPengajaran(tujuanPengajaran);
+		bobotBaru.setWaktuPembelajaran(waktuPembelajaran);
+
+		bobotBaru.setnJumlahSiswa(nJumlahSiswa);
+		bobotBaru.setnFasilitas(nFasilitas);
+		bobotBaru.setnKemampuanSiswa(nKemampuanSiswa);
+		bobotBaru.setnKemampuanGuru(nKemampuanGuru);
+		bobotBaru.setnMateriPengajaran(nMateriPengajaran);
+		bobotBaru.setnTujuanPengajaran(nTujuanPengajaran);
+		bobotBaru.setnWaktuPembelajaran(nWaktuPembelajaran);
+
+		bobotRepository.save(bobotBaru);
+
 		// ==================================== //
-		
+
 		/**
 		 * Inisial Table Role
 		 */
@@ -108,7 +122,7 @@ public class InitDbService {
 		Role roleAdmin = new Role();
 		roleAdmin.setName("ROLE_ADMIN");
 		roleRepository.save(roleAdmin);
-		
+
 		Role roleGuru = new Role();
 		roleGuru.setName("ROLE_GURU");
 		roleRepository.save(roleGuru);
@@ -140,155 +154,152 @@ public class InitDbService {
 		// ==================================================== //
 
 		/**
-		 * Inisial Table Jumlah Siswa
+		 * Inisial Table Materi Pengajaran
 		 */
 		// ====================================================== //
-		JumlahSiswa jumlahSiswaLebihDari26 = new JumlahSiswa();
-		jumlahSiswaLebihDari26.setJmlSiswa("=> 26");
-		jumlahSiswaLebihDari26.setPoint(50.0);
-		jumlahSiswaRepository.save(jumlahSiswaLebihDari26);
+		MateriPengajaran materi1 = new MateriPengajaran();
+		materi1.setMateri("Materi Pengajaran 1");
+		materi1.setPoint(50D);
+		materiPengajaranRepository.save(materi1);
 
-		JumlahSiswa jumlahSiswaAntara21Dan25 = new JumlahSiswa();
-		jumlahSiswaAntara21Dan25.setJmlSiswa("21 - 25");
-		jumlahSiswaAntara21Dan25.setPoint(40.0);
-		jumlahSiswaRepository.save(jumlahSiswaAntara21Dan25);
+		MateriPengajaran materi2 = new MateriPengajaran();
+		materi2.setMateri("Materi Pengajaran 2");
+		materi2.setPoint(40D);
+		materiPengajaranRepository.save(materi2);
 
-		JumlahSiswa jumlahSiswaAntara15Dan20 = new JumlahSiswa();
-		jumlahSiswaAntara15Dan20.setJmlSiswa("15 - 20");
-		jumlahSiswaAntara15Dan20.setPoint(30.0);
-		jumlahSiswaRepository.save(jumlahSiswaAntara15Dan20);
+		MateriPengajaran materi3 = new MateriPengajaran();
+		materi3.setMateri("Materi Pengajaran 3");
+		materi3.setPoint(30D);
+		materiPengajaranRepository.save(materi3);
 
-		JumlahSiswa jumlahSiswaAntara11Dan14 = new JumlahSiswa();
-		jumlahSiswaAntara11Dan14.setJmlSiswa("11 - 14");
-		jumlahSiswaAntara11Dan14.setPoint(20.0);
-		jumlahSiswaRepository.save(jumlahSiswaAntara11Dan14);
+		MateriPengajaran materi4 = new MateriPengajaran();
+		materi4.setMateri("Materi Pengajaran 4");
+		materi4.setPoint(20D);
+		materiPengajaranRepository.save(materi4);
 
-		JumlahSiswa jumlahSiswaKurangDari10 = new JumlahSiswa();
-		jumlahSiswaKurangDari10.setJmlSiswa("<= 10");
-		jumlahSiswaKurangDari10.setPoint(10.0);
-		jumlahSiswaRepository.save(jumlahSiswaKurangDari10);
+		MateriPengajaran materi5 = new MateriPengajaran();
+		materi5.setMateri("Materi Pengajaran 5");
+		materi5.setPoint(10D);
+		materiPengajaranRepository.save(materi5);
 
 		// ====================================================== //
 
 		/**
-		 * Inisial Keaktifan siswa
+		 * Inisial Table Tujuan Pengajaran
 		 */
-		// ======================================================= //
-		Keaktifan keaktifanLebihDari26 = new Keaktifan();
-		keaktifanLebihDari26.setJmlSiswa("=> 26");
-		keaktifanLebihDari26.setPoint(50.0);
-		keaktifanRepository.save(keaktifanLebihDari26);
-
-		Keaktifan keaktifanAntara21Dan25 = new Keaktifan();
-		keaktifanAntara21Dan25.setJmlSiswa("21 - 25");
-		keaktifanAntara21Dan25.setPoint(40.0);
-		keaktifanRepository.save(keaktifanAntara21Dan25);
-
-		Keaktifan keaktifanAntara15Dan20 = new Keaktifan();
-		keaktifanAntara15Dan20.setJmlSiswa("15 - 20");
-		keaktifanAntara15Dan20.setPoint(30.0);
-		keaktifanRepository.save(keaktifanAntara15Dan20);
-
-		Keaktifan keaktifanAntara11Dan14 = new Keaktifan();
-		keaktifanAntara11Dan14.setJmlSiswa("11 - 14");
-		keaktifanAntara11Dan14.setPoint(20.0);
-		keaktifanRepository.save(keaktifanAntara11Dan14);
-
-		Keaktifan keaktifanKurangDari10 = new Keaktifan();
-		keaktifanKurangDari10.setJmlSiswa("<= 10");
-		keaktifanKurangDari10.setPoint(10.0);
-		keaktifanRepository.save(keaktifanKurangDari10);
-
-		// ======================================================= //
+		// ====================================================== //
+		TujuanPengajaran tujuanPenyampaianPesan = new TujuanPengajaran();
+		tujuanPenyampaianPesan.setTujuan("Penyampaian Pesan");
+		tujuanPenyampaianPesan.setPoint(50D);
+		tujuanPengajaranRepository.save(tujuanPenyampaianPesan);
+		
+		TujuanPengajaran tujuanPengorganisasianSiswa = new TujuanPengajaran();
+		tujuanPengorganisasianSiswa.setTujuan("Pengorganisasian Siswa");
+		tujuanPengorganisasianSiswa.setPoint(40D);
+		tujuanPengajaranRepository.save(tujuanPengorganisasianSiswa);
+		
+		
+		TujuanPengajaran tujuanPendekatanPengajaran = new TujuanPengajaran();
+		tujuanPendekatanPengajaran.setTujuan("Pendekatan Pengajaran");
+		tujuanPendekatanPengajaran.setPoint(30D);
+		tujuanPengajaranRepository.save(tujuanPendekatanPengajaran);
+		
+		// ====================================================== //
 
 		/**
-		 * Inisial Table Pengajar
+		 * Inisial Table Waktu Pembelajaran
 		 */
-		// ======================================================= //
-		Pengajar pengajarSangatBaik = new Pengajar();
-		pengajarSangatBaik.setKualitas("Sangat Baik");
-		pengajarSangatBaik.setPoint(30.0);
-		pengajarRepository.save(pengajarSangatBaik);
-
-		Pengajar pengajarBaik = new Pengajar();
-		pengajarBaik.setKualitas("Baik");
-		pengajarBaik.setPoint(20.0);
-		pengajarRepository.save(pengajarBaik);
-
-		Pengajar pengajarBuruk = new Pengajar();
-		pengajarBuruk.setKualitas("Buruk");
-		pengajarBuruk.setPoint(10.0);
-		pengajarRepository.save(pengajarBuruk);
-		// ======================================================= //
-
+		// ====================================================== //
+		WaktuPembelajaran waktuSedikit = new WaktuPembelajaran();
+		waktuSedikit.setWaktu("Sedikit / Singkat bisa dilakukan");
+		waktuSedikit.setPoint(50D);
+		waktuPembelajaranRepository.save(waktuSedikit);
+		
+		WaktuPembelajaran waktuBanyak = new WaktuPembelajaran();
+		waktuBanyak.setWaktu("Banyak");
+		waktuBanyak.setPoint(40D);
+		waktuPembelajaranRepository.save(waktuBanyak);
+		
+		// ====================================================== //
+		
 		/**
 		 * Inisial table fasilitas
 		 */
 		// ======================================================= //
-		Fasilitas fasilitasAda = new Fasilitas();
-		fasilitasAda.setFasilitas("Ada");
-		fasilitasAda.setPoint(50.0);
-		fasilitasRepository.save(fasilitasAda);
+		Fasilitas fasilitasPerlu = new Fasilitas();
+		fasilitasPerlu.setFasilitas("Perlu");
+		fasilitasPerlu.setPoint(50D);
+		fasilitasRepository.save(fasilitasPerlu);
 
-		Fasilitas fasilitasTidakAda = new Fasilitas();
-		fasilitasTidakAda.setFasilitas("Tidak Ada");
-		fasilitasTidakAda.setPoint(30.0);
-		fasilitasRepository.save(fasilitasTidakAda);
-
-		// ======================================================= //
-		
-		/**
-		 * Inisial table Kondisi Sekolah
-		 */
-		// ======================================================= //
-		KondisiSekolah kondisiJauhDariPusatKeramaian = new KondisiSekolah();
-		kondisiJauhDariPusatKeramaian.setKondisi("Jauh dari pusat keramaian");
-		kondisiJauhDariPusatKeramaian.setPoint(30.0);
-		kondisiSekolahRepository.save(kondisiJauhDariPusatKeramaian);
-		
-		KondisiSekolah kondisiDekatDenganPusatKeramaian = new KondisiSekolah();
-		kondisiDekatDenganPusatKeramaian.setKondisi("Dekat dengan pusat keramaian");
-		kondisiDekatDenganPusatKeramaian.setPoint(20.0);
-		kondisiSekolahRepository.save(kondisiDekatDenganPusatKeramaian);
-		
-		KondisiSekolah kondisiBeradaDiPusatKeramaian = new KondisiSekolah();
-		kondisiBeradaDiPusatKeramaian.setKondisi("Berada dipusat keramaian");
-		kondisiBeradaDiPusatKeramaian.setPoint(10.0);
-		kondisiSekolahRepository.save(kondisiBeradaDiPusatKeramaian);
+		Fasilitas fasilitasTidakPerlu = new Fasilitas();
+		fasilitasTidakPerlu.setFasilitas("Tidak Perlu");
+		fasilitasTidakPerlu.setPoint(30D);
+		fasilitasRepository.save(fasilitasTidakPerlu);
 		
 		// ======================================================= //
 		
 		/**
-		 * Inisial table Kondisi Kelas
+		 * Inisial Table Jumlah Siswa
 		 */
-		// ======================================================= //
-		KondisiKelas kondisiKelasGaduh = new KondisiKelas();
-		kondisiKelasGaduh.setKondisi("Gaduh");
-		kondisiKelasGaduh.setPoint(10.0);
-		kondisiKelasRepository.save(kondisiKelasGaduh);
+		// ====================================================== //
+		KemampuanGuru kemampuanGuruSangatBaik = new KemampuanGuru();
+		kemampuanGuruSangatBaik.setKemampuan("Sangat Baik");
+		kemampuanGuruSangatBaik.setPoint(50D);
+		kemampuanGuruRepository.save(kemampuanGuruSangatBaik);
 		
-		KondisiKelas kondisiKelasSepi = new KondisiKelas();
-		kondisiKelasSepi.setKondisi("Sepi");
-		kondisiKelasSepi.setPoint(20.0);
-		kondisiKelasRepository.save(kondisiKelasSepi);
+		KemampuanGuru kemampuanGuruBaik = new KemampuanGuru();
+		kemampuanGuruBaik.setKemampuan("Baik");
+		kemampuanGuruBaik.setPoint(40D);
+		kemampuanGuruRepository.save(kemampuanGuruBaik);
 		
-		KondisiKelas kondisiKelasCukupKondusif = new KondisiKelas();
-		kondisiKelasCukupKondusif.setKondisi("Cukup Kondusif");
-		kondisiKelasCukupKondusif.setPoint(30.0);
-		kondisiKelasRepository.save(kondisiKelasCukupKondusif);
+		KemampuanGuru kemampuanGuruBuruk = new KemampuanGuru();
+		kemampuanGuruBuruk.setKemampuan("Buruk");
+		kemampuanGuruBuruk.setPoint(30D);
+		kemampuanGuruRepository.save(kemampuanGuruBuruk);
 		
-		KondisiKelas kondisiKelasKondusif = new KondisiKelas();
-		kondisiKelasKondusif.setKondisi("Kondusif");
-		kondisiKelasKondusif.setPoint(40.0);
-		kondisiKelasRepository.save(kondisiKelasKondusif);
+		// ====================================================== //
 		
-		KondisiKelas kondisiKelasAktif = new KondisiKelas();
-		kondisiKelasAktif.setKondisi("Aktif");
-		kondisiKelasAktif.setPoint(50.0);
-		kondisiKelasRepository.save(kondisiKelasAktif);
+		/**
+		 * Inisial Table Jumlah Siswa
+		 */
+		// ====================================================== //
+		JumlahSiswa jumlahSiswaBanyak = new JumlahSiswa();
+		jumlahSiswaBanyak.setJmlSiswa("Banyak");
+		jumlahSiswaBanyak.setPoint(50D);
+		jumlahSiswaRepository.save(jumlahSiswaBanyak);
 		
-		// ======================================================= //
+		JumlahSiswa jumlahSiswaBanyakSedikit = new JumlahSiswa();
+		jumlahSiswaBanyakSedikit.setJmlSiswa("Banyak Sedikit");
+		jumlahSiswaBanyakSedikit.setPoint(40D);
+		jumlahSiswaRepository.save(jumlahSiswaBanyakSedikit);
 		
+		JumlahSiswa jumlahSiswaSedikit = new JumlahSiswa();
+		jumlahSiswaSedikit.setJmlSiswa("Sedikit");
+		jumlahSiswaSedikit.setPoint(30D);
+		jumlahSiswaRepository.save(jumlahSiswaSedikit);
+
+		// ====================================================== //
+
+		/**
+		 * Inisial Table Metode
+		 */
+		// ============================================== //
+		KemampuanSiswa kemampuanSiswaSangatBaik = new KemampuanSiswa();
+		kemampuanSiswaSangatBaik.setKemampuan("Sangat Baik");
+		kemampuanSiswaSangatBaik.setPoint(50D);
+		kemampuanSiswaRepository.save(kemampuanSiswaSangatBaik);
+		
+		KemampuanSiswa kemampuanSiswaBaik = new KemampuanSiswa();
+		kemampuanSiswaBaik.setKemampuan("Baik");
+		kemampuanSiswaBaik.setPoint(40D);
+		kemampuanSiswaRepository.save(kemampuanSiswaBaik);
+		
+		KemampuanSiswa kemampuanSiswaBuruk = new KemampuanSiswa();
+		kemampuanSiswaBuruk.setKemampuan("Buruk");
+		kemampuanSiswaBuruk.setPoint(30D);
+		kemampuanSiswaRepository.save(kemampuanSiswaBuruk);
+		
+		// ============================================== //
 		
 		/**
 		 * Inisial Table Metode
@@ -296,103 +307,114 @@ public class InitDbService {
 		// ============================================== //
 		Metode metode1 = new Metode();
 		metode1.setMetode("Ceramah");
-		metode1.setJumlahSiswa(jumlahSiswaLebihDari26);
-		metode1.setKeaktifan(keaktifanLebihDari26);
-		metode1.setKondisiSekolah(kondisiJauhDariPusatKeramaian);
-		metode1.setKondisiKelas(kondisiKelasKondusif);
-		metode1.setFasilitas(fasilitasAda);
-		metode1.setPengajar(pengajarSangatBaik);
+		metode1.setFasilitas(fasilitasTidakPerlu);
+		metode1.setJumlahSiswa(jumlahSiswaBanyak);
+		metode1.setKemampuanGuru(kemampuanGuruBaik);
+		metode1.setKemampuanSiswa(kemampuanSiswaBaik);
+		metode1.setMateriPengajaran(materi2);
+		metode1.setTujuanPengajaran(tujuanPenyampaianPesan);
+		metode1.setWaktuPembelajaran(waktuSedikit);
 		metodeRepository.save(metode1);
 
 		Metode metode2 = new Metode();
-		metode2.setMetode("Diskusi");
-		metode2.setJumlahSiswa(jumlahSiswaLebihDari26);
-		metode2.setKeaktifan(keaktifanAntara15Dan20);
-		metode2.setKondisiSekolah(kondisiJauhDariPusatKeramaian);
-		metode2.setKondisiKelas(kondisiKelasAktif);
-		metode2.setFasilitas(fasilitasAda);
-		metode2.setPengajar(pengajarSangatBaik);
+		metode2.setMetode("Demonstrasi");
+		metode2.setFasilitas(fasilitasPerlu);
+		metode2.setJumlahSiswa(jumlahSiswaBanyak);
+		metode2.setKemampuanGuru(kemampuanGuruBaik);
+		metode2.setKemampuanSiswa(kemampuanSiswaBaik);
+		metode2.setMateriPengajaran(materi4);
+		metode2.setTujuanPengajaran(tujuanPenyampaianPesan);
+		metode2.setWaktuPembelajaran(waktuBanyak);
 		metodeRepository.save(metode2);
-
+		
 		Metode metode3 = new Metode();
-		metode3.setMetode("Problem Solving");
-		metode3.setJumlahSiswa(jumlahSiswaLebihDari26);
-		metode3.setKeaktifan(keaktifanAntara11Dan14);
-		metode3.setKondisiSekolah(kondisiJauhDariPusatKeramaian);
-		metode3.setKondisiKelas(kondisiKelasCukupKondusif);
-		metode3.setFasilitas(fasilitasAda);
-		metode3.setPengajar(pengajarSangatBaik);
+		metode3.setMetode("Diskusi");
+		metode3.setFasilitas(fasilitasPerlu);
+		metode3.setJumlahSiswa(jumlahSiswaBanyakSedikit);
+		metode3.setKemampuanGuru(kemampuanGuruBaik);
+		metode3.setKemampuanSiswa(kemampuanSiswaBaik);
+		metode3.setMateriPengajaran(materi3);
+		metode3.setTujuanPengajaran(tujuanPengorganisasianSiswa);
+		metode3.setWaktuPembelajaran(waktuBanyak);
 		metodeRepository.save(metode3);
-
+		
 		Metode metode4 = new Metode();
 		metode4.setMetode("Tanya Jawab");
-		metode4.setJumlahSiswa(jumlahSiswaLebihDari26);
-		metode4.setKeaktifan(keaktifanLebihDari26);
-		metode4.setKondisiSekolah(kondisiJauhDariPusatKeramaian);
-		metode4.setKondisiKelas(kondisiKelasAktif);
-		metode4.setFasilitas(fasilitasTidakAda);
-		metode4.setPengajar(pengajarSangatBaik);
+		metode4.setFasilitas(fasilitasTidakPerlu);
+		metode4.setJumlahSiswa(jumlahSiswaBanyak);
+		metode4.setKemampuanGuru(kemampuanGuruBaik);
+		metode4.setKemampuanSiswa(kemampuanSiswaBaik);
+		metode4.setMateriPengajaran(materi5);
+		metode4.setTujuanPengajaran(tujuanPenyampaianPesan);
+		metode4.setWaktuPembelajaran(waktuBanyak);
 		metodeRepository.save(metode4);
-
+		
 		Metode metode5 = new Metode();
-		metode5.setMetode("Latihan");
-		metode5.setJumlahSiswa(jumlahSiswaLebihDari26);
-		metode5.setKeaktifan(keaktifanAntara15Dan20);
-		metode5.setKondisiSekolah(kondisiJauhDariPusatKeramaian);
-		metode5.setKondisiKelas(kondisiKelasCukupKondusif);
-		metode5.setFasilitas(fasilitasTidakAda);
-		metode5.setPengajar(pengajarSangatBaik);
+		metode5.setMetode("Eksperimen");
+		metode5.setFasilitas(fasilitasPerlu);
+		metode5.setJumlahSiswa(jumlahSiswaSedikit);
+		metode5.setKemampuanGuru(kemampuanGuruBaik);
+		metode5.setKemampuanSiswa(kemampuanSiswaBaik);
+		metode5.setMateriPengajaran(materi4);
+		metode5.setTujuanPengajaran(tujuanPenyampaianPesan);
+		metode5.setWaktuPembelajaran(waktuBanyak);
 		metodeRepository.save(metode5);
-
+		
 		Metode metode6 = new Metode();
-		metode6.setMetode("Eksperimen");
-		metode6.setJumlahSiswa(jumlahSiswaLebihDari26);
-		metode6.setKeaktifan(keaktifanLebihDari26);
-		metode6.setKondisiSekolah(kondisiJauhDariPusatKeramaian);
-		metode6.setKondisiKelas(kondisiKelasGaduh);
-		metode6.setFasilitas(fasilitasTidakAda);
-		metode6.setPengajar(pengajarSangatBaik);
+		metode6.setMetode("Karyawisata");
+		metode6.setFasilitas(fasilitasPerlu);
+		metode6.setJumlahSiswa(jumlahSiswaSedikit);
+		metode6.setKemampuanGuru(kemampuanGuruBaik);
+		metode6.setKemampuanSiswa(kemampuanSiswaBaik);
+		metode6.setMateriPengajaran(materi3);
+		metode6.setTujuanPengajaran(tujuanPengorganisasianSiswa);
+		metode6.setWaktuPembelajaran(waktuBanyak);
 		metodeRepository.save(metode6);
-
+		
 		Metode metode7 = new Metode();
-		metode7.setMetode("Membaca dan Berdiskusi");
-		metode7.setJumlahSiswa(jumlahSiswaLebihDari26);
-		metode7.setKeaktifan(keaktifanAntara21Dan25);
-		metode7.setKondisiSekolah(kondisiJauhDariPusatKeramaian);
-		metode7.setKondisiKelas(kondisiKelasGaduh);
-		metode7.setFasilitas(fasilitasAda);
-		metode7.setPengajar(pengajarSangatBaik);
+		metode7.setMetode("Simulasi");
+		metode7.setFasilitas(fasilitasPerlu);
+		metode7.setJumlahSiswa(jumlahSiswaSedikit);
+		metode7.setKemampuanGuru(kemampuanGuruBaik);
+		metode7.setKemampuanSiswa(kemampuanSiswaBaik);
+		metode7.setMateriPengajaran(materi2);
+		metode7.setTujuanPengajaran(tujuanPendekatanPengajaran);
+		metode7.setWaktuPembelajaran(waktuBanyak);
 		metodeRepository.save(metode7);
-
+		
 		Metode metode8 = new Metode();
-		metode8.setMetode("Role Playing");
-		metode8.setJumlahSiswa(jumlahSiswaLebihDari26);
-		metode8.setKeaktifan(keaktifanLebihDari26);
-		metode8.setKondisiSekolah(kondisiJauhDariPusatKeramaian);
-		metode8.setKondisiKelas(kondisiKelasSepi);
-		metode8.setFasilitas(fasilitasTidakAda);
-		metode8.setPengajar(pengajarSangatBaik);
+		metode8.setMetode("Tugas dan Resitasi");
+		metode8.setFasilitas(fasilitasTidakPerlu);
+		metode8.setJumlahSiswa(jumlahSiswaBanyakSedikit);
+		metode8.setKemampuanGuru(kemampuanGuruBaik);
+		metode8.setKemampuanSiswa(kemampuanSiswaBaik);
+		metode8.setMateriPengajaran(materi1);
+		metode8.setTujuanPengajaran(tujuanPenyampaianPesan);
+		metode8.setWaktuPembelajaran(waktuBanyak);
 		metodeRepository.save(metode8);
-
+		
 		Metode metode9 = new Metode();
-		metode9.setMetode("Resitasi");
-		metode9.setJumlahSiswa(jumlahSiswaLebihDari26);
-		metode9.setKeaktifan(keaktifanLebihDari26);
-		metode9.setKondisiSekolah(kondisiJauhDariPusatKeramaian);
-		metode9.setKondisiKelas(kondisiKelasCukupKondusif);
-		metode9.setFasilitas(fasilitasTidakAda);
-		metode9.setPengajar(pengajarSangatBaik);
+		metode9.setMetode("Problem Solving");
+		metode9.setFasilitas(fasilitasTidakPerlu);
+		metode9.setJumlahSiswa(jumlahSiswaBanyak);
+		metode9.setKemampuanGuru(kemampuanGuruBaik);
+		metode9.setKemampuanSiswa(kemampuanSiswaBaik);
+		metode9.setMateriPengajaran(materi2);
+		metode9.setTujuanPengajaran(tujuanPendekatanPengajaran);
+		metode9.setWaktuPembelajaran(waktuBanyak);
 		metodeRepository.save(metode9);
-
+		
 		Metode metode10 = new Metode();
-		metode10.setMetode("Demonstrasi");
-		metode10.setJumlahSiswa(jumlahSiswaLebihDari26);
-		metode10.setKeaktifan(keaktifanAntara11Dan14);
-		metode10.setKondisiSekolah(kondisiJauhDariPusatKeramaian);
-		metode10.setKondisiKelas(kondisiKelasKondusif);
-		metode10.setFasilitas(fasilitasTidakAda);
-		metode10.setPengajar(pengajarSangatBaik);
+		metode10.setMetode("Inquiry");
+		metode10.setFasilitas(fasilitasTidakPerlu);
+		metode10.setJumlahSiswa(jumlahSiswaBanyak);
+		metode10.setKemampuanGuru(kemampuanGuruBaik);
+		metode10.setKemampuanSiswa(kemampuanSiswaBaik);
+		metode10.setMateriPengajaran(materi5);
+		metode10.setTujuanPengajaran(tujuanPendekatanPengajaran);
+		metode10.setWaktuPembelajaran(waktuBanyak);
 		metodeRepository.save(metode10);
+		
 		// ===================================================== //
 	}
 

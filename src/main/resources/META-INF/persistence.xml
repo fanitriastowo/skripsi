@@ -4,14 +4,15 @@
 		<class>com.skripsi.beni.apps.entity.Role</class>
 		<class>com.skripsi.beni.apps.entity.User</class>
 		<class>com.skripsi.beni.apps.entity.Metode</class>
-		<class>com.skripsi.beni.apps.entity.Keaktifan</class>
-		<class>com.skripsi.beni.apps.entity.JumlahSiswa</class>
-		<class>com.skripsi.beni.apps.entity.Fasilitas</class>
-		<class>com.skripsi.beni.apps.entity.Pengajar</class>
-		<class>com.skripsi.beni.apps.entity.KondisiSekolah</class>
-		<class>com.skripsi.beni.apps.entity.KondisiKelas</class>
-		<class>com.skripsi.beni.apps.entity.BobotSpk</class>
+		<class>com.skripsi.beni.apps.entity.kriteria.JumlahSiswa</class>
+		<class>com.skripsi.beni.apps.entity.kriteria.Fasilitas</class>
 		<class>com.skripsi.beni.apps.entity.SPK</class>
-		<class>com.skripsi.beni.apps.entity.TempBobot</class>
+		<class>com.skripsi.beni.apps.entity.BobotSPK</class>
+		<class>com.skripsi.beni.apps.entity.kriteria.KemampuanSiswa</class>
+		<class>com.skripsi.beni.apps.entity.kriteria.MateriPengajaran</class>
+		<class>com.skripsi.beni.apps.entity.kriteria.TujuanPengajaran</class>
+		<class>com.skripsi.beni.apps.entity.kriteria.WaktuPembelajaran</class>
+		<class>com.skripsi.beni.apps.entity.kriteria.KemampuanGuru</class>
+		<class>com.skripsi.beni.apps.entity.Bobot</class>
 	</persistence-unit>
 </persistence>

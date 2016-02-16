@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.skripsi.beni.apps.entity.Fasilitas;
+import com.skripsi.beni.apps.entity.kriteria.Fasilitas;
 import com.skripsi.beni.apps.service.FasilitasService;
 
 @Controller

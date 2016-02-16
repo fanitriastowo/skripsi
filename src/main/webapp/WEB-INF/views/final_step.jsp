@@ -24,14 +24,16 @@
 					<table class="table table-striped table-bordered table-hover table-condensed" style="font-size: 0.9em">
 						<thead>
 							<tr>
+								<tr>
 								<th width="5%">No.</th>
 								<th>Metode</th>
-								<th>Jumlah Siswa</th>
-								<th>Keaktifan Siswa</th>
-								<th>Kondisi Sekolah</th>
-								<th>Kondisi Kelas</th>
+								<th>Materi Pengajaran</th>
+								<th>Tujuan Pengajaran</th>
+								<th>Waktu Pembelajaran</th>
 								<th>Fasilitas</th>
-								<th>Kualitas Pengajar</th>
+								<th>Kemampuan Guru</th>
+								<th>Jumlah Siswa</th>
+								<th>Kemampuan Siswa</th>
 								<th>Vector S</th>
 								<th>Jumlah Vector S</th>
 								<th width="10%">Vector V</th>
@@ -43,38 +45,41 @@
 								<tr>
 									<td><c:out value="${index.count }" /></td>
 									<td><c:out value="${spk.namaMetode }" /></td>
-									<td><c:out value="${spk.jumlahSiswa }" /></td>
-									<td><c:out value="${spk.keaktifanSiswa }" /></td>
-									<td><c:out value="${spk.kondisiSekolah }" /></td>
-									<td><c:out value="${spk.kondisiKelas }" /></td>
+									<td><c:out value="${spk.materiPengajaran }" /></td>
+									<td><c:out value="${spk.tujuanPengajaran }" /></td>
+									<td><c:out value="${spk.waktuPembelajaran }" /></td>
 									<td><c:out value="${spk.fasilitas }" /></td>
-									<td><c:out value="${spk.kualitasPengajar }" /></td>
+									<td><c:out value="${spk.kemampuanGuru }" /></td>
+									<td><c:out value="${spk.jumlahSiswa }" /></td>
+									<td><c:out value="${spk.kemampuanSiswa }" /></td>
 									<td><c:out value="${spk.vectorS }" /></td>
 									<td><c:out value="${spk.jumlahVectorS }" /></td>
 									<td><c:out value="${spk.vectorV }" /></td>
 								</tr>
 							</c:forEach>
 						</tbody>
-						<tfoot>
+						<tfoot style="font-size: 1.2em">
 							<tr class="info">
 								<td>#</td>
 								<td><strong>Bobot</strong></td>
-								<td class="text-center" ><c:out value="${tempBobot.jumlahSiswaBobot }" /></td>
-								<td class="text-center" ><c:out value="${tempBobot.keaktifanSiswaBobot }" /></td>
-								<td class="text-center" ><c:out value="${tempBobot.kondisiKelasBobot }" /></td>
-								<td class="text-center" ><c:out value="${tempBobot.kondisiSekolahBobot }" /></td>
-								<td class="text-center" ><c:out value="${tempBobot.kualitasPengajarBobot }" /></td>
-								<td class="text-center" ><c:out value="${tempBobot.fasilitasBobot }" /></td>
+								<td class="text-center" id="bMateriPengajaran"><c:out value="${bobot.materiPengajaran }" /></td>
+								<td class="text-center" id="bTujuanPengajaran"><c:out value="${bobot.tujuanPengajaran }" /></td>
+								<td class="text-center" id="bWaktuPengajaran"><c:out value="${bobot.waktuPembelajaran }" /></td>
+								<td class="text-center" id="bFasilitas"><c:out value="${bobot.fasilitas }" /></td>
+								<td class="text-center" id="bKemampuanGuru"><c:out value="${bobot.kemampuanGuru }" /></td>
+								<td class="text-center" id="bJumlahSiswa"><c:out value="${bobot.jumlahSiswa }" /></td>
+								<td class="text-center" id="bKemampuanSiswa"><c:out value="${bobot.kemampuanSiswa }" /></td>
 							</tr>
 							<tr class="info">
 								<td>#</td>
 								<td><strong>Bobot Ter - Normalisasi</strong></td>
-								<td class="text-center" ><c:out value="${tempBobot.nJumlahSiswaBobot }" /></td>
-								<td class="text-center" ><c:out value="${tempBobot.nKeaktifanSiswaBobot }" /></td>
-								<td class="text-center" ><c:out value="${tempBobot.nKondisiSekolahBobot }" /></td>
-								<td class="text-center" ><c:out value="${tempBobot.nKondisiKelasBobot }" /></td>
-								<td class="text-center" ><c:out value="${tempBobot.nKualitasPengajarBobot }" /></td>
-								<td class="text-center" ><c:out value="${tempBobot.nFasilitasBobot }" /></td>
+								<td class="text-center" ><c:out value="${bobot.nMateriPengajaran }" /></td>
+								<td class="text-center" ><c:out value="${bobot.nTujuanPengajaran }" /></td>
+								<td class="text-center" ><c:out value="${bobot.nWaktuPembelajaran }" /></td>
+								<td class="text-center" ><c:out value="${bobot.nFasilitas }" /></td>
+								<td class="text-center" ><c:out value="${bobot.nKemampuanGuru }" /></td>
+								<td class="text-center" ><c:out value="${bobot.nJumlahSiswa }" /></td>
+								<td class="text-center" ><c:out value="${bobot.nKemampuanSiswa }" /></td>
 							</tr>
 						</tfoot>
 					</table>

@@ -1,4 +1,4 @@
-package com.skripsi.beni.apps.entity;
+package com.skripsi.beni.apps.entity.kriteria;
 
 import java.util.List;
 
@@ -10,11 +10,12 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.skripsi.beni.apps.entity.Metode;
 
 @Entity
-@Table(name = "KEAKTIFAN")
+@Table(name = "JUMLAH_SISWA")
 @JsonIgnoreProperties(value = { "metode" })
-public class Keaktifan {
+public class JumlahSiswa {
 
 	@Id
 	@GeneratedValue
@@ -22,7 +23,7 @@ public class Keaktifan {
 	private String jmlSiswa;
 	private Double point;
 
-	@OneToMany(mappedBy = "keaktifan", cascade = CascadeType.MERGE)
+	@OneToMany(mappedBy = "jumlahSiswa", cascade = CascadeType.MERGE)
 	private List<Metode> metode;
 
 	public Long getId() {

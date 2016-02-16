@@ -20,29 +20,32 @@ public class SPK implements Serializable, Comparable<SPK> {
 
 	@Id
 	@GeneratedValue
-	private Integer id;
+	private Long id;
+
 	@Temporal(TemporalType.DATE)
 	private Date tanggal;
+
 	private String namaMetode;
 	private Double jumlahSiswa;
-	private Double kondisiSekolah;
-	private Double kondisiKelas;
-	private Double keaktifanSiswa;
-	private Double kualitasPengajar;
 	private Double fasilitas;
+	private Double kemampuanSiswa;
+	private Double kemampuanGuru;
+	private Double materiPengajaran;
+	private Double tujuanPengajaran;
+	private Double waktuPembelajaran;
 	private Double vectorS;
 	private Double jumlahVectorS;
 	private Double vectorV;
 
 	@ManyToOne
-	@JoinColumn(name = "temp_bobotid")
-	private TempBobot tempBobot;
+	@JoinColumn(name = "bobotspk_id")
+	private BobotSPK bobotSpk;
 
-	public Integer getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(Integer id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
@@ -70,44 +73,52 @@ public class SPK implements Serializable, Comparable<SPK> {
 		this.jumlahSiswa = jumlahSiswa;
 	}
 
-	public Double getKondisiSekolah() {
-		return kondisiSekolah;
-	}
-
-	public void setKondisiSekolah(Double kondisiSekolah) {
-		this.kondisiSekolah = kondisiSekolah;
-	}
-
-	public Double getKondisiKelas() {
-		return kondisiKelas;
-	}
-
-	public void setKondisiKelas(Double kondisiKelas) {
-		this.kondisiKelas = kondisiKelas;
-	}
-
-	public Double getKeaktifanSiswa() {
-		return keaktifanSiswa;
-	}
-
-	public void setKeaktifanSiswa(Double keaktifanSiswa) {
-		this.keaktifanSiswa = keaktifanSiswa;
-	}
-
-	public Double getKualitasPengajar() {
-		return kualitasPengajar;
-	}
-
-	public void setKualitasPengajar(Double kualitasPengajar) {
-		this.kualitasPengajar = kualitasPengajar;
-	}
-
 	public Double getFasilitas() {
 		return fasilitas;
 	}
 
 	public void setFasilitas(Double fasilitas) {
 		this.fasilitas = fasilitas;
+	}
+
+	public Double getKemampuanSiswa() {
+		return kemampuanSiswa;
+	}
+
+	public void setKemampuanSiswa(Double kemampuanSiswa) {
+		this.kemampuanSiswa = kemampuanSiswa;
+	}
+
+	public Double getKemampuanGuru() {
+		return kemampuanGuru;
+	}
+
+	public void setKemampuanGuru(Double kemampuanGuru) {
+		this.kemampuanGuru = kemampuanGuru;
+	}
+
+	public Double getMateriPengajaran() {
+		return materiPengajaran;
+	}
+
+	public void setMateriPengajaran(Double materiPengajaran) {
+		this.materiPengajaran = materiPengajaran;
+	}
+
+	public Double getTujuanPengajaran() {
+		return tujuanPengajaran;
+	}
+
+	public void setTujuanPengajaran(Double tujuanPengajaran) {
+		this.tujuanPengajaran = tujuanPengajaran;
+	}
+
+	public Double getWaktuPembelajaran() {
+		return waktuPembelajaran;
+	}
+
+	public void setWaktuPembelajaran(Double waktuPembelajaran) {
+		this.waktuPembelajaran = waktuPembelajaran;
 	}
 
 	public Double getVectorS() {
@@ -134,19 +145,19 @@ public class SPK implements Serializable, Comparable<SPK> {
 		this.vectorV = vectorV;
 	}
 
-	public TempBobot getTempBobot() {
-		return tempBobot;
+	public BobotSPK getBobotSpk() {
+		return bobotSpk;
 	}
 
-	public void setTempBobot(TempBobot tempBobot) {
-		this.tempBobot = tempBobot;
+	public void setBobotSpk(BobotSPK bobotSpk) {
+		this.bobotSpk = bobotSpk;
 	}
 
 	@Override
 	public int compareTo(SPK o) {
 		Double bil1 = this.getVectorV();
 		Double bil2 = o.getVectorV();
-		
+
 		if (bil1 > bil2) {
 			return -1;
 		} else {
