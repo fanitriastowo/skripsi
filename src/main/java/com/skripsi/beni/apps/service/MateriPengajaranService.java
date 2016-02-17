@@ -24,4 +24,16 @@ public class MateriPengajaranService {
 		return materiPengajaranRepository.findOne(materiPengajaran);
 	}
 
+	public void save(MateriPengajaran materiPengajaran) {
+		materiPengajaranRepository.save(materiPengajaran);
+	}
+
+	public void delete(Long id) {
+		materiPengajaranRepository.delete(id);
+	}
+
+	public void update(MateriPengajaran materiPengajaran) {
+		materiPengajaranRepository.save(materiPengajaran);
+	}
+
 }

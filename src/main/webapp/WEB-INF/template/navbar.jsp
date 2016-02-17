@@ -15,8 +15,13 @@
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
 					   aria-expanded="false">Kriteria&nbsp;<span class="caret"></span></a>
 					<ul class="dropdown-menu">
+						<li><a href=' <spring:url value="/materi_pengajaran" />'>Materi Pengajaran</a></li>
+						<li><a href=' <spring:url value="/tujuan_pengajaran" />'>Tujuan Pengajaran</a></li>
+						<li><a href=' <spring:url value="/waktu_pembelajaran" />'>Waktu Pembelajaran</a></li>
+						<li><a href=' <spring:url value="/fasilitas" />'>Fasilitas</a></li>
+						<li><a href=' <spring:url value="/kemampuan_guru" />'>Kemampuan Guru</a></li>
 						<li><a href=' <spring:url value="/jumlah_siswa" />'>Jumlah Siswa</a></li>
-						<li><a href=' <spring:url value="/fasilitas" />	'>Fasilitas</a></li>
+						<li><a href=' <spring:url value="/kemampuan_siswa" />'>Kemampuan Siswa</a></li>
 					</ul>
 				</li>
 	
