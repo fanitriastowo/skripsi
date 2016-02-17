@@ -24,4 +24,16 @@ public class TujuanPengajaranService {
 		return tujuanPengajaranRepository.findOne(tujuanPengajaran);
 	}
 
+	public void save(TujuanPengajaran tujuanPengajaran) {
+		tujuanPengajaranRepository.save(tujuanPengajaran);
+	}
+
+	public void delete(Long id) {
+		tujuanPengajaranRepository.delete(id);
+	}
+
+	public void update(TujuanPengajaran tujuanPengajaran) {
+		tujuanPengajaranRepository.save(tujuanPengajaran);
+	}
+
 }
