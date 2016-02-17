@@ -24,17 +24,18 @@
 					<table class="table table-striped table-bordered table-hover table-condensed" style="font-size: 0.9em">
 						<thead>
 							<tr>
-								<th width="5%">No.</th>
+								<th width="3%">No.</th>
 								<th>Tanggal</th>
 								<th>Nama Metode</th>
-								<th>Jumlah Siswa</th>
-								<th>Kondisi Sekolah</th>
-								<th>Kondisi Kelas</th>
-								<th>Keaktifan Siswa</th>
-								<th>Kualitas Pengajar</th>
+								<th>Materi Pengajaran</th>
+								<th>Tujuan Pengajaran</th>
+								<th>Waktu Pembelajaran</th>
 								<th>Fasilitas</th>
-								<th>Vector V</th>
-								<th width="5%">Aksi</th>
+								<th>Kemampuan Guru</th>
+								<th>Jumlah Siswa</th>
+								<th>Kemampuan Siswa</th>
+								<th>Score</th>
+								<th width="3%">Aksi</th>
 							</tr>
 						</thead>
 		
@@ -44,15 +45,16 @@
 									<td><c:out value="${index.count }" /></td>
 									<td><c:out value="${daftarRangking.tanggal }" /></td>
 									<td><c:out value="${daftarRangking.namaMetode }" /></td>
-									<td><c:out value="${daftarRangking.jumlahSiswa }" /></td>
-									<td><c:out value="${daftarRangking.kondisiSekolah }" /></td>
-									<td><c:out value="${daftarRangking.kondisiKelas }" /></td>
-									<td><c:out value="${daftarRangking.keaktifanSiswa }" /></td>
-									<td><c:out value="${daftarRangking.kualitasPengajar }" /></td>
+									<td><c:out value="${daftarRangking.materiPengajaran }" /></td>
+									<td><c:out value="${daftarRangking.tujuanPengajaran }" /></td>
+									<td><c:out value="${daftarRangking.waktuPembelajaran }" /></td>
 									<td><c:out value="${daftarRangking.fasilitas }" /></td>
+									<td><c:out value="${daftarRangking.kemampuanGuru }" /></td>
+									<td><c:out value="${daftarRangking.jumlahSiswa }" /></td>
+									<td><c:out value="${daftarRangking.kemampuanGuru }" /></td>
 									<td><c:out value="${daftarRangking.vectorV }" /></td>
 									<td>
-										<a class="btn btn-xs btn-primary" href='<spring:url value="/metode/cetak_hasil/${daftarRangking.tempBobot.id}" />'>
+										<a class="btn btn-xs btn-primary" href='<spring:url value="/metode/cetak_hasil/${daftarRangking.bobotSpk.id}" />'>
 											<span class="glyphicon glyphicon-print"></span></a>
 									</td>
 								</tr>
