@@ -98,15 +98,6 @@ public class MetodeController {
 		return metode;
 	}
 
-	@RequestMapping("/prepare_edit_guru/{id}")
-	@ResponseBody
-	@PreAuthorize(value = "hasRole('ROLE_GURU')")
-	public Metode prepareEditGuru(@PathVariable Long id) {
-		Metode metode = new Metode();
-		metode = metodeService.findOneById(id);
-		return metode;
-	}
-
 	@PreAuthorize(value = "hasRole('ROLE_ADMIN')")
 	@RequestMapping(value = "/edit", method = RequestMethod.POST)
 	public ModelAndView submitEdit(@ModelAttribute("metode") MetodeDTO metodeDTO) {
