@@ -24,4 +24,16 @@ public class WaktuPembelajaranService {
 		return waktuPembelajaranRepository.findOne(waktuPembelajaran);
 	}
 
+	public void save(WaktuPembelajaran waktuPembelajaran) {
+		waktuPembelajaranRepository.save(waktuPembelajaran);
+	}
+
+	public void delete(Long id) {
+		waktuPembelajaranRepository.delete(id);
+	}
+
+	public void update(WaktuPembelajaran waktuPembelajaran) {
+		waktuPembelajaranRepository.save(waktuPembelajaran);
+	}
+
 }
