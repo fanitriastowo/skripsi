@@ -12,6 +12,14 @@
 
 	<http use-expressions="true">
 		
+		<intercept-url pattern="/materi_pengajaran**" access="hasRole('ROLE_ADMIN')"/>
+		<intercept-url pattern="/tujuan_pengajaran**" access="hasRole('ROLE_ADMIN')"/>
+		<intercept-url pattern="/waktu_pembelajaran**" access="hasRole('ROLE_ADMIN')"/>
+		<intercept-url pattern="/fasilitas**" access="hasRole('ROLE_ADMIN')"/>
+		<intercept-url pattern="/kemampuan_guru**" access="hasRole('ROLE_ADMIN')"/>
+		<intercept-url pattern="/jumlah_siswa**" access="hasRole('ROLE_ADMIN')"/>
+		<intercept-url pattern="/kemampuan_siswa**" access="hasRole('ROLE_ADMIN')"/>
+		
 		<intercept-url pattern="/spk**" access="hasRole('ROLE_ADMIN')"/>
 		<intercept-url pattern="/user**" access="hasRole('ROLE_ADMIN')"/>
 		<intercept-url pattern="/cari_metode" access="hasRole('ROLE_GURU')"/>
