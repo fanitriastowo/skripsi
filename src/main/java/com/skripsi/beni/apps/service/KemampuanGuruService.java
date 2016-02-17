@@ -24,4 +24,16 @@ public class KemampuanGuruService {
 		return kemampuanGuruRepository.findOne(kemampuanGuru);
 	}
 
+	public void save(KemampuanGuru kemampuanGuru) {
+		kemampuanGuruRepository.save(kemampuanGuru);
+	}
+
+	public void delete(Long id) {
+		kemampuanGuruRepository.delete(id);
+	}
+
+	public void update(KemampuanGuru kemampuanGuru) {
+		kemampuanGuruRepository.save(kemampuanGuru);
+	}
+
 }
