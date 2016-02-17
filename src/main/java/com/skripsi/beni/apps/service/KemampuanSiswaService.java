@@ -24,4 +24,16 @@ public class KemampuanSiswaService {
 		return kemampuanSiswaRepository.findOne(kemampuanSiswa);
 	}
 
+	public void save(KemampuanSiswa kemampuanSiswa) {
+		kemampuanSiswaRepository.save(kemampuanSiswa);
+	}
+
+	public void delete(Long id) {
+		kemampuanSiswaRepository.delete(id);
+	}
+
+	public void update(KemampuanSiswa kemampuanSiswa) {
+		kemampuanSiswaRepository.save(kemampuanSiswa);
+	}
+
 }
