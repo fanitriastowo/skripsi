@@ -69,6 +69,10 @@ public class InitDbService {
 
 	@PostConstruct
 	public void afterPropertiesSet() throws Exception {
+	    
+	    if(roleRepository.findOneByName("ROLE_ADMIN") != null) {
+	        return;
+	    }
 
 		BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
 
