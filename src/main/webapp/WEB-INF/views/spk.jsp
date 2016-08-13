@@ -19,7 +19,7 @@
 <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 <title>Halaman Perhitungan SPK</title>
 <%@ include file="/WEB-INF/template/css.jsp"%>
-<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/bootstrap-slider.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/bootstrap-slider.min.css">
 
 </head>
 <body>
@@ -137,43 +137,43 @@
 						<div class="form-group">
 							<label for="materiPengajaran" class="col-sm-6 control-label">Materi Pengajaran</label>
 							<div class="col-sm-6">
-								<form:input path="materiPengajaran" cssClass="form-control slider" value="${materiPengajaran }" />
+								<form:input path="materiPengajaran" cssClass="form-control" value="${materiPengajaran }" data-slider-min="1" data-slider-max="5" data-slider-step="1" data-slider-value="${materiPengajaran}"/>
 							</div>
 						</div>
 						<div class="form-group">
 							<label for="tujuanPengajaran" class="col-sm-6 control-label">Tujuan Pengajaran</label>
 							<div class="col-sm-6">
-								<form:input path="tujuanPengajaran" cssClass="form-control slider" value="${tujuanPengajaran }" />
+								<form:input path="tujuanPengajaran" cssClass="form-control" value="${tujuanPengajaran }" data-slider-min="1" data-slider-max="5" data-slider-step="1" data-slider-value="${tujuanPengajaran}"/>
 							</div>
 						</div>
 						<div class="form-group">
 							<label for="waktuPembelajaran" class="col-sm-6 control-label">Waktu Pembelajaran</label>
 							<div class="col-sm-6">
-								<form:input path="waktuPembelajaran" cssClass="form-control slider" value="${waktuPembelajaran }" />
+								<form:input path="waktuPembelajaran" cssClass="form-control" value="${waktuPembelajaran }" data-slider-min="1" data-slider-max="5" data-slider-step="1" data-slider-value="${waktuPembelajaran}"/>
 							</div>
 						</div>
 						<div class="form-group">
-							<label for="fasilitas" class="col-sm-6 control-label">Waktu Pembelajaran</label>
+							<label for="fasilitas" class="col-sm-6 control-label">Fasilitas</label>
 							<div class="col-sm-6">
-								<form:input path="fasilitas" cssClass="form-control slider" value="${fasilitas }" />
+								<form:input path="fasilitas" cssClass="form-control" value="${fasilitas }" data-slider-min="1" data-slider-max="5" data-slider-step="1" data-slider-value="${fasilitas}"/>
 							</div>
 						</div>
 						<div class="form-group">
 							<label for="kemampuanGuru" class="col-sm-6 control-label">Kemampuan Guru</label>
 							<div class="col-sm-6">
-								<form:input path="kemampuanGuru" cssClass="form-control slider" value="${kemampuanGuru }" />
+								<form:input path="kemampuanGuru" cssClass="form-control" value="${kemampuanGuru }" data-slider-min="1" data-slider-max="5" data-slider-step="1" data-slider-value="${kemampuanGuru}"/>
 							</div>
 						</div>
 						<div class="form-group">
 							<label for="jumlahSiswa" class="col-sm-6 control-label">Jumlah Siswa</label>
 							<div class="col-sm-6">
-								<form:input path="jumlahSiswa" cssClass="form-control slider" value="${jumlahSiswa }" />
+								<form:input path="jumlahSiswa" cssClass="form-control" value="${jumlahSiswa }" data-slider-min="1" data-slider-max="5" data-slider-step="1" data-slider-value="${jumlahSiswa}"/>
 							</div>
 						</div>
 						<div class="form-group">
 							<label for="kemampuanSiswa" class="col-sm-6 control-label">Kemampuan Siswa</label>
 							<div class="col-sm-6">
-								<form:input path="kemampuanSiswa" cssClass="form-control slider" value="${kemampuanSiswa }" />
+								<form:input path="kemampuanSiswa" cssClass="form-control" value="${kemampuanSiswa }" data-slider-min="1" data-slider-max="5" data-slider-step="1" data-slider-value="${kemampuanSiswa}"/>
 							</div>
 						</div>
 					</div>
@@ -188,82 +188,18 @@
 	
 	<%@ include file="/WEB-INF/template/footer.jsp"%>
 	<%@ include file="/WEB-INF/template/javascript.jsp"%>
-	<script type="text/javascript" src="${pageContext.request.contextPath}/assets/js/bootstrap-slider.js"></script>
+	<script type="text/javascript" src="${pageContext.request.contextPath}/assets/js/bootstrap-slider.min.js"></script>
 	
 	<script type="text/javascript">
 		$(document).ready(function() {
 			$('#spk').addClass('active');
-			
-			$('#materiPengajaran').slider({
-				min : 1,
-				max : 5,
-				step : 1,
-				orientation : 'horizontal',
-				value : $("#bMateriPengajaran").html(),
-				selection : 'before',
-				tooltip : 'show'
-			});
-			
-			$('#tujuanPengajaran').slider({
-				min : 1,
-				max : 5,
-				step : 1,
-				orientation : 'horizontal',
-				value : $("#bTujuanPengajaran").html(),
-				selection : 'before',
-				tooltip : 'show'
-			});
-			
-			$('#waktuPembelajaran').slider({
-				min : 1,
-				max : 5,
-				step : 1,
-				orientation : 'horizontal',
-				value : $("#bWaktuPengajaran").html(),
-				selection : 'before',
-				tooltip : 'show'
-			});
-			
-			$('#fasilitas').slider({
-				min : 1,
-				max : 5,
-				step : 1,
-				orientation : 'horizontal',
-				value : $("#bFasilitas").html(),
-				selection : 'before',
-				tooltip : 'show'
-			});
-			
-			$('#kemampuanGuru').slider({
-				min : 1,
-				max : 5,
-				step : 1,
-				orientation : 'horizontal',
-				value : $("#bKemampuanGuru").html(),
-				selection : 'before',
-				tooltip : 'show'
-			});
-			
-			$('#jumlahSiswa').slider({
-				min : 1,
-				max : 5,
-				step : 1,
-				orientation : 'horizontal',
-				value : $("#bJumlahSiswa").html(),
-				selection : 'before',
-				tooltip : 'show'
-			});
-			
-			$('#kemampuanSiswa').slider({
-				min : 1,
-				max : 5,
-				step : 1,
-				orientation : 'horizontal',
-				value : $("#bKemampuanSiswa").html(),
-				selection : 'before',
-				tooltip : 'show'
-			});
-			
+			$('#materiPengajaran').slider();
+			$('#tujuanPengajaran').slider();
+			$('#waktuPembelajaran').slider();
+			$('#fasilitas').slider();
+			$('#kemampuanGuru').slider();
+			$('#jumlahSiswa').slider();
+			$('#kemampuanSiswa').slider();
 		});
 	</script>
 </body>
