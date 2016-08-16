@@ -6,7 +6,7 @@
 			<li id="home"><a href=' <spring:url value="/" />	'>Home</a></li>
 			
 			<security:authorize access="hasRole('ROLE_GURU')">
-			<li id="pencarian"><a href=' <spring:url value="/cari_metode" />'>Hitung</a></li>
+			<li id="pencarian"><a href=' <spring:url value="/cari_metode" />'>Pencarian Metode</a></li>
 			</security:authorize>
 			
 			<security:authorize access="hasRole('ROLE_ADMIN')">
@@ -26,7 +26,7 @@
 				</li>
 	
 				<li id="user"><a href=' <spring:url value="/user" />'>User</a></li>
-				<li id="spk"><a href=' <spring:url value="/spk" />'>Hitung SPK</a></li>
+				<li id="spk"><a href=' <spring:url value="/spk" />'>Bobot</a></li>
 			</security:authorize>
 
 			<security:authorize access="!isAuthenticated()">

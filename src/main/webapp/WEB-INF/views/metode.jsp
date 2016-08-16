@@ -21,12 +21,14 @@
 			<button class="btn btn-success" data-toggle="modal" data-target="#addModal">
 				<span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Tambah</button>
 		</security:authorize>
-		
+      
+      <%-- 		
 		<security:authorize access="isAuthenticated()">
 			<a class="btn btn-primary pull-right" href='<spring:url value="/metode/daftar_rangking" />'>
 				<span class="glyphicon glyphicon-print" aria-hidden="true" title="Cetak Daftar Rangking Terdahulu"></span> Cetak Laporan</a>
 		</security:authorize>
-
+      --%>
+      
 		<div class="panel panel-default">
 			<div class="panel-heading"><h3 class="panel-title">Daftar Metode</h3></div>
 			<div class="panel-body">
@@ -63,8 +65,9 @@
 									<td><c:out value="${metode.kemampuanSiswa.kemampuan }" /></td>
 									<security:authorize access="hasRole('ROLE_ADMIN')">
 									<td>
-										<a href='<spring:url value="/metode/prepare_edit/${metode.id }" />' class="btn btn-xs btn-info btnUpdate" title="Ubah Metode">
-											<span class="glyphicon glyphicon-pencil"></span></a> 
+										<%-- <a href='<spring:url value="/metode/prepare_edit/${metode.id }" />' class="btn btn-xs btn-info btnUpdate" title="Ubah Metode">
+											<span class="glyphicon glyphicon-pencil"></span></a>  --%>
+                                 
 										<a href='<spring:url value="/metode/delete/${metode.id }" />' class="btn btn-xs btn-danger btnPrepareDelete" title="Hapus Metode">
 											<span class="glyphicon glyphicon-remove"></span></a> 
 									</td>
